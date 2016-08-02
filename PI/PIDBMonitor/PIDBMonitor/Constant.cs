@@ -20,5 +20,6 @@ namespace PIDBMonitor
         public static string GamilServer = ConfigurationManager.AppSettings["GamilServer"].ToString();
         public static string GmailIMP4Port = ConfigurationManager.AppSettings["GmailIMP4Port"];
         public static int TimeInterval = int.Parse(ConfigurationManager.AppSettings["TimeInterval"]);
+        public static string LogDBStatusUri = ConfigurationManager.AppSettings["LogDBStatusUri"].ToString();
     }
 }

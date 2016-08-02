@@ -18,7 +18,8 @@ namespace PIDBMonitor
         private Timer MyTimer;
         private string ContentType { get; set; }
         private const string _contentType = @"application/json; charset=utf-8";
-        private string Url = @"http://iec1-b2bapp.iec.inventec/B2BService/Statistic/LogDBStatus";
+        private string Url = Constant.LogDBStatusUri;
+        //default url == @"http://iec1-b2bapp.iec.inventec/B2BService/Statistic/LogDBStatus";
         private int TimeInterval = Constant.TimeInterval;
 
         public PIDBMonitorService()
