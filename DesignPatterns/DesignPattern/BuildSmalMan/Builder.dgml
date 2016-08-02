@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 Type=FormBuild)" Category="CodeSchema_Class" Bounds="-9289.6,-9710.39995,98.9466666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="FormBuild" Icon="Microsoft.VisualStudio.Class.Public" Label="FormBuild" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/BuildSmalMan/Form1.cs StartLineNumber=12 StartCharacterOffset=25 EndLineNumber=12 EndCharacterOffset=34)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=PersonBuilder)" Category="CodeSchema_Class" Bounds="-9209.6,-9801.6,119.506666666667,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="PersonBuilder" Icon="Microsoft.VisualStudio.Class.Internal" Label="PersonBuilder" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/BuildSmalMan/PersonBuilder.cs StartLineNumber=8 StartCharacterOffset=19 EndLineNumber=8 EndCharacterOffset=32)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=PersonDirector)" Category="CodeSchema_Class" Bounds="-9404,-9766.40005,125.536666666667,26" CodeSchemaProperty_IsInternal="True" CommonLabel="PersonDirector" Icon="Microsoft.VisualStudio.Class.Internal" Label="PersonDirector" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/BuildSmalMan/PersonDirector.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=24)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=PersonFatBuilder)" Category="CodeSchema_Class" Bounds="-9353.6,-9519.2,136.73,26" CodeSchemaProperty_IsInternal="True" CommonLabel="PersonFatBuilder" Icon="Microsoft.VisualStudio.Class.Internal" Label="PersonFatBuilder" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/BuildSmalMan/PersonFatBuilder.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=26)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=PersonThinBuilder)" Category="CodeSchema_Class" Bounds="-9654.4,-9692.8,143.96,26" CodeSchemaProperty_IsInternal="True" CommonLabel="PersonThinBuilder" Icon="Microsoft.VisualStudio.Class.Internal" Label="PersonThinBuilder" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/BuildSmalMan/PersonThinBuilder.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=27)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=Program)" Category="CodeSchema_Class" Bounds="-9606.4,-9759.2,90.0033333333333,26" CodeSchemaProperty_IsInternal="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Program" Icon="Microsoft.VisualStudio.Class.Internal" Label="Program" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/BuildSmalMan/Program.cs StartLineNumber=9 StartCharacterOffset=17 EndLineNumber=9 EndCharacterOffset=24)" UseManualLocation="True" />
+  </Nodes>
+  <Links />
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="Is Static" Description="Flag to indicate the member is a static member" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(081fd713-c628-48f3-bac3-989e0f02eff2.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=BuildSmalMan" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="081fd713-c628-48f3-bac3-989e0f02eff2.OutputPathUri" Value="file:///D:/SourceCode/DesignPatterns/BuildSmalMan/bin/Debug/BuildSmalMan.exe" />
+  </Paths>
+</DirectedGraph>

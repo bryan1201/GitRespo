@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="TopToBottom" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 Type=Company Member=(Name=.ctor OverloadingParameters=[(@8 Namespace=System Type=String)]))" Category="CodeSchema_Method" Bounds="0,71.2399999999998,135.389999999999,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Company" Icon="Microsoft.VisualStudio.Method.Public" Label="Company(string)" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/Branch/Company.cs StartLineNumber=11 StartCharacterOffset=15 EndLineNumber=11 EndCharacterOffset=22)" />
+    <Node Id="(@1 @2 Type=FinanceDepartment Member=(Name=.ctor OverloadingParameters=[(@8 Namespace=System Type=String)]))" Category="CodeSchema_Method" Bounds="312.369999999999,257.855,192.650000000001,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="FinanceDepartment" Icon="Microsoft.VisualStudio.Method.Public" Label="FinanceDepartment(string)" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/Branch/Company.cs StartLineNumber=83 StartCharacterOffset=15 EndLineNumber=83 EndCharacterOffset=32)" />
+    <Node Id="(@1 @2 Type=HRDepartment Member=(Name=.ctor OverloadingParameters=[(@8 Namespace=System Type=String)]))" Category="CodeSchema_Method" Bounds="115.596666666666,257.855,166.196666666667,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="HRDepartment" Icon="Microsoft.VisualStudio.Method.Public" Label="HRDepartment(string)" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/Branch/Company.cs StartLineNumber=58 StartCharacterOffset=15 EndLineNumber=58 EndCharacterOffset=27)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="151.003333333334,0,95.3833333333314,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Company" Icon="Microsoft.VisualStudio.Class.Public" Label="Company" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/Branch/Company.cs StartLineNumber=8 StartCharacterOffset=26 EndLineNumber=8 EndCharacterOffset=33)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="197.403333333332,71.2399999999998,146.583333333336,26" CodeSchemaProperty_IsPublic="True" CommonLabel="ConcreteCompany" Icon="Microsoft.VisualStudio.Class.Public" Label="ConcreteCompany" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/Branch/Company.cs StartLineNumber=20 StartCharacterOffset=17 EndLineNumber=20 EndCharacterOffset=32)" />
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="332.373333333333,186.615,152.643333333333,26" CodeSchemaProperty_IsPublic="True" CommonLabel="FinanceDepartment" Icon="Microsoft.VisualStudio.Class.Public" Label="FinanceDepartment" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/Branch/Company.cs StartLineNumber=81 StartCharacterOffset=17 EndLineNumber=81 EndCharacterOffset=34)" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="135.599999999999,186.615,126.190000000002,26" CodeSchemaProperty_IsPublic="True" CommonLabel="HRDepartment" Icon="Microsoft.VisualStudio.Class.Public" Label="HRDepartment" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/Branch/Company.cs StartLineNumber=56 StartCharacterOffset=17 EndLineNumber=56 EndCharacterOffset=29)" />
+    <Node Id="@9" Category="CodeSchema_Field" Bounds="197.458333333332,128.9275,186.473333333335,26" CodeSchemaProperty_IsPrivate="True" CommonLabel="children" Icon="Microsoft.VisualStudio.Field.Private" Label="children : List&lt;Company&gt;" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/Branch/Company.cs StartLineNumber=22 StartCharacterOffset=30 EndLineNumber=22 EndCharacterOffset=38)" />
+  </Nodes>
+  <Links>
+    <Link Source="@3" Target="(@1 @2 Type=Company Member=(Name=.ctor OverloadingParameters=[(@8 Namespace=System Type=String)]))" Category="Contains" Bounds="97.331787109375,26,75.4508056640625,40.6456298828125" Label="set name" LabelBounds="76.3549999999996,41,51.3400000000001,15.2399999999998" />
+    <Link Source="@3" Target="@5" Bounds="211.833679199219,26,39.3249969482422,38.9098968505859" />
+    <Link Source="@3" Target="@6" Bounds="246.386672973633,20.864709854126,168.308334350586,156.853567123413" />
+    <Link Source="@3" Target="@7" Bounds="166.695007324219,26,20.3211669921875,153.884170532227" />
+    <Link Source="@5" Target="@9" Category="Contains" Bounds="275.202056884766,97.2399978637695,8.03778076171875,23.1840515136719" />
+    <Link Source="@6" Target="(@1 @2 Type=FinanceDepartment Member=(Name=.ctor OverloadingParameters=[(@8 Namespace=System Type=String)]))" Category="Contains" Bounds="408.695007324219,212.615005493164,0,36.239990234375" Label="set Finance name" LabelBounds="311.041666666666,227.615,97.6533333333334,15.24" />
+    <Link Source="@7" Target="(@1 @2 Type=HRDepartment Member=(Name=.ctor OverloadingParameters=[(@8 Namespace=System Type=String)]))" Category="Contains" Bounds="198.695007324219,212.615005493164,0,36.239990234375" Label="set HR name" LabelBounds="127.495,227.615,71.2,15.24" />
+    <Link Source="@9" Target="@6" Bounds="317.286560058594,154.927505493164,56.7313842773438,27.7346801757813" />
+    <Link Source="@9" Target="@7" Bounds="227.052383422852,154.927505493164,42.9102325439453,26.9063415527344" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Field" Label="Field" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Fields" />
+    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
+    <Category Id="CodeSchema_Method" Label="Method" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="Methods" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="Is Constructor" Description="Flag to indicate the method is a constructor" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="Is Private" Description="Flag to indicate the scope is Private" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="LabelBounds" DataType="System.Windows.Rect" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Member" Label="Member" ValueType="System.Object" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(4739c74f-e26d-4028-8188-41790d7889af.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=Branch" />
+    <Alias n="3" Id="(@1 @2 Type=Company)" />
+    <Alias n="4" Id="Type=ConcreteCompany" />
+    <Alias n="5" Id="(@1 @2 @4)" />
+    <Alias n="6" Id="(@1 @2 Type=FinanceDepartment)" />
+    <Alias n="7" Id="(@1 @2 Type=HRDepartment)" />
+    <Alias n="8" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.5.2/mscorlib.dll" />
+    <Alias n="9" Id="(@1 @2 @4 Member=children)" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="4739c74f-e26d-4028-8188-41790d7889af.OutputPathUri" Value="file:///D:/SourceCode/DesignPatterns/Branch/bin/Debug/Branch.exe" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+  </Paths>
+</DirectedGraph>

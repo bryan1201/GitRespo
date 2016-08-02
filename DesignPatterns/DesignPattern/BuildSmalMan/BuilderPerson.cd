@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="BuildSmalMan.PersonBuilder">
+    <Position X="4.25" Y="2" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAkAAAAAAAAAAAAEAACAAIAAAAAkAA=</HashCode>
+      <FileName>PersonBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuildSmalMan.PersonDirector">
+    <Position X="13" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>PersonDirector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuildSmalMan.PersonFatBuilder">
+    <Position X="6.25" Y="5.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAEAAAAAIAAAAAkAA=</HashCode>
+      <FileName>PersonFatBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuildSmalMan.PersonThinBuilder">
+    <Position X="2" Y="5.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAEAAAAAIAAAAAkAA=</HashCode>
+      <FileName>PersonThinBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuildSmalMan.FormBuild">
+    <Position X="1.5" Y="11.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAACAABACAAAIAIAAAEAAAABAAAA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="BuildSmalMan.Properties.Resources">
+    <Position X="8" Y="2" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.Forms.Form" Collapsed="true">
+    <Position X="2.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="System.Windows.Forms.ContainerControl" Collapsed="true">
+    <Position X="2.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Microsoft JhengHei UI" Size="9" />
+</ClassDiagram>

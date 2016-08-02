@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph Layout="ForceDirected" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 Type=RoleStateCaretaker)" Category="CodeSchema_Class" Bounds="350.334867147151,56,149.400000000001,26" CodeSchemaProperty_IsPublic="True" CommonLabel="RoleStateCaretaker" Icon="Microsoft.VisualStudio.Class.Public" Label="RoleStateCaretaker" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/OneMoreTime/GameRole.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=35)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="40.3680004804838,91.1315134956695,99.4666666666672,26" CodeSchemaProperty_IsPublic="True" CommonLabel="GameRole" Icon="Microsoft.VisualStudio.Class.Public" Label="GameRole" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/OneMoreTime/GameRole.cs StartLineNumber=30 StartCharacterOffset=17 EndLineNumber=30 EndCharacterOffset=25)" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="293.716459476237,112,96.4500000000007,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Memento" Icon="Microsoft.VisualStudio.Class.Internal" Label="Memento" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/OneMoreTime/GameRole.cs StartLineNumber=80 StartCharacterOffset=10 EndLineNumber=80 EndCharacterOffset=17)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="169.834767147151,56,150.5,26" CodeSchemaProperty_IsPublic="True" CommonLabel="RoleStateMemento" Icon="Microsoft.VisualStudio.Class.Public" Label="RoleStateMemento" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/OneMoreTime/GameRole.cs StartLineNumber=13 StartCharacterOffset=17 EndLineNumber=13 EndCharacterOffset=33)" />
+    <Node Id="@6" Category="CodeSchema_Method" Bounds="0,0,271.919999999998,26" CodeSchemaProperty_IsPublic="True" CommonLabel="RecoveryState" Icon="Microsoft.VisualStudio.Method.Public" Label="RecoveryState(RoleStateMemento) : void" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/OneMoreTime/GameRole.cs StartLineNumber=72 StartCharacterOffset=20 EndLineNumber=72 EndCharacterOffset=33)" />
+    <Node Id="@7" Category="CodeSchema_Method" Bounds="50.6285296439504,168,222.213333333333,26" CodeSchemaProperty_IsPublic="True" CommonLabel="SaveState" Icon="Microsoft.VisualStudio.Method.Public" Label="SaveState() : RoleStateMemento" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/OneMoreTime/GameRole.cs StartLineNumber=66 StartCharacterOffset=32 EndLineNumber=66 EndCharacterOffset=41)" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @2 Type=RoleStateCaretaker)" Target="@4" Bounds="368.694303952754,82,37.0510221279359,24.9701787099856" />
+    <Link Source="@3" Target="@6" Category="Contains" Bounds="96.643117633184,34.0394821677371,28.7295174427571,57.0920313279324" />
+    <Link Source="@3" Target="@7" Category="Contains" Bounds="102.216054095268,117.131513495669,41.2685977057176,44.2842886761316" />
+    <Link Source="@5" Target="@4" Bounds="267.569356437832,82,44.0960649596704,25.495188596276" />
+    <Link Source="@5" Target="@6" Bounds="169.299742611524,30.1090911353585,50.4524893050379,25.8909088646415" />
+    <Link Source="@7" Target="@5" Bounds="171.409700068429,89.2200763406817,58.6274359601704,78.7799236593183" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
+    <Category Id="CodeSchema_Method" Label="Method" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="Methods" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Member" Label="Member" ValueType="System.Object" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(2b2df793-bd92-4f68-b09c-319e445ab0c4.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=OneMoreTime" />
+    <Alias n="3" Id="(@1 @2 Type=GameRole)" />
+    <Alias n="4" Id="(@1 @2 Type=Memento)" />
+    <Alias n="5" Id="(@1 @2 Type=RoleStateMemento)" />
+    <Alias n="6" Id="(@1 @2 Type=GameRole Member=(Name=RecoveryState OverloadingParameters=[@5]))" />
+    <Alias n="7" Id="(@1 @2 Type=GameRole Member=SaveState)" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="2b2df793-bd92-4f68-b09c-319e445ab0c4.OutputPathUri" Value="file:///D:/SourceCode/DesignPatterns/OneMoreTime/bin/Debug/OneMoreTime.exe" />
+  </Paths>
+</DirectedGraph>

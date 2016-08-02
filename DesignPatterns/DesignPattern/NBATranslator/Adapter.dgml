@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="BottomToTop" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 Type=Center)" Category="CodeSchema_Class" Bounds="251.556666666665,112,78.6599999999999,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Center" Icon="Microsoft.VisualStudio.Class.Internal" Label="Center" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/NBATranslator/Player.cs StartLineNumber=37 StartCharacterOffset=10 EndLineNumber=37 EndCharacterOffset=16)" />
+    <Node Id="(@1 @2 Type=ForeignCenter)" Category="CodeSchema_Class" Bounds="0,56,121.773333333331,26" CodeSchemaProperty_IsInternal="True" CommonLabel="ForeignCenter" Icon="Microsoft.VisualStudio.Class.Internal" Label="ForeignCenter" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/NBATranslator/Player.cs StartLineNumber=73 StartCharacterOffset=10 EndLineNumber=73 EndCharacterOffset=23)" />
+    <Node Id="(@1 @2 Type=Forwards)" Category="CodeSchema_Class" Bounds="360.513333333332,112,92.746666666666,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Forwards" Icon="Microsoft.VisualStudio.Class.Internal" Label="Forwards" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/NBATranslator/Player.cs StartLineNumber=19 StartCharacterOffset=10 EndLineNumber=19 EndCharacterOffset=18)" />
+    <Node Id="(@1 @2 Type=Guards)" Category="CodeSchema_Class" Bounds="140.246666666666,112,81.2799999999988,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Guards" Icon="Microsoft.VisualStudio.Class.Internal" Label="Guards" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/NBATranslator/Player.cs StartLineNumber=55 StartCharacterOffset=10 EndLineNumber=55 EndCharacterOffset=16)" />
+    <Node Id="(@1 @2 Type=Program)" Category="CodeSchema_Class" Bounds="144.884999999998,0,90.003333333334,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Program" Icon="Microsoft.VisualStudio.Class.Internal" Label="Program" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/NBATranslator/Program.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=17)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="152.214999999998,56,75.3433333333342,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Player" Icon="Microsoft.VisualStudio.Class.Public" Label="Player" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/NBATranslator/Player.cs StartLineNumber=8 StartCharacterOffset=26 EndLineNumber=8 EndCharacterOffset=32)" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="12.0816666666651,112,97.6100000000006,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Translator" Icon="Microsoft.VisualStudio.Class.Internal" Label="Translator" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/NBATranslator/Player.cs StartLineNumber=88 StartCharacterOffset=10 EndLineNumber=88 EndCharacterOffset=20)" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @2 Type=Center)" Target="@3" Bounds="221.204177856445,86.3641662597656,46.2360687255859,25.6358337402344" />
+    <Link Source="(@1 @2 Type=Forwards)" Target="@3" Bounds="236.272827148438,80.9706192016602,124.848388671875,32.2189407348633" />
+    <Link Source="(@1 @2 Type=Guards)" Target="@3" Bounds="182.975952148438,90.8859710693359,3.39332580566406,21.1140289306641" />
+    <Link Source="@3" Target="(@1 @2 Type=Program)" Bounds="189.886672973633,35,0,21" />
+    <Link Source="@4" Target="(@1 @2 Type=ForeignCenter)" Bounds="60.8866653442383,91,0,21" />
+    <Link Source="@4" Target="@3" Bounds="90.8330917358398,85.583854675293,60.8514785766602,26.416145324707" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(5eff9823-d025-4fe4-9b20-ad704ef3c09b.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=NBATranslator" />
+    <Alias n="3" Id="(@1 @2 Type=Player)" />
+    <Alias n="4" Id="(@1 @2 Type=Translator)" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="5eff9823-d025-4fe4-9b20-ad704ef3c09b.OutputPathUri" Value="file:///D:/SourceCode/DesignPatterns/NBATranslator/bin/Debug/NBATranslator.exe" />
+  </Paths>
+</DirectedGraph>

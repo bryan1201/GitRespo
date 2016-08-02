@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 @4 Member=.ctor)" Category="CodeSchema_Method" Bounds="262.710000000003,297,79.1666666666642,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Work" Icon="Microsoft.VisualStudio.Method.Public" Label="Work()" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/Work.cs StartLineNumber=11 StartCharacterOffset=15 EndLineNumber=11 EndCharacterOffset=19)" />
+    <Node Id="(@1 @2 @4 Member=Day)" Category="CodeSchema_Property" Bounds="246.515000000001,126,111.556666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Day" Icon="Microsoft.VisualStudio.Property.Public" Label="Day : double" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/Work.cs StartLineNumber=17 StartCharacterOffset=22 EndLineNumber=17 EndCharacterOffset=25)" />
+    <Node Id="(@1 @2 @4 Member=Hour)" Category="CodeSchema_Property" Bounds="243.198333333334,183,118.190000000002,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Hour" Icon="Microsoft.VisualStudio.Property.Public" Label="Hour : double" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/Work.cs StartLineNumber=16 StartCharacterOffset=22 EndLineNumber=16 EndCharacterOffset=26)" />
+    <Node Id="(@1 @2 @4 Member=TaskFinished)" Category="CodeSchema_Property" Bounds="228.423333333336,69,147.739999999998,26" CodeSchemaProperty_IsPublic="True" CommonLabel="TaskFinished" Icon="Microsoft.VisualStudio.Property.Public" Label="TaskFinished : bool" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/Work.cs StartLineNumber=19 StartCharacterOffset=20 EndLineNumber=19 EndCharacterOffset=32)" />
+    <Node Id="(@1 @2 @4 Member=WriteProgram)" Category="CodeSchema_Method" Bounds="221.470000000001,240,161.646666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="WriteProgram" Icon="Microsoft.VisualStudio.Method.Public" Label="WriteProgram() : void" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/Work.cs StartLineNumber=36 StartCharacterOffset=20 EndLineNumber=36 EndCharacterOffset=32)" />
+    <Node Id="(@1 @2 Type=AfternoonState)" Category="CodeSchema_Class" Bounds="545.308333333338,171,127.529999999999,26" CodeSchemaProperty_IsPublic="True" CommonLabel="AfternoonState" Icon="Microsoft.VisualStudio.Class.Public" Label="AfternoonState" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/TimeState.cs StartLineNumber=41 StartCharacterOffset=17 EndLineNumber=41 EndCharacterOffset=31)" />
+    <Node Id="(@1 @2 Type=EveningState)" Category="CodeSchema_Class" Bounds="551.740000000005,114,114.666666666664,26" CodeSchemaProperty_IsPublic="True" CommonLabel="EveningState" Icon="Microsoft.VisualStudio.Class.Public" Label="EveningState" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/TimeState.cs StartLineNumber=57 StartCharacterOffset=17 EndLineNumber=57 EndCharacterOffset=29)" />
+    <Node Id="(@1 @2 Type=ForenoonState)" Category="CodeSchema_Class" Bounds="546.705000000004,284,124.736666666668,26" CodeSchemaProperty_IsPublic="True" CommonLabel="ForenoonState" Icon="Microsoft.VisualStudio.Class.Public" Label="ForenoonState" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/TimeState.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=30)" />
+    <Node Id="(@1 @2 Type=NoonState)" Category="CodeSchema_Class" Bounds="558.07166666667,228,102.003333333334,26" CodeSchemaProperty_IsPublic="True" CommonLabel="NoonState" Icon="Microsoft.VisualStudio.Class.Public" Label="NoonState" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/TimeState.cs StartLineNumber=25 StartCharacterOffset=17 EndLineNumber=25 EndCharacterOffset=26)" />
+    <Node Id="(@1 @2 Type=Program)" Category="CodeSchema_Class" Bounds="0,240,90.003333333334,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Program" Icon="Microsoft.VisualStudio.Class.Internal" Label="Program" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/Program.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=17)" />
+    <Node Id="(@1 @2 Type=RestState)" Category="CodeSchema_Class" Bounds="561.975000000004,0,94.1966666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="RestState" Icon="Microsoft.VisualStudio.Class.Public" Label="RestState" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/TimeState.cs StartLineNumber=90 StartCharacterOffset=17 EndLineNumber=90 EndCharacterOffset=26)" />
+    <Node Id="(@1 @2 Type=SleepingState)" Category="CodeSchema_Class" Bounds="549.573333333337,57,119,26" CodeSchemaProperty_IsPublic="True" CommonLabel="SleepingState" Icon="Microsoft.VisualStudio.Class.Public" Label="SleepingState" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/TimeState.cs StartLineNumber=81 StartCharacterOffset=17 EndLineNumber=81 EndCharacterOffset=30)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="413.116666666669,114,69.9000000000015,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="State" Icon="Microsoft.VisualStudio.Class.Public" Label="State" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/State.cs StartLineNumber=8 StartCharacterOffset=26 EndLineNumber=8 EndCharacterOffset=31)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="120.003333333334,240,71.4666666666672,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Work" Icon="Microsoft.VisualStudio.Class.Public" Label="Work" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/Work.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=21)" />
+    <Node Id="@6" Category="CodeSchema_Method" Bounds="223.451666666668,12,157.683333333334,26" CodeSchemaProperty_IsPublic="True" CommonLabel="SetState" Icon="Microsoft.VisualStudio.Method.Public" Label="SetState(State) : void" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/Work.cs StartLineNumber=31 StartCharacterOffset=20 EndLineNumber=31 EndCharacterOffset=28)" />
+    <Node Id="@7" Category="CodeSchema_Method" Bounds="513.01666666667,341,192.113333333335,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="WriteProgram" Icon="Microsoft.VisualStudio.Method.Public" Label="WriteProgram(Work) : void" SourceLocation="(Assembly=file:///D:/SourceCode/DesignPatterns/WorkOvertime/State.cs StartLineNumber=10 StartCharacterOffset=29 EndLineNumber=10 EndCharacterOffset=41)" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @2 Type=Program)" Target="@5" Bounds="90.0033340454102,253,21,0" />
+    <Link Source="@3" Target="(@1 @2 Type=AfternoonState)" Bounds="482.181121826172,139.077285766602,81.6873474121094,28.9191741943359" />
+    <Link Source="@3" Target="(@1 @2 Type=EveningState)" Bounds="483.016662597656,127,59.7233276367188,0" />
+    <Link Source="@3" Target="(@1 @2 Type=ForenoonState)" Bounds="458.11767578125,140,122.66357421875,139.209045410156" />
+    <Link Source="@3" Target="(@1 @2 Type=NoonState)" Bounds="465.192474365234,140,115.749725341797,83.1847534179688" />
+    <Link Source="@3" Target="(@1 @2 Type=RestState)" Bounds="466.427062988281,31.2007465362549,116.940612792969,82.7992534637451" />
+    <Link Source="@3" Target="(@1 @2 Type=SleepingState)" Bounds="482.181121826172,86.0035400390625,81.6873474121094,28.9191741943359" />
+    <Link Source="@3" Target="@7" Category="Contains" Bounds="454.296417236328,140,122.597015380859,196.747467041016" />
+    <Link Source="@5" Target="(@1 @2 @4 Member=.ctor)" Category="Contains" Bounds="189.02751159668,265.94775390625,71.4526824951172,27.7899475097656" />
+    <Link Source="@5" Target="(@1 @2 @4 Member=Day)" Category="Contains" Bounds="170.944046020508,157.010482788086,104.475296020508,82.9895172119141" />
+    <Link Source="@5" Target="(@1 @2 @4 Member=Hour)" Category="Contains" Bounds="189.02751159668,212.262298583984,71.4526824951172,27.7899627685547" />
+    <Link Source="@5" Target="(@1 @2 @4 Member=TaskFinished)" Category="Contains" Bounds="163.223022460938,99.005973815918,104.834838867188,140.994026184082" />
+    <Link Source="@5" Target="(@1 @2 @4 Member=WriteProgram)" Category="Contains" Bounds="191.470001220703,253,21,0" />
+    <Link Source="@5" Target="@6" Category="Contains" Bounds="160.172653198242,41.8070411682129,106.117935180664,198.192958831787" />
+    <Link Source="@5" Target="@7" Bounds="174.600402832031,266,329.416259765625,88" />
+    <Link Source="@6" Target="@3" Bounds="329.895080566406,38,98.2517700195313,69.7449264526367" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
+    <Category Id="CodeSchema_Method" Label="Method" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="Methods" />
+    <Category Id="CodeSchema_Property" Label="Property" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Property" NavigationActionLabel="Properties" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="Is Constructor" Description="Flag to indicate the method is a constructor" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Member" Label="Member" ValueType="System.Object" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(6df494fd-0d6d-4d3e-bb64-e134bb007a00.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=WorkOvertime" />
+    <Alias n="3" Id="(@1 @2 Type=State)" />
+    <Alias n="4" Id="Type=Work" />
+    <Alias n="5" Id="(@1 @2 @4)" />
+    <Alias n="6" Id="(@1 @2 @4 Member=(Name=SetState OverloadingParameters=[@3]))" />
+    <Alias n="7" Id="(@1 @2 Type=State Member=(Name=WriteProgram OverloadingParameters=[@5]))" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="6df494fd-0d6d-4d3e-bb64-e134bb007a00.OutputPathUri" Value="file:///D:/SourceCode/DesignPatterns/WorkOvertime/bin/Debug/WorkOvertime.exe" />
+  </Paths>
+</DirectedGraph>
