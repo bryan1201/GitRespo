@@ -29,7 +29,6 @@ namespace PIDBMonitor
 
         protected override void OnStart(string[] args)
         {
-            ContentType = _contentType;
             MyTimer = new Timer();
 
             MyTimer.Elapsed += new ElapsedEventHandler(MyTimer_Elapsed);
@@ -53,6 +52,7 @@ namespace PIDBMonitor
         private string GetWebResponse(string url)
         {
             string response = string.Empty;
+            ContentType = _contentType;
             try
             {
                 NetworkCredential mycr = new NetworkCredential();
