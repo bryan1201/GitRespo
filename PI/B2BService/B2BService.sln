@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 14 for Web
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B2BService", "B2BService\B2BService.csproj", "{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1DE4918A-3207-415C-98BA-0B51E1621102}"
+	ProjectSection(SolutionItems) = preProject
+		B2BService.dgml = B2BService.dgml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Debug|x64.ActiveCfg = Debug|x64
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Debug|x64.Build.0 = Debug|x64
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Debug|x86.ActiveCfg = Debug|x86
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Debug|x86.Build.0 = Debug|x86
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Release|x64.ActiveCfg = Release|x64
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Release|x64.Build.0 = Release|x64
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Release|x86.ActiveCfg = Release|x86
+		{1BDBD0CA-726B-41B5-8B70-2ADD8563BD05}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

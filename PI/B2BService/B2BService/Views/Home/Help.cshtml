@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "About";
+    string pSuccess = "85%";
+    string pWarning = "10%";
+    string pDanger = "0%";
+}
+<style>
+    .progress {
+        height: 100%;
+    }
+
+    div {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    div img {
+        vertical-align: middle;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<h4>Message Tracking Search Help</h4>
+<div class="progress">
+    <div class="progress-bar progress-bar-success" style="@("width: " + pSuccess)" title="@(pSuccess + " Complete (success)")">
+        @pSuccess (success)<span class="sr-only">@pSuccess Complete (success)</span>
+    </div>
+    <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: @pWarning" title="@pWarning Complete (warning)">
+        @pWarning<span class="sr-only">@pWarning Complete (warning)</span>
+    </div>
+    <div class="progress-bar progress-bar-danger" style="width: @pDanger" title="@pDanger Complete (danger)">
+        @pDanger<span class="sr-only">@pDanger Complete (danger)</span>
+    </div>
+</div>
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#help1">Getting started</a></li>
+    <li><a data-toggle="tab" href="#help2">Searching Condition 1</a></li>
+    <li><a data-toggle="tab" href="#help3">Searching Condition 2</a></li>
+    <li><a data-toggle="tab" href="#help4">Searching Condition 3</a></li>
+    <li><a data-toggle="tab" href="#help5">Rawdata</a></li>
+    <li><a data-toggle="tab" href="#help6">MDN</a></li>
+    <li><a data-toggle="tab" href="#help7">AuditLog</a></li>
+    <li><a data-toggle="tab" href="#help8">Process Step</a></li>
+</ul>
+<div class="tab-content">
+    <div id="help1" class="tab-pane fade in active">
+        <h3>Getting started</h3>
+        <p>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="badge">Three PI Environments</span><h4>PIP, PIQ and PID for B2B service.</h4>
+                </li>
+                <li class="list-group-item">
+                    <span class="badge">PIP</span><h4>PI Production, currently for EBG/PSG HP, EASTTOP, S1</h4>
+                </li>
+                <li class="list-group-item">
+                    <span class="badge">PIQ</span><h4>PI QAS, also it is the backup of Production.</h4>
+                </li>
+                <li class="list-group-item">
+                    <span class="badge">PID</span><h4>PI Development</h4>
+                </li>
+            </ul>
+        </p>
+        <p><img src="~/pic/PIMTHelp01.JPG" style="width:90%; height:90%" /></p>
+    </div>
+    <div id="help2" class="tab-pane fade">
+        <h3>Searching Condition 1</h3>
+        <div>
+            <p>As searching condition you input, that will be effected with "And", all conditions work as filter to the result.</p>
+            <p><img src="~/pic/PIMTHelp02.JPG" style="width:90%; height:90%" /></p>
+        </div>
+    </div>
+    <div id="help3" class="tab-pane fade">
+        <h3>Searching Condition 2</h3>
+        <div>
+            <p>
+                Besides normal searching, you can input key words those are seperated with space char.
+                Here is the example:
+            </p>
+            <ul>
+                <li><p>H4FGHS9G APAPL J9C615194358 90703353 0315815194 DNA1 MIT IN 8CNA CH39 J955</p></li>
+                <li><p>J955 J9C615194358 H4FGHS9G 0315815194</p></li>
+            </ul>
+            <p><img src="~/pic/PIMTHelp03.JPG" style="width:90%; height:90%" /></p>
+        </div>
+    </div>
+    <div id="help4" class="tab-pane fade">
+        <h3>Searching Condition 3</h3>
+        <div>
+            <p>
+                Also, You can input key words with multiple lines.
+                Here is the example:
+            </p>
+            <ul>
+                <li>Message ID:
+                    <pre>
+                        000c2901-6fd7-1ee6-8ca9-96b8b43a614c
+                        8947550f-314c-11e6-8773-000000215c6e 
+                        bc4d8f79-314b-11e6-cb15-000000215c6e
+                    </pre>
+                </li>
+                <li>CONTROLNUM
+                    <pre>
+                        182891
+                        91954423
+                        91954432
+                    </pre>
+                </li>
+            </ul>
+            <p><img src="~/pic/PIMTHelp04.JPG" style="width:90%; height:90%" /></p>
+        </div>
+    </div>
+    <div id="help5" class="tab-pane fade">
+        <h3>Raw data</h3>
+        <p><img src="~/pic/PIMTHelp05.JPG" style="width:90%; height:90%" /></p>
+    </div>
+    <div id="help6" class="tab-pane fade">
+        <h3>MDN</h3>
+        <p><img src="~/pic/PIMTHelp06.JPG" style="width:90%; height:90%" /></p>
+    </div>
+    <div id="help7" class="tab-pane fade">
+        <h3>Audit Log</h3>
+        <p><img src="~/pic/PIMTHelp07.JPG" style="width:90%; height:90%" /></p>
+    </div>
+    <div id="help8" class="tab-pane fade">
+        <h3>Process Step</h3>
+        <p><img src="~/pic/PIMTHelp08.JPG" style="width:90%; height:90%" /></p>
+    </div>
+</div>

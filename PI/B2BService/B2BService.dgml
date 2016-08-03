@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 @6 Member=(Name=.ctor OverloadingParameters=[@9,@9,@9]))" Category="CodeSchema_Method" Bounds="915.499999999996,168,207.283333333333,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="RawData" Icon="Microsoft.VisualStudio.Method.Public" Label="RawData(string, string, string)" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/RawData.cs StartLineNumber=22 StartCharacterOffset=15 EndLineNumber=22 EndCharacterOffset=22)" />
+    <Node Id="(@1 @2 @6 Member=(Name=GetWebResponse OverloadingParameters=[@9]))" Category="CodeSchema_Method" Bounds="907.593333333331,112,223.096666666665,26" CodeSchemaProperty_IsPrivate="True" CommonLabel="GetWebResponse" Icon="Microsoft.VisualStudio.Method.Private" Label="GetWebResponse(string) : string" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/RawData.cs StartLineNumber=47 StartCharacterOffset=23 EndLineNumber=47 EndCharacterOffset=37)" />
+    <Node Id="(@1 @2 @6 Member=.ctor)" Category="CodeSchema_Method" Bounds="969.726666666662,224,98.8300000000017,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="RawData" Icon="Microsoft.VisualStudio.Method.Public" Label="RawData()" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/RawData.cs StartLineNumber=15 StartCharacterOffset=15 EndLineNumber=15 EndCharacterOffset=22)" />
+    <Node Id="(@1 @2 @6 Member=Get)" Category="CodeSchema_Method" Bounds="964.263333333329,56,109.756666666668,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Get" Icon="Microsoft.VisualStudio.Method.Public" Label="Get() : string" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/RawData.cs StartLineNumber=40 StartCharacterOffset=22 EndLineNumber=40 EndCharacterOffset=25)" />
+    <Node Id="(@1 @2 @6 Member=Init)" Category="CodeSchema_Method" Bounds="969.101666666662,1.4210854715202E-14,100.080000000002,26" CodeSchemaProperty_IsPrivate="True" CommonLabel="Init" Icon="Microsoft.VisualStudio.Method.Private" Label="Init() : void" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/RawData.cs StartLineNumber=32 StartCharacterOffset=21 EndLineNumber=32 EndCharacterOffset=25)" />
+    <Node Id="(@1 @2 Type=B2BServer)" Category="CodeSchema_Class" Bounds="778.16,336,98.1633333333339,26" CodeSchemaProperty_IsPublic="True" CommonLabel="B2BServer" Icon="Microsoft.VisualStudio.Class.Public" Label="B2BServer" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/B2BServer.cs StartLineNumber=7 StartCharacterOffset=17 EndLineNumber=7 EndCharacterOffset=26)" />
+    <Node Id="(@1 @2 Type=Constant Member=ContentTypeUTF8)" Category="CodeSchema_Field" Bounds="121.936666666668,337,183.91,26" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="ContentTypeUTF8" Icon="Microsoft.VisualStudio.Field.Public" Label="ContentTypeUTF8 : string" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/Constant.cs StartLineNumber=11 StartCharacterOffset=29 EndLineNumber=11 EndCharacterOffset=44)" />
+    <Node Id="(@1 @2 Type=Constant Member=PIDUrl)" Category="CodeSchema_Field" Bounds="154.788333333336,280,118.206666666665,26" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="PIDUrl" Icon="Microsoft.VisualStudio.Field.Public" Label="PIDUrl : string" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/Constant.cs StartLineNumber=10 StartCharacterOffset=29 EndLineNumber=10 EndCharacterOffset=35)" />
+    <Node Id="(@1 @2 Type=DataAccess)" Category="CodeSchema_Class" Bounds="0,112,105.516666666666,26" CodeSchemaProperty_IsPublic="True" CommonLabel="DataAccess" Icon="Microsoft.VisualStudio.Class.Public" Label="DataAccess" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/DataAccess.cs StartLineNumber=9 StartCharacterOffset=17 EndLineNumber=9 EndCharacterOffset=27)" />
+    <Node Id="(@1 @2 Type=IFactory Member=CreateRawData)" Category="CodeSchema_Method" Bounds="894.02,280,198.066666666666,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="CreateRawData" Icon="Microsoft.VisualStudio.Method.Public" Label="CreateRawData() : IRawData" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/IFactory.cs StartLineNumber=10 StartCharacterOffset=17 EndLineNumber=10 EndCharacterOffset=30)" />
+    <Node Id="(@1 @2 Type=IFactory)" Category="CodeSchema_Interface" Bounds="778.16,280,85.8600000000006,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="IFactory" Icon="Microsoft.VisualStudio.Interface.Internal" Label="IFactory" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/IFactory.cs StartLineNumber=8 StartCharacterOffset=14 EndLineNumber=8 EndCharacterOffset=22)" />
+    <Node Id="(@1 @2 Type=PIDServerRawData Member=(Name=Get OverloadingParameters=[@9,@9,@9]))" Category="CodeSchema_Method" Bounds="512.126666666667,280,236.033333333333,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Get" Icon="Microsoft.VisualStudio.Method.Public" Label="Get(string, string, string) : RawData" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/B2BServer.cs StartLineNumber=19 StartCharacterOffset=23 EndLineNumber=19 EndCharacterOffset=26)" />
+    <Node Id="(@1 @2 Type=PIDServerRawData Member=Get)" Category="CodeSchema_Method" Bounds="566.353333333333,337,127.580000000002,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Get" Icon="Microsoft.VisualStudio.Method.Public" Label="Get() : RawData" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/B2BServer.cs StartLineNumber=13 StartCharacterOffset=23 EndLineNumber=13 EndCharacterOffset=26)" />
+    <Node Id="@10" Category="CodeSchema_Method" Bounds="135.516666666666,112,230.373333333333,26" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsStatic="True" CommonLabel="CreateRawData" Icon="Microsoft.VisualStudio.Method.Public" Label="CreateRawData(string) : IRawData" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/DataAccess.cs StartLineNumber=15 StartCharacterOffset=31 EndLineNumber=15 EndCharacterOffset=44)" />
+    <Node Id="@11" Category="CodeSchema_Method" Bounds="520.43,213,236.033333333333,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Get" Icon="Microsoft.VisualStudio.Method.Public" Label="Get(string, string, string) : RawData" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/IRawData.cs StartLineNumber=11 StartCharacterOffset=16 EndLineNumber=11 EndCharacterOffset=19)" />
+    <Node Id="@12" Category="CodeSchema_Method" Bounds="574.656666666666,156,127.580000000002,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Get" Icon="Microsoft.VisualStudio.Method.Public" Label="Get() : RawData" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/IRawData.cs StartLineNumber=10 StartCharacterOffset=16 EndLineNumber=10 EndCharacterOffset=19)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="0,280,91.9366666666683,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Constant" Icon="Microsoft.VisualStudio.Class.Public" Label="Constant" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/Constant.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=25)" />
+    <Node Id="@4" Category="CodeSchema_Interface" Bounds="395.889999999999,112,94.5400000000009,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="IRawData" Icon="Microsoft.VisualStudio.Interface.Public" Label="IRawData" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/IRawData.cs StartLineNumber=8 StartCharacterOffset=21 EndLineNumber=8 EndCharacterOffset=29)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="335.846666666668,280,146.279999999999,26" CodeSchemaProperty_IsPublic="True" CommonLabel="PIDServerRawData" Icon="Microsoft.VisualStudio.Class.Public" Label="PIDServerRawData" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/B2BServer.cs StartLineNumber=11 StartCharacterOffset=17 EndLineNumber=11 EndCharacterOffset=33)" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="786.463333333333,112,91.1299999999974,26" CodeSchemaProperty_IsPublic="True" CommonLabel="RawData" Icon="Microsoft.VisualStudio.Class.Public" Label="RawData" SourceLocation="(Assembly=file:///D:/SVN/VS2015/B2BService/B2BService/Models/RawData.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=24)" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @2 Type=DataAccess)" Target="@10" Category="Contains" Bounds="105.516670227051,125,21,0" />
+    <Link Source="(@1 @2 Type=IFactory)" Target="(@1 @2 Type=IFactory Member=CreateRawData)" Category="Contains" Bounds="864.02001953125,293,21,0" />
+    <Link Source="@10" Target="@4" Bounds="365.890014648438,125,21,0" />
+    <Link Source="@11" Target="@7" Bounds="663.363098144531,142.163116455078,135.76953125,70.8368835449219" />
+    <Link Source="@12" Target="@7" Bounds="695.641235351563,137.346725463867,82.066650390625,18.6532745361328" />
+    <Link Source="@3" Target="(@1 @2 Type=Constant Member=ContentTypeUTF8)" Category="Contains" Bounds="84.2666397094727,306,82.804313659668,28.1071472167969" />
+    <Link Source="@3" Target="(@1 @2 Type=Constant Member=PIDUrl)" Category="Contains" Bounds="91.9366683959961,293,53.8516616821289,0" />
+    <Link Source="@4" Target="@11" Category="Contains" Bounds="468.2958984375,138,137.020751953125,70.8655242919922" />
+    <Link Source="@4" Target="@12" Category="Contains" Bounds="490.361999511719,135.635070800781,81.6064453125,18.3867340087891" />
+    <Link Source="@4" Target="@7" Bounds="490.429992675781,125,287.033325195313,0" />
+    <Link Source="@5" Target="(@1 @2 Type=PIDServerRawData Member=(Name=Get OverloadingParameters=[@9,@9,@9]))" Category="Contains" Bounds="482.126678466797,293,21,0" />
+    <Link Source="@5" Target="(@1 @2 Type=PIDServerRawData Member=Get)" Category="Contains" Bounds="459.425903320313,306,111.56298828125,28.7537841796875" />
+    <Link Source="@7" Target="(@1 @2 @6 Member=(Name=.ctor OverloadingParameters=[@9,@9,@9]))" Category="Contains" Bounds="875.234069824219,137.930770874023,91.8484497070313,27.48876953125" />
+    <Link Source="@7" Target="(@1 @2 @6 Member=(Name=GetWebResponse OverloadingParameters=[@9]))" Category="Contains" Bounds="877.593322753906,125,21,0" />
+    <Link Source="@7" Target="(@1 @2 @6 Member=.ctor)" Category="Contains" Bounds="843.372924804688,138,118.13623046875,85.1916656494141" />
+    <Link Source="@7" Target="(@1 @2 @6 Member=Get)" Category="Contains" Bounds="875.234069824219,84.5804672241211,91.8484497070313,27.4887542724609" />
+    <Link Source="@7" Target="(@1 @2 @6 Member=Init)" Category="Contains" Bounds="853.746826171875,30.6223258972168,135.954040527344,81.3776741027832" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Field" Label="Field" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Fields" />
+    <Category Id="CodeSchema_Interface" Label="Interface" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Interface" NavigationActionLabel="Interfaces" />
+    <Category Id="CodeSchema_Member" Label="Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="Members" />
+    <Category Id="CodeSchema_Method" Label="Method" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="Methods" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="Is Constructor" Description="Flag to indicate the method is a constructor" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="Is Private" Description="Flag to indicate the scope is Private" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="Is Static" Description="Flag to indicate the member is a static member" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Member" Label="Member" ValueType="System.Object" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="Parameter" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(1bdbd0ca-726b-41b5-8b70-2add8563bd05.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=B2BService.Models" />
+    <Alias n="3" Id="(@1 @2 Type=Constant)" />
+    <Alias n="4" Id="(@1 @2 Type=IRawData)" />
+    <Alias n="5" Id="(@1 @2 Type=PIDServerRawData)" />
+    <Alias n="6" Id="Type=RawData" />
+    <Alias n="7" Id="(@1 @2 @6)" />
+    <Alias n="8" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.5.2/mscorlib.dll" />
+    <Alias n="9" Id="(@8 Namespace=System Type=String)" />
+    <Alias n="10" Id="(@1 @2 Type=DataAccess Member=(Name=CreateRawData OverloadingParameters=[@9]))" />
+    <Alias n="11" Id="(@1 @2 Type=IRawData Member=(Name=Get OverloadingParameters=[@9,@9,@9]))" />
+    <Alias n="12" Id="(@1 @2 Type=IRawData Member=Get)" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="1bdbd0ca-726b-41b5-8b70-2add8563bd05.OutputPathUri" Value="file:///D:/SVN/VS2015/B2BService/B2BService/bin/B2BService.dll" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+  </Paths>
+</DirectedGraph>
