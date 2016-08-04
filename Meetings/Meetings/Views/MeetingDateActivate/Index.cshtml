@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Meetings.Models.vMeetingDateActivate>
+@using Meetings.Models;
+@using Meetings.Controllers.General;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-4" style="width:100%">
+        <p>
+            @using (Html.BeginForm("Index", "MeetingDateActivate", FormMethod.Post, new { enctype = "multipart/form-data", name = "meetingdateActivate", id = "meetingdateActivate" }))
+            {
+                <table class="table table-bordered table-striped table-condensed">
+                    <tr>
+                        <th style="width:20%">
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().ActivateId)
+                        </th>
+                        <th style="width:15%">
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().ActivateDesc)
+                        </th>
+                        <th style="width:15%">
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().ActivateSDT)
+                        </th>
+                        <th style="width:15%">
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().ActivateEDT)
+                        </th>
+                        <th>Create</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        if (item != null)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.ActivateId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.ActivateDesc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.ActivateSDT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.ActivateEDT)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Create", "Create", new { id = item.meetingDateId }) | @Html.ActionLink("Detail", "Detail", new { id = item.ActivateId })
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+        </p>
+    </div>
+</div>

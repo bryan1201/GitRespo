@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Meetings.Models.vMeetingDate>
+<div class="row">
+    <div class="col-md-4" style="width:100%">
+        <p>
+            @using (Html.BeginForm("Index", "MeetingDate", FormMethod.Post, new { enctype = "multipart/form-data", name = "meeting", id = "meeting" }))
+            {
+                <table class="table table-bordered table-striped table-condensed">
+                    <tr>
+                        <th style="width:20%">
+                          期別  
+                        </th>
+                        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().vmeetingDateActivate)</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        if (item != null)
+                        {
+                            <tr>
+                                <td>
+                                    <table class="table table-bordered table-striped table-condensed">
+                                        <tr>
+                                            <td>
+                                                @Html.ActionLink(item.Description, "Index", "MeetingDateActivate", new { id = item.meetingDateId }, "")
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelitem => item.STDT)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>@Html.DisplayFor(modelitem => item.ENDDT)</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>
+                                    @if (item.vmeetingDateActivate != null)
+                                    {
+                                        @Html.Partial("PartialMeetingDateActivate", item.vmeetingDateActivate)
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+        </p>
+    </div>
+</div>

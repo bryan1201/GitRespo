@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Meetings.Models.vMeetingDateActivate>
+<div class="row">
+    <div class="col-md-4" style="width:100%">
+        <p>
+            @using (Html.BeginForm("Index", "MeetingDateActivate", FormMethod.Post, new { enctype = "multipart/form-data", name = "meeting", id = "meeting" }))
+            {
+                <table class="table table-bordered table-striped table-condensed">
+                    <tr>
+                        <th style="width:120px;">
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().ActivateDate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().ActivateDesc)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().ActivateSDT)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().ActivateEDT)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        if (item != null)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.ActivateDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.ActivateDesc)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelitem => item.ActivateSDT, "{0:yyyy/MM/dd}")
+                                </td>
+                                <td>@Html.DisplayFor(modelitem => item.ActivateEDT, "{0:yyyy/MM/dd}")</td>
+                                <td>
+                                    @Html.ActionLink("登入", "Index", "Home", new { id = item.ActivateId }, "") &nbsp;|&nbsp;
+                                    @Html.ActionLink("出席狀況", "Report", "Home", new { id = item.ActivateId }, "")
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+        </p>
+    </div>
+</div>

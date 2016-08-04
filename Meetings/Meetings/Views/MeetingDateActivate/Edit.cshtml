@@ -1,0 +1,55 @@
+﻿@model Meetings.Models.MeetingDateActivate
+
+@{
+    ViewBag.Title = "Edit MeetingDateActivate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Meeting</legend>
+
+        @Html.HiddenFor(model => model.meetingDateId)
+
+        <table class="table table-bordered table-striped table-condensed">
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.ActivateId)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.ActivateId)@Html.ValidationMessageFor(model => model.ActivateId)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.ActivateDesc)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.ActivateDesc)@Html.ValidationMessageFor(model => model.ActivateDesc)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.ActivateDate)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.ActivateDate)@Html.ValidationMessageFor(model => model.ActivateDate)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.SDT)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.SDT)@Html.ValidationMessageFor(model => model.SDT)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.EDT)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.EDT)@Html.ValidationMessageFor(model => model.EDT)</td>
+            </tr>
+        </table>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

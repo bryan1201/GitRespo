@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Meetings.Models.vMeetingDateAttendStatus>
+@using Meetings.Models;
+@using Meetings.Controllers.General;
+@using System.Text;
+@{
+
+}
+@Html.HiddenFor(model => model.FirstOrDefault().ActivateId)
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <th style="width:20%">
+            @Html.DisplayNameFor(model => model.FirstOrDefault().LoginTime)
+        </th>
+        <th style="width:15%">
+            @Html.DisplayNameFor(model => model.FirstOrDefault().UserCode)
+        </th>
+        <th style="width:20%">
+            @Html.DisplayNameFor(model => model.FirstOrDefault().UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Sex)
+        </th>
+        <th style="width:20%">
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Attend)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item != null)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelitem => item.LoginTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelitem => item.UserCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelitem => item.UserName)
+                </td>
+                <td class="display-field">
+                    @Html.DisplayFor(modelitem => item.Sex)
+                </td>
+                <td class="display-field">
+                    @Html.DisplayFor(modelitem => item.Attend)
+                </td>
+            </tr>
+        }
+    }
+</table>

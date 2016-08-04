@@ -1,0 +1,65 @@
+﻿@model Meetings.Models.vMeetingDateMember
+
+@{
+    ViewBag.Title = "Display MeetingDateMember";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>MeetingDateMember</legend>
+        @Html.HiddenFor(model => model.uniqueId)
+        <table class="table table-bordered table-striped table-condensed">
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.uniqueId)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.uniqueId)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.MeetingName)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.MeetingName)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.UserProfileId)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.UserProfileId)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.UserCode)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.UserCode) @Html.DisplayFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.Description)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.Description)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.STDT)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.STDT)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.ENDDT)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.ENDDT)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.CDT)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.CDT)</td>
+            </tr>
+        </table>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new {id=Model.uniqueId })
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

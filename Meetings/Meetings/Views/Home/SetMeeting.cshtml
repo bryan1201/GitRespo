@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Meetings.Models.vMeetingDateActivate>
+@using Meetings.Models;
+@using Meetings.Controllers.General;
+@{
+    string Title = Constant.GetAppSettings("HomeIndexName");
+    ViewBag.Title = Title;
+}
+
+<div class="row">
+    <div class="col-md-4" style="width:100%">
+        <h2>Getting started</h2>
+        <p>
+            @using (Html.BeginForm("SetMeeting", "Home", FormMethod.Post, new { enctype = "multipart/form-data", name = "meeting", id = "meeting" }))
+            {
+                <table class="table table-bordered table-condensed table-striped table-hover"  >
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().ActivateDate)</th>
+                        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().ActivateDesc)</th>
+                        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().STDT)</th>
+                        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().ENDDT)</th>
+                        <th>
+                            
+                        </th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActivateDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActivateDesc)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActivateSDT)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ActivateEDT)
+                        </td>
+                        <td>
+                            @Html.ActionLink("登入", "Index", new { id = item.ActivateId }) | @Html.ActionLink("Detail List", "DetailList", new { id = item.ActivateId })
+                        </td>
+                    </tr>
+                    }
+                </table>
+            }
+        </p>
+    </div>
+</div>

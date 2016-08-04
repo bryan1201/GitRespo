@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Meetings.Models.Meeting>
+@using Meetings.Models;
+@using Meetings.Controllers.General;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+    @Html.ActionLink("Create Meeting", "Create")
+</p>
+<div class="row">
+    <div class="col-md-4" style="width:100%">
+        <p>
+            @using (Html.BeginForm("Index", "Meeting", FormMethod.Post, new { enctype = "multipart/form-data", name = "meeting", id = "meeting" }))
+            {
+                <table class="table table-bordered table-striped table-condensed">
+                    <tr>
+                        <th style="width:25%">
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().MeetingName)
+                        </th>
+                        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().vmeetingDates)</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        if (item != null)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.ActionLink(item.MeetingName, "Index","MeetingDate", new { id = item.meetingId }, "") 
+                                </td>
+                                <td>
+                                    @if (item.vmeetingDates != null)
+                                    {
+                                        @Html.Partial("PartialMeetingDate", item.vmeetingDates)
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+        </p>
+    </div>
+</div>

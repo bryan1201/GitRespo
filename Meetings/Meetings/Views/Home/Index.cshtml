@@ -1,0 +1,98 @@
+﻿@model Meetings.Models.vMeetingDateMemberLog
+@using Meetings.Models;
+@using Meetings.Controllers.General;
+@using System.Text;
+@{
+    string Title = Constant.GetAppSettings("HomeIndexName");
+    string MeetingName = string.Empty;
+    string ActivateId = ((Guid)ViewBag.ActivateId).ToString();
+    ViewBag.Title = Title;
+    //IEnumerable<MeetingDateLog> logmeetingList = (IList<MeetingDateLog>)Constant.LogMeetingList.logMeetingList.OrderByDescending(x=>x.LoginTime).ToList();
+    IEnumerable<vMeetingDateMemberLog> vmdmls = (IEnumerable<vMeetingDateMemberLog>)ViewData["vMeetingDateMemberLogs"];
+    string PartialMeetingDateMemberLogs = "PartialMeetingDateMemberLogs";
+    string ReturnResult = (string)ViewBag.ReturnResult;
+    IMeetingDateActivate imda = DataAccess.CreateMeetingDateActivate();
+    vMeetingDateActivate vmda = imda.GetCurrent(Guid.Parse(ActivateId));
+    MeetingName = vmda.MeetingName;
+    string MeetingDateDescription = vmda.Description;
+    string ActivateDesc = vmda.ActivateDesc;
+    StringBuilder sb = new StringBuilder();
+    sb.Append(MeetingName);
+    sb.Append(".");
+    sb.Append(MeetingDateDescription);
+    sb.Append(".");
+    sb.Append(ActivateDesc);
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#idBarcode').focus();
+        $('#idBarcode').val('');
+    });
+</script>
+@if (!string.IsNullOrEmpty(ViewBag.ReturnResult))
+{
+    if (ViewBag.ReturnResult == "成功")
+    {
+        <div class="alert alert-info">
+            <strong>Message:</strong> @ViewBag.ReturnResult
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            <strong>Message:</strong> @ViewBag.ReturnResult
+        </div>
+    }
+}
+
+<div class="row">
+    <div class="col-md-4" style="width:100%">
+        <h2>Getting started 
+            @Html.ActionLink(sb.ToString(), "DetailList", new { id = ActivateId })
+         </h2>
+        <p>
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data", name = "meeting", id = "meeting" }))
+            {
+                <table class="jtable" style="width: 95%; margin: 2% 2%;">
+                    <tr>
+                        <th style="width: 15%">
+                            Barcode
+                        </th>
+                        <th>姓名</th>
+
+                        <th>登入時間</th>
+                        <th>
+                            <input type="submit" value="搜尋" style="width:90%" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.TextBoxFor(model => model.UserCode, new { @style = "width:95%", autofocus = "", id="idBarcode" })
+                        </td>
+                        <td>
+                            @Html.ValueFor(model => model.UserName)
+                        </td>
+                        <td>
+                            @Html.ValueFor(model => model.LoginTime)
+                        </td>
+                        <td>
+                            @Html.HiddenFor(model => model.ActivateId, new { id = "id", name = "id" })
+                        </td>
+                    </tr>
+                </table>
+            }
+        </p>
+    </div>
+    <div class="col-md-4" style="width:100%">
+        <table class="jtable" style="width:100%">
+            <tr>
+                <td style="vertical-align: top;">
+                    @if (ViewData["vMeetingDateMemberLogs"] != null)
+                    {
+                        @Html.Partial(PartialMeetingDateMemberLogs, vmdmls)
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

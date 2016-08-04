@@ -1,0 +1,62 @@
+﻿@model Meetings.Models.UserProfile
+
+@{
+    ViewBag.Title = "Edit UserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    if (ViewBag.Message != null)
+    {
+        <div class="alert alert-warning">
+            <strong>Message:</strong> @ViewBag.Message
+        </div>
+    }
+    <fieldset>
+        <legend>MeetingDateMember</legend>
+        @Html.HiddenFor(model => model.uniqueId)
+        <table class="table table-bordered table-striped table-condensed">
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.UserCode)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.UserCode) @Html.ValidationMessageFor(model => model.UserCode)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.UserName)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.UserName) @Html.ValidationMessageFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.Sex)</th>
+                <td class="editor-field">@Html.ValueFor(model => model.Sex) &nbsp;(B/S)@Html.ValidationMessageFor(model => model.Sex)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.UserCodeOld)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.UserCodeOld)@Html.ValidationMessageFor(model => model.UserCodeOld)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.cdt)</th>
+                <td class="editor-field">@Html.DisplayFor(model => model.cdt)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.udt)</th>
+                <td class="editor-field">@Html.DisplayFor(model => model.udt)</td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

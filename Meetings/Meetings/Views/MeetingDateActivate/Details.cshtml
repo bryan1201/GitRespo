@@ -1,0 +1,59 @@
+﻿@model Meetings.Models.vMeetingDateActivate
+
+@{
+    ViewBag.Title = "Edit MeetingDateActivate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Meeting</legend>
+
+        @Html.HiddenFor(model => model.meetingDateId)
+
+        <table class="table table-bordered table-striped table-condensed">
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.ActivateId)</th>
+                <td class="display-field">@Html.EditorFor(model => model.ActivateId)@Html.ValidationMessageFor(model => model.ActivateId)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.ActivateDesc)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.ActivateDesc)@Html.ValidationMessageFor(model => model.ActivateDesc)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.ActivateDate)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.ActivateDate)@Html.ValidationMessageFor(model => model.ActivateDate)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.STDT)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.STDT)@Html.ValidationMessageFor(model => model.STDT)</td>
+            </tr>
+            <tr>
+                <th class="editor-label">@Html.LabelFor(model => model.ENDDT)</th>
+                <td class="editor-field">@Html.EditorFor(model => model.ENDDT)@Html.ValidationMessageFor(model => model.ENDDT)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.CDT)</th>
+                <td class="display-field">@Html.EditorFor(model => model.CDT)@Html.ValidationMessageFor(model => model.CDT)</td>
+            </tr>
+        </table>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
