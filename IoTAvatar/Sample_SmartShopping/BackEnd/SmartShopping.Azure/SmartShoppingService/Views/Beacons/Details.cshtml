@@ -1,0 +1,90 @@
+﻿@model SmartShoppingDemoService.Models.Beacon
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Beacon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BeaconId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeaconId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StoreId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StoreId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InFilter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InFilter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OutFilter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OutFilter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Xaxis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Xaxis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yaxis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yaxis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LatuLatitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LatuLatitude)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

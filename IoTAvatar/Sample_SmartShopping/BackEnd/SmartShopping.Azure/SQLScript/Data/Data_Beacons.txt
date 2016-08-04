@@ -1,0 +1,12 @@
+1	Avatar01-09	Product01	Store01	-35	-55	690	442		
+2	Avatar02-12	Product02	Store01	-35	-55	400	122		
+3	Avatar03-27	Product03	Store01	-35	-55	160	462		
+4	Avatar04-30	Product04	Store01	-35	-55	200	250		
+5	Avatar05-19	Product05	Store01	-35	-55	460	382		
+6	Avatar06-29	Product06	Store01	-35	-55	650	92		
+7	Avatar01	Product01	Store02	-35	-55	400	122		
+8	Avatar02	Product02	Store02	-35	-55	160	462		
+9	Avatar03	Product03	Store02	-35	-55	200	250		
+10	Avatar04	Product04	Store02	-35	-55	460	382		
+11	Avatar05	Product05	Store02	-35	-55	650	92		
+12	Avatar06	Product06	Store02	-35	-55	690	442		

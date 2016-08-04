@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Promotion Page</title>
+
+
+<script language='javascript'>
+function getUrlVars()
+{
+    var msg = "";
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+    	hash = hashes[i].split('=');
+    	vars[hash[0]] = hash[1];
+    }
+    for (var key in vars)
+    {
+        //alert(key + " = " + vars[key]);
+        msg += "& " + key + " = " + vars[key];
+    }
+    // alert(msg);
+    return vars;
+}
+
+var promotionHint = getUrlVars();
+</script>
+
+</head>
+<body>
+    <!--
+    <img id="imgPromotion" src="./image/promotion-001.png" />
+    <br />
+    <h2>Promotion Page For:</h2>
+    -->
+    <br />
+    <br />
+    <br />
+    <hr width="100%" size="1" color="skyblue" />
+    <br />
+    <script language='javascript'>
+        document.writeln("<img src=\"./image/" + promotionHint["pcode"] + ".png\" width='100%' />");
+    </script>
+    <hr width="100%" size="1" color="skyblue"/>
+    <script language='javascript'>
+        if (promotionHint["txt"] != null)
+        {
+            document.writeln("<b><font color=\"#1d85af\" face=\"arial\" size=\"+2\">" + unescape(promotionHint["txt"]) + "</font></b>");
+        }
+    </script>
+</body>
+</html>

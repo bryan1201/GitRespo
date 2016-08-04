@@ -1,0 +1,58 @@
+﻿@model SmartShoppingDemoWeb.Models.Advertisement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Advertisement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BeaconId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeaconId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TargetDeviceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TargetDeviceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignalStrength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignalStrength)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Timestamp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AdvId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

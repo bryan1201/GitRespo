@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SmartShoppingDemoWeb.Models.Advertisement>
+
+@{
+    Layout = null;
+    ViewBag.Title = "ProductsIndex";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<div class="container body-content">
+    <div>
+        @Html.ActionLink("Back to Products", "Products", new { store = @ViewBag.Store })
+    </div>
+
+    <h2>Products Data</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TargetDeviceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SignalStrength)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Timestamp)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TargetDeviceId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SignalStrength)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Timestamp)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - SmartShoppingDemoWeb</p>
+    </footer>
+</div>

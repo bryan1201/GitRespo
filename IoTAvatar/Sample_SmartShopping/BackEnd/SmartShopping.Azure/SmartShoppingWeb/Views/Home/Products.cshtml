@@ -1,0 +1,198 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Products Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        updateProducts();
+        setInterval(updateProducts, 3000);
+
+        function updateProducts() {
+            $.ajax({
+                url: '@Url.Action("UpdateProducts", "Home", new { store = @ViewBag.StoreId })',
+                type: 'GET',
+                cache: false,
+                datatype: "json",
+                success: function (data) {
+                    console.log(data);
+                    updateUI(data);
+                },
+            })
+        }
+
+        function updateUI(info) {
+            console.log("Update UI: " + info);
+
+            var obj = JSON.parse(info);
+
+            var pp = "";
+
+            document.getElementById("p_Product01").style.borderColor = "#78b6e1";
+            document.getElementById("p_Product02").style.borderColor = "#78b6e1";
+            document.getElementById("p_Product03").style.borderColor = "#78b6e1";
+            document.getElementById("p_Product04").style.borderColor = "#78b6e1";
+            document.getElementById("p_Product05").style.borderColor = "#78b6e1";
+            document.getElementById("p_Product06").style.borderColor = "#78b6e1";
+
+            pp = obj.Prod1;
+            if (pp != "Product00") {
+                var prod1 = "p_" + pp;
+                document.getElementById(prod1).style.borderColor = "#b400b4";
+                document.getElementById(prod1).style.borderWidth = "10px";
+            }
+
+            pp = obj.Prod2;
+            if (pp != "Product00") {
+                var prod2 = "p_" + obj.Prod2;
+                if (obj.Prod1 == obj.Prod2)
+                    document.getElementById(prod2).style.borderColor = "#b400b4 #ffb400";
+                else
+                    document.getElementById(prod2).style.borderColor = "#ffb400";
+                document.getElementById(prod2).style.borderWidth = "10px";
+            }
+
+            document.getElementById("p_Count01").textContent = obj.Count01;
+            document.getElementById("p_Count02").textContent = obj.Count02;
+            document.getElementById("p_Count03").textContent = obj.Count03;
+            document.getElementById("p_Count04").textContent = obj.Count04;
+            document.getElementById("p_Count05").textContent = obj.Count05;
+            document.getElementById("p_Count06").textContent = obj.Count06;
+        }
+
+        function gotoProduct(prod) {
+            console.log("goto prod " + prod);
+            window.location.href = '/Home/ProductsIndex/?ProductId=' + prod + '&store=@ViewBag.StoreId';
+        }
+    </script>
+    <style>
+        .p-CountText {
+            margin: 0 4% 1% 4%;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .p-cat {
+            margin: 0 4%;
+            padding-bottom: 20%;
+            border-radius: 50%;
+            border: 10px solid;
+            border-color: #78b6e1;
+            cursor: pointer;
+        }
+
+        @@media screen and (max-width: 768px ) {
+
+            .p-cat {
+                padding-bottom: 60%;
+            }
+        }
+
+        #p_Product01 {
+            background-image: url("../../../Content/Images/hololens_headset.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #p_Product02 {
+            background-image: url("../../../Content/Images/SUR_Hub_84in_001_V2.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #p_Product03 {
+            background-image: url("../../../Content/Images/SurfacePro4.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #p_Product04 {
+            background-image: url("../../../Content/Images/WindowsPhone.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #p_Product05 {
+            background-image: url("../../../Content/Images/SurfaceBook.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #p_Product06 {
+            background-image: url('../../../Content/Images/XboxController.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #p_content_grid {
+            padding: 10% 10% 4% 10%;
+        }
+
+        .body-content {
+            background-image: url("../../../Content/Images/WebDesign_Background.gif");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+
+<body class="body-content">
+    @RenderBody()
+    <div id="p_content_grid" class="container-fluid container-full">
+        <div class="row">
+            <div id="p_Product01" class="col-sm-3 p-cat" onclick="gotoProduct('Product01')">
+                @* <img src="~/Content/Images/hololens_headset.jpg" />*@
+            </div>
+            <div id="p_Product02" class="col-sm-3 p-cat" onclick="gotoProduct('Product02')">
+                @*<img src="~/Content/Images/SUR_Hub_84in_001_V2.png" />*@
+            </div>
+            <div id="p_Product03" class="col-sm-3 p-cat" onclick="gotoProduct('Product03')">
+                @*<img src="~/Content/Images/SurfacePro4.png" />*@
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="p_Count01" class="col-sm-3 p-CountText">
+                @ViewBag.Count01
+            </div>
+            <div id="p_Count02" class="col-sm-3 p-CountText">
+                @ViewBag.Count02
+            </div>
+            <div id="p_Count03" class="col-sm-3 p-CountText">
+                @ViewBag.Count03
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="p_Product04" class="col-sm-3 p-cat" onclick="gotoProduct('Product04')">
+                @*<img src="~/Content/Images/WindowsPhone.png" />*@
+            </div>
+            <div id="p_Product05" class="col-sm-3 p-cat" onclick="gotoProduct('Product05')">
+                @* <img src="~/Content/Images/SurfaceBook.png" />*@
+            </div>
+            <div id="p_Product06" class="col-sm-3 p-cat" onclick="gotoProduct('Product06')">
+                @*  <img src="~/Content/Images/XboxController.png" />*@
+            </div>
+        </div>
+
+        <div class="row">
+            <div id="p_Count04" class="col-sm-3 p-CountText">
+                @ViewBag.Count04
+            </div>
+            <div id="p_Count05" class="col-sm-3 p-CountText">
+                @ViewBag.Count05
+            </div>
+            <div id="p_Count06" class="col-sm-3 p-CountText">
+                @ViewBag.Count06
+            </div>
+        </div>
+    </div>
+</body>
+</html>

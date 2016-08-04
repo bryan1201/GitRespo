@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <form style="font-size:24px">
+        <br />
+        <hr />
+
+        <div>
+            Store:&nbsp;&nbsp;
+            @Html.DropDownList("StoreId", null, new { onchange = @"window.location.href='/Home/GetCurrentStore?id='+ this.selectedIndex;" })
+        </div>
+        <br />
+
+        <div>
+            Beacon:&nbsp;&nbsp;
+            @Html.DropDownList("BeaconId")
+        </div>
+        <br />
+
+        <div>
+            Device:&nbsp;&nbsp;
+            @Html.DropDownList("DeviceId")
+        </div>
+        <hr />
+
+        <input type="submit" value="Send Notification" />
+
+    </form>
+</body>
+</html>

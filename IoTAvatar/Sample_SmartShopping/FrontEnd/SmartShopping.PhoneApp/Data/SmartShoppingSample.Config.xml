@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SmartShopping>
+    <Configs>
+        <config Key="DebugLevel" Value="0" />
+        <config Key="BTFilterInRange" Value="-55" />
+        <config Key="BTFilterOutRange" Value="-75" />
+        <config Key="BTSamplingIntervalms" Value="1000" />
+        <config Key="BeaconCompanyId" Value="FFFF" />
+        <config Key="BeaconPrefix" Value="Avatar" />
+        <!-- the service base url on azure -->
+        <config Key="ServiceBaseUrl" Value="https://(smartshoppingsampleservice).azurewebsites.net/" />
+    </Configs>
+    <Scenarios>
+        <!-- Scenario:
+        1. BT only demo, no internet, enable BT watcher
+        2. Full demo, use internet to connect to IotHub, enable BT watcher
+        -->
+        <scenario ID="1" DisplayName="BT Only Demo" EmuAzure="1" BTFilterInRange="-40" BTFilterOutRange="-55" />
+        <scenario ID="2" DisplayName="Full Demo" />
+    </Scenarios>
+    <Users>
+        <!--
+        <user ID="01001" DisplayName="Jesse-B" Scenario="1" />
+        -->
+        <user ID="01002" DisplayName="Kuroda-AB" Scenario="2" />
+    </Users>
+</SmartShopping>

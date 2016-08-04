@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - SmartShoppingDemoWeb</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Report", "Report", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <!--
+                @Html.ActionLink("ReportAuto", "ReportAuto", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Products_1", "Products_1", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                -->
+                @Html.ActionLink("Products", "Products_2", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <!--
+                @Html.ActionLink("Advertisements", "Index", "Advertisements", new { area = "" }, new { @class = "navbar-brand" })
+                -->
+                @Html.ActionLink("Advertisements_Static", "IndexStatic", "Advertisements", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Notifications", "Notifications", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <!--
+                <a class="navbar-brand" target="_blank" href=https://msit.powerbi.com/view?r=eyJrIjoiNzRmOThiZWQtOThmYS00MjUzLWE1NGYtMmI5N2ZkOTE0YTEzIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9>ReportLink</a>
+                -->
+                <a class="navbar-brand" target="_blank" href=@MvcApplication.ServiceUrl>Beacons</a>
+                <a class="navbar-brand" target="_blank" href=@MvcApplication.ProcessUrl>SetFilter</a> 
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - SmartShoppingDemoWeb</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,106 @@
+﻿<!--
+    Refrences:
+
+        1. Integrate a Power BI tile or report into an app
+           https://powerbi.microsoft.com/en-us/documentation/powerbi-developer-integrate-a-power-bi-tile-or-report/
+
+        2. Integrate a report into an app
+           https://github.com/Microsoft/PowerBI-CSharp/tree/master/samples/webforms/embed-a-report-into-an-app
+
+        3. Integrate a tile into an app
+           https://github.com/Microsoft/PowerBI-CSharp/tree/master/samples/webforms/embed-a-tile-into-an-app
+
+-->
+
+@{
+    Layout = null;
+    ViewBag.Title = "Power BI Report";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <script type="text/javascript">
+
+        window.onload = function () {
+            // listen for message to receive message from embedded report.
+            if (window.addEventListener) {
+                window.addEventListener("message", receiveMessage, false);
+            } else {
+                window.attachEvent("onmessage", receiveMessage);
+            }
+
+            // handle server side post backs, optimize for reload scenarios
+            // show embedded report if all fields were filled in.
+            var accessToken = "@ViewBag.Token";
+            if ("" !== accessToken)
+                updateEmbedReport();
+        };
+
+        // The embedded report posts message for errors to parent window.  listen and handle as appropriate
+        function receiveMessage(event)
+        {
+            if (event.data) {
+                try {
+                    messageData = JSON.parse(event.data);
+                    if (messageData.event === "reportPageLoaded")
+                    {
+                    }
+                }
+                catch (e) {
+                    // do something smart
+                }
+            }
+        }
+
+        var valB = false;
+
+        // update embed report
+        function updateEmbedReport() {
+
+            // check if the embed url was selected
+            var embedUrl = "https://msit.powerbi.com/reportEmbed?reportId=" + "@ViewBag.ReportId";
+            if ("" === embedUrl)
+                return;
+
+            // to load a report do the following:
+            // 1: set the url
+            // 2: add a onload handler to submit the auth token
+            iframe = document.getElementById('iFrameEmbedReport');
+            iframe.src = embedUrl;
+            iframe.onload = postActionLoadReport;
+        }
+
+
+        // post the auth token to the iFrame.
+        function postActionLoadReport() {
+
+            // get the access token.
+            var accessToken = "@ViewBag.Token";
+
+            // return if no token
+            if ("" === accessToken)
+                return;
+
+            // construct the push message structure
+            // this structure also supports setting the reportId, groupId, height, and width.
+            // when using a report in a group, you must provide the groupId on the iFrame SRC
+            var m = { action: "loadReport", accessToken: accessToken};
+            message = JSON.stringify(m);
+
+            // post the message.
+            // Ref: Window.postMessage(): https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+            iframe = document.getElementById('iFrameEmbedReport');
+            iframe.contentWindow.postMessage(message, "*");;
+        }
+
+    </script>
+</head>
+<body>
+    <iframe ID="iFrameEmbedReport" src="" style="border: 0; position:fixed;top:0; left:0; right:0; bottom:0; width:100%; height:100%"/>
+</body>
+</html>

@@ -1,0 +1,6 @@
+1	Product01	Hololens	3001.0		
+2	Product02	SurfaceHub	7000.0		
+3	Product03	SurfacePro4	900.0		
+4	Product04	WindowsPhone	550.0		
+5	Product05	SurfaceBook	1500.0		
+6	Product06	Xbox	750.0		

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SmartShoppingDemoService.Models.Device>
+
+@{
+    ViewBag.Title = "Devices Table";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="table-layout:fixed;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceKey)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConnectionString)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsUsed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceId)
+        </td>
+        <td>
+            <div style="word-wrap: break-word;">
+                @Html.DisplayFor(modelItem => item.DeviceKey)
+            </div>
+        </td>
+        <td>
+            <div style="word-wrap: break-word;">
+                @Html.DisplayFor(modelItem => item.ConnectionString)
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsUsed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DevId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DevId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DevId })
+        </td>
+    </tr>
+}
+
+</table>

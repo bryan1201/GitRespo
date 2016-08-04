@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SmartShoppingDemoWeb.Models.Advertisement>
+
+@{
+    ViewBag.Title = "Advertisements Table";
+}
+
+<!-- Auto refresh this web page every 5 sec -->
+<!-- https://en.wikipedia.org/wiki/Meta_refresh -->
+<meta http-equiv="refresh" content="5">
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    @Html.ActionLink("Delete All Data", "DeleteAll")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BeaconId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TargetDeviceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SignalStrength)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeaconId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TargetDeviceId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SignalStrength)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Timestamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedTime)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

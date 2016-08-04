@@ -1,0 +1,2 @@
+1	Store01	Store A
+2	Store02	Store B

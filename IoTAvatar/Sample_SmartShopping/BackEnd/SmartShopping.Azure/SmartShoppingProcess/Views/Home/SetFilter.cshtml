@@ -1,0 +1,38 @@
+﻿@model SmartShoppingDemoProcess.Models.Advertisement
+
+@{
+    ViewBag.Title = "SetFilter";
+}
+
+<h2>Set Signal Strength Filter Value (in dBm)</h2>
+
+<hr />
+
+<div>
+    <form style="font-size:24px">
+
+        <p>Beacon List:&nbsp;&nbsp;
+           @Html.DropDownList("BeaconId", null, new { onchange = @"window.location.href='/Home/GetCurrentFilter?id='+ this.selectedIndex;" })
+        </p>
+        <hr />
+
+        <p>Signal Strength Filter Valid Range:</p>
+        <p style="text-indent: 1em;">
+            In: <input style="width:80px" type="text" name="FilterIn" value=@ViewBag.FilterIn />
+            &emsp;
+            Out: <input style="width:80px" type="text" name="FilterOut" value=@ViewBag.FilterOut />
+        </p>
+        <hr/>
+
+        <input type="submit" value="Save" />
+
+    </form>
+
+</div>
+
+<hr />
+
+<div>
+    @Html.ActionLink("Back to Home", "Index")
+</div>
+

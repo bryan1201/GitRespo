@@ -1,0 +1,65 @@
+﻿@model SmartShoppingDemoWeb.Models.Advertisement
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Advertisement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BeaconId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BeaconId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TargetDeviceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TargetDeviceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SignalStrength)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SignalStrength)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Timestamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Timestamp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedTime)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

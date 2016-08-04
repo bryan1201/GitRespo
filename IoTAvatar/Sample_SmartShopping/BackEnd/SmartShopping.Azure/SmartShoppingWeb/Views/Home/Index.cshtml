@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <h2>Smart Shopping Demo Web App</h2>
+    <hr />
+    <p style="font-size:18px">SmartShoppingDemoWeb Sample Workflow Diagram:</p>
+    <img style="width:100%;" src="@Url.Content("~/Content/Images/WorkflowDiagram.png")" alt="Workflow" />
+    <hr />
+    <p style="font-size:18px">Azure SQL Tables Relationship Diagram:</p>
+    <img style="width:100%;" src="@Url.Content("~/Content/Images/DiagramSmartShoppingDemo.jpg")" alt="Workflow" />
+    <hr />
+    <p style="font-size:18px">IoT Hub Connection String:</p>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;@ViewBag.IothubConnectionString</p>
+    <hr />
+    <p>Click <a href="/Advertisements">Advertisements</a> link to enter the query result page for [Advertisements] table.</p>
+</div>
