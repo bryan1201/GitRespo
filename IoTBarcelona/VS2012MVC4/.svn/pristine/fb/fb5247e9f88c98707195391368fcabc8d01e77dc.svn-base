@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Barcelona.Models.ShareFileGroup>
+
+@{
+    ViewBag.Title = "Index";
+}
+<ul data-role="listview" data-inset="true">
+    <li>@Html.ActionLink("Create New", "Create")</li>
+    <li>
+        <table class="table" style="table-layout:fixed;">
+            <tr>
+                <th style="width:32%">
+                    @Html.DisplayNameFor(model => model.LimitSize)
+                </th>
+                <th style="width:30%">
+                    @Html.DisplayNameFor(model => model.EDate)
+                </th>
+                <th style="width:38%"></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="font-size:0.9em;">
+                        @Html.DisplayFor(modelItem => item.LimitSize)
+                    </td>
+                    <td style="font-size:0.9em;">
+                        @Html.DisplayFor(modelItem => item.EDate)
+                    </td>
+                    <td style="font-size:0.7em;">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.GroupId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.GroupId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.GroupId })
+                    </td>
+                </tr>
+            }
+        </table>
+    </li>
+    <li>@Html.ActionLink("Media Manage", "Manage", "MediaFile")</li>
+    <li>@Html.ActionLink("Service Center", "Manage", "Home")</li>
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+</ul>

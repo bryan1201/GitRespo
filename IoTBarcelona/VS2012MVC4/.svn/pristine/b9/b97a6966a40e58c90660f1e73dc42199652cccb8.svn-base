@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "變更密碼";
+}
+
+<h2>變更密碼</h2>
+<p>
+    您的密碼已變更。
+</p>
+
+<ul data-role="listview" data-inset="true">
+    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
+</ul>

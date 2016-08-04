@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Barcelona.Models.vSharedFile>
+@{
+    Layout = null;
+    ViewBag.Title = "Shared Media Video";
+    string PartialViewSummaryAdvice = "PartialViewSummaryAdvice";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/Content/jquery.mobile-1.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/jquery.mobile.structure-1.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/jquery.mobile.theme-1.2.0.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Site.css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <ul data-role="listview" data-inset="true">
+            <li data-role="list-divider">@ViewBag.Title</li>
+            <li>
+                <table>
+                    <tr>
+                        <th style="width:60%">
+                            @Html.DisplayNameFor(model => model.fileName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().Length)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.cdt)
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a href="@Html.ValueFor(modelItem=>item.filePath)" target="_blank">@Html.DisplayFor(modelItem => item.displayname)</a>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Length)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.cdt)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </li>
+            <li>
+                @if (ViewData["SummaryAdvice"] != null)
+                {
+                    @Html.Partial(PartialViewSummaryAdvice, ViewData["SummaryAdvice"])
+                }
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

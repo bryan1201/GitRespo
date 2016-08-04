@@ -1,0 +1,19 @@
+﻿@model VS2012MVC4.Models.LoginModel
+
+@{
+    ViewBag.Title = "您的帳戶";
+}
+
+@section Header {
+    @Html.ActionLink("Back", "Index", "Home", null, new { data_icon = "arrow-l", data_rel = "back" })
+    <h1>@ViewBag.Title</h1>
+}
+
+<p>
+    登入為 <strong>@User.Identity.Name</strong>。
+</p>
+
+<ul data-role="listview" data-inset="true">
+    <li>@Html.ActionLink("變更密碼", "ChangePassword")</li>
+    <li>@Html.ActionLink("登出", "LogOff")</li>
+</ul>

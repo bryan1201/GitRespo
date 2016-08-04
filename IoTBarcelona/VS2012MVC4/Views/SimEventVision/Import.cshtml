@@ -1,0 +1,38 @@
+﻿@model Barcelona.Models.EventVision
+@using VS2012MVC4.Controllers
+
+@{
+    ViewBag.Title = "Import";
+}
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">@FileTable.tempSimEventVision File (Upload)</li>
+    <li>@Html.ActionLink("Clear Temp Vision Data", "ClearData", "SimEventVision", new { MyTable = FileTable.tempSimEventVision })</li>
+    <li>
+        @using (Html.BeginForm("Import", "SimEventVision", FormMethod.Post, new { enctype = "multipart/form-data", name = FileTable.tempSimEventVision, id = FileTable.tempSimEventVision }))
+        {
+            <input id="uploadfile" style="width:100%;" name="uploadfile[]" class="multi" type="file" multiple="multiple" />
+            <input type="submit" value="Upload" />
+            <input id="FileTable" name="FileTable" value="@FileTable.EventVision" style="display:none" hidden />
+        }
+    </li>
+    <li>
+        @Html.ActionLink("Update Vision Data", "MoveData", "SimEventVision", new { MyAction = "MOVE_TO", MyTable = FileTable.EventVision })
+    </li>
+</ul>
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">@FileTable.tempSimEventHealthin File (Upload)</li>
+    <li>@Html.ActionLink("Clear Temp Healthin Data", "ClearData", "SimEventVision", new { MyTable = FileTable.tempSimEventHealthin })</li>
+    <li>
+        @using (Html.BeginForm("Import", "SimEventVision", FormMethod.Post, new { enctype = "multipart/form-data", name = FileTable.tempSimEventHealthin, id = FileTable.tempSimEventHealthin }))
+        {
+            <input id="uploadfile" style="width:100%;" name="uploadfile[]" class="multi" type="file" multiple="multiple" />
+            <input type="submit" value="Upload" />
+            <input id="FileTable" name="FileTable" value="@FileTable.EventHealthin" style="display:none" hidden />
+        }
+    </li>
+    <li>@Html.ActionLink("Update Healthin Data", "MoveData", "SimEventVision", new { MyAction = "MOVE_TO", MyTable = FileTable.EventHealthin })</li>
+    <li>@Html.ActionLink("Back to List", "Index")</li>
+</ul>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

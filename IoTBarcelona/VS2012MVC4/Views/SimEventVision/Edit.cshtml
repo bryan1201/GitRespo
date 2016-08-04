@@ -1,0 +1,78 @@
+﻿@model Barcelona.Models.EventVision
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>tempSimEventVision</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AdultQty)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AdultQty)
+            @Html.ValidationMessageFor(model => model.AdultQty)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Area)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Area)
+            @Html.ValidationMessageFor(model => model.Area)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.X)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.X)
+            @Html.ValidationMessageFor(model => model.X)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Y)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Y)
+            @Html.ValidationMessageFor(model => model.Y)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cdt)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cdt)
+            @Html.ValidationMessageFor(model => model.cdt)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IPCamID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IPCamID)
+            @Html.ValidationMessageFor(model => model.IPCamID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

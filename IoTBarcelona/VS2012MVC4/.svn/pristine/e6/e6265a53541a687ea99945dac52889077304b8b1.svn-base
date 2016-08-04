@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Barcelona.Models.attachFile>
+@{
+    ViewBag.Title = "Media Video";
+}
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">@ViewBag.Title</li>
+    <li>
+        <table>
+            <tr>
+                <th style="width:60%">
+                    @Html.DisplayNameFor(model => model.fileName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.cdt)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="@Html.ValueFor(modelItem=>item.filePath)" target="_blank">@Html.DisplayFor(modelItem => item.displayname)</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.cdt)
+                    </td>
+                </tr>
+            }
+        </table>
+    </li>
+    <li>@Html.ActionLink("Manage", "Manage")</li>
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+</ul>

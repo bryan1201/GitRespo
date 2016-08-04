@@ -1,0 +1,27 @@
+﻿@model Barcelona.Models.ShareFileGroup
+
+@{
+    ViewBag.Title = "Group & Share Media Files";
+}
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">@ViewBag.Title</li>
+    <li>
+        <table class="dl-horizontal" style="table-layout:fixed;">
+            <tbody>
+                <tr>
+                    <th style="width:80px;">@Html.DisplayNameFor(model => model.SummaryAdvice)</th>
+                    <td style="white-space: pre-wrap">@Html.DisplayFor(model => model.SummaryAdvice)</td>
+                </tr>
+                <tr><th>@Html.DisplayNameFor(model => model.LimitSize)</th><td>@Html.DisplayFor(model => model.LimitSize)</td></tr>
+                <tr><th>@Html.DisplayNameFor(model => model.UsageSize)</th><td>@Html.DisplayFor(model => model.UsageSize)</td></tr>
+                <tr><th>@Html.DisplayNameFor(model => model.SDate)</th><td>@Html.DisplayFor(model => model.SDate)</td></tr>
+                <tr><th>@Html.DisplayNameFor(model => model.EDate)</th><td>@Html.DisplayFor(model => model.EDate)</td></tr>
+                <tr><th>@Html.DisplayNameFor(model => model.editor)</th><td>@Html.DisplayFor(model => model.editor)</td></tr>
+            </tbody>
+        </table>
+    </li>
+</ul>
+<ul data-role="listview" data-inset="true">
+    <li>@Html.ActionLink("Edit", "Edit", new { id = Model.GroupId })</li>
+    <li>@Html.ActionLink("Back to List", "Index")</li>
+</ul>

@@ -1,0 +1,190 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
+using System.Linq;
+using System.Web;
+using Controllers.General;
+using System.Data.Entity.ModelConfiguration.Conventions;
+
+namespace Barcelona.Models
+{
+    public class MediaFileModels
+    {
+    }
+
+    public class vShareFileGroupUsers
+    {
+        [Key]
+        public Guid Id { get; set; }
+        public Guid GroupId { get; set; }
+        public Guid UserId { get; set; }
+        public string UserName { get; set; }
+        public string UserEmail { get; set; }
+        public string ApplicationName { get; set; }
+        public string AppDescription { get; set; }
+        public Guid ApplicationId { get; set; }
+    }
+
+    public class ShareFileGroupUsers
+    {
+        [Key]
+        public Guid Id { get; set; }
+        public Guid GroupId { get; set; }
+        public Guid UserId { get; set; }
+    }
+
+    public class ShareFileGroup { 
+        [Key]
+        public Guid GroupId { get; set; }
+        public int LimitSize { get; set; }
+        public int UsageSize { get; set; }
+
+        [Display(Name = "Start Date")]
+        [DataType(DataType.Text)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        public DateTime SDate { get; set; }
+
+        [Display(Name = "End Date")]
+        [DataType(DataType.Text)]
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        public DateTime EDate { get; set; }
+        public string SummaryAdvice { get; set; }
+        public DateTime cdt { get; set; }
+        public DateTime udt { get; set; }
+        public string editor { get; set; }
+    }
+
+    public class ShareFileList
+    {
+        [Key]
+        public Guid SLId { get; set; }
+        public Guid GroupId { get; set; }
+        public Int64 fileId { get; set; }
+    }
+
+    public class vSharedFile {
+        [Key]
+        public Guid SLId { get; set; }
+        public Guid GroupId { get; set; }
+        public Int64 fileId { get; set; }
+
+        [Display(Name = "File Path")]
+        public string filePath { get; set; }
+        public string fileName { get; set; }
+        public int LimitSize { get; set; }
+        public int UsageSize { get; set; }
+        public DateTime SDate { get; set; }
+        public DateTime EDate { get; set; }
+        public DateTime cdt { get; set; }
+        public DateTime udt { get; set; }
+        public string editor { get; set; }
+        public int Length { get; set; }
+        public string displayname { get; set; }
+        public string SummaryAdvice { get; set; }
+
+    }
+
+    public class attachFile
+    {
+        [Key]
+        public Int64 fileId { get; set; }
+
+        [Display(Name = "File Path")]
+        public string filePath { get; set; }
+        public string fileName { get; set; }
+        public string fID { get; set; }
+        public DateTime cdt { get; set; }
+        public DateTime udt { get; set; }
+        public string editor { get; set; }
+        public int Length { get; set; }
+        public string Type { get; set; }
+        public string folderId { get; set; }
+        public string displayname { get; set; }
+        public string Version { get; set; }
+    }
+
+    public class AttachFileVerSet
+    {
+        private DBContext db = new DBContext();
+
+        public List<attachFile> GetFiles(string fID, string State)
+        {
+            string strState = State.ToString();
+            var att = db.attachFiles.Where(x => x.fID == fID && x.folderId == strState).ToList();
+            return att;
+        }
+    }
+
+    public class DBContext : DbContext
+    {
+        public DBContext()
+            : base("DBContext")
+        {
+
+        }
+
+        public DbSet<sysErrorMessage> sysErrorMessages { get; set; }
+        public DbSet<attachFile> attachFiles { get; set; }
+        public DbSet<Roles> role { get; set; }
+        public DbSet<UsersInRoles> usersinroles { get; set; }
+        public DbSet<Applications> application { get; set; }
+        public DbSet<attachFileTable> attachFileTables { get; set; }
+        public DbSet<EventVision> EventVision { get; set; }
+        public DbSet<EventHealthin> EventHealthin { get; set; }
+        public DbSet<CustMailMessage> custmailmessage { get; set; }
+        public DbSet<vUser> vuser { get; set; }
+        public DbSet<vSharedFile> vsharefile { get; set; }
+        public DbSet<ShareFileGroup> sharefilegroup { get; set; }
+        public DbSet<ShareFileList> sharefilelist { get; set; }
+        public DbSet<ShareFileGroupUsers> shareFileGroupUsers { get; set; }
+        public DbSet<vShareFileGroupUsers> vshareFileGroupUsers { get; set; }
+        public DbSet<CustMailAttach> mailattach { get; set; }
+        public DbSet<UserCard> userCard { get; set; }
+        public DbSet<measureItemType> measureitemtype { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
+    }
+
+    public class sysErrorMessage
+    {
+        [Key]
+        public Int32 ID { get; set; }
+        public string SourceFunction { get; set; }
+        public string ContentMessage { get; set; }
+        public string editor { get; set; }
+        public DateTime cdt { get; set; }
+    }
+
+    public class sysErrorMessageDBSet
+    {
+        private DBContext db = new DBContext();
+        private sysErrorMessage mSysErrorMessage = new sysErrorMessage();
+
+        public sysErrorMessageDBSet()
+        {
+
+        }
+
+        public void InitErrorData(string Src, string content, string editor)
+        {
+            mSysErrorMessage.SourceFunction = Src;
+            mSysErrorMessage.ContentMessage = content;
+            mSysErrorMessage.editor = editor;
+            mSysErrorMessage.cdt = DateTime.Now;
+            SetErrorData(mSysErrorMessage);
+        }
+
+        private void SetErrorData(sysErrorMessage syserror)
+        {
+            if (syserror != null)
+            {
+                db.sysErrorMessages.Add(syserror);
+                db.SaveChanges();
+            }
+        }
+    }
+}

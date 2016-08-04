@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Barcelona.Models.attachFile>
+@{
+    ViewBag.Title = "Media Video";
+}
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">@ViewBag.Title</li>
+    <li>@Html.ActionLink("Create New", "Create")</li>
+    <li>
+        <table style="table-layout:fixed;">
+            <tr>
+                <th style="width:50%">
+                    @Html.DisplayNameFor(model => model.fileName)
+                </th>
+                <th style="width:40%;">
+                    @Html.DisplayNameFor(model => model.cdt)
+                </th>
+                <th style="width:25px;"></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="font-size:0.9em">
+                        <a href="@Html.ValueFor(modelItem=>item.filePath)" target="_blank">@Html.DisplayFor(modelItem => item.displayname)</a>
+                    </td>
+                    <td style="font-size:0.8em">
+                        @Html.DisplayFor(modelItem => item.cdt)
+                    </td>
+                    <td>
+                        @Html.ActionLink(" ", "DeleteFile", "MediaFile", new { fileId = item.fileId, record = false }, new { style = "background: url('" + Url.Content("~/Content/Images/Delete.gif") + "') no-repeat top left;background-size: 1.2em auto;height:1.2em;width:auto;display:block;text-indent:-9999px;" })
+                    </td>
+                </tr>
+            }
+        </table>
+    </li>
+    <li>@Html.ActionLink("Service Center", "Manage", "Home")</li>
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+</ul>

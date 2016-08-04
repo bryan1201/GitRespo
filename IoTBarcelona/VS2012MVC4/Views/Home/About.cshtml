@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">@ViewBag.Title</li>
+    <li>
+        <p style="padding-top:50px;padding-bottom:50px; font-size:1.3em; word-wrap:break-word;">
+            Barcelona Media Service Center <br />
+            with Azure solution
+        </p>
+    </li>
+    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    <li>@Html.ActionLink("Media Video", "Index", "MediaFile")</li>
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+</ul>

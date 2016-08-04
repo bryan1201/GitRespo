@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Barcelona.Models.vShareFileGroupUsers>
+<table id="browser" class="jtable" style="table-layout: fixed; font-size: 1em; border: 0px;">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width:20px;">
+                @Html.ActionLink(" ", "RemoveUserFromGroup", "ShareFileGroups", new { id = item.Id, record = true }, new { style = "background: url('" + Url.Content("~/Content/Images/Delete.gif") + "') no-repeat top left;background-size: 1em auto;height:1em;width:auto;display:block;text-indent:-9999px;" })
+            </td>
+            <td>
+                <a href="@Html.ValueFor(modelItem=>item.UserEmail)" target="_blank">@Html.DisplayFor(modelItem => item.UserName)</a>
+            </td>
+        </tr>
+    }
+</table>

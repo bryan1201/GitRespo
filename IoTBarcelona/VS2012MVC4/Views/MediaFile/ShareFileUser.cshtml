@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Barcelona.Models.vSharedFileUser>
+@{
+    ViewBag.Title = "Shared Media Video";
+}
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">@ViewBag.Title</li>
+    <li>
+        <table>
+            <tr>
+                <th style="width:60%">
+                    @Html.DisplayNameFor(model => model.displayname)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a href="@Html.ValueFor(modelItem=>item.filePath)" target="_blank">@Html.DisplayFor(modelItem => item.displayname)</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </li>
+    <li>@Html.ActionLink("Media Manage", "Manage", "MesiaFile")</li>
+    <li>@Html.ActionLink("Service Center", "Manage", "Home")</li>
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+</ul>

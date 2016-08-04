@@ -1,0 +1,82 @@
+﻿@model Barcelona.Models.ShareFileGroup
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ShareFileGroup</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LimitSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LimitSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UsageSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UsageSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SummaryAdvice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SummaryAdvice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.udt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.udt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.editor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.editor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GroupId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

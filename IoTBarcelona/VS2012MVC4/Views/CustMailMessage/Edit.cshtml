@@ -1,0 +1,47 @@
+﻿@model Barcelona.Models.CustMailMessage
+
+@{
+    ViewBag.Title = "Edit Mail & Notice";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Id)
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">@ViewBag.Title</li>
+        <li>
+            <table class="jtable">
+                <tr>
+                    <th class="editor-label" style="width:80px;">@Html.LabelFor(model => model.Receiver)</th>
+                    <td class="editor-field">
+                        @Html.TextAreaFor(model => model.Receiver, new { cols = 10, @rows = 2, style = "width: 100%" })
+                        @Html.ValidationMessageFor(model => model.Receiver)
+                    </td>
+                </tr>
+                <tr>
+                    <th class="editor-label">@Html.LabelFor(model => model.Subject)</th>
+                    <td class="editor-field">
+                        @Html.TextAreaFor(model => model.Subject, new { cols = 10, @rows = 2, style = "width: 100%" })
+                        @Html.ValidationMessageFor(model => model.Subject)
+                    </td>
+                </tr>
+                <tr>
+                    <th class="editor-label">@Html.LabelFor(model => model.Body)</th>
+                    <td class="editor-field">
+                        @Html.TextAreaFor(model => model.Body, new { cols = 10, @rows = 5, style = "width: 100%" })
+                        @Html.ValidationMessageFor(model => model.Body)
+                    </td>
+                </tr>
+            </table>
+        </li>
+        <li><input type="submit" value="Send mail & notification" /></li>
+        <li>@Html.ActionLink("Delete", "Delete", new { id = Model.Id })</li>
+        <li>@Html.ActionLink("Back to List", "Index")</li>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    </ul>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

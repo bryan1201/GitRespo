@@ -1,0 +1,222 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Web.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using Controllers.General;
+using Barcelona.Models;
+using System.Web;
+using System.Web.Mvc;
+using System.Net.Http.Headers;
+using System.Text;
+using JWT;
+using System.Linq;
+using System.Web.Script.Serialization;
+
+namespace VS2012MVC4.Controllers.APIs
+{
+    public class BethelController : ApiController
+    {
+        private DBContext db = new DBContext();
+        private BethelLoginParameter bethelparameter = new BethelLoginParameter();
+
+        private BethelLoginParameter Init()
+        {
+            bethelparameter.account = Constant.BCCAccount;
+            bethelparameter.password = Constant.BCCPassword;
+            bethelparameter.appID = Constant.BCCappID;
+            return bethelparameter;
+        }
+
+        /*
+            account = "HCTest";password="HCTest12345";appID="Inventec_IEC_001";
+         * Test: http://localhost:52710/api/bethel/GetAuthenticationToken?account=HCTest&password=HCTest12345&appID=Inventec_IEC_001
+         */
+        [System.Web.Http.HttpGet]
+        public async Task<string> GetAuthenticationToken(string account = "HCTest",
+            string password = "HCTest12345",
+            string appID = "Inventec_IEC_001")
+        {
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Clear();
+
+            client.DefaultRequestHeaders.Add("x-locale", "zh_TW");
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Add("x-debug", "1");
+
+            string sentUrl = Constant.BCCSitelogin;
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, new Uri(sentUrl));
+
+            var values = new List<KeyValuePair<string, string>>();
+            values.Add(new KeyValuePair<string, string>("account", account));
+            values.Add(new KeyValuePair<string, string>("password", password));
+            values.Add(new KeyValuePair<string, string>("appID", appID));
+            var content = new FormUrlEncodedContent(values);
+            request.Content = content;
+            HttpResponseMessage response = await client.SendAsync(request);
+            Task<string> readData = response.Content.ReadAsStringAsync();
+            string result = readData.Result;
+            dynamic root = JObject.Parse(result);
+            client.Dispose();
+            string token = "";
+            try
+            { token = root.data.token.Value; }
+            catch
+            {
+                //
+            }
+            return token;
+        }
+
+        // Web Job API，需可排程並可序列上傳不重複的資料，同步過的要排除
+        [System.Web.Http.HttpGet]
+        public async Task<string> PostMeasureRecCollection()
+        {
+            string result = "";
+            MeasureParameter mp = new MeasureParameter();
+            var rec = db.userCard.Select(x => x.CardId);
+            foreach(string cardid in rec)
+            {
+                mp.Identifier = cardid;
+                mp.UserId = cardid;
+                DBContext db2 = new DBContext();
+                var items = db2.measureitemtype.Select(x=>x.Name);
+                foreach (string item in items)
+                {
+                    mp.ItemName = item;
+                    mp.InputTypeCode = 0;
+                    mp.DeviceModel = "D40b";
+                    result = await PostMeasureREC(mp);
+                }
+            }
+            //mp.Identifier = "2CE25FBB"; mp.UserId = Constant.BCCAccount; mp.ItemName = "血壓-收縮壓"; mp.InputTypeCode = 0; mp.DeviceModel = "D40b";
+            
+            return result;
+        }
+
+        [System.Web.Http.HttpGet]
+        public async Task<string> PostMeasureREC(MeasureParameter mp)
+        {
+            measureRecRoot root = new Barcelona.Models.measureRecRoot(mp); //mm.FnGetMeasureRec(mp);
+            if (root.measureRec.Count() == 0)
+                return "";
+            BethelLoginParameter bp = Init();
+            string token = await GetAuthenticationToken(bp.account, bp.password, bp.appID);
+            
+            //MeasureModel mm = new MeasureModel();
+            //IEnumerable<measureRecItem> root = mm.FnGetMeasureRec(mp);
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(root);
+
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Add("x-locale", "zh_TW");
+            client.DefaultRequestHeaders.Add("x-debug", "1");
+            client.DefaultRequestHeaders.Add("x-token", token);
+            string sentUrl = Constant.BCCMeasureRec;
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, new Uri(sentUrl));
+            StringContent content = new StringContent(result, Encoding.UTF8, "application/json");
+            request.Content = content;
+            HttpResponseMessage response = await client.SendAsync(request);
+
+            Task<string> readData = response.Content.ReadAsStringAsync();
+
+            string ret = readData.Result;
+            dynamic retroot = JObject.Parse(ret);
+            client.Dispose();
+
+            string retvalue = "";
+            try
+            { retvalue = retroot.result; }
+            catch
+            {
+                retvalue = ret;
+            }
+
+            return retvalue;
+        }
+
+        private BethelLoginParameter Init2BCC()
+        {
+            bethelparameter.account = Constant.BCCAccount;//"BCCTest";
+            bethelparameter.password = Constant.BCCPassword;//"BCCTest12345";
+            bethelparameter.appID = Constant.BCCappID; //"BCC_TPI_001";
+            return bethelparameter;
+        }
+
+        [System.Web.Http.HttpGet]
+        public string login(string account = "BCCTest",
+            string password = "BCCTest12345",
+            string appID = "BCC_TPI_001")
+        {
+            TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
+            int timestamp = (int)t.TotalSeconds;
+
+            var payload = new Dictionary<string, object>
+            { 
+                {"iat", timestamp},
+                {"jti", Guid.NewGuid().ToString() },
+                {"name", account },
+                {"password", password},
+                {"appID", appID}//,
+                //{ "sharedkey", password }
+            };
+
+            string token = JWT.JsonWebToken.Encode(payload, password, JWT.JwtHashAlgorithm.HS256);
+            return token;
+        }
+
+        [System.Web.Http.HttpGet]
+        public string BCCUserAccount(string userbinding)
+        {
+            string msg = "";
+            string token = "";
+            string password = "";
+            List<ReturnMessage> ret = new List<ReturnMessage>();
+            BethelLoginParameter bp = Init2BCC();
+
+            dynamic usercard = JObject.Parse(userbinding);
+            UserCard uc = new UserCard();
+            try
+            {
+                token = usercard.token.Value;
+                var payload = JWT.JsonWebToken.Decode(token, bp.password);
+                dynamic root = JObject.Parse(payload);
+                password = root.password.Value;
+                if (password == bp.password)
+                {
+                    string userid = usercard.UserId.Value;
+                    string cardid = usercard.CardId.Value;
+                    int IsExist = db.userCard.Where(x => x.UserId == userid && x.CardId == cardid).Count();
+                    if(IsExist>0)
+                    {
+                        msg = "Already Exists Binding: " + userid + " " + cardid;
+                        ret.Add(new ReturnMessage { result = "ERROR", msg = msg, msgCode = "101" });
+                        return Newtonsoft.Json.JsonConvert.SerializeObject(ret);
+                    }
+                    uc.Id = Guid.NewGuid();
+                    uc.UserId = userid;
+                    uc.CardId = cardid;
+                    uc.cdt = DateTime.Now;
+                    if (uc.UserId != null && uc.CardId != null)
+                    {
+                        db.userCard.Add(uc);
+                        db.SaveChanges();
+                    }
+                }
+                else
+                    ret.Add(new ReturnMessage { result = "wrong key", msg = "", msgCode = "103" });
+            }
+            catch(Exception ex)
+            {
+                msg = ex.Message;
+                ret.Add(new ReturnMessage { result = "ERROR", msg = msg, msgCode = "102" });
+            }
+            ret.Add(new ReturnMessage { result = "OK", msg = "", msgCode = "105" });
+            JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
+            var json = jsonSerializer.Serialize(ret);
+            
+            return json;
+        }
+    }
+}

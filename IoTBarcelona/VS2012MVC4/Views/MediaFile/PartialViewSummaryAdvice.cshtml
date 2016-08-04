@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Barcelona.Models.ShareFileGroup>
+<table id="browser" style="table-layout: fixed; font-size: 1em; border: 0px;">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th style="width:100%;">
+                @Html.DisplayNameFor(model => model.FirstOrDefault().SummaryAdvice)
+            </th>
+
+        </tr>
+        <tr>
+            <td style="width:auto;">
+                @Html.DisplayFor(modelItem => item.SummaryAdvice)
+            </td>
+        </tr>
+    }
+</table>

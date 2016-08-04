@@ -1,0 +1,63 @@
+﻿using System;
+using System.Configuration;
+using System.Web.Mvc;
+using System.Collections.Generic;
+
+namespace Controllers.General
+{
+    public class Constant
+    {
+        public static string DefaultErrorMssagePage = "GenericErrorPage.htm";
+        public static string S_SPACE = " ";
+        public static string S_Title = ConfigurationManager.AppSettings["Title"];
+        public static string S_WebSite = ConfigurationManager.AppSettings["WebSite"];
+        public static string RoutesWebSite = ConfigurationManager.AppSettings["RoutesWebSite"];
+        public static string NetworkCredentialUserId = ConfigurationManager.AppSettings["NetworkCredentialUserId"];
+        public static string NetworkCredentialPWD = ConfigurationManager.AppSettings["NetworkCredentialPWD"];
+        public static string FcerlFlowCode = ConfigurationManager.AppSettings["FcerlFlowCode"];
+        public static string AddAttachFcerlFlowCode = ConfigurationManager.AppSettings["AddAttachFcerlFlowCode"];
+        public static string S_FileSite = ConfigurationManager.AppSettings["FileSite"];
+        public static string S_FileSize = ConfigurationManager.AppSettings["FileSize"];
+        public static string S_FileRoot = ConfigurationManager.AppSettings["FileRoot"];
+        public static string S_Service = ConfigurationManager.AppSettings["Service"];
+        public static string DefaultMailServer = ConfigurationManager.AppSettings["MailServer"];
+        public static string DefaultMailFrom = ConfigurationManager.AppSettings["MailFrom"];
+        public static string DefaultMailBcc = ConfigurationManager.AppSettings["MailBcc"];
+        public static string MailTest = ConfigurationManager.AppSettings["MailTest"];
+        public static string EnableSimulationMode = ConfigurationManager.AppSettings["EnableSimulationMode"];
+        public static string NotificationConnectionString = ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
+        public static string NotificationHubName = ConfigurationManager.AppSettings["Microsoft.ServiceBus.NotificationHubPath"];
+        
+        public static string WebRoot = ConfigurationManager.AppSettings["WebRoot"];
+        public static string StorageProjectFiles = ConfigurationManager.AppSettings["StorageProjectFiles"];
+        public static string StorageContainer = ConfigurationManager.AppSettings["StorageContainer"];
+        public static string WebFileDirectory = ConfigurationManager.AppSettings["WebFileDirectory"];
+        public static string UserWebPage = ConfigurationManager.AppSettings["UserWebPage"];
+        public static string UserContactPage = ConfigurationManager.AppSettings["UserContactPage"];
+        public static string ExtTypes = ConfigurationManager.AppSettings["ExtTypes"];
+
+        public static string BCCSitelogin = ConfigurationManager.AppSettings["BCCSitelogin"];
+        public static string BCCMeasureRec = ConfigurationManager.AppSettings["BCCMeasureRec"];
+        public static string BCCAccount = ConfigurationManager.AppSettings["BCCAccount"];
+        public static string BCCPassword = ConfigurationManager.AppSettings["BCCPassword"];
+        public static string BCCappID = ConfigurationManager.AppSettings["BCCappID"];
+
+        public static string S_ConnStr = "ConnStr";
+        public static string DefaultSelect = "-- select one --";
+        public static string DefaultSelectAddNew = "-- add new one --";
+        public static string DefaultSelectone = "-- select one --";
+        public static string LogonUserId = "";
+        public static string ConnDBContext = "DBContext";
+        
+        public static List<SelectListItem> UserRoleList = new List<SelectListItem>();
+        public static int UserRoleId = 2;
+
+        public Constant()
+        {
+            //
+            // TODO: 在此加入建構函式的程式碼
+            //
+        }
+
+    }
+}

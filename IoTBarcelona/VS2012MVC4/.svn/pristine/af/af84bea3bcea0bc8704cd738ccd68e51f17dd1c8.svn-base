@@ -1,0 +1,22 @@
+﻿@model Barcelona.Models.ShareFileGroup
+
+@{
+    ViewBag.Title = "Details";
+}
+<div>
+    <h4>Group & Share Media Files</h4>
+    <table class="dl-horizontal">
+        <tbody>
+            <tr><th style="width:80px;">@Html.DisplayNameFor(model => model.SummaryAdvice)</th><td>@Html.DisplayFor(model => model.SummaryAdvice)</td></tr>
+            <tr><th>@Html.DisplayNameFor(model => model.LimitSize)</th><td>@Html.DisplayFor(model => model.LimitSize)</td></tr>
+            <tr><th>@Html.DisplayNameFor(model => model.UsageSize)</th><td>@Html.DisplayFor(model => model.UsageSize)</td></tr>
+            <tr><th>@Html.DisplayNameFor(model => model.SDate)</th><td>@Html.DisplayFor(model => model.SDate)</td></tr>
+            <tr><th>@Html.DisplayNameFor(model => model.EDate)</th><td>@Html.DisplayFor(model => model.EDate)</td></tr>
+            <tr><th>@Html.DisplayNameFor(model => model.editor)</th><td>@Html.DisplayFor(model => model.editor)</td></tr>
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GroupId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,40 @@
+﻿@model Barcelona.Models.CustMailMessage
+
+@{
+    ViewBag.Title = "Mail & Notification";
+}
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">@ViewBag.Title</li>
+    <li>
+        <table class="jtable" style="table-layout: fixed;">
+            <tr>
+                <th style="width:70px;">@Html.DisplayNameFor(model => model.Sender)</th>
+                <td>@Html.DisplayFor(model => model.Sender)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Receiver)</th>
+                <td>@Html.DisplayFor(model => model.Receiver)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.cdt)</th>
+                <td>@Html.DisplayFor(model => model.cdt)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Subject)</th>
+                <td>@Html.DisplayFor(model => model.Subject)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Body)</th>
+                <td>@Html.DisplayFor(model => model.Body)</td>
+            </tr>
+        </table>
+    </li>
+</ul>
+
+<ul data-role="listview" data-inset="true">
+    <li>@Html.ActionLink("Edit", "Edit", new { id = Model.Id })</li>
+    <li>@Html.ActionLink("Delete", "Delete", new { id = Model.Id })</li>
+    <li>@Html.ActionLink("Back to List", "Index")</li>
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+</ul>

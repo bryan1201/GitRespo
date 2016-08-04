@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Service Center";
+}
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">@ViewBag.Title</li>
+    <li>@Html.ActionLink("Application", "Index", "Application")</li>
+    <li>@Html.ActionLink("Media Management", "Manage", "MediaFile")</li>
+    <li>@Html.ActionLink("Group Media Management", "Index", "ShareFileGroups")</li>
+    <li>@Html.ActionLink("Mail & Notification", "Index", "CustMailMessage")</li>
+    <li style="display:none;">@Html.ActionLink("EventVision", "Index", "SimEventVision")</li>
+    <li><a href="https://app.powerbi.com/dashboards/" target="_new">PowerBI Report</a></li>
+    <li><a href="/API/Bethel/PostMeasureRecCollection" target="_new">Post Measure Record to BCC</a></li>
+</ul>
+<ul data-role="listview" data-inset="true">
+    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    <li>@Html.ActionLink("About", "About", "Home")</li>
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+</ul>

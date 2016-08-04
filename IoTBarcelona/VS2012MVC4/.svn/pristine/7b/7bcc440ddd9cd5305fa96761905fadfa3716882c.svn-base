@@ -1,0 +1,123 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Data.SqlClient;
+
+
+namespace Barcelona.Models
+{
+    public class BethelLoginParameter
+    {
+        public string account { get; set; }
+        public string password { get; set; }
+        public string appID { get; set; }
+    }
+    public class MeasureParameter {
+        public string Identifier { get; set; }
+        public string UserId { get; set; }
+        public string ItemName { get; set; }
+        public int InputTypeCode { get; set; }
+        public string DeviceModel { get; set; }
+    }
+   
+    public class measureRecRoot
+    {
+        private MeasureModel _mm = new MeasureModel();
+        private MeasureParameter _mp = new MeasureParameter();
+        public measureRecRoot(MeasureParameter mp)
+        {
+            _mp = mp;
+        }
+
+        public IEnumerable<measureRecItem> measureRec
+        { 
+            get
+            {
+                return _mm.FnGetMeasureRec(_mp);
+            }
+        }
+    }
+
+    public class MeasureModel
+    {
+        private DBContext db = new DBContext();
+        /*
+           public List<measureRec> FnGetMeasureRec(string Identifier = "2CE25FBB", string UserId = "HCTest", 
+            string ItemName = "血壓-收縮壓", int InputTypeCode = 0, string DeviceModel = "D40b")
+         */
+
+        public IEnumerable<measureRecItem> FnGetMeasureRec(MeasureParameter mp)
+        {
+            SqlParameter pUserId = new SqlParameter
+             {
+                 ParameterName = "UserId",
+                 DbType = DbType.String,
+                 Size = 50,
+                 Direction = ParameterDirection.Input,
+                 Value = mp.UserId
+             };
+
+            SqlParameter pIdentifier = new SqlParameter
+            {
+                ParameterName = "Identifier",
+                DbType = DbType.String,
+                Size = 50,
+                Direction = ParameterDirection.Input,
+                Value = mp.Identifier
+            };
+
+            SqlParameter pItemName = new SqlParameter
+            {
+                ParameterName = "ItemName",
+                DbType = DbType.String,
+                Size = 100,
+                Direction = ParameterDirection.Input,
+                Value = mp.ItemName
+            };
+
+            SqlParameter pInputTypeCode = new SqlParameter
+            {
+                ParameterName = "InputTypeCode",
+                DbType = DbType.Int32,
+                Direction = ParameterDirection.Input,
+                Value = mp.InputTypeCode
+            };
+
+            SqlParameter pDeviceModel = new SqlParameter
+            {
+                ParameterName = "DeviceModel",
+                DbType = DbType.String,
+                Size = 100,
+                Direction = ParameterDirection.Input,
+                Value = mp.DeviceModel
+            };
+
+            IEnumerable<measureRecItem> Result = db.Database.SqlQuery<measureRecItem>("SELECT * FROM FnGetMeasureRec(@Identifier, @UserId, @ItemName, @InputTypeCode, @DeviceModel)", pIdentifier, pUserId, pItemName, pInputTypeCode, pDeviceModel);
+            return Result;
+        }
+    }
+
+    public class measureRecItem
+    {
+        public string Identifier { get; set; } //⽤用⼾戶⾝身份識別碼。RFID卡內碼，讀取之原始值為16進位，需轉換為10進位。轉換方式見Note2
+        public string Type { get; set; } //生理資料類型。參考Note1.[生理量測數值種類統一編碼表]
+        public string MTime { get; set; } //量測時間，輸出的格式yyyyMMddHHmmss
+        public double Values { get; set; } //量測值[dbo].[measureInputType]
+        public string Remark { get; set; } //廠商自行附註之說明文字
+        
+        public string InputType { get; set; }
+        /*
+            說明資料是由儀器自動記錄上傳或用戶手動輸入
+            數值：
+            •Device：儀器輸入，定義為用戶量測後，設備自動記錄並上傳資料。
+            •Manual：手動輸入，定義為用戶自行手動紀錄量測值若沒填寫，自動視為Device(儀器輸入)。若填寫其他非定義之值會被視為錯誤
+        */
+
+        public string DeviceModel { get; set; } //所使用生理量測儀器的型號編碼，由廠商自行提供
+        public string DeviceSN { get; set; }    //所使⽤生理量測儀器的出廠序號，由廠商自行提供
+    }
+
+}

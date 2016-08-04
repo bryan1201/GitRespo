@@ -1,0 +1,111 @@
+﻿@model Barcelona.Models.ShareFileGroup
+@using Barcelona.Models
+@{
+    ViewBag.Title = "Edit";
+    string PartialViewFileSelected = "PartialViewFileSelected";
+    string PartialViewFileList = "PartialViewFileList";
+    string PartialViewFileGroupUsers = "PartialViewFileGroupUsers";
+    string PartialViewFileGroupUsersSelected = "PartialViewFileGroupUsersSelected";
+    IEnumerable<vSharedFile> vsf = new List<vSharedFile>();
+    IEnumerable<vSharedFile> vsfall = new List<vSharedFile>();
+    IEnumerable<vShareFileGroupUsers> vshareFileGroupUsers = new List<vShareFileGroupUsers>();
+    IEnumerable<vShareFileGroupUsers> vshareFileGroupUsersSelected = new List<vShareFileGroupUsers>();
+    if (ViewData["vShareFile"] != null)
+    {
+        vsf = (IEnumerable<vSharedFile>)ViewData["vShareFile"];
+    }
+
+    if (ViewData["vShareFileAll"] != null)
+    {
+        vsfall = (IEnumerable<vSharedFile>)ViewData["vShareFileAll"];
+    }
+
+    if (ViewData["UnShareFileGroupUsers"] != null)
+    {
+        vshareFileGroupUsers = (IEnumerable<vShareFileGroupUsers>)ViewData["UnShareFileGroupUsers"];
+    }
+
+    if (ViewData["ShareFileGroupUsersSelected"] != null)
+    {
+        vshareFileGroupUsersSelected = (IEnumerable<vShareFileGroupUsers>)ViewData["ShareFileGroupUsersSelected"];
+    }
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.GroupId)
+    @Html.HiddenFor(model => model.cdt)
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">ShareFileGroup</li>
+        <li>
+            <table style="table-layout:fixed;">
+                <tr class="form-group">
+                    <th width="80px;">@Html.LabelFor(model => model.LimitSize, htmlAttributes: new { @class = "control-label col-md-2" })</th>
+                    <td class="col-md-10">
+                        @Html.EditorFor(model => model.LimitSize, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LimitSize, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <th>@Html.LabelFor(model => model.UsageSize, htmlAttributes: new { @class = "control-label col-md-2" })</th>
+                    <td class="col-md-10">
+                        @Html.EditorFor(model => model.UsageSize, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UsageSize, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <th>@Html.LabelFor(model => model.SDate, htmlAttributes: new { @class = "control-label col-md-2" })</th>
+                    <td class="col-md-10">
+                        @Html.EditorFor(model => model.SDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SDate, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <th>@Html.LabelFor(model => model.EDate, htmlAttributes: new { @class = "control-label col-md-2" })</th>
+                    <td class="col-md-10">
+                        @Html.EditorFor(model => model.EDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EDate, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <th style="word-break:break-all;word-wrap:break-word;">@Html.DisplayNameFor(model => model.SummaryAdvice)</th>
+                    <td class="col-md-10">
+                        @Html.TextAreaFor(model => model.SummaryAdvice, new { cols = 10, @rows = 3, style = "width: 99%" })
+                        @Html.ValidationMessageFor(model => model.SummaryAdvice, "", new { @class = "text-danger" })
+                    </td>
+                </tr>
+                <tr class="form-group">
+                    <td class="col-md-offset-2 col-md-10" colspan="2"><input type="submit" value="Save" class="btn btn-default" /></td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">User & Group</li>
+        <li>
+            <table style="table-layout:fixed;">
+                <tr>
+                    <td style="width:50%; vertical-align:top;">@Html.Partial(PartialViewFileGroupUsersSelected, vshareFileGroupUsersSelected)</td>
+                    <td style="width:50%;vertical-align:top;">@Html.Partial(PartialViewFileGroupUsers, vshareFileGroupUsers)</td>
+                </tr>
+            </table>
+        </li>
+        <li data-role="list-divider">Media & Group</li>
+        <li>
+            <table style="table-layout:fixed;">
+                <tr>
+                    <td style="width:50%; vertical-align:top;">@Html.Partial(PartialViewFileSelected, vsf)</td>
+                    <td style="width:50%;vertical-align:top;">@Html.Partial(PartialViewFileList, vsfall)</td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+}
+<ul data-role="listview" data-inset="true">
+    <li>@Html.ActionLink("Back to List", "Index")</li>
+</ul>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

@@ -1,0 +1,107 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Web.Http;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using Controllers.General;
+using Barcelona.Models;
+using System.Web;
+using System.Web.Mvc;
+using System.Net.Http.Headers;
+
+namespace VS2012MVC4.Controllers.APIs
+{
+    public class BethelController : ApiController
+    {
+        private DBContext db = new DBContext();
+
+        /*
+            account = "HCTest";password="HCTest12345";appID="Inventec_IEC_001";
+         * Test: http://localhost:52710/api/bethel/GetAuthenticationToken?account=HCTest&password=HCTest12345&appID=Inventec_IEC_001
+         */
+        public async Task<string> GetAuthenticationToken(string account = "HCTest",
+            string password = "HCTest12345", 
+            string appID = "Inventec_IEC_001")
+        {
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Clear();
+
+            client.DefaultRequestHeaders.Add("x-locale", "zh_TW");
+            //client.DefaultRequestHeaders.Add("Content-Type", "application/json;charset=UTF-8");
+            client.DefaultRequestHeaders.Add("x-debug", "1");
+
+            string sentUrl = Constant.BCCSitelogin;
+	        HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, new Uri(sentUrl));
+
+	        var values = new List<KeyValuePair<string, string>>();
+            values.Add(new KeyValuePair<string, string>("account", account));
+            values.Add(new KeyValuePair<string, string>("password", password));
+            values.Add(new KeyValuePair<string, string>("appID", appID));
+	        var content = new FormUrlEncodedContent(values);
+	        request.Content = content;
+            HttpResponseMessage response = await client.SendAsync(request);
+	        Task<string> readData = response.Content.ReadAsStringAsync();
+	        string result = readData.Result;
+	        dynamic root = JObject.Parse(result);
+	        client.Dispose();
+            string token = "";
+            try
+            { token = root.data.token.Value; }
+            catch { 
+            //
+            }
+            return token;
+        }
+
+        /*
+            public List<measureRec> FnGetMeasureRec(string Identifier = "2CE25FBB", string UserId = "HCTest", 
+            string ItemName = "血壓-收縮壓", int InputTypeCode = 0, string DeviceModel = "D40b")
+        */
+        [System.Web.Http.HttpGet]
+        public async Task<string> PostMeasureREC()
+        {
+            BethelLoginParameter bp = new BethelLoginParameter();
+            bp.account = "HCTest"; bp.password = "HCTest12345"; bp.appID = "Inventec_IEC_001";
+
+            string token = await GetAuthenticationToken(bp.account, bp.password, bp.appID);
+            MeasureParameter mp = new MeasureParameter();
+            mp.Identifier = "2CE25FBB";mp.UserId="HCTest";mp.ItemName="血壓-收縮壓";mp.InputTypeCode=0;mp.DeviceModel="D40b";
+            //measureRecRoot root = new Barcelona.Models.measureRecRoot(mp); //mm.FnGetMeasureRec(mp);
+            MeasureModel mm = new MeasureModel();
+            IEnumerable<measureRecItem> root = mm.FnGetMeasureRec(mp);
+            string result = Newtonsoft.Json.JsonConvert.SerializeObject(root);
+
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Add("x-locale", "zh_TW");
+            client.DefaultRequestHeaders.Add("x-debug", "1");
+            client.DefaultRequestHeaders.Add("x-token", token);
+            string sentUrl = Constant.BCCMeasureRec;
+            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, new Uri(sentUrl));
+            var values = new List<KeyValuePair<string, string>>();
+            values.Add(new KeyValuePair<string, string>("measureRec", result));
+            var content = new FormUrlEncodedContent(values);
+            request.Content = content;
+            HttpResponseMessage response = await client.SendAsync(request);
+            Task<string> readData = response.Content.ReadAsStringAsync();
+
+            string ret = readData.Result;
+            dynamic retroot = JObject.Parse(ret);
+            client.Dispose();
+
+            string retvalue = "";
+            try
+            { retvalue = retroot.result; }
+            catch
+            {
+                retvalue = ret;
+            }
+
+            return retvalue;
+        }
+
+    }
+
+
+}

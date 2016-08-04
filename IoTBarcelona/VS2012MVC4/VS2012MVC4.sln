@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VS2012MVC4", "VS2012MVC4\VS2012MVC4.csproj", "{3A68F85A-0CF8-424E-8705-2284BB3C6BD5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC5", "MVC5\MVC5.csproj", "{EF36AE2F-FB2D-4D57-B866-E1502BCD993C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBlobStorage01", "DataBlobStorage01\DataBlobStorage01.csproj", "{85C81265-CA86-4C3D-93B9-7AC54FCD20AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppServicesSvcBusTopic01", "AppServicesSvcBusTopic01\AppServicesSvcBusTopic01.csproj", "{23BEC2DE-8D5F-4914-A2E2-82B0003F71DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataDocumentDB01", "DataDocumentDB01\DataDocumentDB01.csproj", "{4DD1A6EE-38A2-4963-868A-574FB8D000FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEMSFieldGateway", "MEMSFieldGateway\MEMSFieldGateway.csproj", "{90FCC013-CCA5-4C31-A3D9-144C44199155}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendToNotificationHub", "..\..\..\..\MS Cloud Open Lab\Notification\SendToNotificationHub\SendToNotificationHub\SendToNotificationHub.csproj", "{BB64E0F6-3F39-4D2B-8A5D-993D01CB9232}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A68F85A-0CF8-424E-8705-2284BB3C6BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A68F85A-0CF8-424E-8705-2284BB3C6BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A68F85A-0CF8-424E-8705-2284BB3C6BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A68F85A-0CF8-424E-8705-2284BB3C6BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF36AE2F-FB2D-4D57-B866-E1502BCD993C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF36AE2F-FB2D-4D57-B866-E1502BCD993C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF36AE2F-FB2D-4D57-B866-E1502BCD993C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF36AE2F-FB2D-4D57-B866-E1502BCD993C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C81265-CA86-4C3D-93B9-7AC54FCD20AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C81265-CA86-4C3D-93B9-7AC54FCD20AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C81265-CA86-4C3D-93B9-7AC54FCD20AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C81265-CA86-4C3D-93B9-7AC54FCD20AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23BEC2DE-8D5F-4914-A2E2-82B0003F71DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23BEC2DE-8D5F-4914-A2E2-82B0003F71DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23BEC2DE-8D5F-4914-A2E2-82B0003F71DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23BEC2DE-8D5F-4914-A2E2-82B0003F71DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD1A6EE-38A2-4963-868A-574FB8D000FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD1A6EE-38A2-4963-868A-574FB8D000FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD1A6EE-38A2-4963-868A-574FB8D000FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD1A6EE-38A2-4963-868A-574FB8D000FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90FCC013-CCA5-4C31-A3D9-144C44199155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90FCC013-CCA5-4C31-A3D9-144C44199155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90FCC013-CCA5-4C31-A3D9-144C44199155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90FCC013-CCA5-4C31-A3D9-144C44199155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB64E0F6-3F39-4D2B-8A5D-993D01CB9232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB64E0F6-3F39-4D2B-8A5D-993D01CB9232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB64E0F6-3F39-4D2B-8A5D-993D01CB9232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB64E0F6-3F39-4D2B-8A5D-993D01CB9232}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35;packages\Unity.Interception.2.1.505.0\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\TransientFaultHandling.Core.5.1.1209.0\lib\NET4;packages\EnterpriseLibrary.WindowsAzure.TransientFaultHandling.5.1.1212.0\lib\NET4;packages\EnterpriseLibrary.WindowsAzure.TransientFaultHandling.5.1.1212.0\DesignTime
+	EndGlobalSection
+EndGlobal

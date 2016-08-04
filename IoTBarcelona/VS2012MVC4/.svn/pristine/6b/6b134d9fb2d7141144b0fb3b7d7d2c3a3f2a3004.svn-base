@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Barcelona.Models.vSharedFile>
+<h3>Selected Media</h3>
+<table id="browser" class="jtable" style="table-layout: fixed; font-size: 1em; border: 0px; vertical-align:top;">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width:20px; vertical-align:top;">
+                @Html.ActionLink(" ", "UnSelectFile", "ShareFileGroups", new { fileId = item.fileId, GroupId=item.GroupId,SLId=item.SLId, record = true }, new { style = "background: url('" + Url.Content("~/Images/Update.gif") + "') no-repeat top left;background-size: 1.2em auto;height:1.2em;width:auto;display:block;text-indent:-9999px;" })
+            </td>
+            <td style="vertical-align:top;">
+                <a href="@Html.ValueFor(modelItem=>item.filePath)" target="_blank">@Html.DisplayFor(modelItem => item.displayname)</a>
+            </td>
+        </tr>
+    }
+</table>

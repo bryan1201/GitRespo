@@ -1,0 +1,61 @@
+﻿@model Barcelona.Models.EventVision
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>tempSimEventVision</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AdultQty)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AdultQty)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Area)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Area)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.X)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.X)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Y)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Y)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cdt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cdt)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IPCamID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IPCamID)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
