@@ -290,8 +290,8 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>echo copy /Y $(ProjectDir)..\..\AppConnectionStrings.localdev.config $(ProjectDir).
-copy /Y $(ProjectDir)..\..\AppConnectionStrings.localdev.config $(ProjectDir).</PreBuildEvent>
+    <PreBuildEvent>echo copy /Y $(ProjectDir)..\Config\AppConnectionStrings.localdev.config $(ProjectDir).
+echo copy /Y $(ProjectDir)..\Config\AppConnectionStrings.localdev.config $(ProjectDir).</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,9 +1,9 @@
 setlocal
 
-set SQLSERVER=(server hostname)
-set SQLUSER=(sql user account)
-set SQLPASS=(sql user account password)
-set SQLDB=(db name)
+set SQLSERVER=avatar.database.windows.net
+set SQLUSER=avatardbo
+set SQLPASS=Avatar+123
+set SQLDB=Avatar
 
 bcp "%SQLDB%.dbo.Stores" in Data_Stores.txt -S %SQLSERVER% -U %SQLUSER%@%SQLSERVER% -P "%SQLPASS%" -c
 bcp "%SQLDB%.dbo.Beacons" in Data_Beacons.txt -S %SQLSERVER% -U %SQLUSER%@%SQLSERVER% -P "%SQLPASS%" -c
