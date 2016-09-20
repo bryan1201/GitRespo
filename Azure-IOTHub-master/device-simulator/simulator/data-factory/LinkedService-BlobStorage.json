@@ -1,0 +1,11 @@
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "description": "",
+        "hubName": "sks-df-refdata_hub",
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=michistorageea;AccountKey=**********"
+        }
+    }
+}

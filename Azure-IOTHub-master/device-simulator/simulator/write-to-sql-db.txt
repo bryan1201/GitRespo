@@ -1,0 +1,8 @@
+SELECT
+    SeqNo, DeviceId, [Timestamp],Message
+INTO
+    [iothub-output-sql]
+FROM
+    [input-iothub];
+    
+select * into [iothub-output-blob] from [input-iothub] ;

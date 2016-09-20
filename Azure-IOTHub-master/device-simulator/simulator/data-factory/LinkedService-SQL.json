@@ -1,0 +1,11 @@
+{
+    "name": "AzureSqlLinkedService",
+  "properties": {
+    "description": "",
+    "hubName": "sks-df-refdata_hub",
+    "type": "AzureSqlDatabase",
+    "typeProperties": {
+      "connectionString": "Data Source=michisksdemo.database.windows.net;Initial Catalog=sks-demo;Integrated Security=False;User ID=user;Password=**********;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+    }
+  }
+}

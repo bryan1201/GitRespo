@@ -1,0 +1,119 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "web_field_gateway"
+  },
+  "host": "foo.azurewebsites.net:80",
+  "schemes": [ "http" ],
+  "paths": {
+    "/api/FieldGateway/Register": {
+      "post": {
+        "tags": [ "FieldGateway" ],
+        "operationId": "FieldGateway_RegisterByDeviceid",
+        "consumes": [ ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/FieldGateway/Unregister": {
+      "post": {
+        "tags": [ "FieldGateway" ],
+        "operationId": "FieldGateway_UnregisterByDeviceid",
+        "consumes": [ ],
+        "produces": [ ],
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "deprecated": false
+      }
+    },
+    "/api/FieldGateway/SendTelemetry": {
+      "post": {
+        "tags": [ "FieldGateway" ],
+        "operationId": "FieldGateway_SendTelemetryByTelemetry",
+        "consumes": [ "application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded" ],
+        "produces": [ ],
+        "parameters": [
+          {
+            "name": "telemetry",
+            "in": "body",
+            "required": true,
+            "schema": { "$ref": "#/definitions/TelemetryData" }
+          }
+        ],
+        "responses": { "204": { "description": "No Content" } },
+        "deprecated": false
+      }
+    },
+    "/api/FieldGateway/ReceiveCommand": {
+      "post": {
+        "tags": [ "FieldGateway" ],
+        "operationId": "FieldGateway_ReceiveCommandByDeviceid",
+        "consumes": [ ],
+        "produces": [ "application/json", "text/json", "application/xml", "text/xml" ],
+        "parameters": [
+          {
+            "name": "deviceId",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": { "type": "string" }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "TelemetryData": {
+      "type": "object",
+      "properties": {
+        "SeqNo": { "type": "string" },
+        "Timestamp": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "Type": {
+          "format": "int32",
+          "enum": [ 0, 1, 2 ],
+          "type": "integer"
+        },
+        "DeviceId": { "type": "string" },
+        "UID": { "type": "string" },
+        "DCorAC": {
+          "format": "int32",
+          "enum": [ 0, 1 ],
+          "type": "integer"
+        },
+        "ADSLor3G": { "type": "string" },
+        "Message": { "type": "string" }
+      }
+    }
+  }
+}

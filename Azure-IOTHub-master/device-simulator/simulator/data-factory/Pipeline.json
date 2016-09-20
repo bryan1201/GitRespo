@@ -1,0 +1,50 @@
+{
+  "name": "PipelineTemplate",
+  "properties": {
+    "description": "Copy data from SQL server to Storage blob",
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "SqlSource",
+            "sqlReaderQuery": "select * from AlertRule"
+          },
+          "sink": {
+            "type": "BlobSink",
+            "blobWriterAddHeader": true,
+            "writeBatchSize": 0,
+            "writeBatchTimeout": "00:00:00"
+          }
+        },
+        "inputs": [
+          {
+            "name": "AzureSQLDatasetTemplate"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobDatasetTemplate"
+          }
+        ],
+        "policy": {
+          "timeout": "01:00:00",
+          "concurrency": 1,
+          "retry": 3,
+          "style": "StartOfInterval"
+        },
+        "scheduler": {
+          "frequency": "Hour",
+          "interval": 1,
+          "style": "StartOfInterval"
+        },
+        "name": "CopyActivityTemplate"
+      }
+    ],
+    "start": "2016-03-09T11:00:00Z",
+    "end": "2016-03-09T20:00:00Z",
+    "isPaused": false,
+    "hubName": "sks-df-refdata_hub",
+    "pipelineMode": "Scheduled"
+  }
+}

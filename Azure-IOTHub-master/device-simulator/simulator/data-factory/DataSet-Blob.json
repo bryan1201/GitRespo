@@ -1,0 +1,70 @@
+{
+  "name": "AzureBlobDatasetTemplate",
+  "properties": {
+    "structure": [
+      {
+        "name": "RuleId",
+        "type": "String"
+      },
+      {
+        "name": "DeviceId",
+        "type": "String"
+      },
+      {
+        "name": "Type",
+        "type": "Int32"
+      }
+    ],
+    "published": false,
+    "type": "AzureBlob",
+    "linkedServiceName": "AzureStorageLinkedService",
+    "typeProperties": {
+      "fileName": "rule.csv",
+      "folderPath": "sksdemorefdata/{Year}/{Month}/{Day}/{Hour}",
+      "format": {
+        "type": "TextFormat",
+        "rowDelimiter": "\n",
+        "columnDelimiter": ","
+      },
+      "partitionedBy": [
+        {
+          "name": "Year",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "yyyy"
+          }
+        },
+        {
+          "name": "Month",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "MM"
+          }
+        },
+        {
+          "name": "Day",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "dd"
+          }
+        },
+        {
+          "name": "Hour",
+          "value": {
+            "type": "DateTime",
+            "date": "SliceStart",
+            "format": "HH"
+          }
+        }
+      ]
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1,
+      "style": "StartOfInterval"
+    }
+  }
+}

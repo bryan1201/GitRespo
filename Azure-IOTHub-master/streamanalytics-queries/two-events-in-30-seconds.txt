@@ -1,0 +1,15 @@
+    SELECT
+        deviceId, COUNT(*) counts, System.Timestamp eventTime
+    into 
+        [iothub-blob-output]
+    FROM
+        [iothub-source]
+    TIMESTAMP BY 
+        time
+    WHERE
+        temperature >= 55 
+    Group By
+         deviceId, TumblingWindow(second, 30)
+         Having COUNT(*) > 1;
+
+    select * into [iothub-blob-raw-output]  from [iothub-source] TIMESTAMP BY time;

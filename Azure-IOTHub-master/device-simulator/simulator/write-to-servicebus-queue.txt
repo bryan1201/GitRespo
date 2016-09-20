@@ -1,0 +1,18 @@
+	SELECT
+        DeviceId, COUNT(*), System.Timestamp time
+    into 
+        [iothub-output-queue]
+    FROM
+        [iothub-input] Timestamp by [Timestamp]
+    WHERE
+        Type = 1
+    Group By TumblingWindow(second, 60),DeviceId 
+    HAVING COUNT(*) >= 1;
+        
+	SELECT
+        *
+    into 
+        [iothub-raw-output]
+    FROM
+        [iothub-input] Timestamp by [Timestamp]
+    
