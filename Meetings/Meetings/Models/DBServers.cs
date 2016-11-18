@@ -145,6 +145,12 @@ namespace Meetings.Models
     class SqlServerMeetingDateMemberLog : IMeetingDateMemberLog
     {
         MeetingDateMemberLog m = new MeetingDateMemberLog();
+
+        public void BulkInsertLog(Guid activateid, string UserCodes, out string message)
+        {
+            m.BulkInsertLog(activateid, UserCodes, out message);
+        }
+
         public void Insert(MeetingDateMemberLog mdml)
         {
             m.Insert(mdml);
@@ -186,6 +192,10 @@ namespace Meetings.Models
         UserProfile m = new UserProfile();
         public void Insert(UserProfile up)
         {
+            up.uniqueId = (up.uniqueId == null) ? Guid.NewGuid() : up.uniqueId;
+            up.cdt = DateTime.Now;
+            up.udt = DateTime.Now;
+            up.Enable = true;
             m.Insert(up);
         }
 

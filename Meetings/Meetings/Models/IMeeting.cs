@@ -53,6 +53,6 @@ namespace Meetings.Models
         IEnumerable<vMeetingDateAttendStatus> GetReport(Guid activateId);
         vMeetingDateMemberLog GetMeetingDateMemberLog(Guid logId);
         void Login(Guid activateId, string UserCode, out string RetRslt);
-
+        void BulkInsertLog(Guid activateid, string UserCodes, out string message);
     }
 }

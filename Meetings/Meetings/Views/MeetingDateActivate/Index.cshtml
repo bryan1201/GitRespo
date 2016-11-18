@@ -60,7 +60,7 @@
                                     @Html.DisplayFor(modelitem => item.ActivateEDT)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.ActivateId }) | @Html.ActionLink("Details", "Details", new { id = item.ActivateId })
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ActivateId }) &nbsp;|&nbsp; @Html.ActionLink("Details", "Details", new { id = item.ActivateId })&nbsp;|&nbsp; @Html.ActionLink("BulkInsertUser", "BulkInsertUser", "MeetingDateMemberLog", new { id = item.ActivateId }, null)
                                 </td>
                             </tr>
                         }

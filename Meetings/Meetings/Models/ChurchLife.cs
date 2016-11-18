@@ -655,6 +655,56 @@ namespace Meetings.Models
                 return true;
         }
 
+        public void BulkInsertLog(Guid activateid, string UserCodes, out string message)
+        {
+            try
+            {
+                message = Constant.SUCCESSFUL;
+                StringBuilder rslt = new StringBuilder();
+                UserCodes = UserCodes.Trim();
+                string[] stringSeparators = new string[] { "\r\n" };
+                string[] lines = UserCodes.Split(stringSeparators, StringSplitOptions.None);
+                if (lines.Count() > 0)
+                {
+                    foreach (string item in lines)
+                    {
+                        string usercode = item.Trim();
+                        UserProfile up = new UserProfile();
+                        up = up.Get(usercode);
+                        MeetingDateMemberLog mdml = new MeetingDateMemberLog();
+                        IMeetingDateActivate imda = DataAccess.CreateMeetingDateActivate();
+                        vMeetingDateActivate vmda = imda.GetCurrent(activateid);
+                        if (!ChkMeetingDateMember(vmda.meetingDateId, usercode))
+                        {
+                            message = Constant.NOTMEETINGDATEMEMBER;
+                            return;
+                        }
+
+                        if (ChkLogin(activateid, usercode))
+                        {
+                            mdml.LogId = Guid.NewGuid();
+                            mdml.ActivateId = activateid;
+                            mdml.UserProfileId = up.uniqueId;
+                            mdml.UserCode = usercode;
+                            mdml.LoginTime = DateTime.Now;
+                            Insert(mdml);
+                            message = Constant.SUCCESSFUL;
+                        }
+                        else
+                        {
+                            message = Constant.DOUBLELOGIN;
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                string rslt = string.Empty;
+                rslt = Constant.FAIL + " " + ex.Message;
+                message = rslt;
+            }
+        }
+
         public void Login(Guid activateid, string usercode, out string message)
         {
             try

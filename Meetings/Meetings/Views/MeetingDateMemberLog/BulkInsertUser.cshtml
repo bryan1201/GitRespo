@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Meetings.Models.vMeetingDateMemberLog>
+@using Meetings.Models;
+@using Meetings.Controllers.General;
+@using System.Text;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string Title = Constant.GetAppSettings("HomeIndexName");
+    string MeetingName = string.Empty;
+    string ActivateId = ((Guid)ViewBag.ActivateId).ToString();
+    ViewBag.Title = Title + "BulkInsertUser";
+    IEnumerable<vMeetingDateMemberLog> vmdmls = (IEnumerable<vMeetingDateMemberLog>)ViewData["vMeetingDateMemberLogs"];
+    string PartialMeetingDateMemberLogs = "PartialMeetingDateMemberLogs";
+    string ReturnResult = (string)ViewBag.ReturnResult;
+    IMeetingDateActivate imda = DataAccess.CreateMeetingDateActivate();
+    vMeetingDateActivate vmda = imda.GetCurrent(Guid.Parse(ActivateId));
+    MeetingName = vmda.MeetingName;
+    string MeetingDateDescription = vmda.Description;
+    string ActivateDesc = vmda.ActivateDesc;
+    StringBuilder sb = new StringBuilder();
+    sb.Append(MeetingName);
+    sb.Append(".");
+    sb.Append(MeetingDateDescription);
+    sb.Append(".");
+    sb.Append(ActivateDesc);
+}
+
+<script type="text/javascript">
+    $(document).on("click", ".open-AddBookDialog", function () {
+        var ItemId = $(this).data('id');
+        $(".modal-title #ItemId").val(ItemId);
+        ItemId = $(".modal-title #ItemId");
+        $(".modal-body #ItemContent").val($("#" + ItemId.val()).val());
+    });
+
+    $('#myModal').on('hidden.bs.modal', function () {
+        alert('Close event!');
+        var ItemId = $(".modal-title #ItemId");
+        $("#" + ItemId.val()).val($(".modal-body #ItemContent").val());
+    });
+
+    function setTextValue() {
+        var ItemId = $(".modal-title #ItemId");
+        $("#" + ItemId.val()).val($(".modal-body #ItemContent").val());
+    }
+
+</script>
+<div class="row">
+    <div class="col-md-12">
+        <h2>
+            BulkInsert Attended Users
+            @Html.ActionLink(sb.ToString(), "DetailList", new { id = ActivateId })
+        </h2>
+        <p>
+            @using (Html.BeginForm("BulkInsertUser", "MeetingDateMemberLog", FormMethod.Post, new { enctype = "multipart/form-data", name = "bulkinsertuser", id = "bulkinsertuser" }))
+            {
+                @Html.HiddenFor(model => model.FirstOrDefault().ActivateId, new { id = "id", name = "id" })
+                <table class="table table-bordered table-striped table-condensed">
+                    <tr>
+                        <th class="editor-label" style="width:15%">
+                            @Html.DisplayNameFor(model => model.UserCode)
+                        </th>
+                        <th>
+                            <input type="submit" value="匯入" style="width:90%" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            @Html.TextArea("UserCodes", "", new { @class = "form-control", @rows = 5, style = "resize: none;" })
+                            <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnDOCNUM" data-id="Docnum" data-toggle="modal" data-target="#myModal">Edit</button>
+                        </td>
+                    </tr>
+                </table>
+            }
+        </p>
+    </div>
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped table-condensed">
+            <tr>
+                <td style="vertical-align: top;">
+                    @if (ViewData["vMeetingDateMemberLogs"] != null)
+                    {
+                        @Html.Partial(PartialMeetingDateMemberLogs, vmdmls)
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -163,6 +163,7 @@
     <Compile Include="Controllers\MeetingDateActivateController.cs" />
     <Compile Include="Controllers\MeetingDateController.cs" />
     <Compile Include="Controllers\MeetingDateMemberController.cs" />
+    <Compile Include="Controllers\MeetingDateMemberLogController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -264,6 +265,8 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Sound\bower.json" />
     <Content Include="Sound\package.json" />
+    <Content Include="Views\MeetingDateMemberLog\BulkInsertUser.cshtml" />
+    <Content Include="Views\MeetingDateMemberLog\PartialMeetingDateMemberLogs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -41,7 +41,6 @@ namespace Meetings.Controllers
         public ActionResult Create()
         {
             UserProfile up = new UserProfile();
-            up.uniqueId = Guid.NewGuid();
             return View(up);
         }
 
@@ -51,8 +50,6 @@ namespace Meetings.Controllers
         {
             try
             {
-                up.cdt = DateTime.Now;
-                up.udt = DateTime.Now;
                 iup.Insert(up);
                 RouteValueDictionary rv = new RouteValueDictionary();
                 rv.Add("id", up.uniqueId);
