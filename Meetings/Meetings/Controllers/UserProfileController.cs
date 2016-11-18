@@ -42,8 +42,6 @@ namespace Meetings.Controllers
         {
             UserProfile up = new UserProfile();
             up.uniqueId = Guid.NewGuid();
-            up.cdt = DateTime.Now;
-            up.udt = DateTime.Now;
             return View(up);
         }
 
@@ -53,8 +51,12 @@ namespace Meetings.Controllers
         {
             try
             {
+                up.cdt = DateTime.Now;
+                up.udt = DateTime.Now;
                 iup.Insert(up);
-                return RedirectToAction("Index");
+                RouteValueDictionary rv = new RouteValueDictionary();
+                rv.Add("id", up.uniqueId);
+                return RedirectToAction("Details", rv);
             }
             catch
             {
