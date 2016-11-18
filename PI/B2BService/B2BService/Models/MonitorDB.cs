@@ -50,6 +50,44 @@ namespace B2BService.Models
         }
     }
 
+    public class DBParameter
+    {
+        [Key]
+        public string Name { get; set; }
+        public string value { get; set; }
+    }
+
+    public abstract class absDBMonitor
+    {
+        [Key]
+        public Guid Id { get; set; }
+        public string Type { get; set; }
+        public string Name { get; set; }
+        public decimal NameValue { get; set; }
+        public decimal Percent { get; set; }
+        public decimal MaxValue { get; set; }
+        public decimal MaxPercent { get; set; }
+        public DateTime Cdt { get; set; }
+    }
+
+    public class DBSession : absDBMonitor
+    {
+        private string _Type = "SESSION";
+        public DBSession()
+        {
+            this.Type = this._Type;
+        }
+    }
+
+    public class DBProcess : absDBMonitor
+    {
+        private string _Type = "PROCESS";
+        public DBProcess()
+        {
+            this.Type = this._Type;
+        }
+    }
+
     public class MONITOR_DB: absDBMonitor
     {
         private string config = string.Empty;
@@ -441,41 +479,5 @@ namespace B2BService.Models
         }
     }
 
-    public class DBParameter
-    {
-        [Key]
-        public string Name { get; set; }
-        public string value { get; set; }
-    }
-
-    public abstract class absDBMonitor
-    {
-        [Key]
-        public Guid Id { get; set; }
-        public string Type { get; set; }
-        public string Name { get; set; }
-        public decimal NameValue { get; set; }
-        public decimal Percent { get; set; }
-        public decimal MaxValue { get; set; }
-        public decimal MaxPercent { get; set; }
-        public DateTime Cdt { get; set; }
-    }
-
-    public class DBSession : absDBMonitor
-    {
-        private string _Type = "SESSION";
-        public DBSession()
-        {
-            this.Type = this._Type;
-        }
-    }
-
-    public class DBProcess : absDBMonitor
-    {
-        private string _Type = "PROCESS";
-        public DBProcess()
-        {
-            this.Type = this._Type;
-        }
-    }
+ 
 }

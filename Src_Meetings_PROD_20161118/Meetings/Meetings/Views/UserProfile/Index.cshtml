@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Meetings.Models.UserProfile>
+@using Meetings.Models;
+@using Meetings.Controllers.General;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+    @Html.ActionLink("Create User", "Create")
+</p>
+<div class="row">
+    <div class="col-md-4" style="width:100%">
+        <p>
+            @using (Html.BeginForm("Index", "UserProfile", FormMethod.Post, new { enctype = "multipart/form-data", name = "UserProfile", id = "UserProfile" }))
+            {
+                <table class="table table-bordered table-striped table-condensed">
+                    <tr>
+                        <th style="width:80%">
+                            Condition
+                        </th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td style="width:80%">
+                            @Html.TextBox("condition","", new {@style="width:100%" })
+                        </td>
+                        <td><input type="submit" value="搜尋" style="width:50%" /></td>
+                    </tr>
+                </table>
+            }
+        </p>
+    </div>
+    <div class="col-md-4" style="width:100%">
+        <table class="table table-bordered table-striped table-condensed">
+            <tr>
+                <th style="width:25%">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().UserCode)
+                </th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().UserName)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Sex)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().cdt)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().udt)</th>
+                <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Enable)</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                if (item != null)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(item.UserCode, "Details", "UserProfile", new { id = item.uniqueId.ToString() }, "")
+                        </td>
+                        <td>@Html.DisplayFor(modelitem => item.UserName)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Sex)</td>
+                        <td>@Html.DisplayFor(modelitem => item.cdt)</td>
+                        <td>@Html.DisplayFor(modelitem => item.udt)</td>
+                        <td>@Html.DisplayFor(modelitem => item.Enable)</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>

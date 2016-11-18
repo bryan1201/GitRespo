@@ -1,0 +1,18 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Login";
+}
+<div class="jumbotron">
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+    <p>Switch to maintenance mode.</p>
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { enctype = "multipart/form-data", name = "Login", id = "Login" }))
+    {
+        <h3><span class="label">User &raquo;&nbsp;</span>@Html.TextBox("User")</h3>
+        <h3><span class="label">PWD &raquo;&nbsp;</span>@Html.TextBox("Password")</h3>
+        <p>
+            <input type="submit" value="Login" class="btn btn-primary btn-lg" />
+        </p>
+    }
+</div>

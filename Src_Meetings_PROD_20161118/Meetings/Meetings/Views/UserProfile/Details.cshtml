@@ -1,0 +1,62 @@
+﻿@model Meetings.Models.UserProfile
+
+@{
+    ViewBag.Title = "Display UserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>UserProfile</legend>
+        @Html.HiddenFor(model => model.uniqueId)
+        <table class="table table-bordered table-striped table-condensed">
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.UserCode)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.UserCode)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.UserName)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.UserName)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.Sex)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.Sex)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.UserCodeOld)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.UserCodeOld)</td>
+            </tr>
+
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.Enable)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.Enable)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.cdt)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.cdt)</td>
+            </tr>
+            <tr>
+                <th class="display-label">@Html.LabelFor(model => model.udt)</th>
+                <td class="display-field">@Html.DisplayFor(model => model.udt)</td>
+            </tr>
+        </table>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new {id=Model.uniqueId })
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
