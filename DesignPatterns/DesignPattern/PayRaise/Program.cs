@@ -10,8 +10,11 @@ namespace PayRaise
     {
         static void Main(string[] args)
         {
-            //Run1();
-            Run2();
+            string a = args[0].ToString();
+            if (a == "1")
+                Run1();
+            else
+                Run2();
         }
 
         static void Run1()
