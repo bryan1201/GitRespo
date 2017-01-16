@@ -17,7 +17,7 @@ namespace Persons
              */
             try
             {
-                string rslt = string.Format("{0}{1}時，悶頭喝酒，誰也勤不動。", concreteElementA.GetType().Name, this.GetType().Name);
+                string rslt = string.Format("{0} {1}時，悶頭喝酒，誰也勸不動。", concreteElementA.GetType().Name, this.GetType().Name);
                 Console.WriteLine(rslt);
             }
             catch (Exception ex)
@@ -36,7 +36,7 @@ namespace Persons
 
             try
             {
-                string rslt = string.Format("{0}{1}時，眼淚汪汪，誰也勤不動。", concreteElementB.GetType().Name, this.GetType().Name);
+                string rslt = string.Format("{0} {1}時，眼淚汪汪，誰也勸不動。", concreteElementB.GetType().Name, this.GetType().Name);
                 Console.WriteLine(rslt);
             }
             catch (Exception ex)

@@ -17,7 +17,7 @@ namespace Persons
              */
             try
             {
-                string rslt = string.Format("{0}{1}時，背後多半有一個偉大的女人。", concreteElementA.GetType().Name, this.GetType().Name);
+                string rslt = string.Format("{0} {1}時，背後多半有一個偉大的女人。", concreteElementA.GetType().Name, this.GetType().Name);
                 Console.WriteLine(rslt);
             }
             catch (Exception ex)
@@ -36,7 +36,7 @@ namespace Persons
 
             try
             {
-                string rslt = string.Format("{0}{1}時，背後大多有一個不成功的男人。", concreteElementB.GetType().Name, this.GetType().Name);
+                string rslt = string.Format("{0} {1}時，背後大多有一個不成功的男人。", concreteElementB.GetType().Name, this.GetType().Name);
                 Console.WriteLine(rslt);
             }
             catch (Exception ex)
