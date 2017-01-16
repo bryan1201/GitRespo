@@ -1,29 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <DirectedGraph GraphDirection="LeftToRight" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
   <Nodes>
-    <Node Id="@10" Category="CodeSchema_Class" Bounds="142.785000000002,189,84.8099999999977,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Success" Icon="Microsoft.VisualStudio.Class.Internal" Label="Success" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Success.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=17)" />
-    <Node Id="@11" Category="CodeSchema_Class" Bounds="390.16,-7.105427357601E-15,85.6033333333326,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Woman" Icon="Microsoft.VisualStudio.Class.Internal" Label="Woman" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Woman.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=15)" />
-    <Node Id="@3" Category="CodeSchema_Class" Bounds="6.1933333333327,189,77.6166666666686,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="Action" Icon="Microsoft.VisualStudio.Class.Internal" Label="Action" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Action.cs StartLineNumber=8 StartCharacterOffset=19 EndLineNumber=8 EndCharacterOffset=25)" />
-    <Node Id="@4" Category="CodeSchema_Class" Bounds="128.995000000001,246,112.389999999999,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Amativeness" Icon="Microsoft.VisualStudio.Class.Internal" Label="Amativeness" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Amativeness.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=21)" />
-    <Node Id="@5" Category="CodeSchema_Class" Bounds="146.136666666667,132,78.1066666666666,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Failing" Icon="Microsoft.VisualStudio.Class.Internal" Label="Failing" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Failing.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=17)" />
-    <Node Id="@6" Category="CodeSchema_Class" Bounds="399.735000000001,88,66.4533333333311,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Man" Icon="Microsoft.VisualStudio.Class.Internal" Label="Man" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Man.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=13)" />
-    <Node Id="@7" Category="CodeSchema_Class" Bounds="120.003333333334,44,130.373333333333,26" CodeSchemaProperty_IsInternal="True" CommonLabel="ObjectStructure" Icon="Microsoft.VisualStudio.Class.Internal" Label="ObjectStructure" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/ObjectStructure.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=25)" />
-    <Node Id="@8" Category="CodeSchema_Class" Bounds="280.376666666667,44,79.7833333333328,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="Person" Icon="Microsoft.VisualStudio.Class.Internal" Label="Person" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Person.cs StartLineNumber=8 StartCharacterOffset=19 EndLineNumber=8 EndCharacterOffset=25)" />
-    <Node Id="@9" Category="CodeSchema_Class" Bounds="0,88,90.003333333334,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Program" Icon="Microsoft.VisualStudio.Class.Internal" Label="Program" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Program.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=17)" />
+    <Node Id="@10" Category="CodeSchema_Class" Bounds="507.166666666668,158,84.8099999999977,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Success" Icon="Microsoft.VisualStudio.Class.Internal" Label="Success" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Success.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=17)" />
+    <Node Id="@11" Category="CodeSchema_Class" Bounds="270.156666666666,57,85.6033333333326,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Woman" Icon="Microsoft.VisualStudio.Class.Internal" Label="Woman" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Woman.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=15)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="385.759999999998,101,77.6166666666686,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="Action" Icon="Microsoft.VisualStudio.Class.Internal" Label="Action" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Action.cs StartLineNumber=8 StartCharacterOffset=19 EndLineNumber=8 EndCharacterOffset=25)" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="493.376666666667,101,112.389999999999,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Amativeness" Icon="Microsoft.VisualStudio.Class.Internal" Label="Amativeness" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Amativeness.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=21)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="510.518333333333,44,78.1066666666666,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Failing" Icon="Microsoft.VisualStudio.Class.Internal" Label="Failing" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Failing.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=17)" />
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="279.731666666667,0,66.4533333333311,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Man" Icon="Microsoft.VisualStudio.Class.Internal" Label="Man" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Man.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=13)" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="0,101,130.373333333333,26" CodeSchemaProperty_IsInternal="True" CommonLabel="ObjectStructure" Icon="Microsoft.VisualStudio.Class.Internal" Label="ObjectStructure" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/ObjectStructure.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=25)" />
+    <Node Id="@8" Category="CodeSchema_Class" Bounds="160.373333333333,57,79.7833333333328,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="Person" Icon="Microsoft.VisualStudio.Class.Internal" Label="Person" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Person.cs StartLineNumber=8 StartCharacterOffset=19 EndLineNumber=8 EndCharacterOffset=25)" />
   </Nodes>
   <Links>
-    <Link Source="@3" Target="@10" Bounds="83.8099975585938,202,49.9750061035156,0" />
-    <Link Source="@3" Target="@4" Bounds="76.9744415283203,215,67.9055938720703,27.6101379394531" />
-    <Link Source="@3" Target="@5" Bounds="76.9744415283203,161.389862060547,67.9055938720703,27.6101379394531" />
-    <Link Source="@7" Target="@8" Bounds="250.376663208008,57,21.0000152587891,0" />
-    <Link Source="@8" Target="@11" Bounds="353.564086914063,29.2733097076416,37.7181701660156,14.7266902923584" />
-    <Link Source="@8" Target="@6" Bounds="353.564086914063,70,39.0813598632813,15.2589263916016" />
-    <Link Source="@9" Target="@10" Bounds="63.0457077026367,114,96.7980270385742,69.7390441894531" />
-    <Link Source="@9" Target="@11" Bounds="58.6975479125977,13,322.462455749512,75" />
-    <Link Source="@9" Target="@4" Bounds="55.4823036193848,114,108.484233856201,125.996353149414" />
-    <Link Source="@9" Target="@5" Bounds="86.4209442138672,114,51.9050598144531,16.2911071777344" />
-    <Link Source="@9" Target="@6" Bounds="90.0033340454102,101,300.731651306152,0" />
-    <Link Source="@9" Target="@7" Bounds="86.4209442138672,72.6951370239258,48.7628021240234,15.3048629760742" />
+    <Link Source="@11" Target="@3" Bounds="345.934020996094,83,37.2857971191406,14.6991729736328" />
+    <Link Source="@3" Target="@10" Bounds="453.077850341797,127,59.7954406738281,27.2659912109375" />
+    <Link Source="@3" Target="@4" Bounds="463.376678466797,114,21,0" />
+    <Link Source="@3" Target="@5" Bounds="453.077850341797,73.734016418457,59.7954406738281,27.265983581543" />
+    <Link Source="@6" Target="@3" Bounds="327.323974609375,26,76.2054748535156,68.9611358642578" />
+    <Link Source="@7" Target="@3" Bounds="130.373336791992,114,246.386672973633,0" />
+    <Link Source="@7" Target="@8" Bounds="105.096176147461,85.3254852294922,48.1201629638672,15.6745147705078" />
+    <Link Source="@8" Target="@11" Bounds="240.156661987305,70,21.0000152587891,0" />
+    <Link Source="@8" Target="@6" Bounds="225.966995239258,30.0621280670166,53.2582244873047,26.9378719329834" />
   </Links>
   <Categories>
     <Category Id="CodeSchema_Class" Label="類別" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類別" />
@@ -58,11 +54,11 @@
     <Alias n="6" Id="(@1 @2 Type=Man)" />
     <Alias n="7" Id="(@1 @2 Type=ObjectStructure)" />
     <Alias n="8" Id="(@1 @2 Type=Person)" />
-    <Alias n="9" Id="(@1 @2 Type=Program)" />
     <Alias n="10" Id="(@1 @2 Type=Success)" />
     <Alias n="11" Id="(@1 @2 Type=Woman)" />
   </IdentifierAliases>
   <Paths>
+    <Path Id="334a8046-b356-4ee1-ae53-d162daa82425.OutputPath" Value="D:\GitRespo\DesignPatterns\DesignPattern\Persons\bin\Debug\Persons.exe" />
     <Path Id="334a8046-b356-4ee1-ae53-d162daa82425.OutputPathUri" Value="file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/bin/Debug/Persons.exe" />
   </Paths>
 </DirectedGraph>

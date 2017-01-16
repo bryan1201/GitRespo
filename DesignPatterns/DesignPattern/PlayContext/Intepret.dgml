@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 Type=Note)" Category="CodeSchema_Class" Bounds="269.948333333334,57,69.3499999999985,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Note" Icon="Microsoft.VisualStudio.Class.Internal" Label="Note" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/PlayContext/Note.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=14)" />
+    <Node Id="(@1 @2 Type=PlayContext)" Category="CodeSchema_Class" Bounds="0,1.4210854715202E-14,108.343333333334,26" CodeSchemaProperty_IsInternal="True" CommonLabel="PlayContext" Icon="Microsoft.VisualStudio.Class.Internal" Label="PlayContext" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/PlayContext/PlayContext.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=21)" />
+    <Node Id="(@1 @2 Type=Scale)" Category="CodeSchema_Class" Bounds="269.486666666668,0,70.2733333333308,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Scale" Icon="Microsoft.VisualStudio.Class.Internal" Label="Scale" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/PlayContext/Scale.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=15)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="138.343333333334,1.4210854715202E-14,101.143333333333,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="Expression" Icon="Microsoft.VisualStudio.Class.Internal" Label="Expression" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/PlayContext/Expression.cs StartLineNumber=8 StartCharacterOffset=19 EndLineNumber=8 EndCharacterOffset=29)" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @2 Type=PlayContext)" Target="@3" Bounds="108.343330383301,13,21.0000076293945,0" />
+    <Link Source="@3" Target="(@1 @2 Type=Note)" Bounds="215.304626464844,26,54.8555297851563,27.0228271484375" />
+    <Link Source="@3" Target="(@1 @2 Type=Scale)" Bounds="239.486663818359,13,21,0" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="類別" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類別" />
+    <Category Id="CodeSchema_Type" Label="類型" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類型" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="為抽象" Description="用來表示成員為「抽象」的旗標不提供完整實作" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="為外部" Description="表示方法為「內部」的旗標" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Icon" Label="圖示" Description="圖示" DataType="System.String" />
+    <Property Id="Label" Label="標籤" Description="可註釋物件的可顯示標籤" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="開始行號" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="組件" ValueType="Uri" />
+    <Name Id="Namespace" Label="命名空間" ValueType="System.String" />
+    <Name Id="Type" Label="類型" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(dd668784-64e8-4cad-89a6-7382093ef935.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=PlayContext" />
+    <Alias n="3" Id="(@1 @2 Type=Expression)" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="dd668784-64e8-4cad-89a6-7382093ef935.OutputPathUri" Value="file:///D:/GitRespo/DesignPatterns/DesignPattern/PlayContext/bin/Debug/PlayContext.exe" />
+  </Paths>
+</DirectedGraph>
