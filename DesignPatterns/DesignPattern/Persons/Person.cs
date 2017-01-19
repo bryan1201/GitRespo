@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Persons
 {
-    abstract class Person
+    interface IPerson
     {
         //public string Action { get; set; }
-        public abstract void Accept(Action visitor);
+        void Accept(IAction visitor);
     }
 }

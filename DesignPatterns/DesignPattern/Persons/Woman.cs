@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Persons
 {
-    class Woman:Person
+    class Woman : IPerson
     {
-        public override void Accept(Action visitor)
+        public void Accept(IAction visitor)
         {
             try
             {
