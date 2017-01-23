@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="TopToBottom" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 @9 Member=(Name=Attach OverloadingParameters=[@7]))" Category="CodeSchema_Method" Bounds="540.275,56,160.966666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Attach" Icon="Microsoft.VisualStudio.Method.Public" Label="Attach(IPerson) : void" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/ObjectStructure.cs StartLineNumber=12 StartCharacterOffset=20 EndLineNumber=12 EndCharacterOffset=26)" />
+    <Node Id="(@1 @2 @9 Member=(Name=Display OverloadingParameters=[@6]))" Category="CodeSchema_Method" Bounds="732.225,56,163.066666666667,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Display" Icon="Microsoft.VisualStudio.Method.Public" Label="Display(IAction) : void" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/ObjectStructure.cs StartLineNumber=22 StartCharacterOffset=20 EndLineNumber=22 EndCharacterOffset=27)" />
+    <Node Id="(@1 @2 Type=IAction Member=(Name=GetManConclusion OverloadingParameters=[@8]))" Category="CodeSchema_Method" Bounds="0,280,215.516666666667,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GetManConclusion" Icon="Microsoft.VisualStudio.Method.Public" Label="GetManConclusion(Man) : void" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Action.cs StartLineNumber=10 StartCharacterOffset=13 EndLineNumber=10 EndCharacterOffset=29)" />
+    <Node Id="(@1 @2 Type=IAction Member=(Name=GetWomanConclusion OverloadingParameters=[@11]))" Category="CodeSchema_Method" Bounds="245.85,280,253.816666666667,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="GetWomanConclusion" Icon="Microsoft.VisualStudio.Method.Public" Label="GetWomanConclusion(Woman) : void" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Action.cs StartLineNumber=11 StartCharacterOffset=13 EndLineNumber=11 EndCharacterOffset=31)" />
+    <Node Id="(@1 @2 Type=Man Member=(Name=Accept OverloadingParameters=[@6]))" Category="CodeSchema_Method" Bounds="337.313333333334,224,160.89,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Accept" Icon="Microsoft.VisualStudio.Method.Public" Label="Accept(IAction) : void" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Man.cs StartLineNumber=10 StartCharacterOffset=20 EndLineNumber=10 EndCharacterOffset=26)" />
+    <Node Id="(@1 @2 Type=Success)" Category="CodeSchema_Class" Bounds="638.353333333334,280,84.8099999999999,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Success" Icon="Microsoft.VisualStudio.Class.Internal" Label="Success" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Success.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=17)" />
+    <Node Id="(@1 @2 Type=Woman Member=(Name=Accept OverloadingParameters=[@6]))" Category="CodeSchema_Method" Bounds="146.313333333334,224,160.89,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Accept" Icon="Microsoft.VisualStudio.Method.Public" Label="Accept(IAction) : void" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Woman.cs StartLineNumber=10 StartCharacterOffset=20 EndLineNumber=10 EndCharacterOffset=26)" />
+    <Node Id="@10" Category="CodeSchema_Class" Bounds="555.571666666667,0,130.373333333333,26" CodeSchemaProperty_IsInternal="True" CommonLabel="ObjectStructure" Icon="Microsoft.VisualStudio.Class.Internal" Label="ObjectStructure" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/ObjectStructure.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=25)" />
+    <Node Id="@11" Category="CodeSchema_Class" Bounds="267.956666666667,168,85.6033333333326,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Woman" Icon="Microsoft.VisualStudio.Class.Internal" Label="Woman" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Woman.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=15)" />
+    <Node Id="@12" Category="CodeSchema_Method" Bounds="481.313333333334,168,160.89,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Accept" Icon="Microsoft.VisualStudio.Method.Public" Label="Accept(IAction) : void" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Person.cs StartLineNumber=11 StartCharacterOffset=13 EndLineNumber=11 EndCharacterOffset=19)" />
+    <Node Id="@13" Category="CodeSchema_Field" Bounds="325.905,56.0000000000001,183.706666666667,26" CodeSchemaProperty_IsPrivate="True" CommonLabel="elements" Icon="Microsoft.VisualStudio.Field.Private" Label="elements : IList&lt;IPerson&gt;" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/ObjectStructure.cs StartLineNumber=10 StartCharacterOffset=31 EndLineNumber=10 EndCharacterOffset=39)" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="753.563333333334,280,112.39,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Amativeness" Icon="Microsoft.VisualStudio.Class.Internal" Label="Amativeness" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Amativeness.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=21)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="529.705,280,78.1066666666667,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Failing" Icon="Microsoft.VisualStudio.Class.Internal" Label="Failing" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Failing.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=17)" />
+    <Node Id="@6" Category="CodeSchema_Interface" Bounds="528.245,224,81.0266666666666,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="IAction" Icon="Microsoft.VisualStudio.Interface.Internal" Label="IAction" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Action.cs StartLineNumber=8 StartCharacterOffset=14 EndLineNumber=8 EndCharacterOffset=21)" />
+    <Node Id="@7" Category="CodeSchema_Interface" Bounds="376.161666666667,112,83.1933333333334,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="IPerson" Icon="Microsoft.VisualStudio.Interface.Internal" Label="IPerson" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Person.cs StartLineNumber=8 StartCharacterOffset=14 EndLineNumber=8 EndCharacterOffset=21)" />
+    <Node Id="@8" Category="CodeSchema_Class" Bounds="384.531666666668,168,66.4533333333312,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Man" Icon="Microsoft.VisualStudio.Class.Internal" Label="Man" SourceLocation="(Assembly=file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/Man.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=13)" />
+  </Nodes>
+  <Links>
+    <Link Source="@10" Target="(@1 @2 @9 Member=(Name=Attach OverloadingParameters=[@7]))" Category="Contains" Bounds="620.758361816406,26,0,21" />
+    <Link Source="@10" Target="(@1 @2 @9 Member=(Name=Display OverloadingParameters=[@6]))" Category="Contains" Bounds="665.561889648438,26,94.7493896484375,27.4920425415039" />
+    <Link Source="@10" Target="@13" Category="Contains" Bounds="473.559265136719,26,100.074096679688,27.6066398620605" />
+    <Link Source="@11" Target="(@1 @2 Type=Woman Member=(Name=Accept OverloadingParameters=[@6]))" Category="Contains" Bounds="253.746780395508,194,37.5115509033203,25.0077056884766" />
+    <Link Source="@12" Target="@6" Bounds="563.383361816406,194,2.6336669921875,21.0695037841797" />
+    <Link Source="@13" Target="@7" Bounds="417.758331298828,82,0,21" />
+    <Link Source="@6" Target="(@1 @2 Type=IAction Member=(Name=GetManConclusion OverloadingParameters=[@8]))" Category="Contains" Bounds="224.018173217773,248.119445800781,304.443496704102,32.4033813476563" />
+    <Link Source="@6" Target="(@1 @2 Type=IAction Member=(Name=GetWomanConclusion OverloadingParameters=[@11]))" Category="Contains" Bounds="426.912048339844,248.465942382813,101.715515136719,29.0615539550781" />
+    <Link Source="@6" Target="(@1 @2 Type=Success)" Bounds="594.758361816406,250,51.9501342773438,25.9750671386719" />
+    <Link Source="@6" Target="@4" Bounds="609.271667480469,246.413879394531,137.168823242188,31.8732604980469" />
+    <Link Source="@6" Target="@5" Bounds="568.758361816406,250,0,21" />
+    <Link Source="@7" Target="@11" Bounds="343.571563720703,138,49.3474731445313,25.8267211914063" />
+    <Link Source="@7" Target="@12" Category="Contains" Bounds="451.186889648438,138,68.7548217773438,26.7379760742188" />
+    <Link Source="@7" Target="@8" Bounds="417.758331298828,138,0,21" />
+    <Link Source="@8" Target="(@1 @2 Type=Man Member=(Name=Accept OverloadingParameters=[@6]))" Category="Contains" Bounds="417.758331298828,194,0,21" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="類別" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類別" />
+    <Category Id="CodeSchema_Field" Label="欄位" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="欄位" />
+    <Category Id="CodeSchema_Interface" Label="介面" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Interface" NavigationActionLabel="介面" />
+    <Category Id="CodeSchema_Member" Label="成員" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="成員" />
+    <Category Id="CodeSchema_Method" Label="方法" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="方法" />
+    <Category Id="CodeSchema_Type" Label="類型" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類型" />
+    <Category Id="Contains" Label="包含" Description="連結的來源是否包含目標物件" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="由下列包含" IsContainment="True" OutgoingActionLabel="包含" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="為抽象" Description="用來表示成員為「抽象」的旗標不提供完整實作" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="為外部" Description="表示方法為「內部」的旗標" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="為私用" Description="表示範圍為「私用」的旗標" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="為公用" Description="表示範圍為「公用」的旗標" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="圖示" Description="圖示" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="標籤" Description="可註釋物件的可顯示標籤" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="開始行號" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="組件" ValueType="Uri" />
+    <Name Id="Member" Label="成員" ValueType="System.Object" />
+    <Name Id="Name" Label="名稱" ValueType="System.String" />
+    <Name Id="Namespace" Label="命名空間" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="參數" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="Type" Label="類型" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(334a8046-b356-4ee1-ae53-d162daa82425.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=Persons" />
+    <Alias n="4" Id="(@1 @2 Type=Amativeness)" />
+    <Alias n="5" Id="(@1 @2 Type=Failing)" />
+    <Alias n="6" Id="(@1 @2 Type=IAction)" />
+    <Alias n="7" Id="(@1 @2 Type=IPerson)" />
+    <Alias n="8" Id="(@1 @2 Type=Man)" />
+    <Alias n="9" Id="Type=ObjectStructure" />
+    <Alias n="10" Id="(@1 @2 @9)" />
+    <Alias n="11" Id="(@1 @2 Type=Woman)" />
+    <Alias n="12" Id="(@1 @2 Type=IPerson Member=(Name=Accept OverloadingParameters=[@6]))" />
+    <Alias n="13" Id="(@1 @2 @9 Member=elements)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="CommonLabel" ValueLabel="ObjectStructure">
+      <Condition Expression="CommonLabel = 'ObjectStructure'" />
+      <Setter Property="Stroke" Value="#FF4F9E63" />
+      <Setter Property="Background" Value="#FFBC8F8F" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="CommonLabel" ValueLabel="Man">
+      <Condition Expression="CommonLabel = 'Man'" />
+      <Setter Property="Stroke" />
+      <Setter Property="Background" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="CommonLabel" ValueLabel="Amativeness">
+      <Condition Expression="CommonLabel = 'Amativeness'" />
+      <Setter Property="Stroke" />
+      <Setter Property="Background" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="CommonLabel" ValueLabel="Action">
+      <Condition Expression="CommonLabel = 'Action'" />
+      <Setter Property="Stroke" />
+      <Setter Property="Background" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="CommonLabel" ValueLabel="Woman">
+      <Condition Expression="CommonLabel = 'Woman'" />
+      <Setter Property="Stroke" />
+      <Setter Property="Background" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="CommonLabel" ValueLabel="Person">
+      <Condition Expression="CommonLabel = 'Person'" />
+      <Setter Property="Stroke" />
+      <Setter Property="Background" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="CommonLabel" ValueLabel="Failing">
+      <Condition Expression="CommonLabel = 'Failing'" />
+      <Setter Property="Stroke" />
+      <Setter Property="Background" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="CommonLabel" ValueLabel="Success">
+      <Condition Expression="CommonLabel = 'Success'" />
+      <Setter Property="Stroke" />
+      <Setter Property="Background" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="類別" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Class')" />
+      <Setter Property="Background" Value="#FFB9FF00" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="為外部" ValueLabel="True">
+      <Condition Expression="CodeSchemaProperty_IsInternal = 'True'" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="為抽象" ValueLabel="True">
+      <Condition Expression="CodeSchemaProperty_IsAbstract = 'True'" />
+      <Setter Property="Background" Value="#FF008CFF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="為抽象" ValueLabel="False">
+      <Condition Expression="CodeSchemaProperty_IsAbstract = 'False'" />
+      <Setter Property="Background" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="334a8046-b356-4ee1-ae53-d162daa82425.OutputPath" Value="D:\GitRespo\DesignPatterns\DesignPattern\Persons\bin\Debug\Persons.exe" />
+    <Path Id="334a8046-b356-4ee1-ae53-d162daa82425.OutputPathUri" Value="file:///D:/GitRespo/DesignPatterns/DesignPattern/Persons/bin/Debug/Persons.exe" />
+  </Paths>
+</DirectedGraph>

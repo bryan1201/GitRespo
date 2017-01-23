@@ -929,6 +929,10 @@ namespace Meetings.Models
 
         public void Insert(UserProfile up)
         {
+            up.uniqueId = (up.uniqueId == Guid.Empty) ? Guid.NewGuid() : up.uniqueId;
+            up.cdt = DateTime.Now;
+            up.udt = DateTime.Now;
+            up.Enable = true;
             _db.UserProfile.Add(up);
             _db.SaveChanges();
         }

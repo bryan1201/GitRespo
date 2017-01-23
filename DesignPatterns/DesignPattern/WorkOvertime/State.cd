@@ -1,70 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access">
   <Class Name="WorkOvertime.State">
-    <Position X="9.75" Y="2" Width="1.5" />
+    <Position X="4.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>State.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WorkOvertime.ForenoonState" Collapsed="true">
-    <Position X="5.5" Y="4" Width="1.5" />
+    <Position X="0.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TimeState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WorkOvertime.NoonState" Collapsed="true">
-    <Position X="7" Y="5" Width="1.5" />
+    <Position X="2" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TimeState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WorkOvertime.AfternoonState" Collapsed="true">
-    <Position X="8.5" Y="4" Width="1.5" />
+    <Position X="3.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TimeState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WorkOvertime.EveningState" Collapsed="true">
-    <Position X="9.75" Y="5" Width="1.5" />
+    <Position X="4.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TimeState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WorkOvertime.SleepingState" Collapsed="true">
-    <Position X="12.75" Y="5" Width="1.5" />
+    <Position X="7.75" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TimeState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WorkOvertime.RestState" Collapsed="true">
-    <Position X="11.5" Y="4" Width="1.5" />
+    <Position X="6.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TimeState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WorkOvertime.Work" Collapsed="true">
-    <Position X="14" Y="2.25" Width="1.5" />
+    <Position X="9" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAQAIAAAAAAAAAAAAABAgAAAAAIAAAAACAAAAAA=</HashCode>
       <FileName>Work.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="WorkOvertime.Program" Collapsed="true">
-    <Position X="12" Y="2.25" Width="1.5" />
+    <Position X="7" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="System.Object" Collapsed="true">
-    <Position X="12" Y="0.75" Width="1.5" />
+    <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
   <Font Name="Microsoft JhengHei UI" Size="9" />
