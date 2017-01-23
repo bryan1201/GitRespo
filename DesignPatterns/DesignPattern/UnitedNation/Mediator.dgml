@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="BottomToTop" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="339.321666666667,-32.99995234375,106.226666666667,44" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="Country" Group="Expanded" Icon="Microsoft.VisualStudio.Struct.Friend" Label="Country" SourceLocation="(Assembly=file:///D:/SVN/GitRespo/DesignPatterns/DesignPattern/UnitedNation/UnitedNations.cs StartLineNumber=13 StartCharacterOffset=19 EndLineNumber=13 EndCharacterOffset=26)" UseManualLocation="True" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="386.536666666667,226.4,70.1966666666667,26" CodeSchemaProperty_IsInternal="True" CommonLabel="IRAQ" Icon="Microsoft.VisualStudio.Module.Internal" Label="IRAQ" SourceLocation="(Assembly=file:///D:/SVN/GitRespo/DesignPatterns/DesignPattern/UnitedNation/IRAQ.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=14)" UseManualLocation="True" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="17.6849316406255,-32.8,143.05,44" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="UnitedNations" Group="Expanded" Icon="Microsoft.VisualStudio.Struct.Friend" Label="UnitedNations" SourceLocation="(Assembly=file:///D:/SVN/GitRespo/DesignPatterns/DesignPattern/UnitedNation/UnitedNations.cs StartLineNumber=8 StartCharacterOffset=19 EndLineNumber=8 EndCharacterOffset=32)" UseManualLocation="True" />
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="-10.4,232.8,210.47,26" CodeSchemaProperty_IsInternal="True" CommonLabel="UnitedNationsSecurityCouncil" Icon="Microsoft.VisualStudio.Module.Internal" Label="UnitedNationsSecurityCouncil" SourceLocation="(Assembly=file:///D:/SVN/GitRespo/DesignPatterns/DesignPattern/UnitedNation/UnitedNationsSecurityCouncil.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=38)" UseManualLocation="True" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="325.534931640625,167.00014765625,65.05,26" CodeSchemaProperty_IsInternal="True" CommonLabel="USA" Icon="Microsoft.VisualStudio.Module.Internal" Label="USA" SourceLocation="(Assembly=file:///D:/SVN/GitRespo/DesignPatterns/DesignPattern/UnitedNation/USA.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=13)" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source="@3" Target="@5" Bounds="169.734929683876,-10.9649284074316,169.586736982791,0.111828701077034" />
+    <Link Source="@4" Target="@3" Bounds="396.042952570651,19.9394706613638,24.0760726999342,206.460529338636" />
+    <Link Source="@6" Target="@4" Bounds="200.07,240.26358106161,177.468392041525,3.47551318563575" />
+    <Link Source="@6" Target="@5" Bounds="89.8894521369194,20.1978382855434,4.66056778251993,212.602161714457" />
+    <Link Source="@6" Target="@7" Bounds="146.84004240422,190.313230678286,169.963556938006,42.4867693217145" />
+    <Link Source="@7" Target="@3" Bounds="360.399594754267,19.8577375899574,26.4818207141881,147.142410066293" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="Is Internal" Description="Flag to indicate the method is 'Internal'" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(40594070-abd8-49c3-9e1a-25396cf043ce.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=UnitedNation" />
+    <Alias n="3" Id="(@1 @2 Type=Country)" />
+    <Alias n="4" Id="(@1 @2 Type=IRAQ)" />
+    <Alias n="5" Id="(@1 @2 Type=UnitedNations)" />
+    <Alias n="6" Id="(@1 @2 Type=UnitedNationsSecurityCouncil)" />
+    <Alias n="7" Id="(@1 @2 Type=USA)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Is Internal" ValueLabel="True">
+      <Condition Expression="CodeSchemaProperty_IsInternal = 'True'" />
+      <Setter Property="Stroke" Value="#FF741C1C" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Class" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Class')" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Is Abstract" ValueLabel="True">
+      <Condition Expression="CodeSchemaProperty_IsAbstract = 'True'" />
+      <Setter Property="Background" Value="#FFFF9F00" />
+      <Setter Property="Foreground" Value="#FF0023FF" />
+      <Setter Property="Icon" Value="Microsoft.VisualStudio.Struct.Friend" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Is Abstract" ValueLabel="False">
+      <Condition Expression="CodeSchemaProperty_IsAbstract = 'False'" />
+      <Setter Property="Background" />
+      <Setter Property="Foreground" />
+      <Setter Property="Icon" Value="Microsoft.VisualStudio.Module.Internal" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="40594070-abd8-49c3-9e1a-25396cf043ce.OutputPathUri" Value="file:///D:/SVN/GitRespo/DesignPatterns/DesignPattern/UnitedNation/bin/Debug/UnitedNation.exe" />
+  </Paths>
+</DirectedGraph>

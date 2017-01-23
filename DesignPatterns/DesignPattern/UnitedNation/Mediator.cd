@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UnitedNation.IRAQ">
+    <Position X="4.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRAQ.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitedNation.UnitedNations">
+    <Position X="7" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UnitedNations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitedNation.Country">
+    <Position X="3.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>UnitedNations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitedNation.UnitedNationsSecurityCouncil">
+    <Position X="6.75" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAIAEAAAAAAAAAAAAAAAAAAAAAAAAgAQAAAA=</HashCode>
+      <FileName>UnitedNationsSecurityCouncil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitedNation.USA">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>USA.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Microsoft JhengHei UI" Size="9" />
+</ClassDiagram>
