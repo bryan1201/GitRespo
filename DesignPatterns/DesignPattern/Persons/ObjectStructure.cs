@@ -8,21 +8,21 @@ namespace Persons
 {
     class ObjectStructure
     {
-        private IList<Person> elements = new List<Person>();
+        private IList<IPerson> elements = new List<IPerson>();
 
-        public void Attach(Person element)
+        public void Attach(IPerson element)
         {
             elements.Add(element);
         }
 
-        public void Detach(Person element)
+        public void Detach(IPerson element)
         {
             elements.Remove(element);
         }
 
-        public void Display(Action visitor)
+        public void Display(IAction visitor)
         {
-            foreach(Person e in elements)
+            foreach(IPerson e in elements)
             {
                 e.Accept(visitor);
             }

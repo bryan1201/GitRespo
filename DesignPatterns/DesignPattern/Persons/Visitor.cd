@@ -1,32 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="Persons.Action">
-    <Position X="10" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Action.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Persons.Amativeness">
-    <Position X="6.25" Y="3.75" Width="2.5" />
+    <Position X="6.25" Y="1.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Amativeness.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Persons.Failing">
-    <Position X="9.5" Y="3.75" Width="2.5" />
+    <Position X="9.5" Y="1.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Failing.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Persons.Man">
-    <Position X="1.75" Y="3.5" Width="1.5" />
+    <Position X="1.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Man.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Persons.ObjectStructure">
     <Position X="16" Y="1.75" Width="1.5" />
@@ -35,26 +31,21 @@
       <FileName>ObjectStructure.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Persons.Person">
-    <Position X="2.75" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Person.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Persons.Success">
-    <Position X="12.75" Y="3.75" Width="2.5" />
+    <Position X="12.75" Y="1.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Success.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Persons.Woman">
-    <Position X="4" Y="3.5" Width="1.5" />
+    <Position X="4" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Woman.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Persons.Program">
     <Position X="18.25" Y="1.75" Width="1.5" />
@@ -67,5 +58,19 @@
     <Position X="10" Y="0.5" Width="1.5" />
     <TypeIdentifier />
   </Class>
+  <Interface Name="Persons.IPerson" Collapsed="true">
+    <Position X="22.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Person.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Persons.IAction" Collapsed="true">
+    <Position X="20.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Action.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Font Name="Microsoft JhengHei UI" Size="9" />
 </ClassDiagram>

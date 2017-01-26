@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Persons
 {
-    class Amativeness : Action
+    class Amativeness : IAction
     {
-        public override void GetManConclusion(Man concreteElementA)
+        public void GetManConclusion(Man concreteElementA)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace Persons
             }
         }
 
-        public override void GetWomanConclusion(Woman concreteElementB)
+        public void GetWomanConclusion(Woman concreteElementB)
         {
             /*
               string succ = string.Format("{0}{1}時，背後大多有一個不成功的男人。", this.GetType().Name, Action);

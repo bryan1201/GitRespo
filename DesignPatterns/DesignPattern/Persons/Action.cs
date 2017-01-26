@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Persons
 {
-    abstract class Action
+    interface IAction
     {
-        public abstract void GetManConclusion(Man concreteElementA);
-        public abstract void GetWomanConclusion(Woman concreteElementB);
+        void GetManConclusion(Man concreteElementA);
+        void GetWomanConclusion(Woman concreteElementB);
     }
 }

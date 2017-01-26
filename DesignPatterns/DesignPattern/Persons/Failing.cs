@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Persons
 {
-    class Failing: Action
+    class Failing: IAction
     {
-        public override void GetManConclusion(Man concreteElementA)
+        public void GetManConclusion(Man concreteElementA)
         {
             /*
              string succ = string.Format("{0}{1}時，背後多半有一個偉大的女人。", this.GetType().Name, Action);
@@ -26,7 +26,7 @@ namespace Persons
             }
         }
 
-        public override void GetWomanConclusion(Woman concreteElementB)
+        public void GetWomanConclusion(Woman concreteElementB)
         {
             /*
               string succ = string.Format("{0}{1}時，背後大多有一個不成功的男人。", this.GetType().Name, Action);

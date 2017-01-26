@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Persons
 {
-    class Man:Person
+    class Man : IPerson
     {
-        public override void Accept(Action visitor)
+        public void Accept(IAction visitor)
         {
             try
             {
                 visitor.GetManConclusion(this);
-                
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new NotImplementedException(ex.Message);
             }
