@@ -19,7 +19,7 @@ namespace BossIsComing
         // 關閉股票行情
         public void CloseStockMarket()
         {
-            Console.WriteLine("{0} {1} 關閉股票行情，繼續工作！", this._sub.SubjectState, this._name);
+            Console.WriteLine("{0} 通知 {1} 關閉股票行情，繼續工作！", this._sub.SubjectState, this._name);
         }
     }
 }

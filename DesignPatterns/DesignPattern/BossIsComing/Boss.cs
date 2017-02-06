@@ -8,11 +8,11 @@ namespace BossIsComing
 {
     class Boss : ISubject
     {
-        public event EventHandler Update;
+        public event EventHandler SecretaryUpdate;
         private string _action;
         public void Notify()
         {
-            Update();
+            SecretaryUpdate();
         }
 
         public string SubjectState
