@@ -53,7 +53,7 @@ namespace B2BService.Models
         {
             ILOOKUPDBCollection LookupdbCollection;
             LOOKUP_DB db = new LOOKUP_DB();
-            LookupdbCollection = DataAccess.CreateLOOKUPDBCollection(Constant.PIQServer);
+            LookupdbCollection = DataAccess.CreateLOOKUPDBCollection(Constant.PIPServer);
             IEnumerable<LOOKUP_DB> LookupdbList = LookupdbCollection.Get(db);
 
             LookupMTProcessStep = LookupdbList.Where(x => x.TYPE == "MT_PROCESS_STEP").ToList();
