@@ -13,16 +13,16 @@ namespace B2BService.Models
     {
         public static void oracleCmdSP(string config, string sql)
         {
-            OracleConnection conn = new OracleConnection(config);
-            conn.Open();
-
-            OracleTransaction dbTransaction;
-            dbTransaction = conn.BeginTransaction(IsolationLevel.ReadCommitted);
-
+            OracleConnection conn = null;
+            OracleTransaction dbTransaction = null;
             OracleCommand cmd = new OracleCommand();
-            cmd.Transaction = dbTransaction;
+            
             try
             {
+                conn = new OracleConnection(config);
+                conn.Open();
+                dbTransaction = conn.BeginTransaction(IsolationLevel.ReadCommitted);
+                cmd.Transaction = dbTransaction;
                 cmd.Connection = conn;
                 cmd.CommandText = sql;
                 cmd.CommandType = CommandType.Text;
@@ -32,69 +32,161 @@ namespace B2BService.Models
             }
             catch(OracleException ex)
             {
-                string Message = ex.Message;
-                dbTransaction.Rollback();
-                throw new Exception(ex.Message, ex);
-            }
+                string message = ex.Message;
 
-            conn.Close();
-            conn.Dispose();
+                if (dbTransaction != null)
+                    dbTransaction.Rollback();
+
+                throw new Exception(message, ex);
+            }
+            finally
+            {
+                if (dbTransaction != null)
+                {
+                    dbTransaction.Dispose();
+                }
+                if (cmd != null)
+                {
+                    cmd.Dispose();
+                }
+                if (conn != null)
+                {
+                    if (conn.State != ConnectionState.Closed)
+                        conn.Close();
+                    //conn.Dispose();
+                }
+            }
+            
         }
 
         public static DataSet oracleCmdDataSetSP(string config, string sql)
         {
-            OracleConnection conn = new OracleConnection(config);
-            conn.Open();
+            OracleConnection conn = null;
             OracleCommand cmd = new OracleCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = sql;
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandTimeout = 1800;
-            OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+            OracleDataAdapter adapter = null;
             DataSet ds = new DataSet();
-            adapter.Fill(ds);
-            conn.Close();
-            conn.Dispose();
+            try
+            {
+                conn = new OracleConnection(config);
+                conn.Open();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandTimeout = 1800;
+                adapter = new OracleDataAdapter(cmd);
+                adapter.Fill(ds);
+            }
+            catch(OracleException ex)
+            {
+                string message = ex.Message;
+                throw new Exception(message);
+            }
+            finally
+            {
+                if(adapter != null)
+                {
+                    adapter.Dispose();
+                }
+                if (cmd != null)
+                {
+                    cmd.Dispose();
+                }
+                if(conn != null)
+                {
+                    if (conn.State != ConnectionState.Closed)
+                        conn.Close();
+                    //conn.Dispose();
+                }
+            }
 
             return ds;
         }
 
         public static OracleDataReader oracleCmdDataReaderSP(string config, string sql)
         {
-            OracleConnection conn = new OracleConnection(config);
-            conn.Open();
+            OracleConnection conn = null;
             OracleCommand cmd = new OracleCommand();
-            cmd.Connection = conn;
-            cmd.CommandText = sql;
-            cmd.CommandType = CommandType.Text;
-            OracleDataReader reader = cmd.ExecuteReader();
-            conn.Close();
-            conn.Dispose();
+            OracleDataReader reader = null;
+            try
+            {
+                conn = new OracleConnection(config);
+                conn.Open();
+                cmd.Connection = conn;
+                cmd.CommandText = sql;
+                cmd.CommandType = CommandType.Text;
+                reader = cmd.ExecuteReader();
+            }
+            catch(OracleException ex)
+            {
+                string message = ex.Message;
+                throw new Exception(message);
+            }
+            finally
+            {
+                if(reader != null)
+                {
+                    if (!reader.IsClosed)
+                        reader.Close();
+                    //reader.Dispose();
+                }
+                if(cmd != null)
+                {
+                    cmd.Dispose();
+                }
+                if(conn != null)
+                {
+                    if (conn.State != ConnectionState.Closed)
+                        conn.Close();
+                    //conn.Dispose();
+                }
+            }
+            
             return reader;
         }
 
         public static OracleClob StringToOracleClob(string config, string key)
         {
-            OracleConnection con = new OracleConnection(config);
-            con.Open();
-            OracleClob clob = new OracleClob(con);
+            OracleConnection conn = null;
+            OracleClob clob = null;
 
-            if (string.IsNullOrEmpty(key))
+            try
             {
-                char[] writeBuffer = string.Empty.ToCharArray();
-                clob.Write(writeBuffer, 0, writeBuffer.Length);
-                clob.Close();
-                clob.Dispose();
+                conn = new OracleConnection(config);
+                conn.Open();
+                clob = new OracleClob(conn);
+
+                if (string.IsNullOrEmpty(key))
+                {
+                    char[] writeBuffer = string.Empty.ToCharArray();
+                    clob.Write(writeBuffer, 0, writeBuffer.Length);
+                }
+                else
+                {
+                    char[] writeBuffer = key.ToCharArray();
+                    clob.Write(writeBuffer, 0, writeBuffer.Length);
+                }
             }
-            else
+            catch(OracleException ex)
             {
-                char[] writeBuffer = key.ToCharArray();
-                clob.Write(writeBuffer, 0, writeBuffer.Length);
-                clob.Close();
-                clob.Dispose();
+                string message = ex.Message;
+                throw new Exception(message);
             }
-            con.Close();
-            con.Dispose();
+            finally
+            {
+                if(clob != null)
+                {
+                    if (!clob.IsEmpty || !clob.IsNull)
+                        clob.Close();
+                    //clob.Dispose();
+                }
+                if(conn != null)
+                {
+                    if (conn.State != ConnectionState.Closed)
+                        conn.Close();
+                    //conn.Dispose();
+                }
+            }
+
             return clob;
         }
     }
