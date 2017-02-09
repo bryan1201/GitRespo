@@ -32,7 +32,9 @@ namespace B2BService.Models
             }
             catch(OracleException ex)
             {
+                string Message = ex.Message;
                 dbTransaction.Rollback();
+                throw new Exception(ex.Message, ex);
             }
 
             conn.Close();
