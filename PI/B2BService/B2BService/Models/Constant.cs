@@ -3,6 +3,10 @@ using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.IO;
+using Newtonsoft.Json;
+using System.Text;
+using System.Net;
 
 namespace B2BService.Models
 {
@@ -61,6 +65,26 @@ namespace B2BService.Models
             LookupMTPROCStatus = LookupdbList.Where(x => x.TYPE == "MT_PROC_STATUS").ToList();
             LookupMTMsgDirection = LookupdbList.Where(x => x.TYPE == "MT_MSG_DIRECTION").ToList();
             LookupMTAuditCheck = LookupdbList.Where(x => x.TYPE == "MT_AUDIT_CHECK").ToList();
+        }
+
+        public static void webRequestException(WebException ex, HttpContext con, string url, out string response)
+        {
+            string ret = "\r\n";
+            var resp = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
+            dynamic obj = JsonConvert.DeserializeObject(resp.ToString());
+            string statuscode = obj["httpStatusCode"].ToString();
+            string message = obj["message"].ToString();
+            string stackTrackFromServer = obj["stackTrace"].ToString();
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append(string.Format("WebClient.DownadString from url:{0}{1}", url, ret));
+            sb.Append(string.Format("HttpContext.Request.Url:{0}{1}", con.Request.Url.ToString(), ret));
+            sb.Append(string.Format("HttpContext.Request:{0}{1}", con.Request.ToString(), ret));
+            sb.Append(string.Format("##WebException.Response.GetResponseStream from Server:{0}", ret));
+            sb.Append(string.Format("httpStatusCode: {0}{1}", statuscode, ret));
+            sb.Append(string.Format("message: {0}{1}", message, ret));
+            sb.Append(string.Format("stackTrack:{0}{1}", stackTrackFromServer, ret));
+            response = sb.ToString();
         }
     }
 }

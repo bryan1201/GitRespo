@@ -1,9 +1,11 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Net;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace B2BService.Models
 {
@@ -85,9 +87,10 @@ namespace B2BService.Models
                     response = client.DownloadString(url);
                 }
             }
-            catch (Exception ex)
+            catch (WebException ex)
             {
-                response = ex.Message;
+                HttpContext con = HttpContext.Current;
+                Constant.webRequestException(ex, con, url, out response);
             }
             return response;
         }

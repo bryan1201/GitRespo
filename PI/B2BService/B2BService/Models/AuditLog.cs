@@ -82,9 +82,10 @@ namespace B2BService.Models
                     response = client.DownloadString(url);
                 }
             }
-            catch (Exception ex)
+            catch (WebException ex)
             {
-                response = ex.Message;
+                HttpContext con = HttpContext.Current;
+                Constant.webRequestException(ex, con, url, out response);
             }
             return response;
         }
@@ -165,9 +166,9 @@ namespace B2BService.Models
                     response = client.DownloadString(url);
                 }
             }
-            catch (Exception ex)
+            catch (WebException ex)
             {
-                response = ex.Message;
+                Constant.webRequestException(ex, HttpContext.Current, url, out response);
             }
             return response;
         }
