@@ -33,6 +33,13 @@ namespace Meetings
                 // 指派角色到目前這個 HttpContext 的 User 物件去
                 Context.User = new GenericPrincipal(Context.User.Identity, roles);
             }
+            else
+            {
+                FormsAuthenticationTicket ticket = new FormsAuthenticationTicket("User", true, 30);
+                FormsIdentity newId = new FormsIdentity(ticket);
+                string[] roles = ticket.UserData.Split(new char[] { ',' });
+                Context.User = new GenericPrincipal(newId, roles);
+            }
         }
     }
 }
