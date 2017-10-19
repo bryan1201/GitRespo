@@ -1,0 +1,22 @@
+﻿@model CERLLAB.Models.ReturnType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ReturnType</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TypeName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TypeName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.TypeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

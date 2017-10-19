@@ -1,0 +1,73 @@
+﻿@model CERLLAB.Models.LabInformation
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>LabInformation</legend>
+        <table class="jtable" style="table-layout: fixed;">
+            <tr>
+                <th class="editor-label" width="15%">顯示</th>
+                <td class="editor-field" width="85%">
+                    <ul style="list-style-type: none; margin:0 20px; padding:0;">
+                        <li style="list-style:none; display:inline;">訊息公告 @Html.CheckBoxFor(model => model.IsShowMessage)</li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li style="list-style:none; display:inline;">附件圖片 @Html.CheckBoxFor(model => model.IsShowPicture)</li>
+                        <li style="list-style:none; display:inline;">
+                            @Html.DisplayNameFor(model => model.Width):&nbsp;:&nbsp;@Html.TextBoxFor(model => model.Width, new { style = "width:60px;" })
+                            @Html.ValidationMessageFor(model => model.Width)
+                        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li style="list-style:none; display:inline;">
+                            @Html.DisplayNameFor(model => model.Height):&nbsp;:&nbsp;@Html.TextBoxFor(model => model.Height, new { style = "width:60px;" })
+                            @Html.ValidationMessageFor(model => model.Height)
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" width="15%">
+                    @Html.LabelFor(model => model.title)
+                </th>
+                <td class="editor-field" width="85%">
+                    @Html.EditorFor(model => model.title)
+                    @Html.ValidationMessageFor(model => model.title)
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" width="15%">
+                    @Html.LabelFor(model => model.content)
+                </th>
+                <td class="editor-field" width="85%">
+                    @Html.TextAreaFor(model => model.content, new { cols = 14, @rows = 5, style = "width: 95%" })
+                    @Html.ValidationMessageFor(model => model.content)
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" width="15%">
+                    File Upload:
+                </th>
+                <td class="editor-field" width="85%">
+                    <input id="uploadfile" name="uploadfile[]" class="multi" type="file" multiple="multiple" />
+                </td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

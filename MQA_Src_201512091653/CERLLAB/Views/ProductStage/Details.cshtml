@@ -1,0 +1,29 @@
+﻿@model CERLLAB.Models.ProductStage
+
+@{
+    ViewBag.Title = "Details of ProductStage";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<fieldset>
+    <legend>ProductStage</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TextValue)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TextValue)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CustomerID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CustomerID)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

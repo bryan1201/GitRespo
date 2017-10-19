@@ -1,0 +1,14 @@
+﻿@using CERLLAB.Controllers.General;
+@using CERLLAB.Models;
+@{
+    int RoleId = Constant.UserRoleId;
+    CERLDBContext db = new CERLDBContext();
+    var UserId = Method.GetLogonUserId(Session, User.Identity.Name.ToUpper());
+    var vusers = db.vUsers.Where(u => u.BadgeCode.Contains(UserId)).FirstOrDefault();
+}
+@{
+    if(vusers != null)
+    {
+        <a href="mailto:@vusers.Email">@vusers.ChtName , @vusers.RoleName</a>
+    }
+}

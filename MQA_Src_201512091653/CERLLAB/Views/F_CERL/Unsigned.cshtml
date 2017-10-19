@@ -1,0 +1,180 @@
+﻿@model IEnumerable<CERLLAB.Models.vFCERLHeader>
+@using CERLLAB.Models;
+@using CERLLAB.Controllers.General;
+@{
+    ViewBag.Title = "所有待簽表單 (Spuer)";
+    string TreeView = "ItemTreeView";
+    string PartialItemTreePath = "PartialItemTreePath";
+    string ReportOnHandWork = "ReportOnHandWork";
+    //ItemTree tree = (ItemTree)ViewData["ItemTree"];
+    IList<FnGetItemParentListById_Result> parentlist = (IList<FnGetItemParentListById_Result>)ViewData["parentlist"];
+}
+<head>
+    <title>@ViewBag.Title  @ViewBag.Message</title>
+    <style type="text/css">
+        .ui-widget {
+            font-family: 微軟正黑體;
+            font-size: 1.1em;
+        }
+
+        .ui-accordion-header {
+            font-weight: bolder;
+        }
+
+        .wrapper {
+            width: 95%;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#FromDate").datepicker({
+                dateFormat: "yy/mm/dd",
+                regional: "zh-TW",
+                showAnim: "drop"
+            });
+            $("#EndDate").datepicker({
+                dateFormat: "yy/mm/dd",
+                regional: "zh-TW",
+                showAnim: "drop"
+            });
+
+            $('#accordion1').accordion({
+                heightStyle: "content",
+                collapsible: true
+            });
+        });
+    </script>
+</head>
+<table class="content-wrapper">
+    <tr style="background: #ffffff">
+        <!-- Mark By Bryan Wu for no TreeView
+        <td style="vertical-align: top; text-align: left; width: 120px; margin: 1%; font-size: 1.5em;">
+            @@Html.Partial(TreeView, tree)
+        </td>
+       -->
+        <td valign="top" style="width:82%; margin:2% 2%;">
+            @using (Html.BeginForm("Unsigned", "F_CERL", FormMethod.Get))
+            {
+                <table class="jtable" style="width:95%; margin: 2% 2%;">
+                    <tr>
+                        <th style="width: 15%">
+                            @Html.DisplayNameFor(model => model.FirstOrDefault().CaseID)搜尋
+                        </th>
+                        <td>
+                            @Html.TextBox("CaseID", "", new { @style = "width:95%" })
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <th>Date From:</th>
+                        <td>
+                            @Html.TextBox("FromDate")
+                        </td>
+                        <th>Date End:</th>
+                        <td>
+                            @Html.TextBox("EndDate")
+                        </td>
+                        <th rowspan="2">
+                            <input type="submit" value="搜尋" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Part or Serial Number</th>
+                        <td>
+                            @Html.TextBox("SerialNumber")
+                        </td>
+                        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().State)</th>
+                        <td>
+                            @Html.DropDownList("FlowState", (SelectList)ViewData["flowstateList"])
+                        </td>
+                        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().LabMember)</th>
+                        <td>
+                            @Html.TextBox("LabMember")
+                        </td>
+                        <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Applicant)</th>
+                        <td>
+                            @Html.TextBox("Applicant")
+                        </td>
+                    </tr>
+                </table>
+            }
+            <!-- Marked by Bryan Wu for no Treelist
+            <div style="width:95%; margin: 2% 2%;">
+                @@Html.Partial(PartialItemTreePath, parentlist)
+            </div>
+            -->
+            <div class="wrapper" style="width:100%; margin: 2% 2%;">
+                <div id="accordion1">
+                    <h3>LAB Member接件狀態</h3>
+                    <div>
+                        @Html.Partial(ReportOnHandWork, ViewData["LABMemberOnHandWork"])
+                    </div>
+                </div>
+            </div>
+            <table class="jtable" style="width:96%; table-layout: fixed; font-size: 0.9em">
+                <tr>
+                    <th style="width:8%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().UID)
+                    </th>
+                    <th style="width:13%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().CaseID)
+                    </th>
+                    <th style="width:12%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Applicant)
+                    </th>
+                    <th style="width:12%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().PartNumber)
+                    </th>
+                    <th style="width:12%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().SerialNumber)
+                    </th>
+                    <th style="width:12%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().LabMember)
+                    </th>
+                    <th style="width:11%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().StateName)
+                    </th>
+
+                    <th style="width:8%">
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().udt)
+                    </th>
+                    <th style="width:8%"></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UID)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.CaseID)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.Applicant)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.PartNumber)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.SerialNumber)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.LabMember)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.StateName)
+                        </td>
+
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.udt)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.ActionLink("簽核", "EditLAB", new { id = item.ID })|@Html.ActionLink("明細", "DetailsLAB", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+</table>

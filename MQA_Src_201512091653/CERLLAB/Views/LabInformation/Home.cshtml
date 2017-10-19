@@ -1,0 +1,28 @@
+﻿@using CERLLAB.Controllers.General;
+@using CERLLAB.Models;
+@{
+    ViewBag.Title = "Home";
+    string PartialInfoContent = "PartialInfoContent";
+    string PartialInfoImage = "PartialInfoImage";
+}
+<head>
+    <title>MQA CERL LAB Information Center</title>
+</head>
+<table class="claro">
+    <tr style="background: #ffffff">
+        <td valign="top" style="width:82%; margin:2% 2%;">
+            <table class="jtable">
+                <tr>
+                    <td>
+                        @Html.Partial(PartialInfoContent, ViewData["PartialInfoContent"])
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Partial(PartialInfoImage, ViewData["PartialInfoImage"])
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>

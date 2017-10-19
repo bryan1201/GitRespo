@@ -1,0 +1,117 @@
+﻿@model CERLLAB.Models.vCERLMenu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<fieldset>
+    <legend>CERLMenu</legend>
+
+    @Html.HiddenFor(model => model.guid)
+    <table class="jtable" style="table-layout:fixed;">
+        <tr>
+            <th class="display-label" style="width:10%">
+                @Html.DisplayNameFor(model => model.menuId)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.DisplayFor(model => model.menuId)
+            </td>
+            <th class="display-label" style="width:10%">
+                @Html.DisplayNameFor(model => model.menuText)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.DisplayFor(model => model.menuText)
+            </td>
+            <th class="display-label" style="width:10%">
+                @Html.DisplayNameFor(model => model.navigateUrl)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.DisplayFor(model => model.navigateUrl)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label" style="width:10%">
+                @Html.DisplayNameFor(model => model.actionname)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.DisplayFor(model => model.actionname)
+            </td>
+            <th class="display-label" style="width:10%">
+                @Html.DisplayNameFor(model => model.controlname)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.DisplayFor(model => model.controlname)
+            </td>
+            <th class="display-label" style="width:10%">
+
+            </th>
+            <td class="display-field" style="width:23%"></td>
+        </tr>
+        <tr>
+            <th class="display-label" style="width:10%">
+                @Html.DisplayNameFor(model => model.parentMenuId)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.DisplayFor(model => model.parentMenuId)
+            </td>
+            <th class="display-label" style="width:10%">
+                @Html.DisplayNameFor(model => model.ParentMenuText)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.ValueFor(model => model.ParentMenuText)
+            </td>
+            <th class="display-label" style="width:10%">
+                @Html.DisplayNameFor(model => model.menuTarget)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.DisplayFor(model => model.menuTarget)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label" style="width:10%">
+                @Html.DisplayNameFor(model => model.sortOrder)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.DisplayFor(model => model.sortOrder)
+            </td>
+            <th class="display-label" style="width:10%">
+                @Html.DisplayNameFor(model => model.menuType)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.DisplayFor(model => model.menuType)
+            </td>
+            <th class="editor-label" style="width:10%">
+                @Html.LabelFor(model => model.navigateUrl)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.DisplayFor(model => model.navigateUrl)
+            </td>
+        </tr>
+    </table>
+    <table class="jtable" style="table-layout:fixed;">
+        <tr>
+            <th class="display-label" style="width:10%">
+                @Html.LabelFor(model => model.ChtName)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.ValueFor(model => model.editor) @Html.ValueFor(model => model.ChtName)
+            </td>
+            <th class="display-label" style="width:10%">
+                @Html.LabelFor(model => model.cdt)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.ValueFor(model => model.cdt)
+            </td>
+            <th class="display-label" style="width:10%">
+                @Html.LabelFor(model => model.udt)
+            </th>
+            <td class="display-field" style="width:23%">
+                @Html.ValueFor(model => model.udt)
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.guid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

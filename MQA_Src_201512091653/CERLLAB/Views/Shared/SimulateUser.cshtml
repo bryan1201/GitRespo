@@ -1,0 +1,24 @@
+﻿@using CERLLAB.Controllers.General;
+@using CERLLAB.Models;
+@{
+    CERLDBContext db = new CERLDBContext();
+    string UserId = Method.GetLogonUserId(Session, User.Identity.Name.ToUpper());
+    string RealUserId = Method.GetLogonUserId(null, User.Identity.Name.ToUpper());
+    List<int> UserRole = db.UserRole.Where(x => x.BadgeCode == RealUserId).Select(x => x.RoleId).ToList();
+    
+    bool IsAdmin = (UserRole.Contains(1)) ? true : false;
+    bool EnableSimMode = bool.Parse(Constant.EnableSimulationMode);   
+}
+@if (EnableSimMode == true || IsAdmin == true)
+{
+    using (Html.BeginForm("SimulateUser", "F_CERL", FormMethod.Get))
+    {
+        int RoleId = Constant.UserRoleId;
+        <span>模擬使用者</span>@Html.TextBox("UserId", UserId, new { @style = "width:75px" })
+        if (Constant.UserRoleList != null)
+        {
+            @Html.DropDownList("RoleId", Constant.UserRoleList)
+        }
+        <input type="submit" value="模擬" />
+    }
+}

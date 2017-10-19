@@ -1,0 +1,47 @@
+﻿@using CERLLAB.Controllers.General;
+@using CERLLAB.Models;
+@model CERLLAB.Models.vRole
+
+@{
+    IQueryable<vUserRole> vuserrole = (IQueryable<vUserRole>)ViewData["vuserrole"];
+    IQueryable<vRoleMenu> vrolemenu = (IQueryable<vRoleMenu>)ViewData["vrolemenu"];
+    string PartialRoleUsers = "PartialRoleUsers";
+    string PartialRoleMenu = "PartialRoleMenu";
+    ViewData["Details"] = "Details";
+}
+
+<fieldset>
+    <legend>vRole</legend>
+    <table class="jtable" style="table-layout:fixed;">
+        <tr>
+            <th class="display-label">@Html.DisplayNameFor(model => model.RoleId)</th>
+            <th class="display-label">@Html.DisplayNameFor(model => model.RoleName)</th>
+            <th class="display-label">@Html.DisplayNameFor(model => model.ParentRoleName)</th>
+            <th class="display-label">@Html.DisplayNameFor(model => model.menuFullName)</th>
+            <th class="display-label">@Html.DisplayNameFor(model => model.cdt)</th>
+            <th class="display-label">@Html.DisplayNameFor(model => model.udt)</th>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="display-field">@Html.DisplayFor(model => model.RoleId)</td>
+            <td class="display-field">@Html.DisplayFor(model => model.RoleName)</td>
+            <td class="display-field">@Html.ValueFor(model=>model.Parent) @Html.DisplayFor(model => model.ParentRoleName)</td>
+            <td class="display-field">@Html.ValueFor(model => model.menuId) @Html.DisplayFor(model => model.menuFullName)</td>
+            <td class="display-field">@Html.DisplayFor(model => model.cdt)</td>
+            <td class="display-field">@Html.DisplayFor(model => model.udt)</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { id = Model.id }) |@Html.ActionLink("Back to List", "Index")</td>
+        </tr>
+    </table>
+</fieldset>
+<div>
+    <table class="jtable" style="table-layout:fixed;">
+        <tr>
+            <td style="vertical-align: top;">
+                @Html.Partial(PartialRoleMenu, vrolemenu)
+            </td>
+            <td style="vertical-align: top;">
+                @Html.Partial(PartialRoleUsers, vuserrole)
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CERLLAB.Models.attachFile>
+<table id="browser" class="jtable" style="table-layout: fixed; font-size: 0.8em; border: 0px; width:100%;">
+
+    <tr>
+        <th style="width:20px;">&nbsp;</th>
+        <th style="width:auto;">File Name</th>
+        <th style="width:5%">Ver.</th>
+        <th style="width:10%">editor</th>
+        <th style="width:15%">udt</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(" ", "DeleteFile", "F_CERL", new { fileId = item.fileId, record = false }, new { style = "background: url('" + Url.Content("~/Images/Delete.gif") + "') no-repeat top left;background-size: 1.2em auto;height:1.2em;width:auto;display:block;text-indent:-9999px;" })
+            </td>
+            <td>
+                @Html.ActionLink(item.fileName, "GetFilePath", "f_cerl", new { fileId = item.fileId, record = false }, null)
+            </td>
+            <td>
+                @item.Version.ToString()
+            </td>
+            <td>@item.editor</td>
+            <td>
+                @item.udt.ToString()
+            </td>
+        </tr>
+    }
+
+</table>

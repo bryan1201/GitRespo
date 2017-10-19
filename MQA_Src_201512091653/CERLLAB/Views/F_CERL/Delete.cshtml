@@ -1,0 +1,257 @@
+﻿@model CERLLAB.Models.f_cerl
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>f_cerl</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FormCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FormCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FlowCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FlowCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CaseID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CaseID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Applicant)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Applicant)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CustomerID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CustomerID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProjectName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProjectName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SerialNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SerialNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PartNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PartNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Site)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Site)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TestItem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TestItem)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RequestItem)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RequestItem)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReturnType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReturnType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FailureSite)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FailureSite)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BackgroundDesc)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BackgroundDesc)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IssueSource)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IssueSource)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SampleQty)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SampleQty)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TestPurpose)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TestPurpose)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductStage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductStage)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProcessStep)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProcessStep)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FixtureNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FixtureNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FixtureVersionNo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FixtureVersionNo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FixtureSupplier)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FixtureSupplier)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.LabMember)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LabMember)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReceiptQty)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReceiptQty)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReceiptDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReceiptDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FinishDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FinishDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AnalysisResult)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AnalysisResult)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AnalysisSummary)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AnalysisSummary)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NextTestDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NextTestDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cdt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cdt)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.udt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.udt)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.editor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.editor)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Action)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Action)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

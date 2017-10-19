@@ -1,0 +1,33 @@
+﻿@model CERLLAB.Models.ProductStage
+
+@{
+    ViewBag.Title = "Delete ProductStage";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ProductStage</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TextValue)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TextValue)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CustomerID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CustomerID)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

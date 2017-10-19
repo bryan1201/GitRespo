@@ -1,0 +1,576 @@
+﻿@model CERLLAB.Models.f_cerl
+
+@{
+    string PartialFormAction = "PartialFormAction";
+    string PartialTaskDetail = "PartialTaskDetail";
+    ViewBag.Title = "Edit";
+    string PartialAttachFile = "PartialAttachFile";
+    string website = CERLLAB.Controllers.General.Constant.S_WebSite;
+    string web = website + "/F_CERL/";
+    
+}
+<script src="~/Scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tabs').tabs();
+    });
+
+    $(function () {
+        $("#Site").change(function () {
+            var selectedItem = $(this).val();
+            var ddlTestItem = $("#TestItem");
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@web" + "GetTestItemMenu",
+                data: { root: selectedItem, iWhere: 1 },
+                success: function (data) {
+                    ddlTestItem.html('');
+                    $.each(data, function (i, item) {
+
+                        ddlTestItem.append($('<option/>', {
+                            value: item.Id,
+                            text: item.Name
+                        }));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve test item menu.');
+                }
+            });
+        });
+    });
+
+    $(function () {
+        $("#TestItem").change(function () {
+            var selectedItem = $(this).val();
+            var ddlRequestItem = $("#RequestItem");
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@web" + "GetTestItemMenu",
+                data: { root: selectedItem, iWhere: 0 },
+                success: function (data) {
+                    ddlRequestItem.html('');
+                    $.each(data, function (i, item) {
+
+                        ddlRequestItem.append($('<option/>', {
+                            value: item.Id,
+                            text: item.Name
+                        }));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve test item menu.');
+                }
+            });
+        });
+    });
+    $(function () {
+        $("#ReturnType").change(function () {
+            var selectedItem = $(this).val();
+            var ddlFailureSite = $("#FailureSite");
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@web" + "GetReturnSite",
+                data: { iWhere: selectedItem },
+                success: function (data) {
+                    ddlFailureSite.html('');
+                    $.each(data, function (i, item) {
+
+                        ddlFailureSite.append($('<option/>', {
+                            value: item.Id,
+                            text: item.Name
+                        }));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve test item menu.');
+                }
+            });
+        });
+    });
+    $(function () {
+        $("#TestItem").change(function () {
+            var selectedItem = $(this).val();
+            var ddlLocalSupervisor = $("#LocalSupervisor");
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@web" + "GetLocalSupervisor",
+                data: { root: selectedItem },
+                success: function (data) {
+                    ddlLocalSupervisor.html('');
+                    $.each(data, function (i, item) {
+
+                        ddlLocalSupervisor.append($('<option/>', {
+                            value: item.Id,
+                            text: item.Name
+                        }));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve test item menu.');
+                }
+            });
+        });
+    });
+    $(function () {
+        $("#TestItem").change(function () {
+            var selectedItem = $(this).val();
+            var ddlLabMember = $("#LabMember");
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@web" + "GetLabMember",
+                data: { root: selectedItem },
+                success: function (data) {
+                    ddlLabMember.html('');
+                    $.each(data, function (i, item) {
+
+                        ddlLabMember.append($('<option/>', {
+                            value: item.Id,
+                            text: item.Name
+                        }));
+                    });
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve test item menu.');
+                }
+            });
+        });
+    });
+    $(function () {
+        $("#TestItem").change(function () {
+            var selectedItem = $(this).val();
+
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "@web" + "GetDivShow",
+                data: { root: selectedItem },
+                success: function (data) {
+                    var IdvShowArray = data.split("|");
+                    if (IdvShowArray.indexOf("EFA") != -1) {
+                        $("#EFA").show();
+                    }
+                    else {
+                        $("#EFA").hide();
+                    }
+
+                    if (IdvShowArray.indexOf("Descr") != -1) {
+                        $("#Descr").show();
+                    }
+                    else {
+                        $("#Descr").hide();
+                    }
+
+                    if (IdvShowArray.indexOf("Source") != -1) {
+                        $("#Source").show();
+                    }
+                    else {
+                        $("#Source").hide();
+                    }
+
+                    if (IdvShowArray.indexOf("DS") != -1) {
+                        $("#DS").show();
+                    }
+                    else {
+                        $("#DS").hide();
+                    }
+
+                    if (IdvShowArray.indexOf("Strain") != -1) {
+                        $("#Strain").show();
+                    }
+                    else {
+                        $("#Strain").hide();
+                    }
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve test item menu.');
+                }
+            });
+        });
+    });
+</script>
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">申請單</a></li>
+        <li><a href="#tabs-2">@Html.LabelFor(model => model.Comment)</a></li>
+        <li><a href="#tabs-3">簽核記錄</a></li>
+    </ul>
+    
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data", name = "fcerl", id = "fcerl" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+    <div id="tabs-1">
+        @if (ViewData["FormAction"] != null)
+        {
+        @Html.Partial(PartialFormAction, ViewData["FormAction"])
+        }
+
+        <fieldset>
+            <legend>f_cerl</legend>
+            @Html.HiddenFor(model => model.ID)
+            @Html.HiddenFor(model => model.State)
+            @Html.HiddenFor(model => model.fID)
+            @Html.HiddenFor(model => model.Manager)
+            @Html.HiddenFor(model => model.cdt)
+            @Html.HiddenFor(model => model.udt)
+            @Html.HiddenFor(model => model.FormCode)
+            @Html.HiddenFor(model => model.FlowCode)
+            @Html.HiddenFor(model => model.Applicant)
+            @Html.HiddenFor(model => model.CaseID)
+            @Html.HiddenFor(model => model.UID)
+
+            <div>
+                <table class="jtable">
+                    <tr>
+                        <th class="display-label" width="15%">@Html.LabelFor(model => model.State)</th>
+                        <td class="display-field" width="35%">
+                            @Html.DisplayFor(model => model.State)
+                            @Html.ValidationMessageFor(model => model.State)
+                        </td>
+                        <th class="editor-label" width="15%">@Html.LabelFor(model => model.Supervisor)</th>
+                        <td class="editor-field" width="35%">
+                            @Html.DropDownListFor(model => model.Supervisor, (SelectList)ViewData["SupervisorList"])
+                            @Html.ValidationMessageFor(model => model.Supervisor)
+                        </td>
+                    </tr>
+                </table>
+                <table class="jtable">
+                    <tr>
+                        <th class="display-label" width="15%">
+                            @Html.LabelFor(model => model.UID)
+                        </th>
+                        <td class="display-field" width="35%">
+                            @Html.DisplayFor(model => model.UID)
+                            @Html.ValidationMessageFor(model => model.UID)
+                        </td>
+                        <th class="display-label" width="15%">
+                            @Html.LabelFor(model => model.CaseID)
+                        </th>
+                        <td class="display-field" width="35%">
+                            @Html.DisplayFor(model => model.CaseID)
+                            @Html.ValidationMessageFor(model => model.CaseID)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="display-label" width="15%">
+                            @Html.LabelFor(model => model.Applicant)
+                        </th>
+                        <td class="display-field" width="35%">
+                            @Html.DisplayFor(model => model.Applicant)
+                            @Html.ValidationMessageFor(model => model.Applicant)
+                        </td>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.CustomerID)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.DropDownListFor(model => model.CustomerID, (SelectList)ViewData["CustomerNameList"])
+                            @Html.ValidationMessageFor(model => model.CustomerID)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.ProjectName)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.EditorFor(model => model.ProjectName)
+                            @Html.ValidationMessageFor(model => model.ProjectName)
+                        </td>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.SerialNumber)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.TextAreaFor(model => model.SerialNumber, new { cols = 14, @rows = 3, style = "width: 95%" })
+                            @Html.ValidationMessageFor(model => model.SerialNumber)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.PartNumber)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.TextAreaFor(model => model.PartNumber, new { cols = 14, @rows = 3, style = "width: 95%" })
+                            @Html.ValidationMessageFor(model => model.PartNumber)
+                        </td>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.Site)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.DropDownListFor(model => model.Site, (SelectList)ViewData["siteList"])
+                            @Html.ValidationMessageFor(model => model.Site)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.TestItem)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.DropDownListFor(model => model.TestItem, (SelectList)ViewData["testList"])
+                            @Html.ValidationMessageFor(model => model.TestItem)
+                        </td>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.RequestItem)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.DropDownListFor(model => model.RequestItem, (SelectList)ViewData["requestList"])
+                            @Html.ValidationMessageFor(model => model.RequestItem)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            File Upload:
+                        </th>
+                        <td class="editor-field" width="35%">
+                            <input id="uploadfile" name="uploadfile[]" class="multi" type="file" multiple="multiple" />
+                        </td>
+                        <th class="editor-label" width="15%">
+                            User Files:
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @if (ViewData["attFile10"] != null)
+                            {
+                                @Html.Partial(PartialAttachFile, ViewData["attFile10"])
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            LAB Member Files:
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @if (ViewData["attFile35"] != null)
+                            {
+                                @Html.Partial(PartialAttachFile, ViewData["attFile35"])
+                            }
+                        </td>
+                        <th class="editor-label" width="15%">
+                            Supervisor Files:
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @if (ViewData["attFile40"] != null)
+                            {
+                                @Html.Partial(PartialAttachFile, ViewData["attFile40"])
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="EFA" style="display:none">
+                <table class="jtable">
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.ReturnType)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.DropDownListFor(model => model.ReturnType, (SelectList)ViewData["ReturnTypeList"])
+                            @Html.ValidationMessageFor(model => model.ReturnType)
+                        </td>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.FailureSite)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.DropDownListFor(model => model.FailureSite, (SelectList)ViewData["FailureSiteList"])
+                            @Html.ValidationMessageFor(model => model.FailureSite)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Descr" style="display:none">
+                <table class="jtable">
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.BackgroundDesc)
+                        </th>
+                        <td class="editor-field" width="85%">
+                            @Html.TextAreaFor(model => model.BackgroundDesc, new { cols = 10, @rows = 3, style = "width: 95%" })
+                            @Html.ValidationMessageFor(model => model.BackgroundDesc)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Source" style="display:none">
+                <table class="jtable">
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.IssueSource)
+                        </th>
+                        <td class="editor-field" width="85%">
+                            @Html.DropDownListFor(model => model.IssueSource, (SelectList)ViewData["IssueSourceList"])
+                            @Html.ValidationMessageFor(model => model.IssueSource)
+                        </td>
+                </table>
+            </div>
+            <div id="DS" style="display:none">
+                <table class="jtable">
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.SampleQty)
+                        </th>
+                        <td class="editor-field" width="15%">
+                            @Html.TextAreaFor(model => model.SampleQty, new { cols = 10, @rows = 1, style = "width: 95%" })
+                            @Html.ValidationMessageFor(model => model.SampleQty)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Strain" style="display:none">
+                <table class="jtable">
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.TestPurpose)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.DropDownListFor(model => model.TestPurpose, (SelectList)ViewData["TestPurposeList"])
+                            @Html.ValidationMessageFor(model => model.TestPurpose)
+                        </td>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.ProductStage)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.TextAreaFor(model => model.ProductStage, new { cols = 10, @rows = 1, style = "width: 95%" })
+                            @Html.ValidationMessageFor(model => model.ProductStage)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.ProcessStep)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.DropDownListFor(model => model.ProcessStep, (SelectList)ViewData["ProcessStepList"])
+                            @Html.ValidationMessageFor(model => model.ProcessStep)
+                        </td>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.FixtureNo)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.TextAreaFor(model => model.FixtureNo, new { cols = 10, @rows = 1, style = "width: 95%" })
+                            @Html.ValidationMessageFor(model => model.FixtureNo)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.FixtureVersionNo)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.TextAreaFor(model => model.FixtureVersionNo, new { cols = 10, @rows = 1, style = "width: 95%" })
+                            @Html.ValidationMessageFor(model => model.FixtureVersionNo)
+                        </td>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.FixtureSupplier)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.TextAreaFor(model => model.FixtureSupplier, new { cols = 10, @rows = 1, style = "width: 95%" })
+                            @Html.ValidationMessageFor(model => model.FixtureSupplier)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.NextTestDate)
+                        </th>
+                        <td class="editor-field" width="85%">
+                            @Html.EditorFor(model => model.NextTestDate)
+                            @Html.ValidationMessageFor(model => model.NextTestDate)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <table class="jtable">
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.LocalSupervisor)
+                        </th>
+                        <td class="editor-field" colspan="3">
+                            @Html.DropDownListFor(model => model.LocalSupervisor, (SelectList)ViewData["LocalSupervisorList"])
+                            @Html.ValidationMessageFor(model => model.LocalSupervisor)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.LabMember)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.DropDownListFor(model => model.LabMember, (SelectList)ViewData["LabMemberList"])
+                            @Html.ValidationMessageFor(model => model.LabMember)
+                        </td>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.ReceiptQty)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.TextAreaFor(model => model.ReceiptQty, new { cols = 10, @rows = 1, style = "width: 95%" })
+                            @Html.ValidationMessageFor(model => model.ReceiptQty)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.ReceiptDate)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.EditorFor(model => model.ReceiptDate)
+                            @Html.ValidationMessageFor(model => model.ReceiptDate)
+                        </td>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.FinishDate)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.EditorFor(model => model.FinishDate)
+                            @Html.ValidationMessageFor(model => model.FinishDate)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.AnalysisResult)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.TextAreaFor(model => model.AnalysisResult, new { cols = 10, @rows = 3, style = "width: 95%" })
+                            @Html.ValidationMessageFor(model => model.AnalysisResult)
+                        </td>
+                        <th class="editor-label" width="15%">
+                            @Html.LabelFor(model => model.AnalysisSummary)
+                        </th>
+                        <td class="editor-field" width="35%">
+                            @Html.TextAreaFor(model => model.AnalysisSummary, new { cols = 10, @rows = 3, style = "width: 95%" })
+                            @Html.ValidationMessageFor(model => model.AnalysisSummary)
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+    </div>
+             <div id="tabs-2">
+                   <table class="jtable">
+                       <tr>
+                           <td class="editor-field">
+                               @Html.TextAreaFor(model => model.Comment, new {cols = 35, @rows= 10 })
+                               @Html.ValidationMessageFor(model => model.Comment)
+                           </td>
+                       </tr>
+                   </table>
+               </div>
+        }
+
+    <div id="tabs-3">
+        @if (ViewData["vTaskDetail"] != null)
+        {
+
+        @Html.Partial(PartialTaskDetail, ViewData["vTaskDetail"])
+        }
+    </div>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

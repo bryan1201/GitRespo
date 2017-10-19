@@ -1,0 +1,83 @@
+﻿@model CERLLAB.Models.vLabInformation
+
+@{
+    ViewBag.Title = "Details";
+    string PartialAttachFile = "PartialAttachFile";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>LabInformation</legend>
+
+    <table class="jtable">
+        <tr>
+            <th class="display-label" width="15%">
+                顯示
+            </th>
+            <td class="display-field" width="85%">
+                <ul style="list-style-type: none; margin:0 20px; padding:0;">
+                    <li style="list-style:none; display:inline;">@Html.DisplayNameFor(model => model.IsShowMessage)&nbsp;@Html.CheckBoxFor(model => model.IsShowMessage, new { disabled = "disabled" })</li>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li style="list-style:none; display:inline;">@Html.DisplayNameFor(model => model.IsShowPicture)&nbsp;@Html.CheckBoxFor(model => model.IsShowPicture, new { disabled = "disabled" })</li>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li style="list-style:none; display:inline;">@Html.DisplayNameFor(model => model.Width):&nbsp;@Html.DisplayFor(model => model.Width)</li>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li style="list-style:none; display:inline;">@Html.DisplayNameFor(model => model.Height):&nbsp;@Html.DisplayFor(model => model.Height)</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label" width="15%">
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <td class="display-field" width="85%">
+                @Html.DisplayFor(model => model.title)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label" width="15%">
+                @Html.DisplayNameFor(model => model.content)
+            </th>
+            <td class="display-field" width="85%">
+                @Html.DisplayFor(model => model.content)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label" width="15%">
+                Upload Files:
+            </th>
+            <td class="display-field" width="85%">
+                @if (ViewData["attFileLabInformation"] != null)
+                {
+                    @Html.Partial(PartialAttachFile, ViewData["attFileLabInformation"])
+                }
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label" width="15%">
+                @Html.DisplayNameFor(model => model.ChtName)
+            </th>
+            <td class="display-field" width="85%">
+                @Html.DisplayFor(model => model.ChtName)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label" width="15%">
+                @Html.DisplayNameFor(model => model.cdt)
+            </th>
+            <td class="display-field" width="85%">
+                @Html.DisplayFor(model => model.cdt)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label" width="15%">
+                @Html.DisplayNameFor(model => model.udt)
+            </th>
+            <td class="display-field" width="85%">
+                @Html.DisplayFor(model => model.udt)
+            </td>
+        </tr>
+    </table>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

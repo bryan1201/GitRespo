@@ -1,0 +1,1197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CERLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="FnCERLMenuDropDownList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pid" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" />
+                <Property Name="Name" Type="nvarchar" MaxLength="255" />
+                <Property Name="Parent" Type="int" />
+                <Property Name="lvl" Type="int" />
+                <Property Name="sort" Type="varbinary(max)" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGenInitInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vchSet" Type="nvarchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="UID" Type="nvarchar" MaxLength="10" />
+                <Property Name="CaseID" Type="nvarchar" MaxLength="50" />
+                <Property Name="FormCode" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGenUserName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vchSet" Type="nvarchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGeneralDropDownList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="table" Type="nvarchar" Mode="In" />
+          <Parameter Name="pid" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="nvarchar" MaxLength="30" />
+                <Property Name="Name" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetAssignTo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="outState" Type="int" Mode="In" />
+          <Parameter Name="vchSet" Type="nvarchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ListAssitnTo" Type="nvarchar" MaxLength="1024" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetCaseID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="vchSet" Type="nvarchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="UID" Type="nvarchar" MaxLength="10" />
+                <Property Name="CaseID" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetDivShow" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="testitemid" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="DivId" Type="nvarchar" MaxLength="100" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetFCERL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fID" Type="nvarchar" Mode="In" />
+          <Parameter Name="BadgeCode" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ID" Type="int" />
+                <Property Name="fID" Type="nvarchar" MaxLength="36" />
+                <Property Name="FormCode" Type="int" />
+                <Property Name="FlowCode" Type="int" />
+                <Property Name="UID" Type="nvarchar" MaxLength="30" />
+                <Property Name="UID_ReadOnly" Type="bit" />
+                <Property Name="UID_Enable" Type="bit" />
+                <Property Name="UID_Visible" Type="bit" />
+                <Property Name="UID_Required" Type="bit" />
+                <Property Name="CaseID" Type="nvarchar" MaxLength="50" />
+                <Property Name="CaseID_ReadOnly" Type="bit" />
+                <Property Name="CaseID_Enable" Type="bit" />
+                <Property Name="CaseID_Visible" Type="bit" />
+                <Property Name="CaseID_Required" Type="bit" />
+                <Property Name="Applicant" Type="nvarchar" MaxLength="30" />
+                <Property Name="Applicant_ReadOnly" Type="bit" />
+                <Property Name="Applicant_Enable" Type="bit" />
+                <Property Name="Applicant_Visible" Type="bit" />
+                <Property Name="Applicant_Required" Type="bit" />
+                <Property Name="ApplicantName" Type="nvarchar" MaxLength="50" />
+                <Property Name="Dept" Type="nvarchar" MaxLength="50" />
+                <Property Name="CorpTel" Type="nvarchar" MaxLength="50" />
+                <Property Name="ApplicantEmail" Type="nvarchar" MaxLength="100" />
+                <Property Name="Manager" Type="nvarchar" MaxLength="50" />
+                <Property Name="ManagerName" Type="nvarchar" MaxLength="50" />
+                <Property Name="CustomerID" Type="int" />
+                <Property Name="CustomerID_ReadOnly" Type="bit" />
+                <Property Name="CustomerID_Enable" Type="bit" />
+                <Property Name="CustomerID_Visible" Type="bit" />
+                <Property Name="CustomerID_Required" Type="bit" />
+                <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+                <Property Name="ProjectName" Type="nvarchar" MaxLength="50" />
+                <Property Name="ProjectName_ReadOnly" Type="bit" />
+                <Property Name="ProjectName_Enable" Type="bit" />
+                <Property Name="ProjectName_Visible" Type="bit" />
+                <Property Name="ProjectName_Required" Type="bit" />
+                <Property Name="SerialNumber" Type="nvarchar" MaxLength="1024" />
+                <Property Name="SerialNumber_ReadOnly" Type="bit" />
+                <Property Name="SerialNumber_Enable" Type="bit" />
+                <Property Name="SerialNumber_Visible" Type="bit" />
+                <Property Name="SerialNumber_Required" Type="bit" />
+                <Property Name="PartNumber" Type="nvarchar" MaxLength="1024" />
+                <Property Name="PartNumber_ReadOnly" Type="bit" />
+                <Property Name="PartNumber_Enable" Type="bit" />
+                <Property Name="PartNumber_Visible" Type="bit" />
+                <Property Name="PartNumber_Required" Type="bit" />
+                <Property Name="Site" Type="int" />
+                <Property Name="Site_ReadOnly" Type="bit" />
+                <Property Name="Site_Enable" Type="bit" />
+                <Property Name="Site_Visible" Type="bit" />
+                <Property Name="Site_Required" Type="bit" />
+                <Property Name="SiteName" Type="nvarchar" MaxLength="50" />
+                <Property Name="ParentTestItem" Type="int" />
+                <Property Name="ParentTestItemName" Type="nvarchar" MaxLength="50" />
+                <Property Name="TestItem" Type="int" />
+                <Property Name="TestItem_ReadOnly" Type="bit" />
+                <Property Name="TestItem_Enable" Type="bit" />
+                <Property Name="TestItem_Visible" Type="bit" />
+                <Property Name="TestItem_Required" Type="bit" />
+                <Property Name="TestItemName" Type="nvarchar" MaxLength="50" />
+                <Property Name="RequestItem" Type="int" />
+                <Property Name="RequestItem_ReadOnly" Type="bit" />
+                <Property Name="RequestItem_Enable" Type="bit" />
+                <Property Name="RequestItem_Visible" Type="bit" />
+                <Property Name="RequestItem_Required" Type="bit" />
+                <Property Name="RequestItemName" Type="nvarchar" MaxLength="50" />
+                <Property Name="ReturnType" Type="int" />
+                <Property Name="ReturnType_ReadOnly" Type="bit" />
+                <Property Name="ReturnType_Enable" Type="bit" />
+                <Property Name="ReturnType_Visible" Type="bit" />
+                <Property Name="ReturnType_Required" Type="bit" />
+                <Property Name="ReturnTypeName" Type="nvarchar" MaxLength="50" />
+                <Property Name="FailureSite" Type="int" />
+                <Property Name="FailureSite_ReadOnly" Type="bit" />
+                <Property Name="FailureSite_Enable" Type="bit" />
+                <Property Name="FailureSite_Visible" Type="bit" />
+                <Property Name="FailureSite_Required" Type="bit" />
+                <Property Name="FailureSiteName" Type="nvarchar" MaxLength="50" />
+                <Property Name="BackgroundDesc" Type="nvarchar" MaxLength="1024" />
+                <Property Name="BackgroundDesc_ReadOnly" Type="bit" />
+                <Property Name="BackgroundDesc_Enable" Type="bit" />
+                <Property Name="BackgroundDesc_Visible" Type="bit" />
+                <Property Name="BackgroundDesc_Required" Type="bit" />
+                <Property Name="IssueSource" Type="int" />
+                <Property Name="IssueSource_ReadOnly" Type="bit" />
+                <Property Name="IssueSource_Enable" Type="bit" />
+                <Property Name="IssueSource_Visible" Type="bit" />
+                <Property Name="IssueSource_Required" Type="bit" />
+                <Property Name="IssueSourceName" Type="nvarchar" MaxLength="50" />
+                <Property Name="SampleQty" Type="int" />
+                <Property Name="SampleQty_ReadOnly" Type="bit" />
+                <Property Name="SampleQty_Enable" Type="bit" />
+                <Property Name="SampleQty_Visible" Type="bit" />
+                <Property Name="SampleQty_Required" Type="bit" />
+                <Property Name="TestPurpose" Type="int" />
+                <Property Name="TestPurpose_ReadOnly" Type="bit" />
+                <Property Name="TestPurpose_Enable" Type="bit" />
+                <Property Name="TestPurpose_Visible" Type="bit" />
+                <Property Name="TestPurpose_Required" Type="bit" />
+                <Property Name="TestPurposeName" Type="nvarchar" MaxLength="50" />
+                <Property Name="PCBVerdorID" Type="int" />
+                <Property Name="PCBVendor_ReadOnly" Type="bit" />
+                <Property Name="PCBVendor_Enable" Type="bit" />
+                <Property Name="PCBVendor_Visible" Type="bit" />
+                <Property Name="PCBVendor_Required" Type="bit" />
+                <Property Name="PCBVendorName" Type="nvarchar" MaxLength="200" />
+                <Property Name="ProductStageID" Type="int" />
+                <Property Name="ProductStageName" Type="nvarchar" MaxLength="200" />
+                <Property Name="ProductStage" Type="nvarchar" MaxLength="200" />
+                <Property Name="ProductStage_ReadOnly" Type="bit" />
+                <Property Name="ProductStage_Enable" Type="bit" />
+                <Property Name="ProductStage_Visible" Type="bit" />
+                <Property Name="ProductStage_Required" Type="bit" />
+                <Property Name="ProcessStep" Type="int" />
+                <Property Name="ProcessStep_ReadOnly" Type="bit" />
+                <Property Name="ProcessStep_Enable" Type="bit" />
+                <Property Name="ProcessStep_Visible" Type="bit" />
+                <Property Name="ProcessStep_Required" Type="bit" />
+                <Property Name="ProcessStepName" Type="nvarchar" MaxLength="50" />
+                <Property Name="FixtureNo" Type="nvarchar" MaxLength="30" />
+                <Property Name="FixtureNo_ReadOnly" Type="bit" />
+                <Property Name="FixtureNo_Enable" Type="bit" />
+                <Property Name="FixtureNo_Visible" Type="bit" />
+                <Property Name="FixtureNo_Required" Type="bit" />
+                <Property Name="FixtureVersionNo" Type="nvarchar" MaxLength="30" />
+                <Property Name="FixtureVersionNo_ReadOnly" Type="bit" />
+                <Property Name="FixtureVersionNo_Enable" Type="bit" />
+                <Property Name="FixtureVersionNo_Visible" Type="bit" />
+                <Property Name="FixtureVersionNo_Required" Type="bit" />
+                <Property Name="FixtureSupplier" Type="nvarchar" MaxLength="200" />
+                <Property Name="FixtureSupplier_ReadOnly" Type="bit" />
+                <Property Name="FixtureSupplier_Enable" Type="bit" />
+                <Property Name="FixtureSupplier_Visible" Type="bit" />
+                <Property Name="FixtureSupplier_Required" Type="bit" />
+                <Property Name="Supervisor" Type="nvarchar" MaxLength="30" />
+                <Property Name="Supervisor_ReadOnly" Type="bit" />
+                <Property Name="Supervisor_Enable" Type="bit" />
+                <Property Name="Supervisor_Visible" Type="bit" />
+                <Property Name="Supervisor_Required" Type="bit" />
+                <Property Name="SupervisorName" Type="nvarchar" MaxLength="50" />
+                <Property Name="LocalSupervisor" Type="nvarchar" MaxLength="30" />
+                <Property Name="LocalSupervisor_ReadOnly" Type="bit" />
+                <Property Name="LocalSupervisor_Enable" Type="bit" />
+                <Property Name="LocalSupervisor_Visible" Type="bit" />
+                <Property Name="LocalSupervisor_Required" Type="bit" />
+                <Property Name="LocalSupervisorName" Type="nvarchar" MaxLength="50" />
+                <Property Name="LabMember" Type="nvarchar" MaxLength="30" />
+                <Property Name="LabMember_ReadOnly" Type="bit" />
+                <Property Name="LabMember_Enable" Type="bit" />
+                <Property Name="LabMember_Visible" Type="bit" />
+                <Property Name="LabMember_Required" Type="bit" />
+                <Property Name="LabMemberName" Type="nvarchar" MaxLength="50" />
+                <Property Name="ReceiptQty" Type="int" />
+                <Property Name="ReceiptQty_ReadOnly" Type="bit" />
+                <Property Name="ReceiptQty_Enable" Type="bit" />
+                <Property Name="ReceiptQty_Visible" Type="bit" />
+                <Property Name="ReceiptQty_Required" Type="bit" />
+                <Property Name="ReceiptDate" Type="datetime" />
+                <Property Name="ReceiptDate_ReadOnly" Type="bit" />
+                <Property Name="ReceiptDate_Enable" Type="bit" />
+                <Property Name="ReceiptDate_Visible" Type="bit" />
+                <Property Name="ReceiptDate_Required" Type="bit" />
+                <Property Name="FinishDate" Type="datetime" />
+                <Property Name="FinishDate_ReadOnly" Type="bit" />
+                <Property Name="FinishDate_Enable" Type="bit" />
+                <Property Name="FinishDate_Visible" Type="bit" />
+                <Property Name="FinishDate_Required" Type="bit" />
+                <Property Name="LabWorkHour" Type="float" />
+                <Property Name="LabWorkHour_ReadOnly" Type="bit" />
+                <Property Name="LabWorkHour_Enable" Type="bit" />
+                <Property Name="LabWorkHour_Visible" Type="bit" />
+                <Property Name="LabWorkHour_Required" Type="bit" />
+                <Property Name="AnalysisResult" Type="nvarchar" MaxLength="2048" />
+                <Property Name="AnalysisResult_ReadOnly" Type="bit" />
+                <Property Name="AnalysisResult_Enable" Type="bit" />
+                <Property Name="AnalysisResult_Visible" Type="bit" />
+                <Property Name="AnalysisResult_Required" Type="bit" />
+                <Property Name="AnalysisSummary" Type="nvarchar" MaxLength="2048" />
+                <Property Name="AnalysisSummary_ReadOnly" Type="bit" />
+                <Property Name="AnalysisSummary_Enable" Type="bit" />
+                <Property Name="AnalysisSummary_Visible" Type="bit" />
+                <Property Name="AnalysisSummary_Required" Type="bit" />
+                <Property Name="NextTestDate" Type="datetime" />
+                <Property Name="NextTestDate_ReadOnly" Type="bit" />
+                <Property Name="NextTestDate_Enable" Type="bit" />
+                <Property Name="NextTestDate_Visible" Type="bit" />
+                <Property Name="NextTestDate_Required" Type="bit" />
+                <Property Name="DivEFA_Visible" Type="bit" />
+                <Property Name="DivFA_Visible" Type="bit" />
+                <Property Name="DivStrain_Visible" Type="bit" />
+                <Property Name="DivFileUpload_Visible" Type="bit" />
+                <Property Name="DivLAB_Visible" Type="bit" />
+                <Property Name="AttachFile35_ReadOnly" Type="bit" />
+                <Property Name="AttachFile35_Enable" Type="bit" />
+                <Property Name="AttachFile35_Visible" Type="bit" />
+                <Property Name="AttachFile35_Required" Type="bit" />
+                <Property Name="AttachFile40_ReadOnly" Type="bit" />
+                <Property Name="AttachFile40_Enable" Type="bit" />
+                <Property Name="AttachFile40_Visible" Type="bit" />
+                <Property Name="AttachFile40_Required" Type="bit" />
+                <Property Name="AttachFile1000_ReadOnly" Type="bit" />
+                <Property Name="AttachFile1000_Enable" Type="bit" />
+                <Property Name="AttachFile1000_Visible" Type="bit" />
+                <Property Name="AttachFile1000_Required" Type="bit" />
+                <Property Name="editor" Type="nvarchar" MaxLength="30" />
+                <Property Name="EditorName" Type="nvarchar" MaxLength="50" />
+                <Property Name="Comment" Type="nvarchar" MaxLength="2048" />
+                <Property Name="cdt" Type="datetime" />
+                <Property Name="udt" Type="datetime" />
+                <Property Name="ListAssignTo" Type="nvarchar" MaxLength="2048" />
+                <Property Name="Action" Type="nvarchar" MaxLength="50" />
+                <Property Name="State" Type="int" />
+                <Property Name="VirtualAnalysisSummary" Type="nvarchar" MaxLength="2048" />
+                <Property Name="VirtualAnalysisSummary_ReadOnly" Type="bit" />
+                <Property Name="VirtualAnalysisSummary_Enable" Type="bit" />
+                <Property Name="VirtualAnalysisSummary_Visible" Type="bit" />
+                <Property Name="VirtualAnalysisSummary_Required" Type="bit" />
+                <Property Name="PreTestDate" Type="nvarchar" MaxLength="50" />
+                <Property Name="DivFileUpdateVer_Visible" Type="bit" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetFormAuthority2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ID" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetItemParentListById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" />
+                <Property Name="ParentId" Type="int" />
+                <Property Name="Name" Type="nvarchar" MaxLength="50" />
+                <Property Name="FullName" Type="nvarchar" MaxLength="255" />
+                <Property Name="Url" Type="varchar" MaxLength="255" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetMailList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AssignTo" Type="nvarchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="BadgeCode" Type="nvarchar" MaxLength="10" />
+                <Property Name="Email" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetMailList2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MemberRole" Type="nvarchar(max)" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="BadgeCode" Type="nvarchar" MaxLength="10" />
+                <Property Name="Email" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetParentListById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" />
+                <Property Name="ParentId" Type="int" />
+                <Property Name="Name" Type="nvarchar" MaxLength="255" />
+                <Property Name="Url" Type="varchar" MaxLength="255" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnMemberDropDownList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="table" Type="nvarchar" Mode="In" />
+          <Parameter Name="pid" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="BadgeCode" Type="nvarchar" MaxLength="10" />
+                <Property Name="Name" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnRoleMenuDropDownList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="roleid" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="nvarchar" MaxLength="30" />
+                <Property Name="Name" Type="nvarchar" MaxLength="255" />
+                <Property Name="Parent" Type="nvarchar" MaxLength="30" />
+                <Property Name="lvl" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnRoleMenuFunction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleId" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="menuId" Type="int" />
+                <Property Name="menuText" Type="nvarchar" MaxLength="255" />
+                <Property Name="actionname" Type="nvarchar" MaxLength="255" />
+                <Property Name="controlname" Type="nvarchar" MaxLength="255" />
+                <Property Name="RoleId" Type="int" />
+                <Property Name="RoleName" Type="nvarchar" MaxLength="50" />
+                <Property Name="parentMenuId" Type="int" />
+                <Property Name="menuType" Type="int" />
+                <Property Name="sortOrder" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnTestItemMenuDropDownList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pid" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="nvarchar" MaxLength="30" />
+                <Property Name="Name" Type="nvarchar" MaxLength="255" />
+                <Property Name="Parent" Type="nvarchar" MaxLength="30" />
+                <Property Name="lvl" Type="int" />
+                <Property Name="sortOrder" Type="varbinary(max)" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="CERLModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CERLModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="FnCERLMenuDropDownList_Result">
+          <Property Name="Id" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Parent" Type="Int32" />
+          <Property Name="lvl" Type="Int32" />
+          <Property Name="sort" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </ComplexType>
+        <ComplexType Name="FnGenInitInfo_Result">
+          <Property Name="UID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CaseID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FormCode" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="FnGenUserName_Result">
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="FnGeneralDropDownList_Result">
+          <Property Name="Id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="FnGetAssignTo_Result">
+          <Property Name="ListAssitnTo" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="FnGetCaseID_Result">
+          <Property Name="UID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CaseID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="FnGetDivShow_Result">
+          <Property Name="DivId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="FnGetFCERL_Result">
+          <Property Name="ID" Type="Int32" />
+          <Property Name="fID" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="FormCode" Type="Int32" />
+          <Property Name="FlowCode" Type="Int32" />
+          <Property Name="UID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UID_ReadOnly" Type="Boolean" />
+          <Property Name="UID_Enable" Type="Boolean" />
+          <Property Name="UID_Visible" Type="Boolean" />
+          <Property Name="UID_Required" Type="Boolean" />
+          <Property Name="CaseID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CaseID_ReadOnly" Type="Boolean" />
+          <Property Name="CaseID_Enable" Type="Boolean" />
+          <Property Name="CaseID_Visible" Type="Boolean" />
+          <Property Name="CaseID_Required" Type="Boolean" />
+          <Property Name="Applicant" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Applicant_ReadOnly" Type="Boolean" />
+          <Property Name="Applicant_Enable" Type="Boolean" />
+          <Property Name="Applicant_Visible" Type="Boolean" />
+          <Property Name="Applicant_Required" Type="Boolean" />
+          <Property Name="ApplicantName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CorpTel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ApplicantEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Manager" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="CustomerID_ReadOnly" Type="Boolean" />
+          <Property Name="CustomerID_Enable" Type="Boolean" />
+          <Property Name="CustomerID_Visible" Type="Boolean" />
+          <Property Name="CustomerID_Required" Type="Boolean" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectName_ReadOnly" Type="Boolean" />
+          <Property Name="ProjectName_Enable" Type="Boolean" />
+          <Property Name="ProjectName_Visible" Type="Boolean" />
+          <Property Name="ProjectName_Required" Type="Boolean" />
+          <Property Name="SerialNumber" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="SerialNumber_ReadOnly" Type="Boolean" />
+          <Property Name="SerialNumber_Enable" Type="Boolean" />
+          <Property Name="SerialNumber_Visible" Type="Boolean" />
+          <Property Name="SerialNumber_Required" Type="Boolean" />
+          <Property Name="PartNumber" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="PartNumber_ReadOnly" Type="Boolean" />
+          <Property Name="PartNumber_Enable" Type="Boolean" />
+          <Property Name="PartNumber_Visible" Type="Boolean" />
+          <Property Name="PartNumber_Required" Type="Boolean" />
+          <Property Name="Site" Type="Int32" />
+          <Property Name="Site_ReadOnly" Type="Boolean" />
+          <Property Name="Site_Enable" Type="Boolean" />
+          <Property Name="Site_Visible" Type="Boolean" />
+          <Property Name="Site_Required" Type="Boolean" />
+          <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ParentTestItem" Type="Int32" />
+          <Property Name="ParentTestItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestItem" Type="Int32" />
+          <Property Name="TestItem_ReadOnly" Type="Boolean" />
+          <Property Name="TestItem_Enable" Type="Boolean" />
+          <Property Name="TestItem_Visible" Type="Boolean" />
+          <Property Name="TestItem_Required" Type="Boolean" />
+          <Property Name="TestItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RequestItem" Type="Int32" />
+          <Property Name="RequestItem_ReadOnly" Type="Boolean" />
+          <Property Name="RequestItem_Enable" Type="Boolean" />
+          <Property Name="RequestItem_Visible" Type="Boolean" />
+          <Property Name="RequestItem_Required" Type="Boolean" />
+          <Property Name="RequestItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReturnType" Type="Int32" />
+          <Property Name="ReturnType_ReadOnly" Type="Boolean" />
+          <Property Name="ReturnType_Enable" Type="Boolean" />
+          <Property Name="ReturnType_Visible" Type="Boolean" />
+          <Property Name="ReturnType_Required" Type="Boolean" />
+          <Property Name="ReturnTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FailureSite" Type="Int32" />
+          <Property Name="FailureSite_ReadOnly" Type="Boolean" />
+          <Property Name="FailureSite_Enable" Type="Boolean" />
+          <Property Name="FailureSite_Visible" Type="Boolean" />
+          <Property Name="FailureSite_Required" Type="Boolean" />
+          <Property Name="FailureSiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BackgroundDesc" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="BackgroundDesc_ReadOnly" Type="Boolean" />
+          <Property Name="BackgroundDesc_Enable" Type="Boolean" />
+          <Property Name="BackgroundDesc_Visible" Type="Boolean" />
+          <Property Name="BackgroundDesc_Required" Type="Boolean" />
+          <Property Name="IssueSource" Type="Int32" />
+          <Property Name="IssueSource_ReadOnly" Type="Boolean" />
+          <Property Name="IssueSource_Enable" Type="Boolean" />
+          <Property Name="IssueSource_Visible" Type="Boolean" />
+          <Property Name="IssueSource_Required" Type="Boolean" />
+          <Property Name="IssueSourceName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SampleQty" Type="Int32" />
+          <Property Name="SampleQty_ReadOnly" Type="Boolean" />
+          <Property Name="SampleQty_Enable" Type="Boolean" />
+          <Property Name="SampleQty_Visible" Type="Boolean" />
+          <Property Name="SampleQty_Required" Type="Boolean" />
+          <Property Name="TestPurpose" Type="Int32" />
+          <Property Name="TestPurpose_ReadOnly" Type="Boolean" />
+          <Property Name="TestPurpose_Enable" Type="Boolean" />
+          <Property Name="TestPurpose_Visible" Type="Boolean" />
+          <Property Name="TestPurpose_Required" Type="Boolean" />
+          <Property Name="TestPurposeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PCBVerdorID" Type="Int32" />
+          <Property Name="PCBVendor_ReadOnly" Type="Boolean" />
+          <Property Name="PCBVendor_Enable" Type="Boolean" />
+          <Property Name="PCBVendor_Visible" Type="Boolean" />
+          <Property Name="PCBVendor_Required" Type="Boolean" />
+          <Property Name="PCBVendorName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProductStageID" Type="Int32" />
+          <Property Name="ProductStageName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProductStage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProductStage_ReadOnly" Type="Boolean" />
+          <Property Name="ProductStage_Enable" Type="Boolean" />
+          <Property Name="ProductStage_Visible" Type="Boolean" />
+          <Property Name="ProductStage_Required" Type="Boolean" />
+          <Property Name="ProcessStep" Type="Int32" />
+          <Property Name="ProcessStep_ReadOnly" Type="Boolean" />
+          <Property Name="ProcessStep_Enable" Type="Boolean" />
+          <Property Name="ProcessStep_Visible" Type="Boolean" />
+          <Property Name="ProcessStep_Required" Type="Boolean" />
+          <Property Name="ProcessStepName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FixtureNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FixtureNo_ReadOnly" Type="Boolean" />
+          <Property Name="FixtureNo_Enable" Type="Boolean" />
+          <Property Name="FixtureNo_Visible" Type="Boolean" />
+          <Property Name="FixtureNo_Required" Type="Boolean" />
+          <Property Name="FixtureVersionNo" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="FixtureVersionNo_ReadOnly" Type="Boolean" />
+          <Property Name="FixtureVersionNo_Enable" Type="Boolean" />
+          <Property Name="FixtureVersionNo_Visible" Type="Boolean" />
+          <Property Name="FixtureVersionNo_Required" Type="Boolean" />
+          <Property Name="FixtureSupplier" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FixtureSupplier_ReadOnly" Type="Boolean" />
+          <Property Name="FixtureSupplier_Enable" Type="Boolean" />
+          <Property Name="FixtureSupplier_Visible" Type="Boolean" />
+          <Property Name="FixtureSupplier_Required" Type="Boolean" />
+          <Property Name="Supervisor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Supervisor_ReadOnly" Type="Boolean" />
+          <Property Name="Supervisor_Enable" Type="Boolean" />
+          <Property Name="Supervisor_Visible" Type="Boolean" />
+          <Property Name="Supervisor_Required" Type="Boolean" />
+          <Property Name="SupervisorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LocalSupervisor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LocalSupervisor_ReadOnly" Type="Boolean" />
+          <Property Name="LocalSupervisor_Enable" Type="Boolean" />
+          <Property Name="LocalSupervisor_Visible" Type="Boolean" />
+          <Property Name="LocalSupervisor_Required" Type="Boolean" />
+          <Property Name="LocalSupervisorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LabMember" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LabMember_ReadOnly" Type="Boolean" />
+          <Property Name="LabMember_Enable" Type="Boolean" />
+          <Property Name="LabMember_Visible" Type="Boolean" />
+          <Property Name="LabMember_Required" Type="Boolean" />
+          <Property Name="LabMemberName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReceiptQty" Type="Int32" />
+          <Property Name="ReceiptQty_ReadOnly" Type="Boolean" />
+          <Property Name="ReceiptQty_Enable" Type="Boolean" />
+          <Property Name="ReceiptQty_Visible" Type="Boolean" />
+          <Property Name="ReceiptQty_Required" Type="Boolean" />
+          <Property Name="ReceiptDate" Type="DateTime" />
+          <Property Name="ReceiptDate_ReadOnly" Type="Boolean" />
+          <Property Name="ReceiptDate_Enable" Type="Boolean" />
+          <Property Name="ReceiptDate_Visible" Type="Boolean" />
+          <Property Name="ReceiptDate_Required" Type="Boolean" />
+          <Property Name="FinishDate" Type="DateTime" />
+          <Property Name="FinishDate_ReadOnly" Type="Boolean" />
+          <Property Name="FinishDate_Enable" Type="Boolean" />
+          <Property Name="FinishDate_Visible" Type="Boolean" />
+          <Property Name="FinishDate_Required" Type="Boolean" />
+          <Property Name="LabWorkHour" Type="Double" />
+          <Property Name="LabWorkHour_ReadOnly" Type="Boolean" />
+          <Property Name="LabWorkHour_Enable" Type="Boolean" />
+          <Property Name="LabWorkHour_Visible" Type="Boolean" />
+          <Property Name="LabWorkHour_Required" Type="Boolean" />
+          <Property Name="AnalysisResult" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="AnalysisResult_ReadOnly" Type="Boolean" />
+          <Property Name="AnalysisResult_Enable" Type="Boolean" />
+          <Property Name="AnalysisResult_Visible" Type="Boolean" />
+          <Property Name="AnalysisResult_Required" Type="Boolean" />
+          <Property Name="AnalysisSummary" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="AnalysisSummary_ReadOnly" Type="Boolean" />
+          <Property Name="AnalysisSummary_Enable" Type="Boolean" />
+          <Property Name="AnalysisSummary_Visible" Type="Boolean" />
+          <Property Name="AnalysisSummary_Required" Type="Boolean" />
+          <Property Name="NextTestDate" Type="DateTime" />
+          <Property Name="NextTestDate_ReadOnly" Type="Boolean" />
+          <Property Name="NextTestDate_Enable" Type="Boolean" />
+          <Property Name="NextTestDate_Visible" Type="Boolean" />
+          <Property Name="NextTestDate_Required" Type="Boolean" />
+          <Property Name="DivEFA_Visible" Type="Boolean" />
+          <Property Name="DivFA_Visible" Type="Boolean" />
+          <Property Name="DivStrain_Visible" Type="Boolean" />
+          <Property Name="DivFileUpload_Visible" Type="Boolean" />
+          <Property Name="DivLAB_Visible" Type="Boolean" />
+          <Property Name="AttachFile35_ReadOnly" Type="Boolean" />
+          <Property Name="AttachFile35_Enable" Type="Boolean" />
+          <Property Name="AttachFile35_Visible" Type="Boolean" />
+          <Property Name="AttachFile35_Required" Type="Boolean" />
+          <Property Name="AttachFile40_ReadOnly" Type="Boolean" />
+          <Property Name="AttachFile40_Enable" Type="Boolean" />
+          <Property Name="AttachFile40_Visible" Type="Boolean" />
+          <Property Name="AttachFile40_Required" Type="Boolean" />
+          <Property Name="AttachFile1000_ReadOnly" Type="Boolean" />
+          <Property Name="AttachFile1000_Enable" Type="Boolean" />
+          <Property Name="AttachFile1000_Visible" Type="Boolean" />
+          <Property Name="AttachFile1000_Required" Type="Boolean" />
+          <Property Name="editor" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EditorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="cdt" Type="DateTime" />
+          <Property Name="udt" Type="DateTime" />
+          <Property Name="ListAssignTo" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="VirtualAnalysisSummary" Type="String" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <Property Name="VirtualAnalysisSummary_ReadOnly" Type="Boolean" />
+          <Property Name="VirtualAnalysisSummary_Enable" Type="Boolean" />
+          <Property Name="VirtualAnalysisSummary_Visible" Type="Boolean" />
+          <Property Name="VirtualAnalysisSummary_Required" Type="Boolean" />
+          <Property Name="PreTestDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DivFileUpdateVer_Visible" Type="Boolean" />
+        </ComplexType>
+        <ComplexType Name="FnGetFormAuthority2_Result">
+          <Property Name="ID" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="FnGetItemParentListById_Result">
+          <Property Name="Id" Type="Int32" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="FnGetMailList_Result">
+          <Property Name="BadgeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="FnGetMailList2_Result">
+          <Property Name="BadgeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="FnGetParentListById_Result">
+          <Property Name="Id" Type="Int32" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <ComplexType Name="FnMemberDropDownList_Result">
+          <Property Name="BadgeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="FnRoleMenuDropDownList_Result">
+          <Property Name="Id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Parent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="lvl" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="FnRoleMenuFunction_Result">
+          <Property Name="menuId" Type="Int32" />
+          <Property Name="menuText" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="actionname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="controlname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="parentMenuId" Type="Int32" />
+          <Property Name="menuType" Type="Int32" />
+          <Property Name="sortOrder" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="FnTestItemMenuDropDownList_Result">
+          <Property Name="Id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Parent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="lvl" Type="Int32" />
+          <Property Name="sortOrder" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </ComplexType>
+        <EntityContainer Name="CERLEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="FnCERLMenuDropDownList" IsComposable="true" ReturnType="Collection(CERLModel.FnCERLMenuDropDownList_Result)">
+            <Parameter Name="pid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGenInitInfo" IsComposable="true" ReturnType="Collection(CERLModel.FnGenInitInfo_Result)">
+            <Parameter Name="vchSet" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGenUserName" IsComposable="true" ReturnType="Collection(CERLModel.FnGenUserName_Result)">
+            <Parameter Name="vchSet" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGeneralDropDownList" IsComposable="true" ReturnType="Collection(CERLModel.FnGeneralDropDownList_Result)">
+            <Parameter Name="table" Mode="In" Type="String" />
+            <Parameter Name="pid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetAssignTo" IsComposable="true" ReturnType="Collection(CERLModel.FnGetAssignTo_Result)">
+            <Parameter Name="outState" Mode="In" Type="Int32" />
+            <Parameter Name="vchSet" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetCaseID" IsComposable="true" ReturnType="Collection(CERLModel.FnGetCaseID_Result)">
+            <Parameter Name="vchSet" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetDivShow" IsComposable="true" ReturnType="Collection(CERLModel.FnGetDivShow_Result)">
+            <Parameter Name="testitemid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetFCERL" IsComposable="true" ReturnType="Collection(CERLModel.FnGetFCERL_Result)">
+            <Parameter Name="fID" Mode="In" Type="String" />
+            <Parameter Name="BadgeCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetFormAuthority2" IsComposable="true" ReturnType="Collection(CERLModel.FnGetFormAuthority2_Result)">
+            <Parameter Name="UserId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetItemParentListById" IsComposable="true" ReturnType="Collection(CERLModel.FnGetItemParentListById_Result)">
+            <Parameter Name="Id" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetMailList" IsComposable="true" ReturnType="Collection(CERLModel.FnGetMailList_Result)">
+            <Parameter Name="AssignTo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetMailList2" IsComposable="true" ReturnType="Collection(CERLModel.FnGetMailList2_Result)">
+            <Parameter Name="MemberRole" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetParentListById" IsComposable="true" ReturnType="Collection(CERLModel.FnGetParentListById_Result)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FnMemberDropDownList" IsComposable="true" ReturnType="Collection(CERLModel.FnMemberDropDownList_Result)">
+            <Parameter Name="table" Mode="In" Type="String" />
+            <Parameter Name="pid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnRoleMenuDropDownList" IsComposable="true" ReturnType="Collection(CERLModel.FnRoleMenuDropDownList_Result)">
+            <Parameter Name="roleid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnRoleMenuFunction" IsComposable="true" ReturnType="Collection(CERLModel.FnRoleMenuFunction_Result)">
+            <Parameter Name="RoleId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FnTestItemMenuDropDownList" IsComposable="true" ReturnType="Collection(CERLModel.FnTestItemMenuDropDownList_Result)">
+            <Parameter Name="pid" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CERLModelStoreContainer" CdmEntityContainer="CERLEntities">
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnCERLMenuDropDownList" FunctionImportName="FnCERLMenuDropDownList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnCERLMenuDropDownList_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="lvl" ColumnName="lvl" />
+                <ScalarProperty Name="sort" ColumnName="sort" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGenInitInfo" FunctionImportName="FnGenInitInfo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGenInitInfo_Result">
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+                <ScalarProperty Name="FormCode" ColumnName="FormCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGenUserName" FunctionImportName="FnGenUserName">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGenUserName_Result">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGeneralDropDownList" FunctionImportName="FnGeneralDropDownList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGeneralDropDownList_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGetAssignTo" FunctionImportName="FnGetAssignTo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGetAssignTo_Result">
+                <ScalarProperty Name="ListAssitnTo" ColumnName="ListAssitnTo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGetCaseID" FunctionImportName="FnGetCaseID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGetCaseID_Result">
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGetDivShow" FunctionImportName="FnGetDivShow">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGetDivShow_Result">
+                <ScalarProperty Name="DivId" ColumnName="DivId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGetFCERL" FunctionImportName="FnGetFCERL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGetFCERL_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="fID" ColumnName="fID" />
+                <ScalarProperty Name="FormCode" ColumnName="FormCode" />
+                <ScalarProperty Name="FlowCode" ColumnName="FlowCode" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="UID_ReadOnly" ColumnName="UID_ReadOnly" />
+                <ScalarProperty Name="UID_Enable" ColumnName="UID_Enable" />
+                <ScalarProperty Name="UID_Visible" ColumnName="UID_Visible" />
+                <ScalarProperty Name="UID_Required" ColumnName="UID_Required" />
+                <ScalarProperty Name="CaseID" ColumnName="CaseID" />
+                <ScalarProperty Name="CaseID_ReadOnly" ColumnName="CaseID_ReadOnly" />
+                <ScalarProperty Name="CaseID_Enable" ColumnName="CaseID_Enable" />
+                <ScalarProperty Name="CaseID_Visible" ColumnName="CaseID_Visible" />
+                <ScalarProperty Name="CaseID_Required" ColumnName="CaseID_Required" />
+                <ScalarProperty Name="Applicant" ColumnName="Applicant" />
+                <ScalarProperty Name="Applicant_ReadOnly" ColumnName="Applicant_ReadOnly" />
+                <ScalarProperty Name="Applicant_Enable" ColumnName="Applicant_Enable" />
+                <ScalarProperty Name="Applicant_Visible" ColumnName="Applicant_Visible" />
+                <ScalarProperty Name="Applicant_Required" ColumnName="Applicant_Required" />
+                <ScalarProperty Name="ApplicantName" ColumnName="ApplicantName" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+                <ScalarProperty Name="CorpTel" ColumnName="CorpTel" />
+                <ScalarProperty Name="ApplicantEmail" ColumnName="ApplicantEmail" />
+                <ScalarProperty Name="Manager" ColumnName="Manager" />
+                <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerID_ReadOnly" ColumnName="CustomerID_ReadOnly" />
+                <ScalarProperty Name="CustomerID_Enable" ColumnName="CustomerID_Enable" />
+                <ScalarProperty Name="CustomerID_Visible" ColumnName="CustomerID_Visible" />
+                <ScalarProperty Name="CustomerID_Required" ColumnName="CustomerID_Required" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectName_ReadOnly" ColumnName="ProjectName_ReadOnly" />
+                <ScalarProperty Name="ProjectName_Enable" ColumnName="ProjectName_Enable" />
+                <ScalarProperty Name="ProjectName_Visible" ColumnName="ProjectName_Visible" />
+                <ScalarProperty Name="ProjectName_Required" ColumnName="ProjectName_Required" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="SerialNumber_ReadOnly" ColumnName="SerialNumber_ReadOnly" />
+                <ScalarProperty Name="SerialNumber_Enable" ColumnName="SerialNumber_Enable" />
+                <ScalarProperty Name="SerialNumber_Visible" ColumnName="SerialNumber_Visible" />
+                <ScalarProperty Name="SerialNumber_Required" ColumnName="SerialNumber_Required" />
+                <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+                <ScalarProperty Name="PartNumber_ReadOnly" ColumnName="PartNumber_ReadOnly" />
+                <ScalarProperty Name="PartNumber_Enable" ColumnName="PartNumber_Enable" />
+                <ScalarProperty Name="PartNumber_Visible" ColumnName="PartNumber_Visible" />
+                <ScalarProperty Name="PartNumber_Required" ColumnName="PartNumber_Required" />
+                <ScalarProperty Name="Site" ColumnName="Site" />
+                <ScalarProperty Name="Site_ReadOnly" ColumnName="Site_ReadOnly" />
+                <ScalarProperty Name="Site_Enable" ColumnName="Site_Enable" />
+                <ScalarProperty Name="Site_Visible" ColumnName="Site_Visible" />
+                <ScalarProperty Name="Site_Required" ColumnName="Site_Required" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="ParentTestItem" ColumnName="ParentTestItem" />
+                <ScalarProperty Name="ParentTestItemName" ColumnName="ParentTestItemName" />
+                <ScalarProperty Name="TestItem" ColumnName="TestItem" />
+                <ScalarProperty Name="TestItem_ReadOnly" ColumnName="TestItem_ReadOnly" />
+                <ScalarProperty Name="TestItem_Enable" ColumnName="TestItem_Enable" />
+                <ScalarProperty Name="TestItem_Visible" ColumnName="TestItem_Visible" />
+                <ScalarProperty Name="TestItem_Required" ColumnName="TestItem_Required" />
+                <ScalarProperty Name="TestItemName" ColumnName="TestItemName" />
+                <ScalarProperty Name="RequestItem" ColumnName="RequestItem" />
+                <ScalarProperty Name="RequestItem_ReadOnly" ColumnName="RequestItem_ReadOnly" />
+                <ScalarProperty Name="RequestItem_Enable" ColumnName="RequestItem_Enable" />
+                <ScalarProperty Name="RequestItem_Visible" ColumnName="RequestItem_Visible" />
+                <ScalarProperty Name="RequestItem_Required" ColumnName="RequestItem_Required" />
+                <ScalarProperty Name="RequestItemName" ColumnName="RequestItemName" />
+                <ScalarProperty Name="ReturnType" ColumnName="ReturnType" />
+                <ScalarProperty Name="ReturnType_ReadOnly" ColumnName="ReturnType_ReadOnly" />
+                <ScalarProperty Name="ReturnType_Enable" ColumnName="ReturnType_Enable" />
+                <ScalarProperty Name="ReturnType_Visible" ColumnName="ReturnType_Visible" />
+                <ScalarProperty Name="ReturnType_Required" ColumnName="ReturnType_Required" />
+                <ScalarProperty Name="ReturnTypeName" ColumnName="ReturnTypeName" />
+                <ScalarProperty Name="FailureSite" ColumnName="FailureSite" />
+                <ScalarProperty Name="FailureSite_ReadOnly" ColumnName="FailureSite_ReadOnly" />
+                <ScalarProperty Name="FailureSite_Enable" ColumnName="FailureSite_Enable" />
+                <ScalarProperty Name="FailureSite_Visible" ColumnName="FailureSite_Visible" />
+                <ScalarProperty Name="FailureSite_Required" ColumnName="FailureSite_Required" />
+                <ScalarProperty Name="FailureSiteName" ColumnName="FailureSiteName" />
+                <ScalarProperty Name="BackgroundDesc" ColumnName="BackgroundDesc" />
+                <ScalarProperty Name="BackgroundDesc_ReadOnly" ColumnName="BackgroundDesc_ReadOnly" />
+                <ScalarProperty Name="BackgroundDesc_Enable" ColumnName="BackgroundDesc_Enable" />
+                <ScalarProperty Name="BackgroundDesc_Visible" ColumnName="BackgroundDesc_Visible" />
+                <ScalarProperty Name="BackgroundDesc_Required" ColumnName="BackgroundDesc_Required" />
+                <ScalarProperty Name="IssueSource" ColumnName="IssueSource" />
+                <ScalarProperty Name="IssueSource_ReadOnly" ColumnName="IssueSource_ReadOnly" />
+                <ScalarProperty Name="IssueSource_Enable" ColumnName="IssueSource_Enable" />
+                <ScalarProperty Name="IssueSource_Visible" ColumnName="IssueSource_Visible" />
+                <ScalarProperty Name="IssueSource_Required" ColumnName="IssueSource_Required" />
+                <ScalarProperty Name="IssueSourceName" ColumnName="IssueSourceName" />
+                <ScalarProperty Name="SampleQty" ColumnName="SampleQty" />
+                <ScalarProperty Name="SampleQty_ReadOnly" ColumnName="SampleQty_ReadOnly" />
+                <ScalarProperty Name="SampleQty_Enable" ColumnName="SampleQty_Enable" />
+                <ScalarProperty Name="SampleQty_Visible" ColumnName="SampleQty_Visible" />
+                <ScalarProperty Name="SampleQty_Required" ColumnName="SampleQty_Required" />
+                <ScalarProperty Name="TestPurpose" ColumnName="TestPurpose" />
+                <ScalarProperty Name="TestPurpose_ReadOnly" ColumnName="TestPurpose_ReadOnly" />
+                <ScalarProperty Name="TestPurpose_Enable" ColumnName="TestPurpose_Enable" />
+                <ScalarProperty Name="TestPurpose_Visible" ColumnName="TestPurpose_Visible" />
+                <ScalarProperty Name="TestPurpose_Required" ColumnName="TestPurpose_Required" />
+                <ScalarProperty Name="TestPurposeName" ColumnName="TestPurposeName" />
+                <ScalarProperty Name="PCBVerdorID" ColumnName="PCBVerdorID" />
+                <ScalarProperty Name="PCBVendor_ReadOnly" ColumnName="PCBVendor_ReadOnly" />
+                <ScalarProperty Name="PCBVendor_Enable" ColumnName="PCBVendor_Enable" />
+                <ScalarProperty Name="PCBVendor_Visible" ColumnName="PCBVendor_Visible" />
+                <ScalarProperty Name="PCBVendor_Required" ColumnName="PCBVendor_Required" />
+                <ScalarProperty Name="PCBVendorName" ColumnName="PCBVendorName" />
+                <ScalarProperty Name="ProductStageID" ColumnName="ProductStageID" />
+                <ScalarProperty Name="ProductStageName" ColumnName="ProductStageName" />
+                <ScalarProperty Name="ProductStage" ColumnName="ProductStage" />
+                <ScalarProperty Name="ProductStage_ReadOnly" ColumnName="ProductStage_ReadOnly" />
+                <ScalarProperty Name="ProductStage_Enable" ColumnName="ProductStage_Enable" />
+                <ScalarProperty Name="ProductStage_Visible" ColumnName="ProductStage_Visible" />
+                <ScalarProperty Name="ProductStage_Required" ColumnName="ProductStage_Required" />
+                <ScalarProperty Name="ProcessStep" ColumnName="ProcessStep" />
+                <ScalarProperty Name="ProcessStep_ReadOnly" ColumnName="ProcessStep_ReadOnly" />
+                <ScalarProperty Name="ProcessStep_Enable" ColumnName="ProcessStep_Enable" />
+                <ScalarProperty Name="ProcessStep_Visible" ColumnName="ProcessStep_Visible" />
+                <ScalarProperty Name="ProcessStep_Required" ColumnName="ProcessStep_Required" />
+                <ScalarProperty Name="ProcessStepName" ColumnName="ProcessStepName" />
+                <ScalarProperty Name="FixtureNo" ColumnName="FixtureNo" />
+                <ScalarProperty Name="FixtureNo_ReadOnly" ColumnName="FixtureNo_ReadOnly" />
+                <ScalarProperty Name="FixtureNo_Enable" ColumnName="FixtureNo_Enable" />
+                <ScalarProperty Name="FixtureNo_Visible" ColumnName="FixtureNo_Visible" />
+                <ScalarProperty Name="FixtureNo_Required" ColumnName="FixtureNo_Required" />
+                <ScalarProperty Name="FixtureVersionNo" ColumnName="FixtureVersionNo" />
+                <ScalarProperty Name="FixtureVersionNo_ReadOnly" ColumnName="FixtureVersionNo_ReadOnly" />
+                <ScalarProperty Name="FixtureVersionNo_Enable" ColumnName="FixtureVersionNo_Enable" />
+                <ScalarProperty Name="FixtureVersionNo_Visible" ColumnName="FixtureVersionNo_Visible" />
+                <ScalarProperty Name="FixtureVersionNo_Required" ColumnName="FixtureVersionNo_Required" />
+                <ScalarProperty Name="FixtureSupplier" ColumnName="FixtureSupplier" />
+                <ScalarProperty Name="FixtureSupplier_ReadOnly" ColumnName="FixtureSupplier_ReadOnly" />
+                <ScalarProperty Name="FixtureSupplier_Enable" ColumnName="FixtureSupplier_Enable" />
+                <ScalarProperty Name="FixtureSupplier_Visible" ColumnName="FixtureSupplier_Visible" />
+                <ScalarProperty Name="FixtureSupplier_Required" ColumnName="FixtureSupplier_Required" />
+                <ScalarProperty Name="Supervisor" ColumnName="Supervisor" />
+                <ScalarProperty Name="Supervisor_ReadOnly" ColumnName="Supervisor_ReadOnly" />
+                <ScalarProperty Name="Supervisor_Enable" ColumnName="Supervisor_Enable" />
+                <ScalarProperty Name="Supervisor_Visible" ColumnName="Supervisor_Visible" />
+                <ScalarProperty Name="Supervisor_Required" ColumnName="Supervisor_Required" />
+                <ScalarProperty Name="SupervisorName" ColumnName="SupervisorName" />
+                <ScalarProperty Name="LocalSupervisor" ColumnName="LocalSupervisor" />
+                <ScalarProperty Name="LocalSupervisor_ReadOnly" ColumnName="LocalSupervisor_ReadOnly" />
+                <ScalarProperty Name="LocalSupervisor_Enable" ColumnName="LocalSupervisor_Enable" />
+                <ScalarProperty Name="LocalSupervisor_Visible" ColumnName="LocalSupervisor_Visible" />
+                <ScalarProperty Name="LocalSupervisor_Required" ColumnName="LocalSupervisor_Required" />
+                <ScalarProperty Name="LocalSupervisorName" ColumnName="LocalSupervisorName" />
+                <ScalarProperty Name="LabMember" ColumnName="LabMember" />
+                <ScalarProperty Name="LabMember_ReadOnly" ColumnName="LabMember_ReadOnly" />
+                <ScalarProperty Name="LabMember_Enable" ColumnName="LabMember_Enable" />
+                <ScalarProperty Name="LabMember_Visible" ColumnName="LabMember_Visible" />
+                <ScalarProperty Name="LabMember_Required" ColumnName="LabMember_Required" />
+                <ScalarProperty Name="LabMemberName" ColumnName="LabMemberName" />
+                <ScalarProperty Name="ReceiptQty" ColumnName="ReceiptQty" />
+                <ScalarProperty Name="ReceiptQty_ReadOnly" ColumnName="ReceiptQty_ReadOnly" />
+                <ScalarProperty Name="ReceiptQty_Enable" ColumnName="ReceiptQty_Enable" />
+                <ScalarProperty Name="ReceiptQty_Visible" ColumnName="ReceiptQty_Visible" />
+                <ScalarProperty Name="ReceiptQty_Required" ColumnName="ReceiptQty_Required" />
+                <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
+                <ScalarProperty Name="ReceiptDate_ReadOnly" ColumnName="ReceiptDate_ReadOnly" />
+                <ScalarProperty Name="ReceiptDate_Enable" ColumnName="ReceiptDate_Enable" />
+                <ScalarProperty Name="ReceiptDate_Visible" ColumnName="ReceiptDate_Visible" />
+                <ScalarProperty Name="ReceiptDate_Required" ColumnName="ReceiptDate_Required" />
+                <ScalarProperty Name="FinishDate" ColumnName="FinishDate" />
+                <ScalarProperty Name="FinishDate_ReadOnly" ColumnName="FinishDate_ReadOnly" />
+                <ScalarProperty Name="FinishDate_Enable" ColumnName="FinishDate_Enable" />
+                <ScalarProperty Name="FinishDate_Visible" ColumnName="FinishDate_Visible" />
+                <ScalarProperty Name="FinishDate_Required" ColumnName="FinishDate_Required" />
+                <ScalarProperty Name="LabWorkHour" ColumnName="LabWorkHour" />
+                <ScalarProperty Name="LabWorkHour_ReadOnly" ColumnName="LabWorkHour_ReadOnly" />
+                <ScalarProperty Name="LabWorkHour_Enable" ColumnName="LabWorkHour_Enable" />
+                <ScalarProperty Name="LabWorkHour_Visible" ColumnName="LabWorkHour_Visible" />
+                <ScalarProperty Name="LabWorkHour_Required" ColumnName="LabWorkHour_Required" />
+                <ScalarProperty Name="AnalysisResult" ColumnName="AnalysisResult" />
+                <ScalarProperty Name="AnalysisResult_ReadOnly" ColumnName="AnalysisResult_ReadOnly" />
+                <ScalarProperty Name="AnalysisResult_Enable" ColumnName="AnalysisResult_Enable" />
+                <ScalarProperty Name="AnalysisResult_Visible" ColumnName="AnalysisResult_Visible" />
+                <ScalarProperty Name="AnalysisResult_Required" ColumnName="AnalysisResult_Required" />
+                <ScalarProperty Name="AnalysisSummary" ColumnName="AnalysisSummary" />
+                <ScalarProperty Name="AnalysisSummary_ReadOnly" ColumnName="AnalysisSummary_ReadOnly" />
+                <ScalarProperty Name="AnalysisSummary_Enable" ColumnName="AnalysisSummary_Enable" />
+                <ScalarProperty Name="AnalysisSummary_Visible" ColumnName="AnalysisSummary_Visible" />
+                <ScalarProperty Name="AnalysisSummary_Required" ColumnName="AnalysisSummary_Required" />
+                <ScalarProperty Name="NextTestDate" ColumnName="NextTestDate" />
+                <ScalarProperty Name="NextTestDate_ReadOnly" ColumnName="NextTestDate_ReadOnly" />
+                <ScalarProperty Name="NextTestDate_Enable" ColumnName="NextTestDate_Enable" />
+                <ScalarProperty Name="NextTestDate_Visible" ColumnName="NextTestDate_Visible" />
+                <ScalarProperty Name="NextTestDate_Required" ColumnName="NextTestDate_Required" />
+                <ScalarProperty Name="DivEFA_Visible" ColumnName="DivEFA_Visible" />
+                <ScalarProperty Name="DivFA_Visible" ColumnName="DivFA_Visible" />
+                <ScalarProperty Name="DivStrain_Visible" ColumnName="DivStrain_Visible" />
+                <ScalarProperty Name="DivFileUpload_Visible" ColumnName="DivFileUpload_Visible" />
+                <ScalarProperty Name="DivLAB_Visible" ColumnName="DivLAB_Visible" />
+                <ScalarProperty Name="AttachFile35_ReadOnly" ColumnName="AttachFile35_ReadOnly" />
+                <ScalarProperty Name="AttachFile35_Enable" ColumnName="AttachFile35_Enable" />
+                <ScalarProperty Name="AttachFile35_Visible" ColumnName="AttachFile35_Visible" />
+                <ScalarProperty Name="AttachFile35_Required" ColumnName="AttachFile35_Required" />
+                <ScalarProperty Name="AttachFile40_ReadOnly" ColumnName="AttachFile40_ReadOnly" />
+                <ScalarProperty Name="AttachFile40_Enable" ColumnName="AttachFile40_Enable" />
+                <ScalarProperty Name="AttachFile40_Visible" ColumnName="AttachFile40_Visible" />
+                <ScalarProperty Name="AttachFile40_Required" ColumnName="AttachFile40_Required" />
+                <ScalarProperty Name="AttachFile1000_ReadOnly" ColumnName="AttachFile1000_ReadOnly" />
+                <ScalarProperty Name="AttachFile1000_Enable" ColumnName="AttachFile1000_Enable" />
+                <ScalarProperty Name="AttachFile1000_Visible" ColumnName="AttachFile1000_Visible" />
+                <ScalarProperty Name="AttachFile1000_Required" ColumnName="AttachFile1000_Required" />
+                <ScalarProperty Name="editor" ColumnName="editor" />
+                <ScalarProperty Name="EditorName" ColumnName="EditorName" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="cdt" ColumnName="cdt" />
+                <ScalarProperty Name="udt" ColumnName="udt" />
+                <ScalarProperty Name="ListAssignTo" ColumnName="ListAssignTo" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="VirtualAnalysisSummary" ColumnName="VirtualAnalysisSummary" />
+                <ScalarProperty Name="VirtualAnalysisSummary_ReadOnly" ColumnName="VirtualAnalysisSummary_ReadOnly" />
+                <ScalarProperty Name="VirtualAnalysisSummary_Enable" ColumnName="VirtualAnalysisSummary_Enable" />
+                <ScalarProperty Name="VirtualAnalysisSummary_Visible" ColumnName="VirtualAnalysisSummary_Visible" />
+                <ScalarProperty Name="VirtualAnalysisSummary_Required" ColumnName="VirtualAnalysisSummary_Required" />
+                <ScalarProperty Name="PreTestDate" ColumnName="PreTestDate" />
+                <ScalarProperty Name="DivFileUpdateVer_Visible" ColumnName="DivFileUpdateVer_Visible" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGetFormAuthority2" FunctionImportName="FnGetFormAuthority2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGetFormAuthority2_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGetItemParentListById" FunctionImportName="FnGetItemParentListById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGetItemParentListById_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGetMailList" FunctionImportName="FnGetMailList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGetMailList_Result">
+                <ScalarProperty Name="BadgeCode" ColumnName="BadgeCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGetMailList2" FunctionImportName="FnGetMailList2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGetMailList2_Result">
+                <ScalarProperty Name="BadgeCode" ColumnName="BadgeCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnGetParentListById" FunctionImportName="FnGetParentListById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnGetParentListById_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnMemberDropDownList" FunctionImportName="FnMemberDropDownList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnMemberDropDownList_Result">
+                <ScalarProperty Name="BadgeCode" ColumnName="BadgeCode" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnRoleMenuDropDownList" FunctionImportName="FnRoleMenuDropDownList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnRoleMenuDropDownList_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="lvl" ColumnName="lvl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnRoleMenuFunction" FunctionImportName="FnRoleMenuFunction">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnRoleMenuFunction_Result">
+                <ScalarProperty Name="menuId" ColumnName="menuId" />
+                <ScalarProperty Name="menuText" ColumnName="menuText" />
+                <ScalarProperty Name="actionname" ColumnName="actionname" />
+                <ScalarProperty Name="controlname" ColumnName="controlname" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="parentMenuId" ColumnName="parentMenuId" />
+                <ScalarProperty Name="menuType" ColumnName="menuType" />
+                <ScalarProperty Name="sortOrder" ColumnName="sortOrder" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="CERLModel.Store.FnTestItemMenuDropDownList" FunctionImportName="FnTestItemMenuDropDownList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CERLModel.FnTestItemMenuDropDownList_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="lvl" ColumnName="lvl" />
+                <ScalarProperty Name="sortOrder" ColumnName="sortOrder" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

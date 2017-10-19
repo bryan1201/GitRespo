@@ -1,0 +1,412 @@
+CERLADO.edmx
+CERLLAB.Models
+<add name="CERLEntities" connectionString="metadata=res://*/Models.CERLADO.csdl|res://*/Models.CERLADO.ssdl|res://*/Models.CERLADO.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=iec1-isdtest\mssql2008r2;initial catalog=CERL;user id=cerldbo;password=123;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+
+ htmlAttributes = new { @"data-val-regex-pattern" = "[0-9A-Z]{3}-[0-9A-Z]{3}"
+
+<ul>   
+<li style="list-style:none; display:inline;">
+@Html.RadioButton("Action", item.FormAction, new { type = "submit", id = "Action", name = "Action" })
+</li>
+</ul>
+
+-- 找出已完成測試報告的ItemTreeNode
+SELECT * FROM ItemTreeNode WHERE Id IN(
+SELECT Id FROM dbo.FnTestItemMenuDropDownList(0)
+WHERE Id IN (SELECT Id FROM ItemTreeNode WHERE CountReports>0)
+UNION
+SELECT Id FROM dbo.FnTestItemMenuDropDownList(0)
+WHERE Id IN (SELECT ParentId FROM ItemTreeNode WHERE CountReports>0))
+
+
+SELECT * FROM vTask WHERE Action='' AND CurrentState=1000
+
+SELECT * FROM f_cerl WHERE State<1000 AND ID=25
+SELECT * FROM f_cerl WHERE State=1000
+SELECT * FROM vUserRole WHERE BadgeCode='IEC890133'
+
+SELECT * FROM Route.dbo.vTask WHERE FID='A458A14F-2F9B-48DE-ADF2-DA296D76BEFC'
+
+# 設定ADO實體資料模型
+CERLADO.edmx
+CERLLAB.Models
+<add name="CERLEntities" connectionString="metadata=res://*/Models.CERLADO.csdl|res://*/Models.CERLADO.ssdl|res://*/Models.CERLADO.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=iec1-isdtest\mssql2008r2;initial catalog=CERL;user id=cerldbo;password=123;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+
+
+SELECT Id, COUNT(1) FROM dbo.ItemTreeNode
+GROUP BY Id
+HAVING COUNT(1)>1
+
+SELECT * FROM vRoleFunction WHERE BadgeCode = 'IEC020097'
+SELECT * FROM vUserRole WHERE BadgeCode = 'IEC020097'
+SELECT * FROM vUserRole WHERE RoleName != NULL
+
+SELECT * FROM RoleMenu WHERE RoleId=2 AND menuId NOT IN (1000000,1010000,2000000, 2010000 )
+--DELETE FROM RoleMenu WHERE RoleId=2 AND menuId NOT IN (1000000,1010000,2000000, 2010000 )
+SELECT * FROM CERLMenu
+
+SELECT * FROM RoleMenu WHERE RoleId=42
+
+
+INSERT INTO UserRole (BadgeCode, RoleId)
+SELECT a.BadgeCode, 40 FROM UserRole a WHERE RoleId>40
+AND NOT EXISTS(SELECT 1 FROM UserRole b WHERE a.BadgeCode=b.BadgeCode AND b.RoleId=40)
+GROUP BY a.BadgeCode
+
+--增加IES11L325 IES060612到LAB Supervisor // 20140630T1434
+-- Test Local Supvisor IEC890781 
+
+SELECT * FROM vUserRole WHERE RoleId>2 ORDER BY RoleId
+
+DECLARE @BadgeCode NVARCHAR(10)='IES11L325', @RoleId INT=20;
+INSERT INTO UserRole (BadgeCode, RoleId)
+-- DECLARE @BadgeCode NVARCHAR(10)='IES060612', @RoleId INT=20;
+SELECT @BadgeCode, @RoleId WHERE NOT EXISTS(SELECT 1 FROM UserRole  WHERE BadgeCode=@BadgeCode AND RoleId=@RoleId)
+
+
+SELECT * FROM Route.dbo.vTask WHERE FID IN (
+SELECT fID FROM CERL.dbo.vFCERL WHERE State <1000 and State>10
+) AND Action = '' AND Applicant !=''
+
+SELECT * FROM dbo.vLabInformation
+announce.jpg
+
+LabInformation/4724BFAE-9614-428B-B2C4-F419362ADB0B/announce.JPG
+\\iec1-891652-w8\LabInformation
+\\iec1-891652-w8\LabInformation\4724BFAE-9614-428B-B2C4-F419362ADB0B\announce.JPG
+-- SELECT * FROM vUser WHERE BadgeCode='IEC891652'
+-- Applicant RoleId=2
+--SELECT * FROM dbo.CERLMenu WHERE menuId IN (1000000,2000000,5000000,6000000,1010000, 2010000 )
+
+--Local Supervisor RoleId=30
+/*
+SELECT * FROM CERLMenu ORDER BY menuId, sortOrder
+SELECT * FROM dbo.CERLMenu WHERE 
+menuId NOT IN (3000000, 3010000, 3020000, 3030000, 4000000,4010000,4020000,7010000)
+ORDER BY menuId, sortOrder
+*/
+--DELETE FROM RoleMenu WHERE menuId NOT IN (SELECT menuId FROM dbo.CERLMenu)
+-- DELETE RoleMenu WHERE RoleId=2
+DECLARE @RoleId INT=2; -- Applicant
+INSERT INTO RoleMenu (menuId, RoleId)
+-- DECLARE @RoleId INT=2;
+SELECT menuId, @RoleId FROM dbo.CERLMenu WHERE menuType=2
+AND menuId IN (1000000,2000000,5000000,6000000,1010000, 2010000)
+AND menuId NOT IN (SELECT menuId FROM dbo.RoleMenu WHERE RoleId=@RoleId)
+
+
+-- DELETE RoleMenu WHERE RoleId=20
+DECLARE @RoleId INT=20; -- LAB Supervisor
+INSERT INTO RoleMenu (menuId, RoleId)
+-- DECLARE @RoleId INT=20;
+SELECT menuId, @RoleId FROM dbo.CERLMenu WHERE menuType=2
+AND menuId NOT IN (SELECT menuId FROM dbo.RoleMenu WHERE RoleId=@RoleId)
+
+
+--Local Supervisor RoleId=30
+/*
+SELECT * FROM CERLMenu ORDER BY menuId, sortOrder
+SELECT * FROM dbo.CERLMenu WHERE 
+menuId NOT IN (3000000, 3010000, 3020000, 3030000, 4000000,4010000,4020000,7010000)
+ORDER BY menuId, sortOrder
+*/
+-- DELETE RoleMenu WHERE RoleId=30
+DECLARE @RoleId INT=30; -- Local Supervisor
+INSERT INTO RoleMenu (menuId, RoleId)
+-- DECLARE @RoleId INT=30;
+SELECT menuId, @RoleId FROM dbo.CERLMenu WHERE menuType=2
+AND menuId NOT IN (SELECT menuId FROM dbo.RoleMenu WHERE RoleId=@RoleId)
+AND menuId NOT IN (3000000, 3010000, 3020000, 3030000, 4000000,4010000,4020000)
+
+-- DELETE RoleMenu WHERE RoleId=40
+DECLARE @RoleId INT=40; -- LAB Member
+INSERT INTO RoleMenu (menuId, RoleId)
+-- DECLARE @RoleId INT=40;
+SELECT menuId, @RoleId FROM dbo.CERLMenu WHERE menuType=2
+AND menuId NOT IN (SELECT menuId FROM dbo.RoleMenu WHERE RoleId=@RoleId)
+AND menuId NOT IN (3000000, 3010000, 3020000, 3030000, 4000000,4010000,4020000,7010000)
+
+
+
+--UPDATE f_cerl SET RequestItem =2003110  WHERE ID=39
+SELECT * FROM vUser WHERE RoleId>2
+SELECT * FROM f_cerl WHERE ID=39
+SELECT * FROM dbo.FnGetFCERL((SELECT fID FROM f_cerl WHERE ID=39));
+SELECT * FROM dbo.FnTestItemMenuDropDownList(1000000)
+select * FROM dbo.s_formfield_authority WHERE FormCode='1004000' AND Field='Supervisor' ORDER BY inState, Field
+SELECT dbo.fnGetFieldAuthority('Supervisor', 1, 1003000, 20),
+dbo.fnGetFieldAuthority('Supervisor', 2, 1003000, 20),
+dbo.fnGetFieldAuthority('Supervisor', 3, 1003000, 20),
+dbo.fnGetFieldAuthority('Supervisor', 4, 1003000, 20)
+
+SELECT * FROM Route.dbo.vTask WHERE FID='ECC502B4-350C-40DA-8E5F-14E736A81980'
+
+
+SELECT     TOP (200) ID, inState, FormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired
+FROM         s_formfield_authority
+WHERE     (FormCode = 2003000) AND (inState = 20)
+ORDER BY Field
+
+SELECT CaseID,
+
+LEFT([Site],1) +
+		dbo.fnGetFieldName('TestItemMenu.menuText',TestItem) + '-' +
+		RIGHT(CONVERT(VARCHAR(8),cdt,112),6) + '-' +
+		dbo.fnGetFieldName('CustomerName',CustomerID) +
+		ProjectName
+ FROM f_cerl
+ 
+UPDATE f_cerl SET CaseID = LEFT([Site],1) +
+		dbo.fnGetFieldName('TestItemMenu.menuText',TestItem) + '-' +
+		RIGHT(CONVERT(VARCHAR(8),cdt,112),6) + '-' +
+		dbo.fnGetFieldName('CustomerName',CustomerID) +
+		ProjectName
+
+
+
+SELECT * FROM f_cerl WHERE fID='6CD88115-9F95-4E23-AE2E-CFB5BCA718E3'
+SELECT * FROM f_cerl WHERE CopyfID IS NOT NULL
+SELECT * FROM f_cerl WHERE State=40
+
+SELECT * FROM m_userprofile WHERE Dept LIKE '%IPT品質工程一部%' AND Manager IS NOT NULL
+
+SELECT ROUND(((32 - 4 -1) * RAND()*ABS(CAST(NEWID() AS binary(6)) %1000000)/1000000 + 4), 1) FROM f_cerl 
+
+UPDATE f_cerl SET LabWorkHour = ROUND(((32 - 4 -1) * RAND()*ABS(CAST(NEWID() AS binary(6)) %1000000)/1000000 + 4), 1)
+
+SELECT DISTINCT FormCode FROM f_cerl ORDER BY 1
+
+SELECT DISTINCT Field FROM s_formfield_authority WHERE inState=40
+ORDER BY 1
+
+SELECT * FROM vUserRole WHERE BadgeCode='IEC020097'
+
+SELECT * FROM dbo.FnTestItemMenuDropDownList(0)
+
+SELECT * FROM Route.dbo.vTask WHERE FID IN (SELECT fID FROM f_cerl WHERE State=10)
+/*
+AnalysisResult
+AnalysisSummary
+BackgroundDesc
+CustomerID
+DivEFA
+DivFA
+DivFileUpload
+DivStrain
+FailureSite
+FinishDate
+FixtureNo
+FixtureSupplier
+FixtureVersionNo
+IssueSource
+LabMember
+LabWorkHour
+LocalSupervisor
+NextTestDate
+PartNumber
+ProcessStep
+ProductStage
+ProjectName
+ReceiptDate
+ReceiptQty
+RequestItem
+ReturnType
+SampleQty
+SerialNumber
+Site
+Supervisor
+TestItem
+TestPurpose
+*/
+
+/*
+1001000
+1002000
+1003000
+1004000
+2001000
+2002000
+2003000
+*/
+SELECT * FROM s_formfield_authority WHERE inState=10 AND Field='Supervisor' AND FormCode=1001000
+ORDER BY FormCode
+/*
+2003000
+*/
+
+DECLARE @fromFormCode INT=1001000
+DECLARE @toFormCode INT=2002000
+DECLARE @inState INT=10;
+DECLARE @Field NVARCHAR(100)='Supervisor';
+INSERT INTO s_formfield_authority(inState, FormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired)
+SELECT inState, @toFormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired
+FROM s_formfield_authority WHERE inState=@inState AND Field=@Field AND FormCode=@fromFormCode
+AND NOT EXISTS (SELECT 1 FROM s_formfield_authority WHERE inState=@inState AND Field=@Field AND FormCode=@toFormCode)
+
+
+## Add UserRole INTO FCERL
+
+SELECT TOP 5 ID, inState, FormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired
+FROM s_formfield_authority
+/*
+ID	inState	FormCode	Field	FieldReadOnly	FieldEnable	FieldVisible	FieldRequired
+1	20	1001000	SampleQty	1	0	1	0
+7	10	1001000	CustomerID	0	1	1	0
+8	10	1001000	ProjectName	0	1	1	0
+14	10	1001000	SerialNumber	0	1	1	0
+15	10	1001000	PartNumber	0	1	1	0
+*/
+
+-- ReturnType, ReturnSite
+-- Fixed
+
+-- s_formfield_authority_role
+SELECT * FROM attachFile WHERE fID IN (SELECT fID FROM f_cerl WHERE State=1000) AND folderId='35'
+SELECT LabMember, Applicant,* FROM vFCERL WHERE ID=123
+
+IEC020097;IEC030021;IES060612;IES069365;IES11L325;
+SELECT * FROM vFCERL WHERE State=1000
+SELECT * FROM FnGetFCERL('0206F5D4-C8C1-4433-9AFB-7F5AD647755E','IES12ER30')
+--SELECT DISTINCT FormCode INTO #tmpFormCodeList FROM s_formfield_authority ORDER BY 1
+SELECT * FROM s_formfield_authority WHERE inState='30' AND Field = 'Supervisor'
+--DROP TABLE #tmpForCOde
+DECLARE @State INT=15, @Field NVARCHAR(255)='Supervisor';
+DECLARE @Rd INT=1, @E INT=1, @V INT=0, @Rq INT=1, @U INT=1;
+INSERT INTO s_formfield_authority(inState, FormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired)
+SELECT @State, FormCode, @Field, @Rd, @E, @V, @Rq  FROM #tmpFormCodeList a
+WHERE NOT EXISTS (SELECT 1 FROM s_formfield_authority b
+WHERE inState=@State AND Field = @Field AND a.FormCode = b.FormCode)
+
+UPDATE s_formfield_authority SET FieldVisible=0, FieldEnable=0 WHERE inState='20' AND Field = 'Supervisor' AND FormCode=1001000
+/*
+1004000
+1001000
+2002000
+1002000
+2003000
+2001000
+1003000
+*/
+SELECT * FROM s_formfield_authority WHERE inState=20 AND Field='AttachFile35'
+SELECT * FROM s_formfield_authority WHERE Field='AttachFile35'
+/*
+INSERT INTO s_formfield_authority(inState, FormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired)
+SELECT 25, 2003000 AS FormCode, Field, FieldReadOnly, 0, 0, FieldRequired
+FROM dbo.s_formfield_authority WHERE inState=25 AND Field='Supervisor' AND FormCode='1003000'
+*/
+--INSERT INTO s_formfield_authority(inState, FormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired)
+--SELECT 35,1003000,'Supervisor',1,1,0,1
+
+DROP TABLE #tmpSAFID
+SELECT ID AS safId INTO #tmpSAFID FROM dbo.s_formfield_authority WHERE Field='AttachFile35' AND inState=1000
+/*
+INSERT INTO s_formfield_authority (inState, FormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired)
+SELECT 1000 AS inState, FormCode, 'AttachFile1000' AS Field, 0,1,1,0 FROM #tmpFormCode
+*/
+SELECT * FROM mRole
+SELECT * FROM vUserRole WHERE RoleId=40
+SELECT * FROM s_formfield_roleauthority WHERE sfaId IN (SELECT safId FROM #tmpSAFID) AND RoleId=40
+UPDATE s_formfield_roleauthority SET InUse=1 WHERE sfaId IN (SELECT safId FROM #tmpSAFID) AND RoleId=40
+--INSERT INTO UserRole(BadgeCode, RoleId, [Description])
+--VALUES('IEC891652',2,'Simulate Applicant')
+/*
+DECLARE @RoleId INT=2;
+DECLARE @Rd INT=0, @E INT=1, @V INT=1, @Rq INT=0, @U INT=1;
+INSERT INTO s_formfield_roleauthority(sfaId, RoleId, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired, InUse)
+SELECT safId, @RoleId AS RoleId, @Rd AS FieldReadOnly, @E,@V AS FieldVisible,@Rq,@U AS InUse FROM #tmpSAFID
+WHERE NOT EXISTS(SELECT 1 FROM s_formfield_roleauthority WHERE sfaId IN (SELECT safId FROM #tmpSAFID) AND RoleId=@RoleId)
+*/
+
+-- IES11BB79 Ding.Albby 丁海燕 IES , Applicants
+-- IES12ER30 Chang.Stevencc 常傳偉 IES , LAB Member 
+
+	SELECT dbo.fnGetFieldRoleAuthority('AttachFile35', 1, 1001000,1000, 'IEC861249') AS AttachFile35_ReadOnly
+		,dbo.fnGetFieldRoleAuthority('AttachFile35', 2, 1001000,1000, 'IEC861249') AS AttachFile35_Enable
+		,dbo.fnGetFieldRoleAuthority('AttachFile35', 3, 1001000,1000, 'IEC861249') AS AttachFile35_Visible
+		,dbo.fnGetFieldRoleAuthority('AttachFile35', 4, 1001000,1000, 'IEC861249') AS AttachFile35_Required
+		
+
+	SELECT dbo.fnGetFieldRoleAuthority('AttachFile35', 1, 1001000,35, 'IEC000441') AS AttachFile35_ReadOnly
+		,dbo.fnGetFieldRoleAuthority('AttachFile35', 2, 1001000,35, 'IEC000441') AS AttachFile35_Enable
+		,dbo.fnGetFieldRoleAuthority('AttachFile35', 3, 1001000,35, 'IEC000441') AS AttachFile35_Visible
+		,dbo.fnGetFieldRoleAuthority('AttachFile35', 4, 1001000,35, 'IEC000441') AS AttachFile35_Required
+
+# 維護及測試
+# 清部分關口資料
+SELECT * FROM vFCERL WHERE ID IN (84,134)
+SELECT * FROM f_cerl WHERE Applicant='IEC010282'
+SELECT * FROM f_cerl WHERE UID='2014-0105'
+2014-0059
+2014-0060
+2014-0061
+61
+62
+63
+4C9D3685-E6F6-4EF2-972C-4DFE1EF287FB
+29315413-7DBB-42EA-B227-3415566B75C3
+E24F36BA-2F68-4EDA-811C-67A77EF8A702
+
+SELECT * FROM f_cerl WHERE fID='0027D6FC-8268-4D5B-957C-763B505622F7'
+
+SELECT * FROM vUserRole WHERE RoleId=20
+
+IEC020097	Lee.Nomore 李宗龍 TAO
+IEC030021	Liang.Kevin 梁玄翰 TAO
+IES060612	Chen.Beck 陳寶起 IES
+IES11L325	Chen.Rackie 陳戰軍 IES
+
+SELECT * FROM Route.dbo.vTask WHERE FID IN ('0027D6FC-8268-4D5B-957C-763B505622F7')
+
+SELECT * FROM f_cerl WHERE fID='0027D6FC-8268-4D5B-957C-763B505622F7'
+SELECT * FROM Route.dbo.p_sign_off_task WHERE  FID='0027D6FC-8268-4D5B-957C-763B505622F7'
+SELECT * FROM Route.dbo.p_task_detail WHERE TaskID='27090908-5463-4915-88D6-CAB9E69A9A57'
+
+UPDATE CERL.dbo.f_cerl SET State=40 WHERE fID='0027D6FC-8268-4D5B-957C-763B505622F7'
+UPDATE Route.dbo.p_sign_off_task SET State=40 WHERE FID='0027D6FC-8268-4D5B-957C-763B505622F7'
+DELETE Route.dbo.p_task_detail WHERE TaskID='27090908-5463-4915-88D6-CAB9E69A9A57' AND State=1000
+UPDATE Route.dbo.p_task_detail SET Action='', F_date=null, Editor=null WHERE TaskID='27090908-5463-4915-88D6-CAB9E69A9A57' AND State=40
+
+#上線8/1
+-- 清資料
+---- 要保留的
+SELECT * FROM dbo.LabInformation WHERE fID!='D06E5770-1B9D-4650-B58A-31294DE54781'
+SELECT * FROM dbo.attachFile WHERE fID!='D06E5770-1B9D-4650-B58A-31294DE54781'
+---- 
+DELETE FROM dbo.LabInformation WHERE fID!='D06E5770-1B9D-4650-B58A-31294DE54781'
+DELETE FROM dbo.attachFile WHERE fID!='D06E5770-1B9D-4650-B58A-31294DE54781'
+TRUNCATE TABLE f_cerl
+
+TRUNCATE TABLE Route.dbo.p_sign_off_task
+TRUNCATE TABLE Route.dbo.p_task_detail
+
+-- 排更新AD人員資料的工作
+CERL
+Route
+
+
+# 站口資料
+IES131149
+
+UPDATE f_cerl SET CaseID=LEFT(Site,1) +
+		dbo.fnGetFieldName('TestItemMenu.menuText',TestItem) + '-' +
+		RIGHT(CONVERT(VARCHAR(8),GETDATE(),112),6) + '-' +
+		dbo.fnGetFieldName('CustomerName',CustomerID) +
+		ProjectName, FormCode=dbo.fnGetParentId(TestItem)
+WHERE ID=31
+
+# 複製某個站口所有表單所有欄位的設定
+DECLARE @State INT=18;
+--INSERT INTO s_formfield_authority(inState, FormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired)
+SELECT @State, FormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired
+FROM s_formfield_authority a WHERE inState=15
+AND NOT EXISTS (SELECT 1 FROM s_formfield_authority b WHERE b.inState=@State AND a.Field=b.Field AND a.FormCode=b.FormCode)
+
+
+# 複製某個站口所有表單的某個欄位設定到另一個站口
+DECLARE @State INT=40;
+--INSERT INTO s_formfield_authority(inState, FormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired)
+SELECT  @State, FormCode, Field, FieldReadOnly, FieldEnable, FieldVisible, FieldRequired
+FROM s_formfield_authority a
+WHERE  inState=20 AND Field='Supervisor'
+AND NOT EXISTS (SELECT 1 FROM s_formfield_authority b WHERE b.inState=@State AND a.Field=b.Field AND a.FormCode=b.FormCode)
+

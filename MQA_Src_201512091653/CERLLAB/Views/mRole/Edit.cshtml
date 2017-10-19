@@ -1,0 +1,80 @@
+﻿@using CERLLAB.Controllers.General;
+@using CERLLAB.Models;
+@model CERLLAB.Models.vRole
+
+@{
+    IQueryable<vUserRole> vuserrole = (IQueryable<vUserRole>)ViewData["vuserrole"];
+    IQueryable<vRoleMenu> vrolemenu = (IQueryable<vRoleMenu>)ViewData["vrolemenu"];
+    string PartialRoleUsers = "PartialRoleUsers";
+    string PartialRoleMenu = "PartialRoleMenu";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+        <legend>vRole</legend>
+
+        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.cdt)
+        @Html.HiddenFor(model => model.udt)
+
+        <table class="jtable" style="table-layout:fixed;">
+            <tr>
+                <th class="editor-label" style="width:15%">@Html.LabelFor(model => model.RoleId)</th>
+                <td class="editor-field" style="width:35%">
+                    @Html.HiddenFor(model => model.RoleId)
+                    @Html.ValueFor(model => model.RoleId)
+                    @Html.ValidationMessageFor(model => model.RoleId)
+                </td>
+                <th class="editor-label" style="width:15%">@Html.LabelFor(model => model.RoleName)</th>
+                <td class="editor-field" style="width:35%">
+                    @Html.EditorFor(model => model.RoleName)
+                    @Html.ValidationMessageFor(model => model.RoleName)
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" style="width:15%">@Html.LabelFor(model => model.menuFullName)</th>
+                <td class="editor-field" style="width:35%">
+                    @Html.DropDownListFor(model => model.menuId, (SelectList)ViewData["TestItemList"])
+                    @Html.ValidationMessageFor(model => model.menuFullName)
+                </td>
+                <th class="editor-label" style="width:15%">@Html.LabelFor(model => model.Parent)</th>
+                <td class="editor-field" style="width:35%">
+                    @Html.DropDownListFor(model => model.Parent, (SelectList)ViewData["RoleList"])
+                    @Html.ValidationMessageFor(model => model.Parent)
+                </td>
+
+            </tr>
+            <tr>
+                <th>@Html.LabelFor(model => model.editor)</th>
+                <td>@Html.HiddenFor(model=>model.editor) @Html.ValueFor(model=>model.ChtName)</td>
+                <th>@Html.LabelFor(model => model.udt)</th>
+                <td>@Html.ValueFor(model => model.udt)</td>
+            </tr>
+        </table>
+    </fieldset>
+}
+<div>
+    <table class="jtable" style="table-layout:fixed;">
+        <tr>
+            <td style="vertical-align: top;">
+                @Html.Partial(PartialRoleMenu, vrolemenu)
+            </td>
+            <td style="vertical-align: top;">
+                @Html.Partial(PartialRoleUsers, vuserrole)
+            </td>
+        </tr>
+    </table>
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

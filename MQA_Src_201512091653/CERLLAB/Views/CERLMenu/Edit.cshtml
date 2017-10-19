@@ -1,0 +1,146 @@
+﻿@model CERLLAB.Models.vCERLMenu
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CERLMenu</legend>
+
+        @Html.HiddenFor(model => model.guid)
+        <table class="jtable" style="table-layout:fixed;">
+            <tr>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.menuId)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.EditorFor(model => model.menuId)
+                    @Html.ValidationMessageFor(model => model.menuId)
+                </td>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.menuText)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.EditorFor(model => model.menuText)
+                    @Html.ValidationMessageFor(model => model.menuText)
+                </td>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.navigateUrl)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.EditorFor(model => model.navigateUrl)
+                    @Html.ValidationMessageFor(model => model.navigateUrl)
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.actionname)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.EditorFor(model => model.actionname)
+                    @Html.ValidationMessageFor(model => model.actionname)
+                </td>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.controlname)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.EditorFor(model => model.controlname)
+                    @Html.ValidationMessageFor(model => model.controlname)
+                </td>
+                <td class="editor-label" style="width:10%">
+                </td>
+                <td class="editor-field" style="width:23%"></td>
+            </tr>
+            <tr>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.parentMenuId)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.DropDownListFor(model => model.parentMenuId, (SelectList)ViewData["CERLMenuList"])
+                    @Html.ValidationMessageFor(model => model.parentMenuId)
+                </td>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.ParentMenuText)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.ValueFor(model => model.ParentMenuText)
+                </td>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.menuTarget)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.EditorFor(model => model.menuTarget)
+                    @Html.ValidationMessageFor(model => model.menuTarget)
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.sortOrder)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.EditorFor(model => model.sortOrder)
+                    @Html.ValidationMessageFor(model => model.sortOrder)
+                </td>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.menuType)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.EditorFor(model => model.menuType)
+                    @Html.ValidationMessageFor(model => model.menuType)
+                </td>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.navigateUrl)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.EditorFor(model => model.navigateUrl)
+                    @Html.ValidationMessageFor(model => model.navigateUrl)
+                </td>
+            </tr>
+        </table>
+        <table class="jtable" style="table-layout:fixed;">
+            <tr>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.ChtName)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.ValueFor(model => model.ChtName)
+                    @Html.HiddenFor(model => model.editor)
+                    @Html.ValidationMessageFor(model => model.editor)
+                </td>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.cdt)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.ValueFor(model => model.cdt)
+                    @Html.HiddenFor(model => model.cdt)
+                    @Html.ValidationMessageFor(model => model.cdt)
+                </td>
+                <th class="editor-label" style="width:10%">
+                    @Html.LabelFor(model => model.udt)
+                </th>
+                <td class="editor-field" style="width:23%">
+                    @Html.ValueFor(model => model.udt)
+                    @Html.HiddenFor(model => model.udt)
+                    @Html.ValidationMessageFor(model => model.udt)
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

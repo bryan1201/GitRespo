@@ -47,6 +47,7 @@ namespace B2BService.Models
         public static bool IsAlertTest = bool.Parse(ConfigurationManager.AppSettings["IsAlertTest"]);
         public static bool IsWebPerfLogEnabled = bool.Parse(ConfigurationManager.AppSettings["IsWebPerfLogEnabled"]);
         public static string B2BDBPerfURL = ConfigurationManager.AppSettings["B2BDBPerfURL"];
+        public static string MT_DB_PK = ConfigurationManager.AppSettings["MT_DB_PK"];
 
         public Constant()
         {

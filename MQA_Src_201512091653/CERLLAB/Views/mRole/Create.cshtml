@@ -1,0 +1,68 @@
+﻿@model CERLLAB.Models.mRole
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>mRole</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RoleId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RoleId)
+            @Html.ValidationMessageFor(model => model.RoleId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RoleName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RoleName)
+            @Html.ValidationMessageFor(model => model.RoleName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cdt)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cdt)
+            @Html.ValidationMessageFor(model => model.cdt)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.udt)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.udt)
+            @Html.ValidationMessageFor(model => model.udt)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.editor)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.editor)
+            @Html.ValidationMessageFor(model => model.editor)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

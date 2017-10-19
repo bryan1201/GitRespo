@@ -1,0 +1,9 @@
+﻿@model IEnumerable<CERLLAB.Models.vattachFileMaxVer>
+<ul id="browser" class="filelist treeview">
+    @foreach (var item in Model)
+    {
+        <li>
+            @Html.ActionLink(item.fileName, "GetFilePath", "f_cerl", new { fileId = item.fileId, record = false }, null)
+        </li>
+    }
+</ul>

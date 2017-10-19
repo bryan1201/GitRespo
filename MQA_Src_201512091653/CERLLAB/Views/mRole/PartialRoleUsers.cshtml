@@ -1,0 +1,89 @@
+﻿@using CERLLAB.Models;
+@model IEnumerable<vUserRole>
+@{
+    bool display = true;
+    if (ViewData["Details"] != null)
+    {
+        if (ViewData["Details"] == "Details")
+        {
+            display = false;
+        }
+    }
+
+    RouteValueDictionary rv = new RouteValueDictionary();
+    int RoleId = (int)ViewData["RoleId"];
+    rv.Add("RoleId", RoleId);
+}
+<script language="javascript" type="text/javascript">
+    $(function () {
+        $("#QueryUserRole").click(function () {
+            var BadgeCode = $("#BadgeCode").val();
+            this.href = this.href + '&BadgeCode=' + encodeURIComponent(BadgeCode);
+        });
+    });
+</script>
+
+@using (Html.BeginForm("AddRoleUser", "mRole", FormMethod.Get))
+{
+    if (display == true)
+    {
+        <table class="jtable" style="table-layout:fixed;">
+            <tr>
+                <th style="width:15%">BadgeCode</th>
+                <th style="width:65%">Description</th>
+                <td style="width:20%" rowspan="2">
+                    @Html.ActionLink("Query", "QueryUserRole", new { RoleId=RoleId}, new {id="QueryUserRole", type = "submit" })
+                    <input type="submit" value="Add/Update" style="width:100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextBox("BadgeCode")
+                    @Html.Hidden("RoleId", RoleId)
+                </td>
+                <td>
+                    @Html.TextBox("Description")
+                </td>
+            </tr>
+        </table>
+    }
+}
+<table class="jtable" style="table-layout:fixed;">
+    <tr>
+        <th style="width:15%">
+            @Html.DisplayNameFor(model => model.BadgeCode)
+        </th>
+        <th style="width:35%">
+            @Html.DisplayNameFor(model => model.ChtName)
+        </th>
+        <th style="width:30%">
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        @if (display == true)
+        {
+            <td style="width:20%"></td>
+        }
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item != null)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelitem => item.BadgeCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelitem => item.ChtName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelitem => item.Description)
+                </td>
+                @if (display == true)
+                {
+                    <td>@Html.ActionLink("Remove", "RemoveRoleUser", new { id = Int32.Parse(item.id.ToString()) })</td>
+                }
+            </tr>
+        }
+    }
+</table>

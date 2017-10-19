@@ -1,0 +1,117 @@
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}"
+inState
+inStateName
+outState
+outStateName
+outStateAction
+
+http://localhost:56491/api/task/getFlowPath?fID=A38AFFA3-4F99-447A-93F3-72FE3207DE1A&FlowCode=1001001&State=10&strAction=A
+
+http://localhost:56614/f_cerl/GetFlowPath?fID=A38AFFA3-4F99-447A-93F3-72FE3207DE1A&FlowCode=1001001&State=10&strAction=A
+
+fp.ToString()
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}"
+"[" + fp.ToString() + "]"
+"[{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}]"
+"[" + fp.ToString().Replace(@"\","") + "]"
+"[{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}]"
+"[" + fp.ToString().Replace(@"\\","") + "]"
+"[{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}]"
+"[" + fp.ToString().Replace("\","") + "]"
+常數中包含新行字元
+"[" + fp.ToString().Replace(@"\","@") + "]"
+"[{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}]"
+fp.ToString().Replace(@"\","")
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}"
+fp.ToString().Replace(@"\\","")
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}"
+fp.ToString().Replace(@"\\\","")
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}"
+fp.ToString().Replace("\\","")
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}"
+fp.ToString().Replace(@"\"","")
+未結束的字串常值
+fp.ToString().Replace(@"\""","")
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}"
+fp.ToString().Replace("\""","")
+常數中包含新行字元
+fp.ToString().Replace("\"","")
+"{inState:10,inStateName:草稿,outState:20,outStateName:呈實驗室主管,outStateAction:A;R;T,lvl:0}"
+response.Replace(@"\\","")
+"\"{\\\"inState\\\":10,\\\"inStateName\\\":\\\"草稿\\\",\\\"outState\\\":20,\\\"outStateName\\\":\\\"呈實驗室主管\\\",\\\"outStateAction\\\":\\\"A;R;T\\\",\\\"lvl\\\":0}\""
+response.Replace(@"\","")
+"\"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}\""
+response.Replace(@"\","")
+"\"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}\""
+response.Replace(@"\"","")
+未結束的字串常值
+response.Replace(@"\\"","")
+未結束的字串常值
+response.Replace("\"{","{")
+"{\\\"inState\\\":10,\\\"inStateName\\\":\\\"草稿\\\",\\\"outState\\\":20,\\\"outStateName\\\":\\\"呈實驗室主管\\\",\\\"outStateAction\\\":\\\"A;R;T\\\",\\\"lvl\\\":0}\""
+response.Replace(@"\\"","").Replace("\"{","{")
+未預期的字元 '\'
+response.Replace("\"{","{")
+"{\\\"inState\\\":10,\\\"inStateName\\\":\\\"草稿\\\",\\\"outState\\\":20,\\\"outStateName\\\":\\\"呈實驗室主管\\\",\\\"outStateAction\\\":\\\"A;R;T\\\",\\\"lvl\\\":0}\""
+response.Replace("\"{","{").Replace(@"\\"","")
+未結束的字串常值
+response.Replace("\"{","{").Replace(@"\"","")
+未結束的字串常值
+response=response.Replace("\"{","{")
+"{\\\"inState\\\":10,\\\"inStateName\\\":\\\"草稿\\\",\\\"outState\\\":20,\\\"outStateName\\\":\\\"呈實驗室主管\\\",\\\"outStateAction\\\":\\\"A;R;T\\\",\\\"lvl\\\":0}\""
+response.Replace("\\","")
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}\""
+response = response.Replace("\\","")
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}\""
+response = response.Replace("}\"","}")
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}"
+response
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}"
+Newtonsoft.Json.JsonConvert.DeserializeObject(response)
+{
+  "inState": 10,
+  "inStateName": "草稿",
+  "outState": 20,
+  "outStateName": "呈實驗室主管",
+  "outStateAction": "A;R;T",
+  "lvl": 0
+}
+    base: {
+  "inState": 10,
+  "inStateName": "草稿",
+  "outState": 20,
+  "outStateName": "呈實驗室主管",
+  "outStateAction": "A;R;T",
+  "lvl": 0
+}
+    Type: Object
+(FlowPath)Newtonsoft.Json.JsonConvert.DeserializeObject(response)
+無法將 'Newtonsoft.Json.JsonConvert.DeserializeObject(response)' (其實際類型為 'Newtonsoft.Json.Linq.JObject') 轉型為 'CERLLAB.Models.FlowPath'
+Newtonsoft.Json.JsonConvert.DeserializeObject(response)
+{
+  "inState": 10,
+  "inStateName": "草稿",
+  "outState": 20,
+  "outStateName": "呈實驗室主管",
+  "outStateAction": "A;R;T",
+  "lvl": 0
+}
+    base: {
+  "inState": 10,
+  "inStateName": "草稿",
+  "outState": 20,
+  "outStateName": "呈實驗室主管",
+  "outStateAction": "A;R;T",
+  "lvl": 0
+}
+    Type: Object
+response
+"{\"inState\":10,\"inStateName\":\"草稿\",\"outState\":20,\"outStateName\":\"呈實驗室主管\",\"outStateAction\":\"A;R;T\",\"lvl\":0}"
+Newtonsoft.Json.JsonConvert.DeserializeObject<FlowPath>(response)
+{CERLLAB.Models.FlowPath}
+    inState: 10
+    inStateName: "草稿"
+    lvl: 0
+    outState: 20
+    outStateAction: "A;R;T"
+    outStateName: "呈實驗室主管"

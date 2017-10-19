@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CERLLAB.Models.vLabInformation>
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="jtable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsShowMessage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsShowPicture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Width)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Height)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ChtName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cdt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.udt)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.content)
+            </td>
+            <td>
+                @Html.ValueFor(modelItem => item.IsShowMessage).ToString()
+            </td>
+            <td>
+                @Html.ValueFor(modelItem => item.IsShowPicture).ToString()
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Width)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Height)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChtName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cdt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.udt)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>

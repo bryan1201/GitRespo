@@ -1,0 +1,22 @@
+﻿@model CERLLAB.Models.CustomerName
+
+@{
+    ViewBag.Title = "Details of Customer";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<fieldset>
+    <legend>CustomerName</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TextValue)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TextValue)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

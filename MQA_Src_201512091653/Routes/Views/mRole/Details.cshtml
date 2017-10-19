@@ -1,0 +1,50 @@
+﻿@model Routes.Models.mRole
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>mRole</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RoleId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RoleId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RoleName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RoleName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cdt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cdt)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.udt)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.udt)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.editor)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.editor)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

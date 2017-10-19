@@ -1,0 +1,110 @@
+﻿@model CERLLAB.Models.vTestItemMenu
+@using CERLLAB.Controllers.General;
+@using CERLLAB.Models;
+@{
+    string TreeView = "ItemTreeView";
+    string PartialItemTreePath = "PartialItemTreePath";
+    IList<FnGetItemParentListById_Result> parentlist = (IList<FnGetItemParentListById_Result>)ViewData["parentlist"];
+    ItemTree tree = (ItemTree)ViewData["ItemTree"];
+}
+
+<table class="ui-widget">
+    <tr style="background: #ffffff">
+        <td style="vertical-align:top; text-align:left; width:180px; margin: 1%;">
+            @Html.Partial(TreeView, tree)
+        </td>
+        <td valign="top" style="width:82%; margin:1% 1%;">
+            <div style="width:96%; margin: 1% 1%;">
+                @Html.Partial(PartialItemTreePath, parentlist)
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend>TestItemMenu</legend>
+                    @Html.HiddenFor(model => model.editor)
+                    @Html.HiddenFor(model => model.cdt)
+                    @Html.HiddenFor(model => model.udt)
+                    @Html.HiddenFor(model => model.guid)
+                    <table class="jtable" style="table-layout: fixed; font-size: 0.9em;">
+                        <tr>
+                            <th class="editor-label" style="width:10%">
+                                @Html.LabelFor(model => model.menuId)
+                            </th>
+                            <td class="editor-field" style="width:23%">
+                                @Html.EditorFor(model => model.menuId)
+                                @Html.ValidationMessageFor(model => model.menuId)
+                            </td>
+                            <th class="editor-label" style="width:10%">
+                                @Html.LabelFor(model => model.menuType)
+                            </th>
+                            <td class="editor-field" style="width:23%">
+                                @Html.EditorFor(model => model.menuType)
+                                @Html.ValidationMessageFor(model => model.menuType)
+                            </td>
+                            <th class="editor-label" style="width:10%">
+                                @Html.LabelFor(model => model.FlowCode)
+                            </th>
+                            <td class="editor-field" style="width:23%">
+                                @Html.EditorFor(model => model.FlowCode)
+                                @Html.ValidationMessageFor(model => model.FlowCode)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="editor-label" style="width:10%">
+                                @Html.LabelFor(model => model.menuText)
+                            </th>
+                            <td class="editor-field" style="width:23%">
+                                @Html.EditorFor(model => model.menuText)
+                                @Html.ValidationMessageFor(model => model.menuText)
+                            </td>
+                            <th class="editor-label" style="width:10%">
+                                @Html.LabelFor(model => model.menuFullName)
+                            </th>
+                            <td class="editor-field" style="width:23%">
+                                @Html.EditorFor(model => model.menuFullName)
+                                @Html.ValidationMessageFor(model => model.menuFullName)
+                            </td>
+                            <th class="editor-label" style="width:10%">
+                                @Html.LabelFor(model => model.parentMenuId)
+                            </th>
+                            <td class="editor-field" style="width:23%">
+                                @Html.DropDownListFor(model => model.parentMenuId, (SelectList)ViewData["TestItemMenuList"])
+                                @Html.ValidationMessageFor(model => model.parentMenuId)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="editor-label" style="width:10%">
+                                @Html.LabelFor(model => model.sortOrder)
+                            </th>
+                            <td class="editor-field" style="width:23%">
+                                @Html.EditorFor(model => model.sortOrder)
+                                @Html.ValidationMessageFor(model => model.sortOrder)
+                            </td>
+                            <th class="editor-label" style="width:10%">
+                                @Html.LabelFor(model => model.navigateUrl)
+                            </th>
+                            <td class="editor-field" style="width:23%">
+                                @Html.EditorFor(model => model.navigateUrl)
+                                @Html.ValidationMessageFor(model => model.navigateUrl)
+                            </td>
+                            <td class="editor-label" style="width:10%"></td>
+                            <td class="editor-field" style="width:23%"></td>
+                        </tr>
+                    </table>
+                    <p>
+                        <input type="submit" value="Save" />
+                    </p>
+                </fieldset>
+            }
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </td>
+    </tr>
+</table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

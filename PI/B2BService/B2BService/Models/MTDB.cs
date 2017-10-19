@@ -197,9 +197,10 @@ namespace B2BService.Models
             string select = string.Empty;
             string where = string.Empty;
             string orderby = string.Empty;
+            string MSGID = mtdb.MSGID;
             DateTime? dtCDTFrom = mtdb.GetCreateDateFrom();
             DateTime? dtCDTEnd = mtdb.GetCreateDateEnd();
-            select = "SELECT * FROM MT_DB";
+            select = "SELECT /*+FIRST_ROWS(50)*/ * FROM MT_DB";
             if (CheckIsNullOrEmpty(mtdb) == 0)
             {
                 sql.Append(select);
@@ -259,7 +260,7 @@ namespace B2BService.Models
                             else
                             {
                                 string outstring = ConvertToStringArray(value, varprop.Name);
-                                where = "TRIM(" + varprop.Name + ") IN (@)"; where = where.Replace("@", outstring);
+                                where = varprop.Name + " IN (@)"; where = where.Replace("@", outstring);
                                 if (icond > 0)
                                 {
                                     sbwhere.Append(space);
@@ -365,7 +366,8 @@ namespace B2BService.Models
                     }
                 } // end foreach
 
-                where = "ROWNUM <= @"; where = where.Replace("@", 100.ToString());
+                //where = "ROWNUM <= @"; where = where.Replace("@", 100.ToString());
+                where = "1=1";
 
                 if (icond > 0)
                 {

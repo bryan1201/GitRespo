@@ -1,0 +1,8 @@
+Trying to delete property 'svn:global-ignores'
+but the property has been locally modified.
+<<<<<<< (local property value)
+App_Code
+bin
+obj
+=======
+>>>>>>> (incoming property value)

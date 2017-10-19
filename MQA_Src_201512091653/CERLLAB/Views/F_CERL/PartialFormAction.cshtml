@@ -1,0 +1,13 @@
+﻿@model IEnumerable<CERLLAB.Models.FormActions>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li style="list-style:none; display:inline;">
+            @item.ActionName
+            @if (item.FormAction.Trim() != "")
+            {
+                @Html.RadioButton("Action", item.FormAction, new { type = "submit", id = "Action", name = "Action" })
+            }
+        </li>
+    }
+</ul>

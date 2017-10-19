@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Routes.Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="FnFlowPath" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FlowCode" Type="int" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="inFlowCode" Type="int" />
+                <Property Name="inState" Type="int" />
+                <Property Name="outFlowCode" Type="int" />
+                <Property Name="outState" Type="int" />
+                <Property Name="doSeq" Type="int" />
+                <Property Name="toSeq" Type="int" />
+                <Property Name="ccSeq" Type="int" />
+                <Property Name="Field1" Type="nvarchar" MaxLength="32" />
+                <Property Name="Field2" Type="nvarchar" MaxLength="32" />
+                <Property Name="Value" Type="nvarchar" MaxLength="255" />
+                <Property Name="Op" Type="nvarchar" MaxLength="5" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnFlowPathTreeList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FlowCode" Type="int" Mode="In" />
+          <Parameter Name="inState" Type="int" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="inState" Type="int" />
+                <Property Name="inStateName" Type="nvarchar" MaxLength="255" />
+                <Property Name="inStateAction" Type="nvarchar" MaxLength="10" />
+                <Property Name="outState" Type="int" />
+                <Property Name="outStateName" Type="nvarchar" MaxLength="255" />
+                <Property Name="outStateAction" Type="nvarchar" MaxLength="10" />
+                <Property Name="lvl" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetFlowStateList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FlowCode" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="State" Type="int" />
+                <Property Name="Title" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetFormAction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FlowCode" Type="int" Mode="In" />
+          <Parameter Name="inState" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="FormAction" Type="nvarchar" MaxLength="10" />
+                <Property Name="ActionName" Type="nvarchar" MaxLength="255" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetTask" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fID" Type="nvarchar" Mode="In" />
+          <Parameter Name="State" Type="int" Mode="In" />
+          <Parameter Name="Applicant" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="TaskID" Type="nvarchar" MaxLength="36" />
+                <Property Name="FID" Type="nvarchar" MaxLength="36" />
+                <Property Name="EquID" Type="varchar" MaxLength="20" />
+                <Property Name="FormCode" Type="int" />
+                <Property Name="FlowCode" Type="int" />
+                <Property Name="State" Type="int" />
+                <Property Name="Applicant" Type="varchar" MaxLength="30" />
+                <Property Name="Cdt" Type="datetime" />
+                <Property Name="Udt" Type="datetime" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FnGetTaskDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TaskID" Type="nvarchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="ID" Type="nvarchar" MaxLength="36" />
+                <Property Name="TaskID" Type="nvarchar" MaxLength="36" />
+                <Property Name="Action" Type="varchar" MaxLength="10" />
+                <Property Name="AssignedTo" Type="varchar" MaxLength="30" />
+                <Property Name="GroupCode" Type="varchar" MaxLength="5" />
+                <Property Name="Comment" Type="nvarchar" MaxLength="1000" />
+                <Property Name="S_date" Type="datetime" />
+                <Property Name="F_date" Type="datetime" />
+                <Property Name="Editor" Type="varchar" MaxLength="30" />
+                <Property Name="State" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="udf_SplitText2Table" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="data" Type="varchar(max)" Mode="In" />
+          <Parameter Name="delimiter" Type="varchar" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="BadgeCode" Type="varchar" MaxLength="10" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="RoutesModelsStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Routes.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="FnFlowPath_Result">
+          <Property Name="inFlowCode" Type="Int32" />
+          <Property Name="inState" Type="Int32" />
+          <Property Name="outFlowCode" Type="Int32" />
+          <Property Name="outState" Type="Int32" />
+          <Property Name="doSeq" Type="Int32" />
+          <Property Name="toSeq" Type="Int32" />
+          <Property Name="ccSeq" Type="Int32" />
+          <Property Name="Field1" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Field2" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Op" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="FnFlowPathTreeList_Result">
+          <Property Name="inState" Type="Int32" />
+          <Property Name="inStateName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="inStateAction" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="outState" Type="Int32" />
+          <Property Name="outStateName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="outStateAction" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="lvl" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="FnGetFormAction_Result">
+          <Property Name="FormAction" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ActionName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="FnGetTask_Result">
+          <Property Name="TaskID" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="FID" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="EquID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FormCode" Type="Int32" />
+          <Property Name="FlowCode" Type="Int32" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="Applicant" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Cdt" Type="DateTime" />
+          <Property Name="Udt" Type="DateTime" />
+        </ComplexType>
+        <ComplexType Name="FnGetTaskDetail_Result">
+          <Property Name="ID" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="TaskID" Type="String" MaxLength="36" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AssignedTo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="GroupCode" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="S_date" Type="DateTime" />
+          <Property Name="F_date" Type="DateTime" />
+          <Property Name="Editor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="udf_SplitText2Table_Result">
+          <Property Name="BadgeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </ComplexType>
+        <EntityContainer Name="RouteDBEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="FnFlowPath" ReturnType="Collection(Routes.Models.FnFlowPath_Result)" IsComposable="true">
+            <Parameter Name="FlowCode" Mode="In" Type="Int32" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnFlowPathTreeList" ReturnType="Collection(Routes.Models.FnFlowPathTreeList_Result)" IsComposable="true">
+            <Parameter Name="FlowCode" Mode="In" Type="Int32" />
+            <Parameter Name="inState" Mode="In" Type="Int32" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetFormAction" ReturnType="Collection(Routes.Models.FnGetFormAction_Result)" IsComposable="true">
+            <Parameter Name="FlowCode" Mode="In" Type="Int32" />
+            <Parameter Name="inState" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetTask" ReturnType="Collection(Routes.Models.FnGetTask_Result)" IsComposable="true">
+            <Parameter Name="fID" Mode="In" Type="String" />
+            <Parameter Name="State" Mode="In" Type="Int32" />
+            <Parameter Name="Applicant" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetTaskDetail" ReturnType="Collection(Routes.Models.FnGetTaskDetail_Result)" IsComposable="true">
+          <Parameter Name="TaskID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="udf_SplitText2Table" ReturnType="Collection(Routes.Models.udf_SplitText2Table_Result)" IsComposable="true">
+            <Parameter Name="data" Mode="In" Type="String" />
+            <Parameter Name="delimiter" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="FnGetFlowStateList" IsComposable="true" ReturnType="Collection(Routes.Models.FnGetFlowStateList_Result)">
+            <Parameter Name="FlowCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="FnGetFlowStateList_Result">
+          <Property Type="Int32" Name="State" Nullable="true" />
+          <Property Type="String" Name="Title" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RoutesModelsStoreContainer" CdmEntityContainer="RouteDBEntities">
+          <FunctionImportMapping FunctionName="Routes.Models.Store.FnFlowPath" FunctionImportName="FnFlowPath">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Routes.Models.FnFlowPath_Result">
+                <ScalarProperty Name="inFlowCode" ColumnName="inFlowCode" />
+                <ScalarProperty Name="inState" ColumnName="inState" />
+                <ScalarProperty Name="outFlowCode" ColumnName="outFlowCode" />
+                <ScalarProperty Name="outState" ColumnName="outState" />
+                <ScalarProperty Name="doSeq" ColumnName="doSeq" />
+                <ScalarProperty Name="toSeq" ColumnName="toSeq" />
+                <ScalarProperty Name="ccSeq" ColumnName="ccSeq" />
+                <ScalarProperty Name="Field1" ColumnName="Field1" />
+                <ScalarProperty Name="Field2" ColumnName="Field2" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Op" ColumnName="Op" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Routes.Models.Store.FnFlowPathTreeList" FunctionImportName="FnFlowPathTreeList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Routes.Models.FnFlowPathTreeList_Result">
+                <ScalarProperty Name="inState" ColumnName="inState" />
+                <ScalarProperty Name="inStateName" ColumnName="inStateName" />
+                <ScalarProperty Name="inStateAction" ColumnName="inStateAction" />
+                <ScalarProperty Name="outState" ColumnName="outState" />
+                <ScalarProperty Name="outStateName" ColumnName="outStateName" />
+                <ScalarProperty Name="outStateAction" ColumnName="outStateAction" />
+                <ScalarProperty Name="lvl" ColumnName="lvl" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Routes.Models.Store.FnGetFormAction" FunctionImportName="FnGetFormAction">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Routes.Models.FnGetFormAction_Result">
+                <ScalarProperty Name="FormAction" ColumnName="FormAction" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Routes.Models.Store.FnGetTask" FunctionImportName="FnGetTask">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Routes.Models.FnGetTask_Result">
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+                <ScalarProperty Name="FID" ColumnName="FID" />
+                <ScalarProperty Name="EquID" ColumnName="EquID" />
+                <ScalarProperty Name="FormCode" ColumnName="FormCode" />
+                <ScalarProperty Name="FlowCode" ColumnName="FlowCode" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Applicant" ColumnName="Applicant" />
+                <ScalarProperty Name="Cdt" ColumnName="Cdt" />
+                <ScalarProperty Name="Udt" ColumnName="Udt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Routes.Models.Store.FnGetTaskDetail" FunctionImportName="FnGetTaskDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Routes.Models.FnGetTaskDetail_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+                <ScalarProperty Name="GroupCode" ColumnName="GroupCode" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="S_date" ColumnName="S_date" />
+                <ScalarProperty Name="F_date" ColumnName="F_date" />
+                <ScalarProperty Name="Editor" ColumnName="Editor" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Routes.Models.Store.udf_SplitText2Table" FunctionImportName="udf_SplitText2Table">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Routes.Models.udf_SplitText2Table_Result">
+                <ScalarProperty Name="BadgeCode" ColumnName="BadgeCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="FnGetFlowStateList" FunctionName="Routes.Models.Store.FnGetFlowStateList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Routes.Models.FnGetFlowStateList_Result">
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

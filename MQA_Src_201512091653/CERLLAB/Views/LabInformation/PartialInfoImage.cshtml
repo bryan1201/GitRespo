@@ -1,0 +1,59 @@
+﻿@using CERLLAB.Controllers.General;
+@model IEnumerable<CERLLAB.Models.vLabInfoAttachFile>
+@{
+    string website = Constant.S_WebSite;
+    string web = website + Constant.WebRoot;
+    string LabInformation = Constant.LabInformation;
+    int i = 0;
+
+}
+<head>
+    <title>On Hand Job</title>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#accordion2').accordion({
+                heightStyle: "content",
+                collapsible: true
+            });
+            /*
+            $('#s5').cycle({
+                fx: 'scrollDown', // shuffle, zoom, turnDown, curtainX, scrollRight
+                sync: false,
+                speedIn: 2500,
+                speedOut: 500,
+                easeIn: 'easeInBounce',
+                easeOut: 'easeOutBounce',
+                delay: -4000,
+                next: '#s5',
+                pause: 1
+            });
+            */
+            $('#s6').before('<div id="navLab">').cycle({
+                fx: 'turnDown',
+                speed: 'fast',
+                timeout: 30000,
+                pager: '#navLab',
+                pause: 1
+            });
+        });
+    </script>
+</head>
+<div class="wrapper">
+    <div id="accordion2">
+        <h3>實驗室設備及資源使用統計</h3>
+        <div id="s6" style="width:auto; height:768px; text-align:center;">
+            @foreach (var item in Model)
+            {
+                i = i + 1;
+                string srcpath = "";
+                if(item != null)
+                {
+                    string path = item.FullFilePath.Replace(@"\", @"/");
+                    srcpath = LabInformation + path;
+                    <img src='@srcpath' alt="Image" style="width: @item.Width; height: @item.Height;"/>
+                }
+                
+            }
+        </div>
+    </div>
+</div>

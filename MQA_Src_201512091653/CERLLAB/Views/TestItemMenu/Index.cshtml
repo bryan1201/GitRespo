@@ -1,0 +1,86 @@
+﻿@using CERLLAB.Controllers.General;
+@using CERLLAB.Models;
+@model IEnumerable<vTestItemMenu>
+
+@{
+    int id = (int)ViewBag.id;
+    string TreeView = "ItemTreeView";
+    string PartialItemTreePath = "PartialItemTreePath";
+    IList<FnGetItemParentListById_Result> parentlist = (IList<FnGetItemParentListById_Result>)ViewData["parentlist"];
+    ItemTree tree = (ItemTree)ViewData["ItemTree"];
+}
+
+<head>
+    <title>@ViewBag.Message</title>
+    <style type="text/css">
+        .ui-widget {
+            font-family: 微軟正黑體;
+            font-size: 0.85em;
+        }
+
+        .ui-accordion-header {
+            font-weight: bolder;
+        }
+
+        .wrapper {
+            width: 95%;
+        }
+    </style>
+</head>
+
+<table class="ui-widget">
+    <tr style="background: #ffffff">
+        <td style="vertical-align:top; text-align:left; width:180px; margin: 1%;">
+            @Html.Partial(TreeView, tree)
+        </td>
+        <td valign="top" style="width:82%; margin:2% 2%;">
+            <div style="width:96%; margin: 1% 1%; display:inline;">
+                @Html.Partial(PartialItemTreePath, parentlist) &nbsp;&gt;
+                @Html.ActionLink("Create New", "Create", new { id = id }, new { style = "color:black" })
+            </div>
+
+            <table class="jtable" style="table-layout:fixed;">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.menuId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.menuText)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MenuName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.sortOrder)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.menuId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.menuText)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MenuName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.sortOrder)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.guid }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.guid }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.guid })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        </td>
+    </tr>
+</table>

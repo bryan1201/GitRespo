@@ -1,0 +1,107 @@
+﻿@model CERLLAB.Models.vTestItemMenu
+@using CERLLAB.Controllers.General;
+@using CERLLAB.Models;
+@{
+    string TreeView = "ItemTreeView";
+    string PartialItemTreePath = "PartialItemTreePath";
+    IList<FnGetItemParentListById_Result> parentlist = (IList<FnGetItemParentListById_Result>)ViewData["parentlist"];
+    ItemTree tree = (ItemTree)ViewData["ItemTree"];
+}
+
+<table class="ui-widget">
+    <tr style="background: #ffffff">
+        <td style="vertical-align:top; text-align:left; width:180px; margin: 1%;">
+            @Html.Partial(TreeView, tree)
+        </td>
+        <td valign="top" style="width:82%; margin:1% 1%;">
+            <div style="width:96%; margin: 1% 1%;">
+                @Html.Partial(PartialItemTreePath, parentlist)
+            </div>
+            <fieldset>
+                <legend>TestItemMenu</legend>
+                <table class="jtable" style="table-layout:fixed;">
+                    <tr>
+                        <th class="display-label" style="width:10%">
+                            @Html.DisplayNameFor(model => model.menuId)
+                        </th>
+                        <td class="display-field" style="width:23%">
+                            @Html.DisplayFor(model => model.menuId)
+                        </td>
+                        <th class="display-label" style="width:10%">
+                            @Html.DisplayNameFor(model => model.menuType)
+                        </th>
+                        <td class="display-field" style="width:23%">
+                            @Html.DisplayFor(model => model.menuType)
+                        </td>
+                        <th class="display-label" style="width:10%">
+                            @Html.DisplayNameFor(model => model.FlowCode)
+                        </th>
+                        <td class="editor-field" style="width:23%">
+                            @Html.DisplayFor(model => model.FlowCode)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="display-label" style="width:10%">
+                            @Html.DisplayNameFor(model => model.menuText)
+                        </th>
+                        <td class="editor-field" style="width:23%">
+                            @Html.DisplayFor(model => model.menuText)
+                        </td>
+                        <th class="editor-label" style="width:10%">
+                            @Html.DisplayNameFor(model => model.menuFullName)
+                        </th>
+                        <td class="display-field" style="width:23%">
+                            @Html.DisplayFor(model => model.menuFullName)
+                        </td>
+                        <th class="editor-label" style="width:10%">
+                            @Html.DisplayNameFor(model => model.parentMenuId)
+                        </th>
+                        <td class="editor-field" style="width:23%">
+                            @Html.DisplayFor(model => model.ParentMenuName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="display-label" style="width:10%">
+                            @Html.DisplayNameFor(model => model.sortOrder)
+                        </th>
+                        <td class="display-field" style="width:23%">
+                            @Html.DisplayFor(model => model.sortOrder)
+                        </td>
+                        <th class="display-label" style="width:10%">
+                            @Html.DisplayNameFor(model => model.navigateUrl)
+                        </th>
+                        <td class="display-field" style="width:23%">
+                            @Html.DisplayFor(model => model.navigateUrl)
+                        </td>
+                        <td class="display-label" style="width:10%"></td>
+                        <td class="display-field" style="width:23%"></td>
+                    </tr>
+                    <tr>
+                        <th class="display-label" style="width:10%">
+                            @Html.DisplayNameFor(model => model.editor)
+                        </th>
+                        <td class="display-field" style="width:23%">
+                            @Html.DisplayFor(model => model.ChtName)
+                        </td>
+                        <th class="display-label" style="width:10%">
+                            @Html.DisplayNameFor(model => model.cdt)
+                        </th>
+                        <td class="display-field" style="width:23%">
+                            @Html.DisplayFor(model => model.cdt)
+                        </td>
+                        <th class="display-label" style="width:10%">
+                            @Html.DisplayNameFor(model => model.udt)
+                        </th>
+                        <td class="display-field" style="width:23%">
+                            @Html.DisplayFor(model => model.udt)
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </td>
+    </tr>
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.guid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,75 @@
+﻿@using CERLLAB.Models;
+@model IEnumerable<vRoleMenu>
+@{
+    bool display = true;
+    if (ViewData["Details"] != null)
+    {
+        if (ViewData["Details"] == "Details")
+        {
+            display = false;
+        }
+    }
+    RouteValueDictionary rv = new RouteValueDictionary();
+    int RoleId = (int)ViewData["RoleId"];
+    rv.Add("RoleId", RoleId);
+}
+@using (Html.BeginForm("AddRoleMenu", "mRole", FormMethod.Get))
+{ 
+    if (display == true)
+    {
+        <table class="jtable" style="table-layout:fixed;">
+            <tr>
+                <th style="width:15%">Menu</th>
+                <td style="width:65%">
+                    @Html.DropDownList("menuId", (SelectList)ViewData["CERLMenuList"])
+                    @Html.Hidden("RoleId", RoleId)
+                </td>
+                <td style="width:20%">
+                    <input type="submit" value="Add" style="width:100%" />
+                </td>
+            </tr>
+        </table>
+    }
+}
+
+<table class="jtable" style="table-layout:fixed;">
+    <tr>
+        <th style="width:15%">
+            @Html.DisplayNameFor(model => model.menuId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.actionname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.controlname)
+        </th>
+        @if (display == true)
+        {
+            <td style="width:20%;"></td>
+        }
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelitem => item.menuId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelitem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelitem => item.actionname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelitem => item.controlname)
+            </td>
+            @if (display == true)
+            {
+                <td>@Html.ActionLink("Remove", "RemoveRoleMenu", new { id = item.id })</td>
+            }
+        </tr>
+    }
+</table>

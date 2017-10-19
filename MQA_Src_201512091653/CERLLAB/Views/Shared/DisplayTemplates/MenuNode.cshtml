@@ -1,0 +1,22 @@
+﻿@model CERLLAB.Models.MenuNode
+@if (Model.Children.Count > 0)
+{
+    <ul>
+        @foreach (CERLLAB.Models.MenuNode node in Model.Children)
+        {
+            if (node.IsUrl == 1)
+            {
+                <li>
+                    @Html.ActionLink(node.Name, node.actionname, node.controlname)
+                    @Html.DisplayFor(x => node)
+                </li>
+            }
+            else
+            {
+                <li>
+                @Html.ActionLink(node.Name, null, null, new { href = "#" })@Html.DisplayFor(x => node)
+                </li>
+            }
+        }
+    </ul>
+}

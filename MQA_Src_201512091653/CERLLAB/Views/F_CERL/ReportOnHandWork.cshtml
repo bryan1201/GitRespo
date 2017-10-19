@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CERLLAB.Models.LABMemberOnHandWork>
+@{
+    ViewBag.Title = "ReportOnHandWork";
+}
+@using (Html.BeginForm("ReportOnHandWork", "F_CERL", FormMethod.Get))
+{
+    <table class="jtable" style="width:100%; table-layout: fixed; font-size: 0.9em">
+        <tr>
+            <th style="width:30%">
+                @Html.DisplayNameFor(model => model.LABMember)
+            </th>
+            <th style="width:15%">
+                @Html.DisplayNameFor(model => model.JobNumber)
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LABMember)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JobNumber)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+}

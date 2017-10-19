@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CERLLAB.Models.vReturnSite>
+
+@{
+    ViewBag.Title = "Return Site";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="jtable" style="table-layout:fixed;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SiteNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnTypeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReturnTypeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SiteNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnTypeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReturnTypeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SiteID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SiteID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SiteID })
+        </td>
+    </tr>
+}
+
+</table>

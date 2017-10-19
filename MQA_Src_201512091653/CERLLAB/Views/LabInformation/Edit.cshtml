@@ -1,0 +1,116 @@
+﻿@model CERLLAB.Models.vLabInformation
+
+@{
+    ViewBag.Title = "Edit";
+    string PartialAttachFileEdit = "PartialAttachFileEdit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>LabInformation</legend>
+
+        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.fID)
+        @Html.HiddenFor(model => model.editor)
+        @Html.HiddenFor(model => model.cdt)
+        @Html.HiddenFor(model => model.udt)
+        @Html.HiddenFor(model => model.enable)
+        @Html.HiddenFor(model => model.type)
+
+        <table class="jtable" style="table-layout: fixed;">
+            <tr>
+                <th class="editor-label" width="15%">顯示</th>
+                <td class="editor-field" width="85%">
+                    <ul style="list-style-type: none; margin:0 20px; padding:0;">
+                        <li style="list-style:none; display:inline;">訊息公告 @Html.CheckBoxFor(model => model.IsShowMessage)</li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li style="list-style:none; display:inline;">附件圖片 @Html.CheckBoxFor(model => model.IsShowPicture)</li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li style="list-style:none; display:inline;">Width:&nbsp;@Html.TextBoxFor(model => model.Width, new { style = "width:60px;" })
+                            @Html.ValidationMessageFor(model => model.Width)
+                        </li>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <li style="list-style:none; display:inline;">Height:&nbsp;@Html.TextBoxFor(model => model.Height, new { style = "width:60px;" })
+                            @Html.ValidationMessageFor(model => model.Height)
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" width="15%">
+                    @Html.LabelFor(model => model.title)
+                </th>
+                <td class="editor-field" width="85%">
+                    @Html.EditorFor(model => model.title)
+                    @Html.ValidationMessageFor(model => model.title)
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" width="15%">
+                    @Html.LabelFor(model => model.content)
+                </th>
+                <td class="editor-field" width="85%">
+                    @Html.TextAreaFor(model => model.content, new { cols = 14, @rows = 5, style = "width: 95%" })
+                    @Html.ValidationMessageFor(model => model.content)
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" width="15%">
+                    Upload Files:
+                </th>
+                <td class="editor-field" width="85%">
+                    @if (ViewData["attFileLabInformation"] != null)
+                    {
+                        @Html.Partial(PartialAttachFileEdit, ViewData["attFileLabInformation"])
+                    }
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" width="15%">
+                    File Upload
+                </th>
+                <td class="editor-field" width="85%">
+                    <input id="uploadfile" name="uploadfile[]" class="multi" type="file" multiple="multiple" />
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" width="15%">
+                    @Html.DisplayNameFor(model => model.ChtName)
+                </th>
+                <td class="editor-field" width="85%">
+                    @Html.DisplayFor(model => model.ChtName)
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" width="15%">
+                    @Html.DisplayNameFor(model => model.cdt)
+                </th>
+                <td class="editor-field" width="85%">
+                    @Html.DisplayFor(model => model.cdt)
+                </td>
+            </tr>
+            <tr>
+                <th class="editor-label" width="15%">
+                    @Html.DisplayNameFor(model => model.udt)
+                </th>
+                <td class="editor-field" width="85%">
+                    @Html.DisplayFor(model => model.udt)
+                </td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

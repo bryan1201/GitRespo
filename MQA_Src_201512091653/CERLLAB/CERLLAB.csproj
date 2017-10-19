@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D1923F99-A7E6-4275-A8BA-2F3424A36A65}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CERLLAB</RootNamespace>
+    <AssemblyName>CERLLAB</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>12.0</OldToolsVersion>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\VSOnline\Demo\VS2012MVC4\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.4.0.30506\lib\net40\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controllers\General\Dynamic.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CERLMenuController.cs" />
+    <Compile Include="Controllers\CustomerNameController.cs" />
+    <Compile Include="Controllers\F_CERLController.cs" />
+    <Compile Include="Controllers\General\Constant.cs" />
+    <Compile Include="Controllers\CustomValidation\CustomFCERLValidationAttribute.cs" />
+    <Compile Include="Controllers\General\DAO.cs" />
+    <Compile Include="Controllers\General\LinqKit\ExpandableQuery.cs" />
+    <Compile Include="Controllers\General\LinqKit\ExpressionExpander.cs" />
+    <Compile Include="Controllers\General\LinqKit\ExpressionVisitor.cs" />
+    <Compile Include="Controllers\General\LinqKit\Extensions.cs" />
+    <Compile Include="Controllers\General\LinqKit\Linq.cs" />
+    <Compile Include="Controllers\General\Method.cs" />
+    <Compile Include="Controllers\General\RouteWork.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IssueSourceController.cs" />
+    <Compile Include="Controllers\LabInformationController.cs" />
+    <Compile Include="Controllers\mRoleController.cs" />
+    <Compile Include="Controllers\PCBVendorController.cs" />
+    <Compile Include="Controllers\ProductStageController.cs" />
+    <Compile Include="Controllers\ProcessStepController.cs" />
+    <Compile Include="Controllers\ReturnSiteController.cs" />
+    <Compile Include="Controllers\ReturnTypeController.cs" />
+    <Compile Include="Controllers\RoleMenuController.cs" />
+    <Compile Include="Controllers\TestItemMenuController.cs" />
+    <Compile Include="Controllers\TestPurposeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CERLADO.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CERLADO.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CERLADO.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CERLADO.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CERLADO.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CERLDB.cs" />
+    <Compile Include="Models\FnCERLMenuDropDownList_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGeneralDropDownList_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGenInitInfo_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGenUserName_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGetAssignTo_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGetCaseID_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGetDivShow_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGetFCERL_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGetFormAuthority2_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGetItemParentListById_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGetMailList2_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGetMailList_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnGetParentListById_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnMemberDropDownList_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnRoleMenuDropDownList_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnRoleMenuFunction_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FnTestItemMenuDropDownList_Result.cs">
+      <DependentUpon>CERLADO.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\jquery.marquee.js" />
+    <Content Include="Content\jquery.marquee.min.js" />
+    <Content Include="Content\jquery.treeview\changelog.txt" />
+    <Content Include="Content\jquery.treeview\images\ajax-loader.gif" />
+    <Content Include="Content\jquery.treeview\images\Background.png" />
+    <Content Include="Content\jquery.treeview\images\bullet.png" />
+    <Content Include="Content\jquery.treeview\images\file.gif" />
+    <Content Include="Content\jquery.treeview\images\folder-closed.gif" />
+    <Content Include="Content\jquery.treeview\images\folder.gif" />
+    <Content Include="Content\jquery.treeview\images\minus.gif" />
+    <Content Include="Content\jquery.treeview\images\plus.gif" />
+    <Content Include="Content\jquery.treeview\images\treeview-black-line.gif" />
+    <Content Include="Content\jquery.treeview\images\treeview-black-line.png" />
+    <Content Include="Content\jquery.treeview\images\treeview-black.gif" />
+    <Content Include="Content\jquery.treeview\images\treeview-default-line.gif" />
+    <Content Include="Content\jquery.treeview\images\treeview-default-line.png" />
+    <Content Include="Content\jquery.treeview\images\treeview-default.gif" />
+    <Content Include="Content\jquery.treeview\images\treeview-famfamfam-line.gif" />
+    <Content Include="Content\jquery.treeview\images\treeview-famfamfam.gif" />
+    <Content Include="Content\jquery.treeview\images\treeview-gray-line.gif" />
+    <Content Include="Content\jquery.treeview\images\treeview-gray.gif" />
+    <Content Include="Content\jquery.treeview\images\treeview-red-line.gif" />
+    <Content Include="Content\jquery.treeview\images\treeview-red.gif" />
+    <Content Include="Content\jquery.treeview\jquery.treeview.async.js" />
+    <Content Include="Content\jquery.treeview\jquery.treeview.css" />
+    <Content Include="Content\jquery.treeview\jquery.treeview.edit.js" />
+    <Content Include="Content\jquery.treeview\jquery.treeview.js" />
+    <Content Include="Content\jquery.treeview\jquery.treeview.sortable.js" />
+    <Content Include="Content\jquery.treeview\lib\jquery.cookie.js" />
+    <Content Include="Content\jquery.treeview\lib\jquery.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Site.js" />
+    <Content Include="Content\themes\base\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="Content\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\themes\smoothness\jquery-ui.css" />
+    <Content Include="Content\themes\start\css\jquery-ui-1.11.2.custom.css" />
+    <Content Include="Content\themes\start\js\jquery-ui-1.11.2.custom.js" />
+    <Content Include="Content\themes\start\css\jquery-ui-1.11.2.custom.min.css" />
+    <Content Include="Content\themes\start\js\jquery-ui-1.11.2.custom.min.js" />
+    <Content Include="Content\themes\start\css\jquery-ui-1.11.2.custom.structure.css" />
+    <Content Include="Content\themes\start\css\jquery-ui-1.11.2.custom.structure.min.css" />
+    <Content Include="Content\themes\start\css\jquery-ui-1.11.2.custom.theme.css" />
+    <Content Include="Content\themes\start\css\jquery-ui-1.11.2.custom.theme.min.css" />
+    <Content Include="Content\themes\start\js\jquery-1.11.2.js" />
+    <Content Include="Content\themes\start\js\jquery-1.10.2.js" />
+    <Content Include="Images\Delete.gif" />
+    <Content Include="Images\Update.jpg" />
+    <Content Include="Scripts\jquery-1.11.1.js" />
+    <Content Include="Scripts\jquery-1.11.1.min.js" />
+    <Content Include="Content\jquery.cycle.all.js" />
+    <EntityDeploy Include="Models\CERLADO.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CERLADO.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CERLADO.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CERLADO.edmx</DependentUpon>
+      <LastGenOutput>CERLADO.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CERLADO.edmx.diagram">
+      <DependentUpon>CERLADO.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\CERLADO.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CERLADO.edmx</DependentUpon>
+      <LastGenOutput>CERLADO.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\old\jquery-1.9.0.min.js" />
+    <Content Include="Content\themes\start\js\jquery-ui-1.10.4.custom.js" />
+    <Content Include="Content\themes\start\js\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="Content\themes\start\images\animated-overlay.gif" />
+    <Content Include="Content\themes\start\images\ui-bg_flat_55_999999_40x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_glass_45_0078ae_1x400.png" />
+    <Content Include="Content\themes\start\images\ui-bg_glass_55_f8da4e_1x400.png" />
+    <Content Include="Content\themes\start\images\ui-bg_glass_75_79c9ec_1x400.png" />
+    <Content Include="Content\themes\start\images\ui-bg_gloss-wave_45_e14f1c_500x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_gloss-wave_50_6eac2c_500x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_gloss-wave_75_2191c0_500x100.png" />
+    <Content Include="Content\themes\start\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\themes\start\images\ui-icons_0078ae_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_056b93_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_e0fdff_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_f5e175_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_f7a50d_256x240.png" />
+    <Content Include="Content\themes\start\images\ui-icons_fcd113_256x240.png" />
+    <Content Include="Content\themes\start\css\jquery-ui-1.10.4.custom.css" />
+    <Content Include="Content\themes\start\css\jquery-ui-1.10.4.custom.min.css" />
+    <Content Include="Content\themes\ui-lightness\images\animated-overlay.gif" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\ui-lightness\jquery-ui-1.10.4.css" />
+    <Content Include="Content\themes\ui-lightness\jquery-ui-1.10.4.min.css" />
+    <Content Include="Content\themes\ui-lightness\js\jquery-1.10.2.js" />
+    <Content Include="Content\themes\ui-lightness\js\jquery-ui-1.10.4.js" />
+    <Content Include="Content\themes\ui-lightness\js\jquery-ui-1.10.4.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\jquery.treeview\.gitignore" />
+    <Content Include="Content\jquery.treeview\.project" />
+    <Content Include="Content\jquery.treeview\README.md" />
+    <Content Include="Content\jquery.treeview\todo" />
+    <Content Include="Scripts\old\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\old\jquery-1.10.2.js" />
+    <Content Include="Scripts\old\jquery-1.8.2.js" />
+    <Content Include="Scripts\old\jquery-1.8.2.min.js" />
+    <Content Include="Scripts\old\jquery-2.1.0.min.map" />
+    <None Include="Properties\PublishProfiles\MQA CERLLAB ROUTES APTEST.pubxml" />
+    <Content Include="Scripts\jquery-1.11.1.min.map" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <None Include="Scripts\old\jquery-2.1.0.intellisense.js" />
+    <Content Include="Scripts\old\jquery-2.1.0.js" />
+    <Content Include="Scripts\old\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.1.custom.min.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.js" />
+    <Content Include="Scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="Scripts\old\jquery-ui-1.8.24.js" />
+    <Content Include="Scripts\old\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.treeview.js" />
+    <Content Include="Scripts\knockout-2.2.0.debug.js" />
+    <Content Include="Scripts\knockout-2.2.0.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="packages.config" />
+    <None Include="readme.txt" />
+    <Content Include="Views\mRole\Index.cshtml" />
+    <Content Include="Views\mRole\Details.cshtml" />
+    <Content Include="Views\mRole\Create.cshtml" />
+    <Content Include="Views\mRole\Edit.cshtml" />
+    <Content Include="Views\mRole\Delete.cshtml" />
+    <Content Include="Views\RoleMenu\Index.cshtml" />
+    <Content Include="Views\RoleMenu\Details.cshtml" />
+    <Content Include="Views\RoleMenu\Create.cshtml" />
+    <Content Include="Views\RoleMenu\Edit.cshtml" />
+    <Content Include="Views\RoleMenu\Delete.cshtml" />
+    <Content Include="Views\CERLMenu\Index.cshtml" />
+    <Content Include="Views\CERLMenu\Details.cshtml" />
+    <Content Include="Views\CERLMenu\Create.cshtml" />
+    <Content Include="Views\CERLMenu\Edit.cshtml" />
+    <Content Include="Views\CERLMenu\Delete.cshtml" />
+    <Content Include="Views\F_CERL\Index.cshtml" />
+    <Content Include="Views\F_CERL\Details.cshtml" />
+    <Content Include="Views\F_CERL\Create.cshtml" />
+    <Content Include="Views\F_CERL\Edit.cshtml" />
+    <Content Include="Views\F_CERL\Delete.cshtml" />
+    <Content Include="Views\F_CERL\PartialAttachFile.cshtml" />
+    <Content Include="Views\F_CERL\PartialFormAction.cshtml" />
+    <Content Include="Views\F_CERL\PartialTaskDetail.cshtml" />
+    <Content Include="Views\Shared\UserName.cshtml" />
+    <Content Include="Views\Shared\MenuView.cshtml" />
+    <Content Include="Views\Shared\ItemTreeView.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuNode.cshtml" />
+    <Content Include="Views\F_CERL\Report.cshtml" />
+    <Content Include="Views\Shared\SimulateUser.cshtml" />
+    <Content Include="Views\F_CERL\ItemTreeView.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ItemTreeNode.cshtml" />
+    <Content Include="Views\Shared\MenuSingle.cshtml" />
+    <Content Include="Views\F_CERL\PartialItemTreePath.cshtml" />
+    <Content Include="Views\F_CERL\Unsigned.cshtml" />
+    <Content Include="Views\F_CERL\Signed.cshtml" />
+    <Content Include="Views\TestItemMenu\Index.cshtml" />
+    <Content Include="Views\TestItemMenu\Details.cshtml" />
+    <Content Include="Views\TestItemMenu\Create.cshtml" />
+    <Content Include="Views\TestItemMenu\Edit.cshtml" />
+    <Content Include="Views\TestItemMenu\Delete.cshtml" />
+    <Content Include="Views\Shared\PartialItemTreePath.cshtml" />
+    <Content Include="Views\F_CERL\ReportOnHandWork.cshtml" />
+    <Content Include="Views\LabInformation\Create.cshtml" />
+    <Content Include="Views\LabInformation\Delete.cshtml" />
+    <Content Include="Views\LabInformation\Details.cshtml" />
+    <Content Include="Views\LabInformation\Edit.cshtml" />
+    <Content Include="Views\LabInformation\Home.cshtml" />
+    <Content Include="Views\LabInformation\Index.cshtml" />
+    <Content Include="Views\LabInformation\PartialInfoContent.cshtml" />
+    <Content Include="Views\LabInformation\PartialInfoImage.cshtml" />
+    <Content Include="Views\F_CERL\EditLAB.cshtml" />
+    <Content Include="Views\F_CERL\DetailsLAB.cshtml" />
+    <Content Include="Views\F_CERL\ReportAllUnsignWork.cshtml" />
+    <Content Include="Views\F_CERL\PartialAttachFileEdit.cshtml" />
+    <Content Include="Views\F_CERL\Draft.cshtml" />
+    <Content Include="Views\LabInformation\PartialAttachFile.cshtml" />
+    <Content Include="Views\LabInformation\PartialAttachFileEdit.cshtml" />
+    <Content Include="Views\mRole\PartialRoleUsers.cshtml" />
+    <Content Include="Views\mRole\PartialRoleMenu.cshtml" />
+    <Content Include="Views\ProcessStep\Index.cshtml" />
+    <Content Include="Views\ProcessStep\Details.cshtml" />
+    <Content Include="Views\ProcessStep\Create.cshtml" />
+    <Content Include="Views\ProcessStep\Edit.cshtml" />
+    <Content Include="Views\ProcessStep\Delete.cshtml" />
+    <Content Include="Views\IssueSource\Index.cshtml" />
+    <Content Include="Views\IssueSource\Details.cshtml" />
+    <Content Include="Views\IssueSource\Create.cshtml" />
+    <Content Include="Views\IssueSource\Edit.cshtml" />
+    <Content Include="Views\IssueSource\Delete.cshtml" />
+    <Content Include="Views\CustomerName\Index.cshtml" />
+    <Content Include="Views\CustomerName\Details.cshtml" />
+    <Content Include="Views\CustomerName\Create.cshtml" />
+    <Content Include="Views\CustomerName\Edit.cshtml" />
+    <Content Include="Views\CustomerName\Delete.cshtml" />
+    <Content Include="Views\TestPurpose\Index.cshtml" />
+    <Content Include="Views\TestPurpose\Details.cshtml" />
+    <Content Include="Views\TestPurpose\Create.cshtml" />
+    <Content Include="Views\TestPurpose\Edit.cshtml" />
+    <Content Include="Views\TestPurpose\Delete.cshtml" />
+    <Content Include="Views\ReturnType\Index.cshtml" />
+    <Content Include="Views\ReturnType\Details.cshtml" />
+    <Content Include="Views\ReturnType\Create.cshtml" />
+    <Content Include="Views\ReturnType\Edit.cshtml" />
+    <Content Include="Views\ReturnType\Delete.cshtml" />
+    <Content Include="Views\ReturnSite\Index.cshtml" />
+    <Content Include="Views\ReturnSite\Details.cshtml" />
+    <Content Include="Views\ReturnSite\Create.cshtml" />
+    <Content Include="Views\ReturnSite\Edit.cshtml" />
+    <Content Include="Views\ReturnSite\Delete.cshtml" />
+    <Content Include="Views\F_CERL\IndexNextStrainGague.cshtml" />
+    <Content Include="Views\F_CERL\CancelLAB.cshtml" />
+    <Content Include="Views\F_CERL\LABMemberReport.cshtml" />
+    <Content Include="Views\F_CERL\IndexScheduleJob.cshtml" />
+    <Content Include="Views\ProductStage\Index.cshtml" />
+    <Content Include="Views\ProductStage\Details.cshtml" />
+    <Content Include="Views\ProductStage\Create.cshtml" />
+    <Content Include="Views\ProductStage\Edit.cshtml" />
+    <Content Include="Views\ProductStage\Delete.cshtml" />
+    <Content Include="Views\PCBVendor\Index.cshtml" />
+    <Content Include="Views\PCBVendor\Details.cshtml" />
+    <Content Include="Views\PCBVendor\Create.cshtml" />
+    <Content Include="Views\PCBVendor\Edit.cshtml" />
+    <Content Include="Views\PCBVendor\Delete.cshtml" />
+    <Content Include="Views\F_CERL\PartialCCUserEdit.cshtml" />
+    <Content Include="Views\F_CERL\PartialAttachFileVer.cshtml" />
+    <Content Include="Views\F_CERL\PartialAttachFileVerEdit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Files\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56614</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:56614/CERLLAB</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

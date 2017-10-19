@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CERLLAB.Models.RoleMenu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+    <title>@ViewBag.Message</title>
+    <style type="text/css">
+        .ui-widget {
+            font-family: 微軟正黑體;
+            font-size: 0.85em;
+        }
+
+        .ui-accordion-header {
+            font-weight: bolder;
+        }
+
+        .wrapper {
+            width: 95%;
+        }
+    </style>
+
+    <script language="javascript" type="text/javascript">
+        $(document).ready(function () {
+            $("#browser").treeview();
+
+            // Hide all the submenu ul/li s
+            $("#cerlmenu ul").show();
+
+            $("#cerlmenu li ul").hide();
+
+            // Hook up mouse over events
+            $("#cerlmenu li").hover(
+                function () {
+                    var sibling = $(this).find("a").next();
+                    sibling.show();
+                },
+                function () {
+                    var sibling = $(this).find("a").next();
+                    sibling.hide();
+                });
+        });
+    </script>
+</head>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.menuId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoleId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.menuId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoleId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,19 @@
+﻿@using CERLLAB.Models;
+@{
+    IList<FnGetItemParentListById_Result> parentlist = new List<FnGetItemParentListById_Result>();
+
+    var vparentlist = new object();
+    bool IsTrue = ViewData.TryGetValue("parentlist", out vparentlist);
+    parentlist = (IList<FnGetItemParentListById_Result>)vparentlist;
+    int i = 0;
+  }
+
+@foreach (var item in parentlist)
+{ 
+    if(i>0)
+    {
+        <span>&nbsp;&gt;&nbsp;</span>
+    }
+    i++;
+    <a href="@Html.DisplayFor(x => item.Url)" style="font-size:14px; color:black; background-color: rgb(255, 240, 240)">@Html.DisplayFor(x => item.FullName)</a>
+}

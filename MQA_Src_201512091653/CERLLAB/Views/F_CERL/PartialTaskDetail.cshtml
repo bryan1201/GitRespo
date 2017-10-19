@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CERLLAB.Models.vTaskDetail>
+@using CERLLAB.Controllers.General;
+<head>
+
+    <title>Detail</title>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#accordion').accordion({
+                heightStyle: "content",
+                collapsible: true
+            });
+        });
+    </script>
+</head>
+
+<div class="wrapper">
+    <div id="accordion">
+        <h3>表單簽核記錄</h3>
+        <div>
+            <table class="jtable" style="width:100%; table-layout: fixed; font-size: 0.8em">
+                <tr>
+                    <th style="width: 10%">State</th>
+                    <th style="width: 15%">AssignedTo</th>
+                    <th style="width: 15%">Approver</th>
+                    <th style="width: 10%">Action</th>
+                    <th style="width: 20%">Comment</th>
+                    <th style="width: 15%">Start Date</th>
+                    <th style="width: 15%">Finish Date</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.HistoryStateName</td>
+                        <td>@item.AssignedToName</td>
+                        <td>@item.EditorName</td>
+                        <td>@item.ActionName</td>
+                        <td><span style="white-space: pre-wrap">@item.Comment</span></td>
+                        <td>@item.S_date.ToLocalTime()</td>
+                        <td>
+                            @(item.F_date != null ? DateTime.Parse(item.F_date.ToString()).ToLocalTime() : item.F_date)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

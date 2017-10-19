@@ -1,0 +1,147 @@
+﻿@model IEnumerable<CERLLAB.Models.vFCERL>
+@using CERLLAB.Controllers.General;
+@using CERLLAB.Models;
+@{
+    ViewBag.Title = "工作排程";
+}
+<head>
+    <title>@ViewBag.Title @ViewBag.Message</title>
+    <style type="text/css">
+        .ui-widget {
+            font-family: 微軟正黑體;
+            font-size: 0.85em;
+        }
+
+        .ui-accordion-header {
+            font-weight: bolder;
+        }
+
+        .wrapper {
+            width: 95%;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#FromDate").datepicker({
+                dateFormat: "yy/mm/dd",
+                regional: "zh-TW",
+                showAnim: "drop"
+            });
+            $("#EndDate").datepicker({
+                dateFormat: "yy/mm/dd",
+                regional: "zh-TW",
+                showAnim: "drop"
+            });
+            $("#NextTestFromDate").datepicker({
+                dateFormat: "yy/mm/dd",
+                regional: "zh-TW",
+                showAnim: "drop"
+            });
+            $("#NextTestEndDate").datepicker({
+                dateFormat: "yy/mm/dd",
+                regional: "zh-TW",
+                showAnim: "drop"
+            });
+        });
+    </script>
+</head>
+<table class="ui-widget">
+    <tr style="background: #ffffff">
+        <td valign="top" style="width:82%; margin:2% 2%;">
+            @using (Html.BeginForm("IndexScheduleJob", "F_CERL", FormMethod.Get))
+            {
+                <table class="jtable" style="width:95%; margin: 2% 2%;">
+                    <tr>
+                        <th style="width: 15%">
+                            @Html.DisplayNameFor(model => model.CaseID)搜尋
+                        </th>
+                        <td>
+                            @Html.TextBox("CaseID", "", new { @style = "width:95%" })
+                        </td>
+                        <th>Part or Serial Number</th>
+                        <td>
+                            @Html.TextBox("SerialNumber")
+                        </td>
+                        <th>Create</th>
+                        <td>
+                            From: @Html.TextBox("FromDate") <br />
+                            End: @Html.TextBox("EndDate")
+                        </td>
+                        <th>NextTest</th>
+                        <td>
+                            From: @Html.TextBox("NextTestFromDate") <br />
+                            End: @Html.TextBox("NextTestEndDate")
+                        </td>
+                        <th>
+                            <input type="submit" value="搜尋" style="width:90%" />
+                        </th>
+                    </tr>
+                </table>
+            }
+
+            <table class="jtable" style="table-layout: fixed;">
+                <tr>
+                    <th style="width: 7%">
+                        @Html.DisplayNameFor(model => model.UID)
+                    </th>
+                    <th style="width: 10%">
+                        @Html.DisplayNameFor(model => model.CaseID)
+                    </th>
+
+                    <th style="width: 12%">
+                        @Html.DisplayNameFor(model => model.Applicant)
+                    </th>
+                    <th style="width: 12%">
+                        @Html.DisplayNameFor(model => model.PartNumber)
+                    </th>
+                    <th style="width:10%">
+                        @Html.DisplayNameFor(model => model.TestPurpose)
+                    </th>
+                    <th style="width:10%">
+                        @Html.DisplayNameFor(model => model.ProcessStep)
+                    </th>
+                    <th style="width:8%">
+                        @Html.DisplayNameFor(model => model.FinishDate)
+                    </th>
+                    <th style="width:8%">
+                        @Html.DisplayNameFor(model => model.NextTestDate)
+                    </th>
+                    <th style="width:5%"></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.UID)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.CaseID)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.Applicant)
+                        </td>
+                        <td style="font-size:0.8em; word-wrap: break-word;">
+                            @Html.DisplayFor(modelItem => item.PartNumber)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.TestPurpose)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.ProcessStep)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.FinishDate)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.NextTestDate)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.ActionLink("明細", "DetailsLAB", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,145 @@
+﻿@using CERLLAB.Models;
+@using CERLLAB.Controllers.General;
+@model IEnumerable<vFCERL>
+
+@{
+    ViewBag.Title = "簽核歷史";
+
+    int RoleId = Constant.UserRoleId;
+    string UserId = Method.GetLogonUserId(Session, User.Identity.Name.ToUpper());
+    string webroot = Constant.WebRoot;
+    //string TreeViewRoot = webroot + "/F_CERL/Index";
+    //ItemTreeDbSet tr = new ItemTreeDbSet(TreeViewRoot);
+    //ItemTree tree = tr.GetData(TreeViewRoot, UserId, 0,0,1);    
+}
+<head>
+    <title>@ViewBag.Title @ViewBag.Message</title>
+    <style type="text/css">
+        .ui-widget {
+            font-family: 微軟正黑體;
+            font-size: 0.85em;
+        }
+
+        .ui-accordion-header {
+            font-weight: bolder;
+        }
+
+        .wrapper {
+            width: 95%;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#FromDate").datepicker({
+                dateFormat: "yy/mm/dd",
+                regional: "zh-TW",
+                showAnim: "drop"
+            });
+            $("#EndDate").datepicker({
+                dateFormat: "yy/mm/dd",
+                regional: "zh-TW",
+                showAnim: "drop"
+            });
+        });
+    </script>
+</head>
+<table class="jtable">
+    <tr style="background: #ffffff">
+        <td valign="top" style="width:82%; margin:2% 2%;">
+            @using (Html.BeginForm("Signed", "F_CERL", FormMethod.Get))
+            {
+                <table style="width:95%; margin: 2% 2%;">
+                    <tr>
+                        <th style="width: 10%">CaseID</th>
+                        <td>
+                            @Html.TextBox("CaseID", "", new { @style = "width:95%" })
+                        </td>
+                        <th style="width: 10%">Part or Serial Number</th>
+                        <td>
+                            @Html.TextBox("SerialNumber", "", new { @style = "width:95%" })
+                        </td>
+                        <th>Date From:</th>
+                        <td>
+                            @Html.TextBox("FromDate")
+                        </td>
+                        <th>Date End:</th>
+                        <td>
+                            @Html.TextBox("EndDate")
+                        </td>
+                        <th>
+                            <input type="submit" value="搜尋" style="width:90%" />
+                        </th>
+                    </tr>
+                </table>
+            }
+
+            <table class="jtable" style="table-layout: fixed;">
+                <tr>
+                    <th style="width:7%">
+                        @Html.DisplayNameFor(model => model.UID)
+                    </th>
+                    <th style="width:15%">
+                        @Html.DisplayNameFor(model => model.CaseID)
+                    </th>
+                    <th style="width:15%">
+                        @Html.DisplayNameFor(model => model.Applicant)
+                    </th>
+                    <th style="width:15%">
+                        @Html.DisplayNameFor(model => model.PartNumber)
+                    </th>
+                    <th style="width:12%">
+                        @Html.DisplayNameFor(model => model.SerialNumber)
+                    </th>
+                    <th style="width:13%">
+                        @Html.DisplayNameFor(model => model.LabMember)
+                    </th>
+                    <th style="width:10%">
+                        @Html.DisplayNameFor(model => model.StateName)
+                    </th>
+                    <th style="width:8%">
+                        @Html.DisplayNameFor(model => model.cdt)
+                    </th>
+
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td style="font-size:0.9em;">
+                            @Html.DisplayFor(modelItem => item.UID)
+                        </td>
+                        <td style="font-size:0.8em;">
+                            @Html.DisplayFor(modelItem => item.CaseID)
+                        </td>
+                        <td style="font-size:0.85em;">
+                            @Html.DisplayFor(modelItem => item.Applicant)
+                        </td>
+                        <td style="font-size:0.85em;">
+                            @Html.DisplayFor(modelItem => item.PartNumber)
+                        </td>
+                        <td style="font-size:0.85em;">
+                            @Html.DisplayFor(modelItem => item.SerialNumber)
+                        </td>
+                        <td style="font-size:0.85em;">
+                            @Html.DisplayFor(modelItem => item.LabMember)
+                        </td>
+                        <td style="font-size:0.85em;">
+                            @Html.DisplayFor(modelItem => item.StateName)
+                        </td>
+                        <td style="font-size:0.85em;">
+                            @Html.DisplayFor(modelItem => item.cdt)
+                        </td>
+                        <td style="font-size:0.85em;">
+                            @Html.ActionLink("明細", "DetailsLAB", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+</table>
+
+
+

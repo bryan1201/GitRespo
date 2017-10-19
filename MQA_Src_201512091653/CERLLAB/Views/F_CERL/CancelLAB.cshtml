@@ -1,0 +1,381 @@
+﻿@model CERLLAB.Models.FnGetFCERL_Result
+@using CERLLAB.Controllers.General;
+@using CERLLAB.Models;
+@{
+    ViewBag.Title = "停用 Strain Gague";
+    string PartialAttachFile = "PartialAttachFile";
+    string PartialTaskDetail = "PartialTaskDetail";
+}
+<head>
+    <title>@ViewBag.Title</title>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tabs').tabs();
+        });
+    </script>
+</head>
+<div id="tabs" style="display:block;">
+    <ul>
+        <li><a href="#tabs-1">申請單</a></li>
+        <li><a href="#tabs-2">簽核記錄</a></li>
+    </ul>
+    <div id="tabs-1">
+        <fieldset>
+            <legend>f_cerl</legend>
+            <div>
+                <h3>確認要停用?</h3>
+                @using (Html.BeginForm("CancelLAB", "F_CERL", FormMethod.Post, new { enctype = "multipart/form-data", name = "fcerl", id = "fcerl" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <p>
+                        <input type="submit" value="停用" /> | @Html.ActionLink("接受/移轉", "EditLAB", new { id = ViewBag.id }) |
+                        @Html.ActionLink("Back to List", "IndexNextStrainGague")
+                    </p>
+                }
+                
+                <table class="jtable" style="table-layout: fixed;">
+                    <tr>
+                        <th class="display-label" style="width: 15%; text-align: left; word-wrap: break-word;">
+                            @Html.DisplayNameFor(model => model.UID)
+                        </th>
+                        <td class="display-field" style="width: 35%; text-align: left; word-wrap: break-word; ">
+                            @Html.DisplayFor(model => model.UID)
+                        </td>
+                        <th class="display-label" style="width: 15%; text-align: left; word-wrap: break-word; ">
+                            @Html.DisplayNameFor(model => model.CaseID)
+                        </th>
+                        <td class="display-field" style="width: 35%; text-align: left; word-wrap: break-word; ">
+                            @Html.DisplayFor(model => model.CaseID)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" width="100%">
+
+                            <table class="jtable" style="table-layout: fixed; width:100%">
+                                <tr>
+                                    <th class="display-label" style="width:30%">
+                                        @Html.DisplayNameFor(model => model.Applicant)
+                                    </th>
+                                    <th class="display-label" style="width:10%">@Html.DisplayNameFor(model => model.CorpTel)</th>
+                                    <th class="display-label" style="width:25%">@Html.DisplayNameFor(model => model.Dept)</th>
+                                    <th class="display-label" style="width:30%">
+                                        @Html.DisplayNameFor(model => model.Manager)
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="display-field" style="width:30%">
+                                        @Html.DisplayFor(model => model.Applicant)<a href="mailto:@Html.ValueFor(model=>model.ApplicantEmail)">@Html.DisplayFor(model => model.ApplicantName)</a>
+                                    </td>
+                                    <td class="display-field" style="width:10%">@Html.DisplayFor(model => model.CorpTel)</td>
+                                    <td class="display-field" style="width:30%">@Html.DisplayFor(model => model.Dept)</td>
+                                    <td class="display-field" style="width:30%">
+                                        @Html.DisplayFor(model => model.Manager) @Html.DisplayFor(model => model.ManagerName)
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <table class="jtable" style="table-layout: fixed;">
+                    <tr>
+                        <th class="display-label">
+                            <label>申請人填寫：</label>
+                        </th>
+                    </tr>
+                </table>
+                <table class="jtable" style="table-layout: fixed;">
+                    <tr>
+                        <th class="display-label" style="width:15%">
+                            @Html.DisplayNameFor(model => model.Site)
+                        </th>
+                        <td class="display-field" style="width:35%">
+                            @Html.DisplayFor(model => model.SiteName)
+                        </td>
+                        <td style="width:15%"></td>
+                        <td style="width:35%"></td>
+                    </tr>
+                    <tr>
+                        <th class="display-label">
+                            @Html.DisplayNameFor(model => model.TestItem)
+                        </th>
+                        <td class="display-field">
+                            @Html.DisplayFor(model => model.TestItemName)
+                        </td>
+                        <th class="display-label">
+                            @Html.DisplayNameFor(model => model.RequestItem)
+                        </th>
+                        <td class="display-field">
+                            @Html.DisplayFor(model => model.RequestItemName)
+                        </td>
+                    </tr>
+                </table>
+                <table class="jtable" style="table-layout: fixed;">
+                    <tr>
+                        <th class="display-label" style="width:15%">
+                            @Html.DisplayNameFor(model => model.CustomerName)
+                        </th>
+                        <td class="display-field" style="width:35%">
+                            @Html.DisplayFor(model => model.CustomerName)
+                        </td>
+                        <th class="display-label" style="width:15%">
+                            @Html.DisplayNameFor(model => model.ProjectName)
+                        </th>
+                        <td class="display-field" style="width:35%">
+                            @Html.DisplayFor(model => model.ProjectName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="display-label">
+                            @Html.DisplayNameFor(model => model.SerialNumber)
+                        </th>
+                        <td class="display-field">
+                            @Html.DisplayFor(model => model.SerialNumber)
+                        </td>
+                        <th class="display-label">
+                            @Html.DisplayNameFor(model => model.PartNumber)
+                        </th>
+                        <td class="display-field">
+                            @Html.DisplayFor(model => model.PartNumber)
+                        </td>
+                    </tr>
+                </table>
+                <div id="EFA" style="display: @Method.GetDisplay(Html.ValueFor(model => model.DivEFA_Visible).ToString())">
+                    <table class="jtable" style="table-layout: fixed;">
+                        <tr>
+                            <th class="display-label" width="15%">
+                                @Html.DisplayNameFor(model => model.ReturnType)
+                            </th>
+                            <td class="display-field" width="35%">
+                                @Html.DisplayFor(model => model.ReturnTypeName)
+                            </td>
+                            <th class="display-label" width="15%">
+                                @Html.DisplayNameFor(model => model.FailureSite)
+                            </th>
+                            <td class="display-field" width="35%">
+                                @Html.DisplayFor(model => model.FailureSiteName)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="Source" style="display: @Method.GetDisplay(Html.ValueFor(model => model.IssueSource_Visible).ToString())">
+                    <table class="jtable" style="table-layout: fixed;">
+                        <tr>
+                            <th class="display-label" width="15%">
+                                @Html.DisplayNameFor(model => model.IssueSource)
+                            </th>
+                            <td class="display-field" width="85%">
+                                @Html.DisplayFor(model => model.IssueSourceName)
+                            </td>
+                    </table>
+                </div>
+                <div id="FA" style="display: @Method.GetDisplay(Html.ValueFor(model => model.DivFA_Visible).ToString())">
+                    <table class="jtable" style="table-layout: fixed; display: @Method.GetDisplay(Html.ValueFor(model => model.SampleQty_Visible).ToString())">
+                        <tr>
+                            <th class="display-label" width="15%">
+                                @Html.DisplayNameFor(model => model.SampleQty)
+                            </th>
+                            <td class="display-field" width="35%">
+                                @Html.DisplayFor(model => model.SampleQty)
+                            </td>
+                            <td width="50%" colspan="2"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="Descr" style="display: @Method.GetDisplay(Html.ValueFor(model => model.BackgroundDesc_Visible).ToString())">
+                    <table class="jtable" style="table-layout: fixed;">
+                        <tr>
+                            <th class="display-label" width="15%">
+                                @Html.DisplayNameFor(model => model.BackgroundDesc)
+                            </th>
+                            <td class="display-field" width="85%">
+                                @Html.DisplayFor(model => model.BackgroundDesc)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="DivUserAttachFile">
+                    <table class="jtable" style="table-layout: fixed;">
+                        <tr>
+                            <th class="display-label" width="15%">
+                                User Files
+                            </th>
+                            <td class="display-field" width="85%">
+                                @if (ViewData["attFile10"] != null)
+                                {
+                                    @Html.Partial(PartialAttachFile, ViewData["attFile10"])
+                                }
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="Strain" style="display: @Method.GetDisplay(Html.ValueFor(model => model.DivStrain_Visible).ToString())">
+                    <table class="jtable" style="table-layout: fixed;">
+
+                        <tr>
+                            <th class="display-label" width="15%">
+                                @Html.DisplayNameFor(model => model.TestPurpose)
+                            </th>
+                            <td class="display-field" width="35%">
+                                @Html.DisplayFor(model => model.TestPurposeName)
+                            </td>
+                            <th class="display-label" width="15%">
+                                @Html.DisplayNameFor(model => model.ProductStage)
+                            </th>
+                            <td class="display-field" width="35%">
+                                @Html.DisplayFor(model => model.ProductStage)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="display-label" width="15%">
+                                @Html.DisplayNameFor(model => model.ProcessStep)
+                            </th>
+                            <td class="display-field" width="35%">
+                                @Html.DisplayFor(model => model.ProcessStepName)
+                            </td>
+                            <th class="display-label" width="15%">
+                                @Html.DisplayNameFor(model => model.FixtureNo)
+                            </th>
+                            <td class="display-field" width="35%">
+                                @Html.DisplayFor(model => model.FixtureNo)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th class="display-label" width="15%">
+                                @Html.DisplayNameFor(model => model.FixtureVersionNo)
+                            </th>
+                            <td class="display-field" width="35%">
+                                @Html.DisplayFor(model => model.FixtureVersionNo)
+                            </td>
+                            <th class="display-label" width="15%">
+                                @Html.DisplayNameFor(model => model.FixtureSupplier)
+                            </th>
+                            <td class="display-field" width="35%">
+                                @Html.DisplayFor(model => model.FixtureSupplier)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div><br />
+            <div id="DivLAB" style="display: @Method.GetDisplay(Html.ValueFor(model => model.DivLAB_Visible).ToString())">
+                <table class="jtable" style="table-layout: fixed;">
+                    <tr>
+                        <th class="display-label">
+                            <label>LAB人員填寫：</label>
+                        </th>
+                    </tr>
+                </table>
+
+                <table class="jtable" style="table-layout: fixed; display: @Method.GetDisplay(Html.ValueFor(model => model.LocalSupervisor_Visible).ToString())">
+                    <tr>
+                        <th class="display-label" width="15%" style="display: @Method.GetDisplay(Html.ValueFor(model => model.LocalSupervisor_Visible).ToString())">
+                            @Html.DisplayNameFor(model => model.LocalSupervisor)
+                        </th>
+                        <td class="display-field" width="35%" style="display: @Method.GetDisplay(Html.ValueFor(model => model.LocalSupervisor_Visible).ToString())">
+                            @Html.DisplayFor(model => model.LocalSupervisor) @Html.DisplayFor(model => model.LocalSupervisorName)
+                        </td>
+                        <th class="display-label" width="15%" style="display: @Method.GetDisplay(Html.ValueFor(model => model.LabMember_Visible).ToString())">
+                            @Html.DisplayNameFor(model => model.LabMember)
+                        </th>
+                        <td class="display-field" width="35%" style="display: @Method.GetDisplay(Html.ValueFor(model => model.LabMember_Visible).ToString())">
+                            @Html.DisplayFor(model => model.LabMember) @Html.DisplayFor(model => model.LabMemberName)
+                        </td>
+                    </tr>
+                </table>
+                <table class="jtable" style="table-layout: fixed; display: @Method.GetDisplay(Html.ValueFor(model => model.ReceiptQty_Visible).ToString())">
+                    <tr>
+                        <th class="display-label" width="15%">
+                            @Html.DisplayNameFor(model => model.ReceiptQty)
+                        </th>
+                        <td class="display-field" width="35%">
+                            @Html.DisplayFor(model => model.ReceiptQty)
+                        </td>
+                        <th class="display-label" width="15%">
+                            @Html.DisplayNameFor(model => model.LabWorkHour)
+                        </th>
+                        <td class="display-field" width="35%">
+                            @Html.DisplayFor(model => model.LabWorkHour)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="display-label" width="15%">
+                            @Html.DisplayNameFor(model => model.ReceiptDate)
+                        </th>
+                        <td class="display-field" width="35%">
+                            @Html.DisplayFor(model => model.ReceiptDate)
+                        </td>
+                        <th class="display-label" width="15%">
+                            @Html.DisplayNameFor(model => model.FinishDate)
+                        </th>
+                        <td class="display-field" width="35%">
+                            @Html.DisplayFor(model => model.FinishDate)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="display-label" width="15%">
+                            @Html.DisplayNameFor(model => model.AnalysisResult)
+                        </th>
+                        <td class="display-field" width="35%">
+                            @Html.DisplayFor(model => model.AnalysisResult)
+                        </td>
+                        <th class="display-label" width="15%">
+                            LAB Member Files
+                        </th>
+                        <td class="display-field" width="35%">
+                            @if (ViewData["attFile35"] != null)
+                            {
+                                @Html.Partial(PartialAttachFile, ViewData["attFile35"])
+                            }
+                        </td>
+                    </tr>
+                </table>
+                <table class="jtable" style="table-layout: fixed; display: @Method.GetDisplay(Html.ValueFor(model => model.DivStrain_Visible).ToString())">
+                    <tr>
+                        <th class="display-label" width="15%">
+                            @Html.DisplayNameFor(model => model.NextTestDate)
+                        </th>
+                        <td class="display-field" width="35%">
+                            @Html.DisplayFor(model => model.NextTestDate)
+                        </td>
+                        <td width="15%"></td>
+                        <td width="35%"></td>
+                    </tr>
+                </table>
+                @if (Session["AnalysisSummary_Visible_LABSupervisor"] != null)
+                {
+                    if ((bool)Session["AnalysisSummary_Visible_LABSupervisor"] == true)
+                    {
+                        <table class="jtable" style="table-layout: fixed; display: @Method.GetDisplay(Html.ValueFor(model => model.AnalysisSummary_Visible).ToString())">
+                            <tr>
+                                <th class="display-label" width="15%">
+                                    @Html.DisplayNameFor(model => model.AnalysisSummary)
+                                </th>
+                                <td class="display-field" width="35%">
+                                    @Html.DisplayFor(model => model.AnalysisSummary)
+                                </td>
+                                <th class="display-label" width="15%">
+                                    Supervisor Files
+                                </th>
+                                <td class="display-field" width="35%">
+                                    @if (ViewData["attFile40"] != null)
+                                    {
+                                        @Html.Partial(PartialAttachFile, ViewData["attFile40"])
+                                    }
+                                </td>
+                            </tr>
+                        </table>
+                    }
+                }
+            </div>
+        </fieldset>
+    </div>
+    <div id="tabs-2">
+        @if (ViewData["vTaskDetail"] != null)
+        {
+            @Html.Partial(PartialTaskDetail, ViewData["vTaskDetail"])
+        }
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

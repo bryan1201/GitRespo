@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CERLLAB.Models.vCERLMenu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="jtable" style="table-layout:fixed; font-size: 1.2em;">
+    <tr>
+        <th style="width:9%">
+            @Html.DisplayNameFor(model => model.menuId)
+        </th>
+        <th style="width:20%">
+            @Html.DisplayNameFor(model => model.TreeMenuText)
+        </th>
+        <th style="width:8%">
+            @Html.DisplayNameFor(model => model.menuType)
+        </th>
+        <th style="width:9%">
+            @Html.DisplayNameFor(model => model.parentMenuId)
+        </th>
+        <th style="width:15%">
+            @Html.DisplayNameFor(model => model.ParentMenuText)
+        </th>
+        <th style="width:12%">
+            @Html.DisplayNameFor(model => model.actionname)
+        </th>
+        <th style="width:12%">
+            @Html.DisplayNameFor(model => model.controlname)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.menuId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TreeMenuText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.menuType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.parentMenuId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentMenuText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.actionname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.controlname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.guid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.guid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.guid })
+        </td>
+    </tr>
+}
+
+</table>

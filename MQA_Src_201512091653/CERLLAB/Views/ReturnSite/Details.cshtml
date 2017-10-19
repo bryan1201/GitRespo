@@ -1,0 +1,35 @@
+﻿@model CERLLAB.Models.vReturnSite
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ReturnSite</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SiteNAME)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SiteNAME)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReturnTypeID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReturnTypeID)
+    </div>
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ReturnTypeName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReturnTypeName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.SiteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

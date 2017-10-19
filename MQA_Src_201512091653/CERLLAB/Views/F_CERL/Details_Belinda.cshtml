@@ -1,0 +1,314 @@
+﻿@model CERLLAB.Models.vFCERL
+
+@{
+    ViewBag.Title = "Details";
+    string PartialAttachFile = "PartialAttachFile";
+    string PartialTaskDetail = "PartialTaskDetail";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        // Hide all the submenu ul/li s
+        $("#cerlmenu ul").show();
+
+        $("#cerlmenu li ul").hide();
+
+        // Hook up mouse over events
+        $("#cerlmenu li").hover(
+            function () {
+                var sibling = $(this).find("a").next();
+                sibling.show();
+            },
+            function () {
+                var sibling = $(this).find("a").next();
+                sibling.hide();
+            });
+    });
+</script>
+<fieldset>
+    <legend>f_cerl</legend>
+    <table>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.UID)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.UID)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.CaseID)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.CaseID)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.Applicant)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Applicant)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.BadgeCode)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.BadgeCode)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.Dept)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Dept)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.CorpTel)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.CorpTel)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.Manager)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Manager)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.CustomerName)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.ProjectName)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.ProjectName)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.SerialNumber)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.SerialNumber)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.PartNumber)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.PartNumber)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.Site)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.Site)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.TestItem)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.TestItem)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.RequestItem)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.RequestItem)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.ReturnType)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.ReturnType)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.FailureSite)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.FailureSite)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.BackgroundDesc)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.BackgroundDesc)
+            </td>
+            <th class="display-label">
+                User Files:
+            </th>
+            <td class="display-field">
+                @if (ViewData["attFile10"] != null)
+                {
+                    @Html.Partial(PartialAttachFile, ViewData["attFile10"])
+                }
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                LAB Member Files:
+            </th>
+            <td class="display-field">
+                @if (ViewData["attFile35"] != null)
+                {
+                    @Html.Partial(PartialAttachFile, ViewData["attFile35"])
+                }
+            </td>
+            <th class="display-label">
+                Supervisor Files:
+            </th>
+            <td class="display-field">
+                @if (ViewData["attFile40"] != null)
+                {
+                    @Html.Partial(PartialAttachFile, ViewData["attFile40"])
+                }
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.IssueSource)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.IssueSource)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.SampleQty)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.SampleQty)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.TestPurpose)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.TestPurpose)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.ProductStage)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.ProductStage)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.ProcessStep)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.ProcessStep)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.FixtureNo)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.FixtureNo)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.FixtureVersionNo)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.FixtureVersionNo)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.FixtureSupplier)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.FixtureSupplier)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.LabMember)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.LabMember)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.ReceiptQty)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.ReceiptQty)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.ReceiptDate)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.ReceiptDate)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.FinishDate)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.FinishDate)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.AnalysisResult)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.AnalysisResult)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.AnalysisSummary)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.AnalysisSummary)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.NextTestDate)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.NextTestDate)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.cdt)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.cdt)
+            </td>
+        </tr>
+        <tr>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.udt)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.udt)
+            </td>
+            <th class="display-label">
+                @Html.DisplayNameFor(model => model.editor)
+            </th>
+            <td class="display-field">
+                @Html.DisplayFor(model => model.editor)
+            </td>
+        </tr>
+    </table>
+</fieldset>
+@if (ViewData["vTaskDetail"] != null)
+{
+    @Html.Partial(PartialTaskDetail, ViewData["vTaskDetail"])
+}
+<p>
+@Html.ActionLink("Back to List", "Index")
+</p>

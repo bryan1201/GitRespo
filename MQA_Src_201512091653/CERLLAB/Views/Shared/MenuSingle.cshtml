@@ -1,0 +1,17 @@
+﻿
+@{
+    CERLLAB.Models.CERLDBContext db = new CERLLAB.Models.CERLDBContext();
+    int RoleId = CERLLAB.Controllers.General.Constant.UserRoleId;
+    string UserId = CERLLAB.Controllers.General.Method.GetLogonUserId(Session, User.Identity.Name.ToUpper());
+    
+    var vrolefunction = db.vRoleFunctions.Where(r => r.BadgeCode == UserId && r.menuType == 2).Distinct().OrderBy(r => r.sortOrder).ToList();
+}
+<!-- <ul id="rerunmenu" class="menu"> style="list-style:none; white-space:nowrap; overflow:hidden; margin:0; padding:0; border: 0px solid; font-size: 14px;"-->
+<ul id="nav">
+    @{
+        foreach (var item in vrolefunction)
+        {
+            <li style="list-style:none; display:inline;">@Html.ActionLink(item.menuText, item.actionname, item.controlname)</li>
+        }
+    }
+</ul>

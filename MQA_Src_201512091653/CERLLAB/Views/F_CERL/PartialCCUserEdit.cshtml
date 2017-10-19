@@ -1,0 +1,16 @@
+﻿@model CERLLAB.Models.s_form_authority
+
+    <input id="SFAID" name="SFAID" value="@Model.ID" hidden />
+    <input id="Action" name="Action" value="UpdateCCUser" hidden />
+<table id="browser" class="jtable" style="table-layout: fixed; font-size: 1em; border: 0px; width:100%">
+        <tr>
+            <td style="width:80px; font-size: 0.8em; text-align:center;">
+                <div style="text-align: left;display:-webkit-box;width: 100%;">
+                    副本(CC)@Html.TextBox(" ", " ", new { title = "Add or Update CC Users", CCUserAction = "AUpdateCCUser", type = "submit", style = "background: url('" + Url.Content("~/Images/Update.jpg") + "') no-repeat top left;background-size: 1.3em auto;height:1.5em;width:1.5em;display:block;text-indent:-9999px;" })
+                </div>
+            </td>
+            <td style="width:auto;">
+                @Html.TextBox("MemberCode", Model.MemberCodeList, new {ID="MemberCode", cols = 35, @rows = 2, style = "width: 98%", title="Input BadgeCode, split with character [';']" })
+            </td>
+        </tr>
+</table>
