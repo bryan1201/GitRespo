@@ -36,7 +36,7 @@ namespace einvoice.Models
             }
         }
         public int errorCode { get; set; }
-        public string QREncrypterString(bool blTest = true)
+        public string QREncrypterString(bool blTest=true)
         {
             string result = string.Empty;
             string aesKey = AESKey;
@@ -52,6 +52,15 @@ namespace einvoice.Models
                         qr.RandomNumber,qr.SalesAmount, qr.TaxAmount, qr.TotalAmount,
                         qr.BuyerIdentifier, qr.RepresentIdentifier,qr.SellerIdentifier,qr.BuyerIdentifier,
                         qr.AESKey
+                        );
+                }
+                else
+                {
+                    result = qrEncrypter.QRCodeINV(
+                        this.InvoiceNumber, this.InvoiceDate, this.InvoiceTime,
+                        this.RandomNumber, this.SalesAmount, this.TaxAmount, this.TotalAmount,
+                        this.BuyerIdentifier, this.RepresentIdentifier, this.SellerIdentifier, this.BuyerIdentifier,
+                        this.AESKey
                         );
                 }
             }

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using einvoice.Models;
-
+using einvoice.QRCodeReference;
 namespace einvoice.Controllers
 {
     public class QRToolController : Controller
@@ -12,8 +8,13 @@ namespace einvoice.Controllers
         // GET: QRTool
         public ActionResult Index()
         {
-            QRCode qr = new Models.QRCode();
+            Models.QRCode qr = new Models.QRCode();
             qr = qr.InitTestQRCode();
+            return View(qr);
+        }
+
+        public ActionResult Details(QRCodeReference.QRCode qr)
+        {
             return View(qr);
         }
 
@@ -36,11 +37,29 @@ namespace einvoice.Controllers
             try
             {
                 // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                QRCodeReference.QREncryptServiceSoapClient qrc = new QRCodeReference.QREncryptServiceSoapClient();
+                
+                QRCodeReference.QRCode qr = new QRCodeReference.QRCode();
+                qr = qrc.InitQRCode();            
+                /*
+                qr.InvoiceNumber = collection["InvoiceNumber"]; //"IT23258592";
+                qr.InvoiceDate = collection["InvoiceDate"].ToString();// string.Format("{0}{1}", TaiwanCalendar.GetYear(dt), dt.ToString("MMdd"));
+                qr.InvoiceTime = collection["InvoiceTime"];//dt.ToString("HHmmss");
+                qr.SalesAmount = int.Parse(collection["SalesAmount"]); //100;
+                qr.TaxAmount =int.Parse(collection["TaxAmount"]); //5;
+                qr.TotalAmount = int.Parse(collection["TotalAmount"]); //qr.SalesAmount + qr.TaxAmount;
+                qr.BuyerIdentifier = collection["BuyerIdentifier"]; //"12345678";
+                qr.RepresentIdentifier = collection["RepresentIdentifier"]; //"87654321";
+                qr.SellerIdentifier = qr.BuyerIdentifier;
+                qr.errorCode = 0;
+                */
+                var QREncryptString = qrc.QREncrypt(qr);
+                ViewBag["QREncryptString"] = QREncryptString;
+                return RedirectToAction("Details", qr);
             }
-            catch
+            catch(Exception ex)
             {
+                string msg = ex.Message;
                 return View();
             }
         }

@@ -12,6 +12,7 @@ namespace einvoice
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("Services/QREncryptService.asmx/{*pathInfo}");
 
             routes.MapRoute(
                 name: "Default",

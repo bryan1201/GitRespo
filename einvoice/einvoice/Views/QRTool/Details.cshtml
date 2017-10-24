@@ -1,0 +1,120 @@
+﻿@model einvoice.QRCodeReference.QRCode
+
+@{
+    ViewBag.Title = "QRCode Encrypt String";
+    string QREncryptString = ViewBag.QREncryptString;
+}
+
+<h2>@QREncryptString</h2>
+
+<div>
+    <h4>QRCode Sample</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RandomNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RandomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TaxAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TaxAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuyerIdentifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuyerIdentifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RepresentIdentifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RepresentIdentifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SellerIdentifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SellerIdentifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessIdentifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessIdentifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AESKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AESKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.errorCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.errorCode)
+        </dd>
+
+    </dl>
+    <p><a class="btn btn-default" href="~/api/Values/5" target="_blank">QREncrypter &raquo;</a></p>
+</div>
