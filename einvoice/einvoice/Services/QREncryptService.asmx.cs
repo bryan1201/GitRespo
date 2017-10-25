@@ -65,5 +65,23 @@ namespace einvoice.Services
             
             return result;
         }
+
+        [WebMethod(Description = "InvoiceDate用民國年，BusinessIdentifier預設為04322046")]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Xml)]
+        public string QREncryptXML(Models.QRCode QRCode)
+        {
+            string result = string.Empty;
+
+            try
+            {
+                result = QRCode.QREncrypterString(false);
+            }
+            catch (Exception ex)
+            {
+                result = ex.Message;
+            }
+
+            return result;
+        }
     }
 }

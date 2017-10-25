@@ -11,24 +11,31 @@ namespace einvoice.Models
         public string InvoiceNumber { get; set; }
         public string InvoiceDate { get; set; }
         public string InvoiceTime { get; set; }
+        /*
         public string RandomNumber {
             get
             {
                 return GenerateRandomNo().ToString();
             }
         }
+        */
+
+        public string RandomNumber { get; set; }
         public int SalesAmount { get; set; }
         public int TaxAmount { get; set; }
         public int TotalAmount { get; set; }
         public string BuyerIdentifier { get; set; }  
         public string RepresentIdentifier { get; set; }
         public string SellerIdentifier { get; set; }
+        public string BusinessIdentifier { get; set; }
+        /*
         public string BusinessIdentifier {
             get
             {
                 return Constant.S_BusinessIdentifier;
             }
         }
+        */
         public string AESKey {
             get
             {
@@ -86,10 +93,12 @@ namespace einvoice.Models
             qr.InvoiceNumber = "IT23258592";
             qr.InvoiceDate = string.Format("{0}{1}",TaiwanCalendar.GetYear(dt), dt.ToString("MMdd"));
             qr.InvoiceTime = dt.ToString("HHmmss");
+            qr.RandomNumber = GenerateRandomNo().ToString("D4");
             qr.SalesAmount = 100;
             qr.TaxAmount = 5;
             qr.TotalAmount = qr.SalesAmount + qr.TaxAmount;
             qr.BuyerIdentifier = "12345678";
+            qr.BusinessIdentifier = Constant.S_BusinessIdentifier;
             qr.RepresentIdentifier = "87654321";
             qr.SellerIdentifier = qr.BuyerIdentifier;
             qr.errorCode = 0;
