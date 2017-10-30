@@ -11,6 +11,7 @@ namespace TransformReport.Configuration
         private const string ROWS = "排";
         private const string COLS = "欄位";
         private const string HEADER_COLS = "HeaderCols";
+        private const string EXCELFILE = "ExcelFile";
 
         public ReportElement()
         {
@@ -33,6 +34,13 @@ namespace TransformReport.Configuration
         {
             get { return (int)this[HEADER_COLS]; }
             set { this[HEADER_COLS] = value; }
+        }
+
+        [ConfigurationProperty(EXCELFILE, IsRequired = true)]
+        public string ExcelFile
+        {
+            get { return (string)this[EXCELFILE]; }
+            set { this[EXCELFILE] = value; }
         }
 
         [ConfigurationProperty(ROWS, IsDefaultCollection = false)]

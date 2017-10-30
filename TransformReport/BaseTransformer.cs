@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Text;
+using System.Linq;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
+using System.Windows.Forms;
 
 using TransformReport.Configuration;
+using System.Collections;
 
 namespace TransformReport
 {
@@ -22,6 +25,11 @@ namespace TransformReport
         protected int targetDataColNum;
 
         #region IReportTransformer Members
+
+        public BaseTransformer()
+        {
+            
+        }
 
         public void Transform(TransformSection transformSection, string hallName, string reportName, string importPath, HSSFSheet targetSheet)
         {
@@ -241,6 +249,55 @@ namespace TransformReport
             }
 
             #endregion
+        }
+        public IList<string> GetHallsList(TransformSection transformSection)
+        {
+            IList<string> resultList = new List<string>();
+            var halls = from HallElement s in transformSection.Halls
+                        select s.Name; 
+            
+            foreach(string hall in halls.ToList<string>())
+            {
+                //resultList.Add(string.Format("H{0}A", hall));
+                //resultList.Add(string.Format("H{0}C", hall));
+                resultList.Add(string.Format("{0}", hall));
+            }
+            
+            return resultList;
+        }
+
+        public void SetExcelFiles(TransformReport.FormMain fm, TransformSection transformConfiguration, string dir)
+        {
+            if (!Directory.Exists(dir))
+                return;
+
+            IList<string> halllist = GetHallsList(transformConfiguration);
+            DirectoryInfo di = new DirectoryInfo(dir); //(dir, "*.xls");
+            FileInfo[] fi = di.GetFiles("*.xls");
+            foreach (string hall in halllist)
+            {
+                string rptAdult = string.Format("{0}A", hall);
+                string rptChild = string.Format("{0}C", hall);
+               
+                var fullnameA = fi.Where(f => f.Name.Contains(rptAdult)).Select(file => file.FullName).FirstOrDefault();
+                var fullnameC = fi.Where(f => f.Name.Contains(rptChild)).Select(file => file.FullName).FirstOrDefault();
+
+                var c = GetAll(fm, typeof(TextBox));
+                TextBox conA = c.OfType<TextBox>().Where(t => t.Name.Contains(rptAdult)).FirstOrDefault();
+                conA.Text = fullnameA;
+                
+                TextBox conC = c.OfType<TextBox>().Where(t => t.Name.Contains(rptChild)).FirstOrDefault();
+                conC.Text = fullnameC;
+            }
+        }
+
+        protected IEnumerable<Control> GetAll(Control control, Type type)
+        {
+            var controls = control.Controls.Cast<Control>();
+
+            return controls.SelectMany(ctrl => GetAll(ctrl, type))
+                                      .Concat(controls)
+                                      .Where(c => c.GetType() == type);
         }
     }
 }

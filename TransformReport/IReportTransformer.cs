@@ -11,5 +11,7 @@ namespace TransformReport
     interface IReportTransformer
     {
         void Transform(TransformSection transformSection, string hallName, string reportName, string importPath, HSSFSheet targetSheet);
+        IList<string> GetHallsList(TransformSection transformSection);
+        void SetExcelFiles(FormMain fm, TransformSection transformConfiguration, string dir);
     }
 }

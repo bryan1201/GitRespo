@@ -16,11 +16,14 @@ namespace TransformReport
     public partial class FormMain : Form
     {
         protected readonly TransformSection transformConfiguration;
+        protected IList<string> hallList;
 
         public FormMain()
         {
             InitializeComponent();
             transformConfiguration = ConfigurationManager.GetSection(TransformSection.SECTION_NAME) as TransformSection;
+            IReportTransformer transformer = new BaseTransformer();
+            hallList = transformer.GetHallsList(transformConfiguration);
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -321,6 +324,31 @@ namespace TransformReport
                     saveFileDialog1.FileName = textBoxOutput.Text.Trim();
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     textBoxOutput.Text = saveFileDialog1.FileName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonInput_Click(object sender, EventArgs e)
+        {
+            TextBox txt = textBoxInput;
+            try
+            {
+                if (!string.IsNullOrEmpty(txt.Text.Trim()))
+                    openFolderDialog1.SelectedPath = txt.Text.Trim();
+                if (openFolderDialog1.ShowDialog() == DialogResult.OK)
+                    txt.Text = openFolderDialog1.SelectedPath;
+
+                IReportTransformer transformer = new BaseTransformer();
+                transformer.SetExcelFiles(this, transformConfiguration, txt.Text);
+
             }
             catch (Exception ex)
             {
