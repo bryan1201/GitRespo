@@ -48,6 +48,7 @@ namespace B2BService.Models
         public static bool IsWebPerfLogEnabled = bool.Parse(ConfigurationManager.AppSettings["IsWebPerfLogEnabled"]);
         public static string B2BDBPerfURL = ConfigurationManager.AppSettings["B2BDBPerfURL"];
         public static string MT_DB_PK = ConfigurationManager.AppSettings["MT_DB_PK"];
+        public static readonly string TSQL_HINT = ConfigurationManager.AppSettings["TSQL_HINT"];
 
         public Constant()
         {

@@ -200,7 +200,7 @@ namespace B2BService.Models
             string MSGID = mtdb.MSGID;
             DateTime? dtCDTFrom = mtdb.GetCreateDateFrom();
             DateTime? dtCDTEnd = mtdb.GetCreateDateEnd();
-            select = "SELECT /*+FIRST_ROWS(50)*/ * FROM MT_DB";
+            select = @"SELECT /*+" + Constant.TSQL_HINT + @"*/ * FROM MT_DB";
             if (CheckIsNullOrEmpty(mtdb) == 0)
             {
                 sql.Append(select);

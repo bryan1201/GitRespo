@@ -1,0 +1,258 @@
+﻿@model IEnumerable<einvoice.Models.TURNKEY_MESSAGE_LOG>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+    string eInvServer = ViewBag.eInvServer;
+    string SqlString = string.IsNullOrEmpty(ViewBag.SqlString) ? string.Empty : ViewBag.SqlString;
+    int iLogDetail = 0;
+}
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker({
+            format: 'YYYY/MM/DD HH:mm:ss'
+        });
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false, //Important! See issue #1075
+            format: 'YYYY/MM/DD HH:mm:ss'
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+
+    $(document).on("click", ".open-AddBookDialog", function () {
+        var ItemId = $(this).data('id');
+        $(".modal-title #ItemId").val(ItemId);
+        ItemId = $(".modal-title #ItemId");
+        $(".modal-body #ItemContent").val($("#" + ItemId.val()).val());
+        // As pointed out in comments,
+        // it is superfluous to have to manually call the modal.
+        // $('#addBookDialog').modal('show');
+    });
+
+    $('#myModal').on('hidden.bs.modal', function () {
+        alert('Close event!');
+        var ItemId = $(".modal-title #ItemId");
+        $("#" + ItemId.val()).val($(".modal-body #ItemContent").val());
+        //var ItemId = $(".modal-title #ItemId");
+        //$("#" + ItemId.val()).val($(".modal-body #ItemContent").val());
+        //ItemId.val($(".modal-body #ItemContent").val());
+        //console.log('ItemId : ' + $(".modal-body #ItemContent").val());
+    });
+
+    function setTextValue() {
+        var ItemId = $(".modal-title #ItemId");
+        $("#" + ItemId.val()).val($(".modal-body #ItemContent").val());
+    }
+
+</script>
+<table class="table table-condensed" style="width:100%">
+    <tr>
+        <td>
+            @using (Html.BeginForm("Index", "MessageTrack", FormMethod.Get))
+            {
+                <label class="radio-inline">
+                    <input id="eInvServer" type="radio" name="eInvServer" value="DEVServer" @((eInvServer == "DEVServer") ? "checked" : string.Empty)>DEV
+                </label>
+                <label class="radio-inline">
+                    <input id="eInvServer" type="radio" name="eInvServer" value="QASServer" @((eInvServer == "QASServer") ? "checked" : string.Empty)>QAS
+                </label>
+                <label class="radio-inline">
+                    <input id="eInvServer" type="radio" name="eInvServer" value="PRDServer" @((eInvServer == "PRDServer") ? "checked" : string.Empty)>PRD
+                </label>
+                <table class="table table-bordered table-striped table-condensed">
+                    <tr>
+                        <td>
+                            <table class="table table-bordered table-striped table-condensed">
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.INVOICE_IDENTIFIER)</th>
+                                    <th>@Html.DisplayNameFor(model => model.SEQNO)</th>
+                                    <th>@Html.DisplayNameFor(model => model.MESSAGE_TYPE)</th>
+                                    <th>@Html.DisplayNameFor(model => model.FROM_PARTY_ID)</th>
+                                    <th>@Html.DisplayNameFor(model => model.TO_PARTY_ID)</th>
+                                    <th>Create</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.TextArea("INVOICE_IDENTIFIER", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                        <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnINVOICE_IDENTIFIER" data-id="INVOICE_IDENTIFIER" data-toggle="modal" data-target="#myModal">Edit</button>
+                                    </td>
+                                    <td>
+                                        @Html.TextArea("SEQNO", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                        <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnSEQNO" data-id="SEQNO" data-toggle="modal" data-target="#myModal">Edit</button>
+                                    </td>
+                                    <td>
+                                        @Html.TextArea("MESSAGE_TYPE", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                        <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnMESSAGE_TYPE" data-id="MESSAGE_TYPE" data-toggle="modal" data-target="#myModal">Edit</button>
+                                    </td>
+                                    <td>
+                                        @Html.TextArea("FROM_PARTY_ID", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                        <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnFROM_PARTY_ID" data-id="FROM_PARTY_ID" data-toggle="modal" data-target="#myModal">Edit</button>
+                                    </td>
+                                    <td>
+                                        @Html.TextArea("TO_PARTY_ID", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                        <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnTO_PARTY_ID" data-id="TO_PARTY_ID" data-toggle="modal" data-target="#myModal">Edit</button>
+                                    </td>
+                                    <td style="width:20%" rowspan="4">
+                                        <table class="table table-condensed" style="width:220px">
+                                            <tr>
+                                                <td>
+                                                    <div class='input-group date' id='datetimepicker6'>
+                                                        @Html.TextBox("CdtFrom", "", new { @class = "form-control" })
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='input-group date' id='datetimepicker7'>
+                                                        @Html.TextBox("CdtEnd", "", new { @class = "form-control" })
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <th>
+                            <input class="btn btn-primary btn-lg" type="submit" value="搜尋" />
+                        </th>
+                    </tr>
+                </table>
+            }
+
+            <table class="table table-bordered table-striped table-condensed table-responsive">
+                <tr>
+                    <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
+                        @Html.DisplayNameFor(model => model.INVOICE_IDENTIFIER)
+                    </th>
+                    <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
+                        @Html.DisplayNameFor(model => model.MESSAGE_TYPE)
+                    </th>
+                    <th style="width:5%;font-size:0.7em; word-wrap: break-word;">
+                        @Html.DisplayNameFor(model => model.FROM_PARTY_ID)
+                    </th>
+                    <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
+                        @Html.DisplayNameFor(model => model.STATUS)
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    iLogDetail++;
+                    <tr>
+                        <td style="font-size:0.6em; word-wrap: break-word;">
+                            <ul class="list-group">
+                                <li class="list-group-item active">
+                                    <abbr title="Invoice Identifier">ID:</abbr>
+                                    @Html.DisplayFor(modelItem => item.INVOICE_IDENTIFIER)
+                                </li>
+                                <li class="list-group-item">
+                                    <abbr title="Sequence Number">SEQNO:</abbr>
+                                    @Html.DisplayFor(modelItem => item.SEQNO)
+                                </li>
+                            </ul>
+                        </td>
+                        <td style="font-size:0.6em; word-wrap: break-word;">
+                            <table class="table table-bordered table-striped table-condensed">
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.MESSAGE_TYPE)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.MESSAGE_TYPE)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.CATEGORY_TYPE)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.CATEGORY_TYPE)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.PROCESS_TYPE) </th>
+                                    <td>@Html.DisplayFor(modelItem => item.PROCESS_TYPE)</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="font-size:0.6em; word-wrap: break-word;">
+                            <table class="table table-bordered table-striped table-condensed">
+                                <tr>
+                                    <th style="width:30%">@Html.DisplayNameFor(model => model.FROM_PARTY_ID)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.FROM_PARTY_ID)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.TO_PARTY_ID)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.TO_PARTY_ID)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.FROM_ROUTING_ID)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.FROM_ROUTING_ID)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.TO_ROUTING_ID)</th>
+                                    <td style="font-size:0.6em; word-wrap: break-word;">@Html.DisplayFor(modelItem => item.TO_ROUTING_ID)</td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="font-size:0.6em; word-wrap: break-word;">
+                            <table class="table table-bordered table-striped table-condensed">
+                                <tr>
+                                    <th style="width:30%">@Html.DisplayNameFor(model => model.STATUS)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.STATUS)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.IN_OUT_BOUND)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.IN_OUT_BOUND)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.MESSAGE_DTS)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.MESSAGE_DTS)</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-size:0.6em; word-wrap: break-word;" colspan="4">
+                            @if (item.TurnkeyMessageLogDetail != null)
+                            {
+                                <button type="button" class="btn btn-info" data-toggle="collapse"
+                                        data-target="@string.Format("{0}{1}", "#hasTurnkeyMessageLogDetail", iLogDetail.ToString())">
+                                    @Html.DisplayNameFor(model => model.TurnkeyMessageLogDetail)
+                                </button>
+                                <div id="@string.Format("{0}{1}","hasTurnkeyMessageLogDetail", iLogDetail.ToString())" class="collapse">
+                                    @Html.Partial("PartialTurnkeyMessageLogDetail", item.TurnkeyMessageLogDetail)
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+</table>
+<div class="col-xs-12 col-md-12 col-lg-12">
+    <pre>@SqlString</pre>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    <input type="text" name="ItemId" id="ItemId" style="border:0; padding:0;" value="" readonly />
+                </h4>
+            </div>
+            <div class="modal-body">
+                @Html.TextArea("ItemContent", "", new { @class = "form-control", @placeholder = "Paste Number Here...", @cols = 15, @rows = 10, style = "width: 100%" })
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" onclick="javascript: setTextValue();">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
