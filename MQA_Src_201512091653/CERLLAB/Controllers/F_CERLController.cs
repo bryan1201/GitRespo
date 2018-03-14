@@ -1064,7 +1064,7 @@ namespace CERLLAB.Controllers
                 
                 IEnumerable<vFCERL> vfcerl = new List<vFCERL>();
 
-                vfcerl = db.vFCERL.Where(x => conItemList.Contains(x.ID)).Take(Constant.iOutResultLimit).OrderByDescending(x => x.UID);
+                vfcerl = db.vFCERL.Where(x => conItemList.Contains(x.ID)).OrderByDescending(x => x.UID).Take(Constant.iOutResultLimit);
                 return View(vfcerl);
             }
             catch(Exception ex)
