@@ -230,6 +230,8 @@ namespace CERLLAB.Models
             //var vrolefunction = db.vRoleFunctions.Where(r => r.BadgeCode == BadgeCode && r.menuType == 1).Select(x => x.menuId).ToList();
             var tree = new ItemTree(Url, mIsUrl, mIsShowReport:mIsShowReport, mIsShowUnsignForm:mIsShowUnsignForm);
 
+            try
+            { 
             if (mIsShowReport > 0 && mIsShowUnsignForm > 0)
                 tree.Nodes = db.ItemTreeNode.ToList()//.Where(x => vrolefunction.Contains(x.Id)).ToList()
                     .Select(t => new ItemTreeNode { Id = t.Id, Name = t.Name, FullName = t.FullName, Url = t.Url, ParentId = t.ParentId, IsUrl = t.IsUrl, IsShowReport = mIsShowReport, IsShowUnsignForm = mIsShowUnsignForm, CountReports = t.CountReports, CountInProcessingForm = t.CountInProcessingForm })
@@ -244,6 +246,11 @@ namespace CERLLAB.Models
                 tree.Nodes = db.ItemTreeNode.Where(x => x.CountInProcessingForm > 0).ToList()
                 .Select(t => new ItemTreeNode { Id = t.Id, Name = t.Name, FullName = t.FullName, Url = t.Url, ParentId = t.ParentId, IsUrl = t.IsUrl, IsShowReport = mIsShowReport, IsShowUnsignForm = mIsShowUnsignForm, CountReports = t.CountReports, CountInProcessingForm = t.CountInProcessingForm })
                 .ToDictionary(t => t.Id);
+            }
+            catch(Exception ex)
+            {
+                string msg = ex.Message;
+            }
 
             tree.RootNode = new ItemTreeNode { Id = 0, Name = "Item", Url = Url };
 
