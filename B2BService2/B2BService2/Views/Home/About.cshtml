@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "About";
+    string pSuccess = "85%";
+    string pWarning = "10%";
+    string pDanger = "5%";
+}
+<style>
+    .progress {
+        height: 100%;
+    }
+
+    div {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        div img {
+            vertical-align: middle;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+</style>
+<h4>Since B2B upgrade PI version from 7.0 to 7.4. on 2016/6.</h4>
+<div class="progress">
+    <div class="progress-bar progress-bar-success" style="@("width: " + pSuccess)" title="@(pSuccess + " Complete (success)")">
+        @pSuccess (success)<span class="sr-only">@pSuccess Complete (success)</span>
+    </div>
+    <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: @pWarning" title="@pWarning Complete (warning)">
+        @pWarning<span class="sr-only">@pWarning Complete (warning)</span>
+    </div>
+    <div class="progress-bar progress-bar-danger" style="width: @pDanger" title="@pDanger Complete (danger)">
+        @pDanger<span class="sr-only">@pDanger Complete (danger)</span>
+    </div>
+</div>
+<h4>It will be help to improve related functions onto the enhancement of B2B service.</h4>
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#ObjectiveAndScope">Objective and Scope</a></li>
+    <li><a data-toggle="tab" href="#InfraTobe">InfraTobe</a></li>
+    <li><a data-toggle="tab" href="#ProjectSchedule">Project Schedule</a></li>
+    <li><a data-toggle="tab" href="#ProjectMilestone">Project Milestone</a></li>
+    <li><a data-toggle="tab" href="#ProjectOrganization">Project Organization</a></li>
+</ul>
+<div class="tab-content">
+    <div id="ObjectiveAndScope" class="tab-pane fade in active">
+        <h3>Objective and Scope</h3>
+        <p>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="badge">Articulation (勾稽)</span><h4>Seeburger is replaced by B2B-Add on module</h4>
+                </li>
+                <li class="list-group-item">
+                    <span class="badge">Security (安全)</span><h4>Adapter engine is moved from DMZ to intranet</h4>
+                </li>
+                <li class="list-group-item">
+                    <span class="badge">Flexibility (彈性)</span><h4>Install web dispatcher in DMZ</h4>
+                </li>
+                <li class="list-group-item">
+                    <span class="badge">Traceability (追溯)</span><h4>Message tracking mechanism setup</h4>
+                </li>
+            </ul>
+        </p>
+    </div>
+    <div id="InfraTobe" class="tab-pane fade">
+        <h3>Infra Tobe</h3>
+        <p><img src="~/pic/PIUpgrade01.jpg" /></p>
+    </div>
+    <div id="ProjectSchedule" class="tab-pane fade">
+        <h3>Project Schedule</h3>
+        <p><img src="~/pic/PIUpgrade02.jpg" style="width:90%; height:90%" /></p>
+    </div>
+    <div id="ProjectMilestone" class="tab-pane fade">
+        <h3>Project Milestone</h3>
+        <p><img src="~/pic/PIUpgrade03.jpg" /></p>
+    </div>
+    <div id="ProjectOrganization" class="tab-pane fade">
+        <h3>Project Organization</h3>
+        <p><img src="~/pic/PIUpgrade04.jpg" /></p>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@{ 
+    string web = @"http://iec1-b2bapp.iec.inventec/B2BService/";
+
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        init();
+    });
+
+    function init() {
+        var ChartData = {
+            "labels": ["14:00", "15:00", "16:00", "17:00", "18:00", "19:00"],
+            "datasets": [{
+                "label": "SESSION", "fillColor": "#FC9775",
+                "data": [23.263888888888888888888888889, 27.446581196581196581196581198, 22.341269841269841269841269841, 27.663194444444444444444444448, 28.495370370370370370370370371, 28.055555555555555555555555556]
+            }, {
+                "label": "PROCESS", "fillColor": "#5A69A6",
+                "data": [47.916666666666666666666666667, 56.28205128205128205128205128, 45.833333333333333333333333334, 56.722222222222222222222222215, 58.317901234567901234567901233, 57.50]
+            }]
+        };
+
+        $.ajax({
+            cache: false,
+            dataType: "json",
+            contentType: "application/json",
+            type: "GET",
+            url: "/B2BService/Statistic/GetChartData",
+            success: function (data) {
+                var ChartData = data;
+                var ctx = $("#myBarChart").get(0).getContext("2d");
+                var myBarChart = new Chart(ctx).Bar(ChartData, {
+                                                    responsive: false
+                                                });
+                myBarChart.update();
+                //alert(data);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                alert('Failed to retrieve GetCharData.');
+            }
+        });
+    }
+</script>
+<canvas id="myBarChart" style="width: 80%; height: 300px;" onclick="javascript:init();"></canvas>
