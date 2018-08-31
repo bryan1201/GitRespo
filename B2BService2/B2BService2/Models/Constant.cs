@@ -29,6 +29,7 @@ namespace B2BService.Models
         public static string MDN = "MDN";
         public static string AuditLog = "AuditLog";
         public static string RawData = "RawData";
+        public static string MTREFDB = "MTREFDB";
 
         public static IEnumerable<LOOKUP_DB> LookupMTProcessStep;
         public static IEnumerable<LOOKUP_DB> LookupMTPROCStatus;

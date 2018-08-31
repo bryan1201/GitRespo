@@ -160,6 +160,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\APIs\MTRefController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -181,6 +182,7 @@
     <Compile Include="Models\IFactory.cs" />
     <Compile Include="Models\IMDN.cs" />
     <Compile Include="Models\IMessageTracking.cs" />
+    <Compile Include="Models\IMTRef.cs" />
     <Compile Include="Models\IRawData.cs" />
     <Compile Include="Models\IScits.cs" />
     <Compile Include="Models\IStatistic.cs" />
@@ -189,7 +191,7 @@
     <Compile Include="Models\Method.cs" />
     <Compile Include="Models\MonitorDB.cs" />
     <Compile Include="Models\MTDB.cs" />
-    <Compile Include="Models\MT_REF.cs" />
+    <Compile Include="Models\MTREFDB.cs" />
     <Compile Include="Models\PROCESS_DB.cs" />
     <Compile Include="Models\RawData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -346,6 +348,7 @@
     <Content Include="Views\Statistic\PartialBarChart.cshtml.bak" />
     <Content Include="Views\Statistic\PartialDBProcess.cshtml" />
     <Content Include="Views\Statistic\PartialDBSession.cshtml" />
+    <Content Include="Views\Home\MtRefDB.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

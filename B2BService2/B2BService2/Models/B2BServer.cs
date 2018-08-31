@@ -316,6 +316,109 @@ namespace B2BService.Models
         }
     }
 
+    public class PIQServerMTREFDB : IMTRef
+    {
+        private string config = Constant.PIQConnStr;
+        private MT_REF_DB mtrefdb;
+        object IMTRef.GetDIVISION(ServiceType type, string partner)
+        {
+            try
+            {
+                mtrefdb = new MT_REF_DB(config);
+                var results = mtrefdb.GetDIVISION(type, partner);
+                return results;
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        object IMTRef.GetEDIMSGTYPE(ServiceType type, string partner, string division, string region)
+        {
+            try
+            {
+                mtrefdb = new MT_REF_DB(config);
+                var results = mtrefdb.GetEDIMSGTYPE(type, partner, division, region);
+                return results;
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        object IMTRef.GetGSSENDERID(ServiceType type, string partner, string division, string region)
+        {
+            try
+            {
+                mtrefdb = new MT_REF_DB(config);
+                var results = mtrefdb.GetGSSENDERID(type, partner, division, region);
+                return results;
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        object IMTRef.GetISARECEIVERID(ServiceType type, string partner, string division, string region)
+        {
+            try
+            {
+                mtrefdb = new MT_REF_DB(config);
+                object results = mtrefdb.GetISARECEIVERID(type, partner, division, region);
+                return results;
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        object IMTRef.GetISASENDERID(ServiceType type, string partner, string division, string region)
+        {
+            try
+            {
+                mtrefdb = new MT_REF_DB(config);
+                var results = mtrefdb.GetISASENDERID(type, partner, division, region);
+                return results;
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        object IMTRef.GetPARTNER(ServiceType type)
+        {
+            try
+            {
+                mtrefdb = new MT_REF_DB(config);
+                var results = mtrefdb.GetPARTNER(type);
+                return results;
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        object IMTRef.GetREGION(ServiceType type, string partner, string division)
+        {
+            try
+            {
+                mtrefdb = new MT_REF_DB(config);
+                var results = mtrefdb.GetREGION(type, partner, division);
+                return results;
+            }
+            catch
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+
     public class PIQServerPROCESSDBCollection : IPROCESSDBCollection
     {
         private string config = Constant.PIQConnStr;

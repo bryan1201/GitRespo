@@ -58,6 +58,13 @@ namespace B2BService.Models
             return (IPROCESSDBCollection)Assembly.Load(AssemblyName).CreateInstance(className);
         }
 
+        public static IMTRef CreateMTREFDB (string server)
+        {
+            db = ConfigurationManager.AppSettings[server];
+            string className = string.Format("{0}.{1}.{2}{3}", AssemblyName, "Models", db, Constant.MTREFDB);
+            return (IMTRef)Assembly.Load(AssemblyName).CreateInstance(className);
+        }
+
         public static IStatistic CreateStatistic(string server)
         {
             db = ConfigurationManager.AppSettings[server];

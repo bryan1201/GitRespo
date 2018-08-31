@@ -82,7 +82,20 @@ namespace B2BService.Controllers
             ViewBag.piServer = piServer;
             ViewBag.SqlString = imtdbcollection.GetSqlString();
             InitDLL((mtdb.STATUS.HasValue)?mtdb.STATUS.Value.ToString():"");
+
+            MT_REFDB(piServer);
             return View(result);
+        }
+
+        private ServiceType _type = ServiceType.List;
+        private void MT_REFDB(string optradio)
+        {
+            optradio = Constant.PIQServer;
+            optradio = string.IsNullOrEmpty(optradio) ? Constant.PIQServer : optradio;
+            IMTRef imtref = DataAccess.CreateMTREFDB(optradio);
+            IList<string> partners = ((IEnumerable<string>)imtref.GetPARTNER(_type)).ToList();
+
+            ViewData["Partners"] = partners;
         }
 
         public ActionResult ProcessDB(string Id, string piServer)

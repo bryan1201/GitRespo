@@ -53,5 +53,16 @@ namespace B2BService.Controllers
 
             return View();
         }
+
+        private ServiceType _type = ServiceType.List;
+        public ActionResult MtRefDB(string id, string optradio)
+        {
+            IMTRef imtref = DataAccess.CreateMTREFDB(optradio);
+            IList<string> partners = ((IEnumerable<string>)imtref.GetPARTNER(_type)).ToList();
+            
+            ViewData["Partners"] = partners;
+            ViewBag.piServer = optradio;
+            return View();
+        }
     }
 }
