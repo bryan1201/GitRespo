@@ -8,7 +8,9 @@
     IList<string> Partners = (IList<string>)ViewData["Partners"];
 }
 <script type="text/javascript">
+    
     $(function () {
+        
         $('#datetimepicker6').datetimepicker({
             format: 'YYYY/MM/DD HH:mm:ss'
         });
@@ -21,6 +23,36 @@
         });
         $("#datetimepicker7").on("dp.change", function (e) {
             $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+
+        var options = [];
+        $('.dropdown-menu a').on('click', function (event) {
+
+            var $target = $(event.currentTarget),
+                val = $target.attr('data-value'),
+                $inp = $target.find('input'),
+                idx;
+            
+            if ((idx = options.indexOf(val)) > -1) {
+                options.splice(idx, 1);
+                setTimeout(function () { $inp.prop('checked', false) }, 0); 
+            } else {
+                options.push(val);
+                setTimeout(function () { $inp.prop('checked', true) }, 0);
+            }
+
+            var ItemId = $(".button-group #PARTNER");
+            ItemId.val('');
+            options.forEach(function (element) {
+                ItemId.val(ItemId.val() + element + '\n');
+            });
+
+            var ItemId = $(".button-group #PARTNER");
+
+            $(event.target).blur();
+
+            console.log(options);
+            return false;
         });
     });
 
@@ -49,30 +81,8 @@
         $("#" + ItemId.val()).val($(".modal-body #ItemContent").val());
     }
 
-    var options = [];
+    
 
-    $('.dropdown-menu').on('click', function (event) {
-
-        var $target = $(event.currentTarget),
-            val = $target.attr('data-value'),
-            $inp = $target.find('input'),
-            idx;
-
-        if ((idx = options.indexOf(val)) > -1) {
-            options.splice(idx, 1);
-            setTimeout(function () { $inp.prop('checked', false) }, 0);
-        } else {
-            options.push(val);
-            setTimeout(function () { $inp.prop('checked', true) }, 0);
-        }
-
-        document.getElementById('PARTNER').setTextValue = val;
-
-        $(event.target).blur();
-
-        console.log(options);
-        return false;
-    });
 </script>
 <table class="table table-condensed" style="width:100%">
     <tr>
@@ -100,9 +110,9 @@
                                 <tr>
                                     <td>
                                         <div class="row">
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-12">
                                                 <div class="button-group">
-                                                    @Html.TextBox("PARTNER", "", new { @class = "form-control" })
+                                                    @Html.TextArea("PARTNER", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
                                                     <div class="button-group">
                                                         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
 
@@ -118,13 +128,38 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="button-group">
+                                                    @Html.TextArea("DIVISION", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                                    <div class="button-group">
+                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
 
+                                                        <ul class="dropdown-menu">
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
-                                        @Html.TextBox("DIVISION", "", new { @class = "form-control" })
-                                    </td>
-                                    <td>
-                                        @Html.TextBox("REGION", "", new { @class = "form-control" })
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="button-group">
+                                                    @Html.TextArea("REGION", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                                    <div class="button-group">
+                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+
+                                                        <ul class="dropdown-menu">
+                                                            
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
