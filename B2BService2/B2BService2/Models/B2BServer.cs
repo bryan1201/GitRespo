@@ -280,6 +280,57 @@ namespace B2BService.Models
         }
     }
 
+    public class PIDServerMTREFDBCollection : IMTREFDBCollection
+    {
+        private string config = Constant.PIDConnStr;
+        private MTREFDBCollection mtrefdbcollection;
+        public IEnumerable<MT_REF_DB> Get(MT_REF_DB mtrefdb)
+        {
+            mtrefdbcollection = new MTREFDBCollection(config);
+            mtrefdbcollection.Get(mtrefdb);
+            return mtrefdbcollection.MTREFDBList;
+        }
+
+        public string GetSqlString()
+        {
+            return mtrefdbcollection.GetSqlString();
+        }
+    }
+
+    public class PIQServerMTREFDBCollection : IMTREFDBCollection
+    {
+        private string config = Constant.PIQConnStr;
+        private MTREFDBCollection mtrefdbcollection;
+        public IEnumerable<MT_REF_DB> Get(MT_REF_DB mtrefdb)
+        {
+            mtrefdbcollection = new MTREFDBCollection(config);
+            mtrefdbcollection.Get(mtrefdb);
+            return mtrefdbcollection.MTREFDBList;
+        }
+
+        public string GetSqlString()
+        {
+            return mtrefdbcollection.GetSqlString();
+        }
+    }
+
+    public class PIPServerMTREFDBCollection: IMTREFDBCollection
+    {
+        private string config = Constant.PIPConnStr;
+        private MTREFDBCollection mtrefdbcollection;
+        public IEnumerable<MT_REF_DB> Get(MT_REF_DB mtrefdb)
+        {
+            mtrefdbcollection = new MTREFDBCollection(config);
+            mtrefdbcollection.Get(mtrefdb);
+            return mtrefdbcollection.MTREFDBList;
+        }
+
+        public string GetSqlString()
+        {
+            return mtrefdbcollection.GetSqlString();
+        }
+    }
+
     public class PIDServerLOOKUPDBCollection : ILOOKUPDBCollection
     {
         private string config = Constant.PIDConnStr;

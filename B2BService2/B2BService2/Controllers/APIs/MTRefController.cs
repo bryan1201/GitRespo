@@ -61,7 +61,7 @@ namespace B2BService.Controllers.APIs
 
         public HttpResponseMessage GetDivisions(string partner, string optradio)
         {
-            //http://localhost:52010/B2BService/api/MTRef/GetDIVISIONs?partner=DELL?optradio=PIQServer
+            //http://localhost:52010/B2BService/api/MTRef/GetDivisions?partner=DELL&optradio=PIQServer
             IMTRef imtref = DataAccess.CreateMTREFDB(optradio);
             IList<string> divisions = ((IEnumerable<string>)imtref.GetDIVISION(_type, partner)).ToList();
             var result = retRspMsg(divisions);
@@ -70,6 +70,7 @@ namespace B2BService.Controllers.APIs
 
         public HttpResponseMessage GetRegions(string partner, string division, string optradio)
         {
+            //http://localhost:52010/B2BService/api/MTRef/GetRegions?partner=DELL&division=Server&optradio=PIQServer
             IMTRef imtref = DataAccess.CreateMTREFDB(optradio);
             IList<string> regions = ((IEnumerable<string>)imtref.GetREGION(_type, partner, division)).ToList();
             var result = retRspMsg(regions);

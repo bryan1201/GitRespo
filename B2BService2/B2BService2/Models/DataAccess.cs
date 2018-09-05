@@ -13,6 +13,7 @@ namespace B2BService.Models
         private static readonly string MTDBCollection = "MTDBCollection";
         private static readonly string LOOKUPDBCollection = "LOOKUPDBCollection";
         private static readonly string PROCESSDBCollection = "PROCESSDBCollection";
+        private static readonly string MTREFDBCollection = "MTREFDBCollection";
         private static readonly string STATISTIC = "Statistic";
         private static string db = ConfigurationManager.AppSettings["PIQServer"];
 
@@ -56,6 +57,13 @@ namespace B2BService.Models
             db = ConfigurationManager.AppSettings[server];
             string className = string.Format("{0}.{1}.{2}{3}", AssemblyName, "Models", db, PROCESSDBCollection);
             return (IPROCESSDBCollection)Assembly.Load(AssemblyName).CreateInstance(className);
+        }
+
+        public static IMTREFDBCollection CreateMTREFDBCollection(string server)
+        {
+            db = ConfigurationManager.AppSettings[server];
+            string className = string.Format("{0}.{1}.{2}{3}", AssemblyName, "Models", db, MTREFDBCollection);
+            return (IMTREFDBCollection)Assembly.Load(AssemblyName).CreateInstance(className);
         }
 
         public static IMTRef CreateMTREFDB (string server)

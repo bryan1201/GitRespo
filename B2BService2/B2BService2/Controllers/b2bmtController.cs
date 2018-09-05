@@ -83,13 +83,24 @@ namespace B2BService.Controllers
             ViewBag.SqlString = imtdbcollection.GetSqlString();
             InitDLL((mtdb.STATUS.HasValue)?mtdb.STATUS.Value.ToString():"");
 
-            MT_REFDB(piServer);
+            MT_REFDB(piServer, string.Empty, string.Empty, string.Empty,
+                string.Empty, string.Empty, string.Empty, string.Empty);
             return View(result);
         }
 
         private ServiceType _type = ServiceType.List;
-        private void MT_REFDB(string optradio)
+        private void MT_REFDB(string optradio, string partner, string division, string region,
+            string isasenderid, string isareceiverid, string gssenderid, string edimsgtype)
         {
+            MT_REF_DB mtrefdb = new MT_REF_DB();
+            mtrefdb.PARTNER = (string.IsNullOrEmpty(partner)) ? string.Empty : partner;
+            mtrefdb.DIVISION = (string.IsNullOrEmpty(division)) ? string.Empty : division;
+            mtrefdb.REGION = (string.IsNullOrEmpty(region)) ? string.Empty : region;
+            mtrefdb.ISASENDERID = (string.IsNullOrEmpty(isasenderid)) ? string.Empty : isasenderid;
+            mtrefdb.ISARECEIVERID = (string.IsNullOrEmpty(isareceiverid)) ? string.Empty : isareceiverid;
+            mtrefdb.GSSENDERID = (string.IsNullOrEmpty(gssenderid)) ? string.Empty : gssenderid;
+            mtrefdb.EDIMSGTYPE = (string.IsNullOrEmpty(edimsgtype)) ? string.Empty : edimsgtype;
+
             optradio = Constant.PIQServer;
             optradio = string.IsNullOrEmpty(optradio) ? Constant.PIQServer : optradio;
             IMTRef imtref = DataAccess.CreateMTREFDB(optradio);
