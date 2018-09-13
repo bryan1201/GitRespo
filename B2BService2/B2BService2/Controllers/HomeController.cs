@@ -42,6 +42,7 @@ namespace B2BService.Controllers
             optradio = (string.IsNullOrEmpty(optradio)) ? Constant.PIQServer : optradio;
 
             ViewBag.Message = "Your function test page.";
+            //IFactory ifactory = DataAccess.CreateRawData(optradio);
             IRawData irawdata = DataAccess.CreateRawData(optradio);
             //string Rslt = irawdata.Get().Content;
             RawData  r = irawdata.Get(id, Constant.ContentTypeUTF8);

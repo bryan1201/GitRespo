@@ -8,8 +8,14 @@ namespace B2BService.Models
 
     interface IFactory
     {
-        IRawData CreateRawData();
-        IMDN CreateMDN();
-        IAuditLog CreateAuditLog();
+        IRawData CreateRawData(string server);
+        IMDN CreateMDN(string server);
+        IAuditLog CreateAuditLog(string server);
+        IMTDBCollection CreateMTDBCollection(string server);
+        ILOOKUPDBCollection CreateLOOKUPDBCollection(string server);
+        IPROCESSDBCollection CreatePROCESSDBCollection(string server);
+        IMTREFDBCollection CreateMTREFDBCollection(string server);
+        IMTRef CreateMTREFDB(string server);
+        IStatistic CreateStatistic(string server);
     }
 }

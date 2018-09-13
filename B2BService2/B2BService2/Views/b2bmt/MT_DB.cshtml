@@ -6,11 +6,16 @@
     string SqlString = string.IsNullOrEmpty(ViewBag.SqlString) ? string.Empty : ViewBag.SqlString;
 
     IList<string> Partners = (IList<string>)ViewData["Partners"];
+    IList<string> Divisions = (IList<string>)ViewData["Divisions"];
+    IList<string> Regions = (IList<string>)ViewData["Regions"];
+    IList<string> ISASenderIDs = (IList<string>)ViewData["ISASenderIds"];
+    IList<string> ISAReceiverIDs = (IList<string>)ViewData["ISAReceiverIds"];
+    IList<string> GSSenderIDs = (IList<string>)ViewData["GSSenderIds"];
 }
 <script type="text/javascript">
-    
+
     $(function () {
-        
+
         $('#datetimepicker6').datetimepicker({
             format: 'YYYY/MM/DD HH:mm:ss'
         });
@@ -25,29 +30,82 @@
             $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
         });
 
-        var options = [];
+        var optionsPartner = [];
+        var optionsDivision = [];
+        var optionsRegion = [];
+        var optionsISASenderID = [];
+        var optionsISAReceiverID = [];
+        var optionsGSSenderID = [];
         $('.dropdown-menu a').on('click', function (event) {
 
             var $target = $(event.currentTarget),
                 val = $target.attr('data-value'),
                 $inp = $target.find('input'),
-                idx;
-            
+                idx,
+                ItemName = $target.attr('name'),
+                ItemId,
+                options = [];
+
+            switch (ItemName) {
+                case 'PARTNER':
+                    ItemId = $(".button-group #PARTNER");
+                    options = optionsPartner;
+                    break;
+                case 'DIVISION':
+                    ItemId = $(".button-group #DIVISION");
+                    options = optionsDivision;
+                    break;
+                case 'REGION':
+                    ItemId = $(".button-group #REGION");
+                    options = optionsRegion;
+                    break;
+                case 'ISASENDERID':
+                    ItemId = $(".button-group #ISASENDERID");
+                    options = optionsISASenderID;
+                    break;
+                case 'ISARECEIVERID':
+                    ItemId = $(".button-group #ISARECEIVERID");
+                    options = optionsISAReceiverID;
+                    break;
+                case 'GSSENDERID':
+                    ItemId = $(".button-group #GSSENDERID");
+                    options = optionsGSSenderID;
+                    break;
+            }
+
             if ((idx = options.indexOf(val)) > -1) {
                 options.splice(idx, 1);
-                setTimeout(function () { $inp.prop('checked', false) }, 0); 
+                setTimeout(function () { $inp.prop('checked', false) }, 0);
             } else {
                 options.push(val);
                 setTimeout(function () { $inp.prop('checked', true) }, 0);
             }
 
-            var ItemId = $(".button-group #PARTNER");
             ItemId.val('');
             options.forEach(function (element) {
                 ItemId.val(ItemId.val() + element + '\r\n');
             });
 
-            var ItemId = $(".button-group #PARTNER");
+            switch (ItemName) {
+                case 'PARTNER':
+                    optionsPartner = options;
+                    break;
+                case 'DIVISION':
+                    optionsDivision = options;
+                    break;
+                case 'REGION':
+                    optionsRegion = options;
+                    break;
+                case 'ISASENDERID':
+                    optionsISASenderID = options;
+                    break;
+                case 'ISARECEIVERID':
+                    optionsISAReceiverID = options;
+                    break;
+                case 'GSSENDERID':
+                    optionsGSSenderID = options;
+                    break;
+            }
 
             $(event.target).blur();
 
@@ -81,7 +139,7 @@
         $("#" + ItemId.val()).val($(".modal-body #ItemContent").val());
     }
 
-    
+
 
 </script>
 <table class="table table-condensed" style="width:100%">
@@ -99,72 +157,6 @@
                     <input id="piServer" type="radio" name="piServer" value="PIPServer" @((piServer == "PIPServer") ? "checked" : string.Empty)>PIP
                 </label>
                 <table class="table table-bordered table-striped table-condensed">
-                    <tr>
-                        <td>
-                            <table class="table table-bordered table-striped table-condensed">
-                                <tr>
-                                    <th>PARTNER</th>
-                                    <th>DIVISION</th>
-                                    <th>REGION</th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="button-group">
-                                                    @Html.TextArea("PARTNER", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
-                                                    <div class="button-group">
-                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
-
-                                                        <ul class="dropdown-menu">
-                                                            @foreach (var item in Partners)
-                                                            {
-                                                                <li>
-                                                                    <a href="#" class="small" data-value="@item" tabIndex="-1"><input type="checkbox" />&nbsp;@item</a>
-                                                                </li>
-                                                            }
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="button-group">
-                                                    @Html.TextArea("DIVISION", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
-                                                    <div class="button-group">
-                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
-
-                                                        <ul class="dropdown-menu">
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="button-group">
-                                                    @Html.TextArea("REGION", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
-                                                    <div class="button-group">
-                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
-
-                                                        <ul class="dropdown-menu">
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
                     <tr>
                         <td>
                             <table class="table table-bordered table-striped table-condensed">
@@ -222,27 +214,155 @@
                                         </table>
                                     </td>
                                 </tr>
+
+                            </table>
+                        </td>
+                        <th rowspan="3">
+                            <input class="btn btn-primary btn-lg" type="submit" value="搜尋" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table class="table table-bordered table-striped table-condensed">
                                 <tr>
-                                    <th>
-                                        <abbr title="Find REF value, each phase seperated with space.">KEYWORD</abbr>
-                                    </th>
-                                    <td colspan="4">@Html.TextBox("keyWordSearch", "", new { @class = "form-control" })</td>
+                                    <th>PARTNER</th>
+                                    <th>DIVISION</th>
+                                    <th>REGION</th>
+                                    <th>ISASENDERID</th>
+                                    <th>ISARECEIVERID</th>
+                                    <th>GSSENDERID</th>
                                 </tr>
                                 <tr>
-                                    <th>
-                                        <abbr title="Find Customer's message id">@Html.DisplayNameFor(model => model.CHLMSGID)</abbr>
-                                    </th>
-                                    <td colspan="4">@Html.TextBox("chlMsgId", "", new { @class = "form-control" })</td>
-                                </tr>
-                                <tr>
-                                    <th>Status</th>
-                                    <td colspan="4">@Html.DropDownList("ddlSTATUS")</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="button-group">
+                                                    @Html.TextArea("PARTNER", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                                    <div class="button-group">
+                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+
+                                                        <ul class="dropdown-menu" id="ulPARTNER" name="ulPARTNER">
+                                                            @foreach (var item in Partners)
+                                                            {
+                                                                <li>
+                                                                    <a href="#" name="PARTNER" class="small" data-value="@item" tabIndex="-1"><input type="checkbox" />&nbsp;@item</a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="button-group">
+                                                    @Html.TextArea("DIVISION", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                                    <div class="button-group">
+                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+
+                                                        <ul class="dropdown-menu" id="ulDIVISION" name="ulDIVISION">
+                                                            @foreach (var item in Divisions)
+                                                            {
+                                                                <li>
+                                                                    <a href="#" name="DIVISION" class="small" data-value="@item" tabIndex="-1"><input type="checkbox" />&nbsp;@item</a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="button-group">
+                                                    @Html.TextArea("REGION", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                                    <div class="button-group">
+                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+
+                                                        <ul class="dropdown-menu" id="ulREGION" name="ulREGION">
+                                                            @foreach (var item in Regions)
+                                                            {
+                                                                <li>
+                                                                    <a href="#" name="REGION" class="small" data-value="@item" tabIndex="-1"><input type="checkbox" />&nbsp;@item</a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="button-group">
+                                                    @Html.TextArea("ISASENDERID", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                                    <div class="button-group">
+                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+
+                                                        <ul class="dropdown-menu">
+                                                            @foreach (var item in ISASenderIDs)
+                                                            {
+                                                                <li>
+                                                                    <a href="#" name="ISASENDERID" class="small" data-value="@item" tabIndex="-1"><input type="checkbox" />&nbsp;@item</a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="button-group">
+                                                    @Html.TextArea("ISARECEIVERID", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                                    <div class="button-group">
+                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+
+                                                        <ul class="dropdown-menu">
+                                                            @foreach (var item in ISAReceiverIDs)
+                                                            {
+                                                                <li>
+                                                                    <a href="#" name="ISARECEIVERID" class="small" data-value="@item" tabIndex="-1"><input type="checkbox" />&nbsp;@item</a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="button-group">
+                                                    @Html.TextArea("GSSENDERID", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                                    <div class="button-group">
+                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+
+                                                        <ul class="dropdown-menu">
+                                                            @foreach (var item in GSSenderIDs)
+                                                            {
+                                                                <li>
+                                                                    <a href="#" name="GSSENDERID" class="small" data-value="@item" tabIndex="-1"><input type="checkbox" />&nbsp;@item</a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                             </table>
                         </td>
-                        <th rowspan="2">
-                            <input class="btn btn-primary btn-lg" type="submit" value="搜尋" />
-                        </th>
+                        
                     </tr>
 
                     <tr>
@@ -251,22 +371,29 @@
                                 <tr>
                                     <th>@Html.DisplayNameFor(model => model.EDIMSGTYPE)</th>
                                     <th>@Html.DisplayNameFor(model => model.DIRECTION)</th>
-                                    <th>@Html.DisplayNameFor(model => model.GSSENDERID)</th>
+
                                     <th>@Html.DisplayNameFor(model => model.GSRECEIVERID)</th>
-                                    <th>@Html.DisplayNameFor(model => model.ISASENDERID)</th>
-                                    <th>@Html.DisplayNameFor(model => model.ISARECEIVERID)</th>
+                                    <th>
+                                        <abbr title="Find REF value, each phase seperated with space.">KEYWORD</abbr>
+                                    </th>
+                                    <th>
+                                        <abbr title="Find Customer's message id">@Html.DisplayNameFor(model => model.CHLMSGID)</abbr>
+                                    </th>
+                                    <th>Status</th>
                                 </tr>
                                 <tr>
                                     <td>@Html.TextBox("EDIMSGTYPE", "", new { @class = "form-control" })</td>
                                     <td> @Html.TextBox("DIRECTION", "", new { @class = "form-control" })</td>
-                                    <td> @Html.TextBox("GSSENDERID", "", new { @class = "form-control" })</td>
+
                                     <td>@Html.TextBox("GSRECEIVERID", "", new { @class = "form-control" }) </td>
-                                    <td>@Html.TextBox("ISASENDERID", "", new { @class = "form-control" }) </td>
-                                    <td>@Html.TextBox("ISARECEIVERID", "", new { @class = "form-control" }) </td>
+                                    <td>@Html.TextBox("keyWordSearch", "", new { @class = "form-control" })</td>
+                                    <td>@Html.TextBox("chlMsgId", "", new { @class = "form-control" })</td>
+                                    <td>@Html.DropDownList("ddlSTATUS")</td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
+
                 </table>
             }
 

@@ -284,10 +284,10 @@ namespace B2BService.Models
     {
         private string config = Constant.PIDConnStr;
         private MTREFDBCollection mtrefdbcollection;
-        public IEnumerable<MT_REF_DB> Get(MT_REF_DB mtrefdb)
+        public IEnumerable<VMTREFDB> Get(VMTREFDB vmtrefdb)
         {
             mtrefdbcollection = new MTREFDBCollection(config);
-            mtrefdbcollection.Get(mtrefdb);
+            mtrefdbcollection.Get(vmtrefdb);
             return mtrefdbcollection.MTREFDBList;
         }
 
@@ -301,10 +301,10 @@ namespace B2BService.Models
     {
         private string config = Constant.PIQConnStr;
         private MTREFDBCollection mtrefdbcollection;
-        public IEnumerable<MT_REF_DB> Get(MT_REF_DB mtrefdb)
+        public IEnumerable<VMTREFDB> Get(VMTREFDB vmtrefdb)
         {
             mtrefdbcollection = new MTREFDBCollection(config);
-            mtrefdbcollection.Get(mtrefdb);
+            mtrefdbcollection.Get(vmtrefdb);
             return mtrefdbcollection.MTREFDBList;
         }
 
@@ -318,10 +318,10 @@ namespace B2BService.Models
     {
         private string config = Constant.PIPConnStr;
         private MTREFDBCollection mtrefdbcollection;
-        public IEnumerable<MT_REF_DB> Get(MT_REF_DB mtrefdb)
+        public IEnumerable<VMTREFDB> Get(VMTREFDB vmtrefdb)
         {
             mtrefdbcollection = new MTREFDBCollection(config);
-            mtrefdbcollection.Get(mtrefdb);
+            mtrefdbcollection.Get(vmtrefdb);
             return mtrefdbcollection.MTREFDBList;
         }
 
@@ -446,6 +446,7 @@ namespace B2BService.Models
             try
             {
                 mtrefdb = new MT_REF_DB(config);
+                
                 var results = mtrefdb.GetPARTNER(type);
                 return results;
             }

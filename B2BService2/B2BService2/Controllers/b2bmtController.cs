@@ -13,6 +13,7 @@ namespace B2BService.Controllers
     public class b2bmtController : Controller
     {
         // GET: b2bmt
+        IEnumerable<VMTREFDB> vmtrefdbList;
         public ActionResult Index()
         {
             InitDLL("");
@@ -54,12 +55,17 @@ namespace B2BService.Controllers
             ViewBag.ddlSTATUS = cList;
         }
 
-        public ActionResult MT_DB(string piServer, string docnum, string msgid, string parent, string controlnum, string idoc,
+        public ActionResult MT_DB(string piServer, 
+            string partner, string division, string region,
+            string docnum, string msgid, string parent, string controlnum, string idoc,
             string edimsgtype, string chlMsgId, decimal? direction, decimal? ddlStatus,
             string gssenderid, string gsreceiverid,
             string isasenderid, string isareceiverid, DateTime? cdtFrom, DateTime? cdtEnd, string keyWordSearch)
         {
             MT_DB mtdb = new Models.MT_DB();
+            //mtdb.AS2PARTNER = (string.IsNullOrEmpty(partner)) ? string.Empty : partner.ToUpper();
+            //等對應表修正了，再加入上列查詢條件。
+
             mtdb.MSGID = (string.IsNullOrEmpty(msgid)) ? string.Empty : msgid.ToLower();
             mtdb.PARENT = (string.IsNullOrEmpty(parent)) ? string.Empty : parent.ToLower();
             mtdb.DOCNUM = (string.IsNullOrEmpty(docnum)) ? string.Empty : docnum;
@@ -83,30 +89,41 @@ namespace B2BService.Controllers
             ViewBag.SqlString = imtdbcollection.GetSqlString();
             InitDLL((mtdb.STATUS.HasValue)?mtdb.STATUS.Value.ToString():"");
 
-            MT_REFDB(piServer, string.Empty, string.Empty, string.Empty,
-                string.Empty, string.Empty, string.Empty, string.Empty);
+            MT_REFDB(piServer, partner, division, region,
+                isasenderid, isareceiverid, gssenderid, edimsgtype);
             return View(result);
         }
-
-        private ServiceType _type = ServiceType.List;
         private void MT_REFDB(string optradio, string partner, string division, string region,
-            string isasenderid, string isareceiverid, string gssenderid, string edimsgtype)
+            string isasenderid, string isareceiverid,
+            string gssenderid, string edimsgtype)
         {
-            MT_REF_DB mtrefdb = new MT_REF_DB();
-            mtrefdb.PARTNER = (string.IsNullOrEmpty(partner)) ? string.Empty : partner;
-            mtrefdb.DIVISION = (string.IsNullOrEmpty(division)) ? string.Empty : division;
-            mtrefdb.REGION = (string.IsNullOrEmpty(region)) ? string.Empty : region;
-            mtrefdb.ISASENDERID = (string.IsNullOrEmpty(isasenderid)) ? string.Empty : isasenderid;
-            mtrefdb.ISARECEIVERID = (string.IsNullOrEmpty(isareceiverid)) ? string.Empty : isareceiverid;
-            mtrefdb.GSSENDERID = (string.IsNullOrEmpty(gssenderid)) ? string.Empty : gssenderid;
-            mtrefdb.EDIMSGTYPE = (string.IsNullOrEmpty(edimsgtype)) ? string.Empty : edimsgtype;
+            VMTREFDB vmtrefdb = new VMTREFDB();
+            vmtrefdb.PARTNER = (string.IsNullOrEmpty(partner)) ? string.Empty : string.Empty;
+            vmtrefdb.DIVISION = (string.IsNullOrEmpty(division)) ? string.Empty : string.Empty;
+            vmtrefdb.REGION = (string.IsNullOrEmpty(region)) ? string.Empty : string.Empty;
+            vmtrefdb.ISASENDERID = (string.IsNullOrEmpty(isasenderid)) ? string.Empty : string.Empty;
+            vmtrefdb.ISARECEIVERID = (string.IsNullOrEmpty(isareceiverid)) ? string.Empty : string.Empty;
+            vmtrefdb.GSSENDERID = (string.IsNullOrEmpty(gssenderid)) ? string.Empty : string.Empty;
+            vmtrefdb.EDIMSGTYPE = (string.IsNullOrEmpty(edimsgtype)) ? string.Empty : string.Empty;
 
             optradio = Constant.PIQServer;
             optradio = string.IsNullOrEmpty(optradio) ? Constant.PIQServer : optradio;
-            IMTRef imtref = DataAccess.CreateMTREFDB(optradio);
-            IList<string> partners = ((IEnumerable<string>)imtref.GetPARTNER(_type)).ToList();
-
+            //IMTRef imtref = DataAccess.CreateMTREFDB(optradio);
+            IMTREFDBCollection imtrefdb = DataAccess.CreateMTREFDBCollection(optradio);
+            vmtrefdbList =  imtrefdb.Get(vmtrefdb);
+            IList<string> partners = vmtrefdbList.OrderBy(x => x.PARTNER).Select(x => x.PARTNER.ToUpper().Trim()).Distinct().ToList();
+            IList<string> divisions = vmtrefdbList.OrderBy(x => x.DIVISION).Select(x => x.DIVISION.ToUpper().Trim()).Distinct().ToList();
+            IList<string> regions = vmtrefdbList.OrderBy(x => x.REGION).Select(x => x.REGION.ToUpper().Trim()).Distinct().ToList();
+            IList<string> isasenderids = vmtrefdbList.OrderBy(x => x.ISASENDERID).Select(x => x.ISASENDERID.ToUpper().Trim()).Distinct().ToList();
+            IList<string> isareceiverids = vmtrefdbList.OrderBy(x => x.ISARECEIVERID).Select(x => x.ISARECEIVERID.ToUpper().Trim()).Distinct().ToList();
+            IList<string> gssenderids = vmtrefdbList.OrderBy(x => x.GSSENDERID).Select(x => x.GSSENDERID.ToUpper().Trim()).Distinct().ToList();
+            
             ViewData["Partners"] = partners;
+            ViewData["Divisions"] = divisions;
+            ViewData["Regions"] = regions;
+            ViewData["ISASenderIds"] = isasenderids;
+            ViewData["ISAReceiverIds"] = isareceiverids;
+            ViewData["GSSenderIds"] = gssenderids;
         }
 
         public ActionResult ProcessDB(string Id, string piServer)
