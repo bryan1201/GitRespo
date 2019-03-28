@@ -38,7 +38,7 @@ namespace einvoice.Controllers
             }
         }
 
-        public ActionResult RawData()
+        public ActionResult RawData(string filename)
         {
             return View();
         }

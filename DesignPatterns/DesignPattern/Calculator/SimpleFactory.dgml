@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="BottomToTop" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 Type=Add @8)" Category="CodeSchema_Method" Bounds="549,0,152.093333333334,26" CodeSchemaProperty_IsPublic="True" CommonLabel="GetResult" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="GetResult() : double" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/OperationFactory.cs StartLineNumber=38 StartCharacterOffset=31 EndLineNumber=38 EndCharacterOffset=40)" />
+    <Node Id="(@1 @2 Type=Div @8)" Category="CodeSchema_Method" Bounds="183,0,152.093333333334,26" CodeSchemaProperty_IsPublic="True" CommonLabel="GetResult" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="GetResult() : double" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/OperationFactory.cs StartLineNumber=68 StartCharacterOffset=31 EndLineNumber=68 EndCharacterOffset=40)" />
+    <Node Id="(@1 @2 Type=Mul @8)" Category="CodeSchema_Method" Bounds="366,0,152.093333333334,26" CodeSchemaProperty_IsPublic="True" CommonLabel="GetResult" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="GetResult() : double" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/OperationFactory.cs StartLineNumber=58 StartCharacterOffset=31 EndLineNumber=58 EndCharacterOffset=40)" />
+    <Node Id="(@1 @2 Type=Operation @8)" Category="CodeSchema_Method" Bounds="44,56,152.093333333334,26" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsVirtual="True" CommonLabel="GetResult" Icon="Microsoft.VisualStudio.Method.Public" Label="GetResult() : double" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/Operation.cs StartLineNumber=22 StartCharacterOffset=30 EndLineNumber=22 EndCharacterOffset=39)" />
+    <Node Id="(@1 @2 Type=OperationFactory)" Category="CodeSchema_Class" Bounds="280.08,168,139.933333333334,26" CodeSchemaProperty_IsPublic="True" CommonLabel="OperationFactory" Icon="Microsoft.VisualStudio.Class.Public" Label="OperationFactory" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/OperationFactory.cs StartLineNumber=9 StartCharacterOffset=17 EndLineNumber=9 EndCharacterOffset=33)" />
+    <Node Id="(@1 @2 Type=Sub @8)" Category="CodeSchema_Method" Bounds="0,0,152.093333333334,26" CodeSchemaProperty_IsPublic="True" CommonLabel="GetResult" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="GetResult() : double" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/OperationFactory.cs StartLineNumber=48 StartCharacterOffset=31 EndLineNumber=48 EndCharacterOffset=40)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="503.783333333335,56,64.5266666666648,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Add" Icon="Microsoft.VisualStudio.Class.Public" Label="Add" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/OperationFactory.cs StartLineNumber=36 StartCharacterOffset=17 EndLineNumber=36 EndCharacterOffset=20)" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="320.385,56,59.3233333333337,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Div" Icon="Microsoft.VisualStudio.Class.Public" Label="Div" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/OperationFactory.cs StartLineNumber=66 StartCharacterOffset=17 EndLineNumber=66 EndCharacterOffset=20)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="410.550000000001,56,62.993333333332,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Mul" Icon="Microsoft.VisualStudio.Class.Public" Label="Mul" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/OperationFactory.cs StartLineNumber=56 StartCharacterOffset=17 EndLineNumber=56 EndCharacterOffset=20)" />
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="300.805,112,98.4833333333336,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Operation" Icon="Microsoft.VisualStudio.Class.Public" Label="Operation" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/Operation.cs StartLineNumber=8 StartCharacterOffset=17 EndLineNumber=8 EndCharacterOffset=26)" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="226.673333333334,56,62.746666666666,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Sub" Icon="Microsoft.VisualStudio.Class.Public" Label="Sub" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/OperationFactory.cs StartLineNumber=46 StartCharacterOffset=17 EndLineNumber=46 EndCharacterOffset=20)" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @2 Type=OperationFactory)" Target="@6" Bounds="350.046661376953,147,0,21" />
+    <Link Source="@3" Target="(@1 @2 Type=Add @8)" Category="Contains" Bounds="556.707397460938,30.7930488586426,40.06103515625,25.2069511413574" />
+    <Link Source="@4" Target="(@1 @2 Type=Div @8)" Category="Contains" Bounds="287.836578369141,30.7168769836426,41.0850830078125,25.2831230163574" />
+    <Link Source="@5" Target="(@1 @2 Type=Mul @8)" Category="Contains" Bounds="442.046661376953,35,0,21" />
+    <Link Source="@6" Target="(@1 @2 Type=Operation @8)" Category="Contains" Bounds="182.184066772461,84.1291046142578,119.24870300293,29.0344619750977" />
+    <Link Source="@6" Target="@3" Bounds="393.225250244141,81.3083190917969,101.940216064453,30.6916809082031" />
+    <Link Source="@6" Target="@4" Bounds="350.046661376953,91,0,21" />
+    <Link Source="@6" Target="@5" Bounds="371.40380859375,86.6795196533203,41.5979309082031,25.3204803466797" />
+    <Link Source="@6" Target="@7" Bounds="287.091583251953,86.6795196533203,41.5979309082031,25.3204803466797" />
+    <Link Source="@7" Target="(@1 @2 Type=Sub @8)" Category="Contains" Bounds="126.89867401123,28.6467723846436,99.7746658325195,30.6998958587646" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="類別" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類別" />
+    <Category Id="CodeSchema_Member" Label="成員" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="成員" />
+    <Category Id="CodeSchema_Method" Label="方法" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="方法" />
+    <Category Id="CodeSchema_Type" Label="類型" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類型" />
+    <Category Id="Contains" Label="包含" Description="連結的來源是否包含目標物件" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="由下列包含" IsContainment="True" OutgoingActionLabel="包含" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="為公用" Description="表示範圍為「公用」的旗標" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsVirtual" Label="為虛擬" Description="表示方法可以覆寫的旗標" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Icon" Label="圖示" Description="圖示" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsOverloaded" Label="IsOverloaded" Description="IsOverloaded" DataType="System.Boolean" />
+    <Property Id="Label" Label="標籤" Description="可註釋物件的可顯示標籤" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="開始行號" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="組件" ValueType="Uri" />
+    <Name Id="Member" Label="成員" ValueType="System.Object" />
+    <Name Id="Namespace" Label="命名空間" ValueType="System.String" />
+    <Name Id="Type" Label="類型" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(81ba2f13-6461-4dc0-8f0e-aa61d021b440.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=Calculator" />
+    <Alias n="3" Id="(@1 @2 Type=Add)" />
+    <Alias n="4" Id="(@1 @2 Type=Div)" />
+    <Alias n="5" Id="(@1 @2 Type=Mul)" />
+    <Alias n="6" Id="(@1 @2 Type=Operation)" />
+    <Alias n="7" Id="(@1 @2 Type=Sub)" />
+    <Alias n="8" Id="Member=GetResult" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="81ba2f13-6461-4dc0-8f0e-aa61d021b440.OutputPathUri" Value="file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/Calculator/bin/Debug/Calculator.exe" />
+  </Paths>
+</DirectedGraph>

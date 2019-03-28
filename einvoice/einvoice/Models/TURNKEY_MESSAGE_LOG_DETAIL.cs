@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 using System.Web;
+using System.Net;
+using System.Net.Mime;
 
 namespace einvoice.Models
 {
@@ -17,5 +20,6 @@ namespace einvoice.Models
         public string STATUS { get; set; }
         public string FILENAME { get; set; }
         public string UUID { get; set; }
+
     }
 }

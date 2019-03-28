@@ -9,6 +9,7 @@ namespace einvoice.Models
 {
     public interface IRawData
     {
+        string GetContent(string filepathname, string contenttype);
         void SaveRawData(A0101 Invoice, string filename);
     }
 }
