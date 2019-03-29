@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using einvoice.Models;
+using System.Net.Http.Headers;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 
 namespace einvoice.Controllers
 {
@@ -40,6 +44,23 @@ namespace einvoice.Controllers
 
         public ActionResult RawData(string filename)
         {
+            var result = new HttpResponseMessage(HttpStatusCode.OK);
+            string xmlstring = string.Empty;
+            try
+            {
+                IRawData ir = new RawData();
+                xmlstring = ir.GetContent(filename, "text/xml"); // text/xml
+                result.Content = new StringContent(xmlstring);
+                result.Content.Headers.ContentType = new MediaTypeHeaderValue("text/xml");
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                result.Content = new StringContent(ex.Message);
+                result.Content.Headers.ContentType = new MediaTypeHeaderValue("text/xml");
+            }
+            ViewData["einvoiceDoc"] = HttpUtility.HtmlEncode(xmlstring);
+
             return View();
         }
 
@@ -56,7 +77,7 @@ namespace einvoice.Controllers
         }
 
         // POST: MessageTrack/Create
-        [HttpPost]
+        [System.Web.Http.HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -78,7 +99,7 @@ namespace einvoice.Controllers
         }
 
         // POST: MessageTrack/Edit/5
-        [HttpPost]
+        [System.Web.Http.HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -100,7 +121,7 @@ namespace einvoice.Controllers
         }
 
         // POST: MessageTrack/Delete/5
-        [HttpPost]
+        [System.Web.Http.HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try

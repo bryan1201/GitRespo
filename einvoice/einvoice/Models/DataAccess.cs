@@ -12,6 +12,7 @@ namespace einvoice.Models
     {
         private static readonly string AssemblyName = "einvoice"; // The string is the current namespace
         private static readonly string MTDBCollection = "MTDBCollection";
+        private static readonly string SYSEVENTDBCollection = "SYSEVENTDBCollection";
         private static readonly string RawData = "RawData";
         private static readonly string _db = ConfigurationManager.AppSettings["QASServer"];
 
@@ -32,6 +33,15 @@ namespace einvoice.Models
             db = (db == null) ? _db : db;
             string className = string.Format("{0}.{1}.{2}{3}", AssemblyName, models, db, MTDBCollection);
             return (IMTDBCollection)Assembly.Load(AssemblyName).CreateInstance(className);
+        }
+
+        public static ISYSEVENTDBCollection CreateSYSEVENTDBCollection(string server)
+        {
+            string models = "Models";
+            string db = ConfigurationManager.AppSettings[server];
+            db = (db == null) ? _db : db;
+            string className = string.Format("{0}.{1}.{2}{3}", AssemblyName, models, db, SYSEVENTDBCollection);
+            return (ISYSEVENTDBCollection)Assembly.Load(AssemblyName).CreateInstance(className);
         }
 
         public static IRawData CreateRawData(string server)

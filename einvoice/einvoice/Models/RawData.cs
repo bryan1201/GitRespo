@@ -7,6 +7,7 @@ using System.Text;
 using System.Net.Mime;
 using einvoice.Models.eInvoiceMessage;
 using System.IO;
+using System.Xml;
 
 namespace einvoice.Models
 {
@@ -86,11 +87,16 @@ namespace einvoice.Models
                 Stream ftpStream = ftpResponse.GetResponseStream();
                 StreamReader reader = new StreamReader(ftpStream);
                 Rslt = reader.ReadToEnd();
+                //XmlDocument xml = new XmlDocument();
+                //xml.LoadXml(Rslt);
+                //Rslt = xml.OuterXml;
                 ftpStream.Close();
                 ftpResponse.Close();
                 ftpRequest = null;
             }
-            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            catch (Exception ex) {
+                Rslt = ex.Message;
+            }
             return Rslt;
         }
 

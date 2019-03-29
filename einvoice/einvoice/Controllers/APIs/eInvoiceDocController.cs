@@ -22,12 +22,20 @@ namespace einvoice.Controllers.APIs
         [HttpGet]
         public HttpResponseMessage GetEinvoiceFile(string filename)
         {
-            IRawData ir = new RawData();
-            string xmlstring = ir.GetContent(filename, "text/xml");
-
             var result = new HttpResponseMessage(HttpStatusCode.OK);
-            result.Content = new StringContent(xmlstring);
-            result.Content.Headers.ContentType = new MediaTypeHeaderValue("text/xml");
+            try
+            {
+                IRawData ir = new RawData();
+                string xmlstring = ir.GetContent(filename, "application / octet - stream"); // text/xml
+                result.Content = new StringContent(xmlstring);
+                result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+            }
+            catch (Exception ex)
+            {
+                string msg = ex.Message;
+                result.Content = new StringContent(ex.Message);
+                result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+            }
             return result;
         }
         // GET api/<controller>
