@@ -87,6 +87,7 @@ namespace einvoice.Models
                 Stream ftpStream = ftpResponse.GetResponseStream();
                 StreamReader reader = new StreamReader(ftpStream);
                 Rslt = reader.ReadToEnd();
+                Rslt = Constant.PrettyXml(Rslt);
                 //XmlDocument xml = new XmlDocument();
                 //xml.LoadXml(Rslt);
                 //Rslt = xml.OuterXml;
@@ -95,7 +96,15 @@ namespace einvoice.Models
                 ftpRequest = null;
             }
             catch (Exception ex) {
-                Rslt = ex.Message;
+                StringBuilder sb = new StringBuilder();
+                sb.Append("Error:");
+                sb.Append(" ");
+                sb.Append(ex.Message);
+                sb.Append("\r\n\r\n");
+                sb.Append(new string('-',40));
+                sb.Append("\r\n\r\n");
+                sb.Append(Rslt);
+                Rslt = sb.ToString();
             }
             return Rslt;
         }

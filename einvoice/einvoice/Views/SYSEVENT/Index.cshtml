@@ -129,14 +129,11 @@
                         <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
                             @Html.DisplayNameFor(model => model.PARTY_ID)
                         </th>
-                        <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
-                            @Html.DisplayNameFor(model => model.SEQNO)
-                        </th>
                         <th style="width:5%;font-size:0.7em; word-wrap: break-word;">
-                            @Html.DisplayNameFor(model => model.INFORMATION1)
+                            Sysevent Information
                         </th>
                         <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
-                            @Html.DisplayNameFor(model => model.MESSAGE6)
+                            Sysevent Message
                         </th>
                     </tr>
                     @if (Model != null)
@@ -160,24 +157,25 @@
                                 <td style="font-size:0.6em; word-wrap: break-word;">
                                     <table class="table table-bordered table-striped table-condensed">
                                         <tr>
-                                            <th>@Html.DisplayNameFor(model => model.INFORMATION1)</th>
-                                            <td>@Html.DisplayFor(modelItem => item.INFORMATION1)</td>
-                                        </tr>
-                                        <tr>
-                                            <th>@Html.DisplayNameFor(model => model.INFORMATION2)</th>
-                                            <td>@Html.DisplayFor(modelItem => item.INFORMATION2)</td>
-                                        </tr>
-                                        <tr>
-                                            <th>@Html.DisplayNameFor(model => model.INFORMATION3) </th>
-                                            <td>@Html.DisplayFor(modelItem => item.INFORMATION3)</td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.INFORMATION1)
+                                                @Html.DisplayFor(modelItem => item.INFORMATION2)
+                                                @Html.DisplayFor(modelItem => item.INFORMATION3)
+                                            </td>
                                         </tr>
                                     </table>
                                 </td>
                                 <td style="font-size:0.6em; word-wrap: break-word;">
                                     <table class="table table-bordered table-striped table-condensed">
                                         <tr>
-                                            <th style="width:30%">@Html.DisplayNameFor(model => model.MESSAGE1)</th>
-                                            <td>@Html.DisplayFor(modelItem => item.MESSAGE1 + item.MESSAGE2 + item.MESSAGE3 + item.MESSAGE4 + item.MESSAGE5 + item.MESSAGE6)</td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MESSAGE1)
+                                                @Html.DisplayFor(modelItem => item.MESSAGE2)
+                                                @Html.DisplayFor(modelItem => item.MESSAGE3)
+                                                @Html.DisplayFor(modelItem => item.MESSAGE4)
+                                                @Html.DisplayFor(modelItem => item.MESSAGE5)
+                                                @Html.DisplayFor(modelItem => item.MESSAGE6)
+                                            </td>
                                         </tr>
                                     </table>
                                 </td>

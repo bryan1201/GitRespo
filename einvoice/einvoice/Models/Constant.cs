@@ -9,6 +9,8 @@ using System.Net;
 using System.IO;
 using System.Text;
 using Newtonsoft.Json;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace einvoice.Models
 {
@@ -31,6 +33,25 @@ namespace einvoice.Models
         public static readonly string QASServer = "QASServer";
         public static readonly string PRDServer = "PRDServer";
         public static readonly string RawData = "RawData";
+
+        public static string PrettyXml(string xml)
+        {
+            var stringBuilder = new StringBuilder();
+
+            var element = XElement.Parse(xml);
+
+            var settings = new XmlWriterSettings();
+            settings.OmitXmlDeclaration = true;
+            settings.Indent = true;
+            settings.NewLineOnAttributes = true;
+
+            using (var xmlWriter = XmlWriter.Create(stringBuilder, settings))
+            {
+                element.Save(xmlWriter);
+            }
+
+            return stringBuilder.ToString();
+        }
 
         public static DataTable ToDataTable<T>(List<T> items)
         {

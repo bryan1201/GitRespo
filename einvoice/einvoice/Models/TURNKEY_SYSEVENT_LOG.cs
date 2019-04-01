@@ -19,7 +19,7 @@ namespace einvoice.Models
 
     public class SYSEVENTDBCollection
     {
-        public IEnumerable<TURNKEY_SYSEVENT_LOG> MTDBList;
+        public IEnumerable<TURNKEY_SYSEVENT_LOG> SYSEVENTDBList;
         private string SqlString = string.Empty;
         private string config = string.Empty;
         private eInvoiceDBContext _db;
@@ -351,11 +351,11 @@ namespace einvoice.Models
             return this.SqlString;
         }
 
-        public IEnumerable<TURNKEY_SYSEVENT_LOG> Get(TURNKEY_SYSEVENT_LOG mtdb)
+        public IEnumerable<TURNKEY_SYSEVENT_LOG> Get(TURNKEY_SYSEVENT_LOG syseventdb)
         {
-            SqlString = GetSqlQuery(mtdb);
+            SqlString = GetSqlQuery(syseventdb);
             List<TURNKEY_SYSEVENT_LOG> tml = _db.TurnKeySyseventLog.SqlQuery(SqlString).ToList();
-            this.MTDBList = tml;
+            this.SYSEVENTDBList = tml;
             //System.Data.DataTable dt = Constant.ToDataTable(tml);
 
             //MTDBList = ConvertToTankReadings(dt);
@@ -407,6 +407,7 @@ namespace einvoice.Models
         public string MESSAGE4 { get; set; }
         public string MESSAGE5 { get; set; }
         public string MESSAGE6 { get; set; }
+        private eInvoiceDBContext _db { get; set; }
 
         private DateTime? _CreateDateFrom { get; set; }
         private DateTime? _CreateDateEnd { get; set; }
@@ -427,6 +428,16 @@ namespace einvoice.Models
         public DateTime? GetCreateDateEnd()
         {
             return (this._CreateDateEnd.HasValue) ? this._CreateDateEnd.Value : this._CreateDateEnd;
+        }
+
+        public TURNKEY_SYSEVENT_LOG(eInvoiceDBContext db)
+        {
+            this._db = db;
+        }
+        public TURNKEY_SYSEVENT_LOG()
+        {
+            if (this._db == null)
+                this._db = new eInvoiceDBContext();
         }
     }
 }
