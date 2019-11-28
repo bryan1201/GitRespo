@@ -41,7 +41,8 @@ namespace einvoice.Models
             var element = XElement.Parse(xml);
 
             var settings = new XmlWriterSettings();
-            settings.OmitXmlDeclaration = true;
+            //settings.OmitXmlDeclaration = false;
+            settings.Encoding = Encoding.UTF8;
             settings.Indent = true;
             settings.NewLineOnAttributes = true;
 

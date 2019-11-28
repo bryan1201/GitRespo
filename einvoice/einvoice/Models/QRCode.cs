@@ -3,24 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using com.tradevan.qrutil;
+using ZXing;
+using ZXing.QrCode;
+using ZXing.QrCode.Internal;
+using System.Drawing;
+using System.IO;
+using System.Drawing.Imaging;
 
 namespace einvoice.Models
 {
     public class QRCode
     {
+        private string strrndnum = string.Empty;
         public string InvoiceNumber { get; set; }
         public string InvoiceDate { get; set; }
         public string InvoiceTime { get; set; }
-        /*
-        public string RandomNumber {
-            get
-            {
-                return GenerateRandomNo().ToString();
+        public string RandomNumber { get {
+                return GenerateRandomNo().ToString("D4"); ;
+            } set {
+            this.strrndnum = GenerateRandomNo().ToString("D4");
             }
         }
-        */
-
-        public string RandomNumber { get; set; }
         public int SalesAmount { get; set; }
         public int TaxAmount { get; set; }
         public int TotalAmount { get; set; }
@@ -28,14 +31,7 @@ namespace einvoice.Models
         public string RepresentIdentifier { get; set; }
         public string SellerIdentifier { get; set; }
         public string BusinessIdentifier { get; set; }
-        /*
-        public string BusinessIdentifier {
-            get
-            {
-                return Constant.S_BusinessIdentifier;
-            }
-        }
-        */
+
         public string AESKey {
             get
             {
@@ -77,6 +73,7 @@ namespace einvoice.Models
             }
             return result;
         }
+
         private int GenerateRandomNo()
         {
             int _min = 1000;
@@ -104,6 +101,27 @@ namespace einvoice.Models
             qr.errorCode = 0;
 
             return qr;
+        }
+
+        public string ToImage(string code, int size = 180)
+        {
+            BarcodeWriter writer = new BarcodeWriter();
+            QrCodeEncodingOptions qr = new QrCodeEncodingOptions()
+            {
+                CharacterSet = "UTF-8",
+                ErrorCorrection = ZXing.QrCode.Internal.ErrorCorrectionLevel.H,
+                Height = size,
+                Width = size,
+            };
+            writer.Options = qr;
+            writer.Format = BarcodeFormat.QR_CODE;
+            Bitmap bitmap = writer.Write(code);
+
+            MemoryStream ms = new MemoryStream();
+            bitmap.Save(ms, ImageFormat.Gif);
+            var base64Data = Convert.ToBase64String(ms.ToArray());
+            //imgCtrl.Src = "data:image/gif;base64," + base64Data;
+            return base64Data;
         }
     }
 }

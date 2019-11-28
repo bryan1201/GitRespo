@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
-using einvoice.QRCodeReference;
+using System.Web.Routing;
+//using einvoice.QRCodeReference;
 namespace einvoice.Controllers
 {
     public class QRToolController : Controller
@@ -8,20 +9,22 @@ namespace einvoice.Controllers
         // GET: QRTool
         public ActionResult Index()
         {
-            Models.QRCode qr = new Models.QRCode();
-            qr = qr.InitTestQRCode();
-            return View(qr);
+            Models.QRCode qrCode = new Models.QRCode();
+            qrCode = qrCode.InitTestQRCode();
+            var QREncryptString = qrCode.QREncrypterString(false);
+            var qrCodeImgBase64String = qrCode.ToImage(QREncryptString,180);
+            ViewData["QREncryptString"] = QREncryptString;
+            ViewData["qrCodeImgBase64String"] = qrCodeImgBase64String;
+            return View(qrCode);
         }
 
-        public ActionResult Details(QRCodeReference.QRCode qr)
+        public ActionResult Details(Models.QRCode qrCode)
         {
-            return View(qr);
-        }
-
-        // GET: QRTool/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
+            var QREncryptString = qrCode.QREncrypterString(false);
+            var qrCodeImgBase64String = qrCode.ToImage(QREncryptString);
+            ViewData["QREncryptString"] = QREncryptString;
+            ViewData["qrCodeImgBase64String"] = qrCodeImgBase64String;
+            return View(qrCode);
         }
 
         // GET: QRTool/Create
@@ -37,24 +40,22 @@ namespace einvoice.Controllers
             try
             {
                 // TODO: Add insert logic here
-                QRCodeReference.QREncryptServiceSoapClient qrc = new QRCodeReference.QREncryptServiceSoapClient();
+                //QRCodeReference.QREncryptServiceSoapClient qrc = new QRCodeReference.QREncryptServiceSoapClient();
+                //var QREncryptString = qrc.QREncryptTest();
+
+                Models.QRCode qr = new Models.QRCode();
                 
-                QRCodeReference.QRCode qr = new QRCodeReference.QRCode();
-                qr = qrc.InitQRCode();            
-                /*
                 qr.InvoiceNumber = collection["InvoiceNumber"]; //"IT23258592";
                 qr.InvoiceDate = collection["InvoiceDate"].ToString();// string.Format("{0}{1}", TaiwanCalendar.GetYear(dt), dt.ToString("MMdd"));
                 qr.InvoiceTime = collection["InvoiceTime"];//dt.ToString("HHmmss");
                 qr.SalesAmount = int.Parse(collection["SalesAmount"]); //100;
                 qr.TaxAmount =int.Parse(collection["TaxAmount"]); //5;
-                qr.TotalAmount = int.Parse(collection["TotalAmount"]); //qr.SalesAmount + qr.TaxAmount;
+                qr.TotalAmount = qr.SalesAmount + qr.TaxAmount;
                 qr.BuyerIdentifier = collection["BuyerIdentifier"]; //"12345678";
                 qr.RepresentIdentifier = collection["RepresentIdentifier"]; //"87654321";
-                qr.SellerIdentifier = qr.BuyerIdentifier;
+                qr.SellerIdentifier = collection["SellerIdentifier"]; ;
+                qr.BusinessIdentifier = collection["BusinessIdentifier"];
                 qr.errorCode = 0;
-                */
-                var QREncryptString = qrc.QREncrypt(qr);
-                ViewBag["QREncryptString"] = QREncryptString;
                 return RedirectToAction("Details", qr);
             }
             catch(Exception ex)

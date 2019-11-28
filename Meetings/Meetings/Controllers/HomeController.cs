@@ -13,16 +13,16 @@ namespace Meetings.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        public void Authentication(string User)
+        public void Authentication(string User, string Password)
         {
-            List<string> roles = new List<string>() { User };
+            List<string> users = new List<string>() { User };
 
             FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
                           User,//使用者ID
                           DateTime.Now,//核發日期
                           DateTime.Now.AddMinutes(30),//到期日期 30分鐘 
                           true,//永續性
-                          string.Join(",", roles.ToArray()),//使用者定義的資料
+                          string.Join(",", users.ToArray()),//使用者定義的資料
                           FormsAuthentication.FormsCookiePath);
 
             var encryptedTicket = FormsAuthentication.Encrypt(ticket);
@@ -31,11 +31,11 @@ namespace Meetings.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult Login(string User)
+        public ActionResult Login(string User, string Password)
         {
-            if (!string.IsNullOrEmpty(User))
+            if (!string.IsNullOrEmpty(User) && !string.IsNullOrEmpty(Password))
             {
-                Authentication(User);
+                Authentication(User, Password);
                 RouteValueDictionary rv = new RouteValueDictionary();
                 rv.Add("User", User);
                 return RedirectToAction("Index", "Meeting");

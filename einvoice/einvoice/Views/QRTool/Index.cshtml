@@ -2,9 +2,11 @@
 
 @{
     ViewBag.Title = "QRCode Sample";
+    string QREncryptString = ViewData["QREncryptString"].ToString();
+    string qrCodeImgBase64String = ViewData["qrCodeImgBase64String"].ToString();
 }
 
-<h2>Index</h2>
+<h2>einvoice Sample</h2>
 
 <div>
     <h4>QRCode Sample</h4>
@@ -115,5 +117,12 @@
         </dd>
 
     </dl>
-    <p><a class="btn btn-default" href="~/api/Values/5" target="_blank">QREncrypter &raquo;</a></p>
+    <div class="form-group">
+        <div class="control-label col-md-2">QREcrypt String</div>
+        <div class="col-md-10">
+            <div class="form-control">@QREncryptString</div>
+        </div>
+        <div><img src="@String.Format("data:image/png;base64,{0}", qrCodeImgBase64String)" /></div>
+    </div>
+    <p><a class="btn btn-default" href="~/api/eInvoiceDoc/Get/5" target="_blank">QREncrypter &raquo;</a></p>
 </div>

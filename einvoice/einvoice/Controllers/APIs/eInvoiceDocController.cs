@@ -47,7 +47,12 @@ namespace einvoice.Controllers.APIs
         // GET api/<controller>/5
         public string Get(int id)
         {
-            return "value";
+            string qrEncryptString = string.Empty;
+            Models.QRCode qr = new QRCode();
+            qr.InitTestQRCode();
+            //QRCodeReference.QREncryptServiceSoapClient qrc = new QRCodeReference.QREncryptServiceSoapClient();
+            qrEncryptString = qr.QREncrypterString(true);
+            return qrEncryptString;
         }
 
         // POST api/<controller>
