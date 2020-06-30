@@ -3,6 +3,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     string parentMessageId = string.Empty;
     string piServer = ViewBag.piServer;
+    string SegmentDelimiter = ViewBag.SegmentDelimiter;
+    DateTime? cdtFrom = (ViewBag.cdtFrom != null) ? (DateTime)ViewBag.cdtFrom : DateTime.Now.AddMonths(-1);
+    DateTime? cdtEnd = (ViewBag.cdtEnd != null) ? (DateTime?)ViewBag.cdtEnd : DateTime.Now;
+
+    string CdtFrom = cdtFrom.Value.ToString("yyyy/MM/dd hh:mm:ss");
+    string CdtEnd = cdtEnd.Value.ToString("yyyy/MM/dd hh:mm:ss");
     string SqlString = string.IsNullOrEmpty(ViewBag.SqlString) ? string.Empty : ViewBag.SqlString;
 
     IList<string> Partners = (IList<string>)ViewData["Partners"];
@@ -11,6 +17,7 @@
     IList<string> ISASenderIDs = (IList<string>)ViewData["ISASenderIds"];
     IList<string> ISAReceiverIDs = (IList<string>)ViewData["ISAReceiverIds"];
     IList<string> GSSenderIDs = (IList<string>)ViewData["GSSenderIds"];
+    IList<string> EDIMsgTypes = (IList<string>)ViewData["EDIMsgTypes"];
 }
 <script type="text/javascript">
 
@@ -36,6 +43,8 @@
         var optionsISASenderID = [];
         var optionsISAReceiverID = [];
         var optionsGSSenderID = [];
+        var optionsEDIMsgType = [];
+        var optionsDirection = [];
         $('.dropdown-menu a').on('click', function (event) {
 
             var $target = $(event.currentTarget),
@@ -71,6 +80,14 @@
                     ItemId = $(".button-group #GSSENDERID");
                     options = optionsGSSenderID;
                     break;
+                case 'EDIMSGTYPE':
+                    ItemId = $(".button-group #EDIMSGTYPE");
+                    options = optionsEDIMsgType;
+                    break;
+                case 'DIRECTION':
+                    ItemId = $(".button-group #DIRECTION");
+                    options = optionsDirection;
+                    break;
             }
 
             if ((idx = options.indexOf(val)) > -1) {
@@ -104,6 +121,12 @@
                     break;
                 case 'GSSENDERID':
                     optionsGSSenderID = options;
+                    break;
+                case 'EDIMSGTYPE':
+                    optionsEDIMsgType = options;
+                    break;
+                case 'DIRECTION':
+                    optionsDirection = options;
                     break;
             }
 
@@ -156,6 +179,12 @@
                 <label class="radio-inline">
                     <input id="piServer" type="radio" name="piServer" value="PIPServer" @((piServer == "PIPServer") ? "checked" : string.Empty)>PIP
                 </label>
+                <div class="radio-inline" style="background-color: lightblue">
+                    <label class="radio-inline">
+                        Segment Delimiter
+                    </label>
+                    <label class="radio-inline"> @Html.TextBox("SegmentDelimiter", SegmentDelimiter, new { @class = "form-control", style = "width:80px; background-color: lightpink" })</label>
+                </div>
                 <table class="table table-bordered table-striped table-condensed">
                     <tr>
                         <td>
@@ -194,7 +223,7 @@
                                             <tr>
                                                 <td>
                                                     <div class='input-group date' id='datetimepicker6'>
-                                                        @Html.TextBox("CdtFrom", "", new { @class = "form-control" })
+                                                        @Html.TextBox("CdtFrom", CdtFrom, new { @class = "form-control" })
                                                         <span class="input-group-addon">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
@@ -204,7 +233,7 @@
                                             <tr>
                                                 <td>
                                                     <div class='input-group date' id='datetimepicker7'>
-                                                        @Html.TextBox("CdtEnd", "", new { @class = "form-control" })
+                                                        @Html.TextBox("CdtEnd", CdtEnd, new { @class = "form-control" })
                                                         <span class="input-group-addon">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
@@ -250,6 +279,7 @@
                                                             }
                                                         </ul>
                                                     </div>
+                                                    <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnPARTNER" data-id="PARTNER" data-toggle="modal" data-target="#myModal">Edit</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -271,6 +301,7 @@
                                                             }
                                                         </ul>
                                                     </div>
+                                                    <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnDIVISION" data-id="DIVISION" data-toggle="modal" data-target="#myModal">Edit</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -292,6 +323,7 @@
                                                             }
                                                         </ul>
                                                     </div>
+                                                    <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnREGION" data-id="REGION" data-toggle="modal" data-target="#myModal">Edit</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -313,6 +345,7 @@
                                                             }
                                                         </ul>
                                                     </div>
+                                                    <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnISASENDERID" data-id="ISASENDERID" data-toggle="modal" data-target="#myModal">Edit</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -334,6 +367,7 @@
                                                             }
                                                         </ul>
                                                     </div>
+                                                    <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnISARECEIVERID" data-id="ISARECEIVERID" data-toggle="modal" data-target="#myModal">Edit</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -355,6 +389,7 @@
                                                             }
                                                         </ul>
                                                     </div>
+                                                    <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnGSSENDERID" data-id="GSSENDERID" data-toggle="modal" data-target="#myModal">Edit</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -362,7 +397,7 @@
                                 </tr>
                             </table>
                         </td>
-                        
+
                     </tr>
 
                     <tr>
@@ -382,8 +417,50 @@
                                     <th>Status</th>
                                 </tr>
                                 <tr>
-                                    <td>@Html.TextBox("EDIMSGTYPE", "", new { @class = "form-control" })</td>
-                                    <td> @Html.TextBox("DIRECTION", "", new { @class = "form-control" })</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="button-group">
+                                                    @Html.TextArea("EDIMSGTYPE", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                                    <div class="button-group">
+                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+
+                                                        <ul class="dropdown-menu">
+                                                            @foreach (var item in EDIMsgTypes)
+                                                            {
+                                                                <li>
+                                                                    <a href="#" name="EDIMSGTYPE" class="small" data-value="@item" tabIndex="-1"><input type="checkbox" />&nbsp;@item</a>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                    <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnEDIMSGTYPE" data-id="EDIMSGTYPE" data-toggle="modal" data-target="#myModal">Edit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="button-group">
+                                                    @Html.TextArea("DIRECTION", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                                    <div class="button-group">
+                                                        <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+
+                                                        <ul class="dropdown-menu">
+                                                            <li>
+                                                                <a href="#" name="DIRECTION" class="small" data-value="1" tabIndex="-1"><input type="checkbox" />&nbsp;1</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" name="DIRECTION" class="small" data-value="2" tabIndex="-1"><input type="checkbox" />&nbsp;2</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnDIRECTION" data-id="DIRECTION" data-toggle="modal" data-target="#myModal">Edit</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
 
                                     <td>@Html.TextBox("GSRECEIVERID", "", new { @class = "form-control" }) </td>
                                     <td>@Html.TextBox("keyWordSearch", "", new { @class = "form-control" })</td>
@@ -549,6 +626,8 @@
                             }
 
                             @Html.ActionLink("RawData", "RawData", new { id = parentMessageId, piServer = piServer }, new { target = "_blank" })
+                            <br />
+                            @Html.ActionLink("RawData2", "RawData2", new { id = parentMessageId, piServer = piServer, SegmentDelimiter = SegmentDelimiter }, new { target = "_blank" })
                             <br />
                             @Html.ActionLink("MDN", "MDN", new { id = parentMessageId, piServer = piServer }, new { target = "_blank" })
                             <br />

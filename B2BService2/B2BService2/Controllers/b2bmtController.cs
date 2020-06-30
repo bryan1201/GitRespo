@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using B2BService.Models;
 using Newtonsoft.Json;
-using Oracle.ManagedDataAccess.Types;
+using Oracle.DataAccess.Types;
 using System.Web.Routing;
 
 namespace B2BService.Controllers
@@ -55,7 +55,7 @@ namespace B2BService.Controllers
             ViewBag.ddlSTATUS = cList;
         }
 
-        public ActionResult MT_DB(string piServer, 
+        public ActionResult MT_DB(string piServer, string SegmentDelimiter,
             string partner, string division, string region,
             string docnum, string msgid, string parent, string controlnum, string idoc,
             string edimsgtype, string chlMsgId, decimal? direction, decimal? ddlStatus,
@@ -87,6 +87,7 @@ namespace B2BService.Controllers
             IEnumerable<MT_DB> result = imtdbcollection.Get(mtdb);
             ViewBag.piServer = piServer;
             ViewBag.SqlString = imtdbcollection.GetSqlString();
+            ViewBag.SegmentDelimiter = SegmentDelimiter;
             InitDLL((mtdb.STATUS.HasValue)?mtdb.STATUS.Value.ToString():"");
 
             MT_REFDB(piServer, partner, division, region,
@@ -117,13 +118,15 @@ namespace B2BService.Controllers
             IList<string> isasenderids = vmtrefdbList.OrderBy(x => x.ISASENDERID).Select(x => x.ISASENDERID.ToUpper().Trim()).Distinct().ToList();
             IList<string> isareceiverids = vmtrefdbList.OrderBy(x => x.ISARECEIVERID).Select(x => x.ISARECEIVERID.ToUpper().Trim()).Distinct().ToList();
             IList<string> gssenderids = vmtrefdbList.OrderBy(x => x.GSSENDERID).Select(x => x.GSSENDERID.ToUpper().Trim()).Distinct().ToList();
-            
+            IList<string> edimsgtypes = vmtrefdbList.OrderBy(x => x.EDIMSGTYPE).Select(x => x.EDIMSGTYPE.ToUpper().Trim()).Distinct().ToList();
+
             ViewData["Partners"] = partners;
             ViewData["Divisions"] = divisions;
             ViewData["Regions"] = regions;
             ViewData["ISASenderIds"] = isasenderids;
             ViewData["ISAReceiverIds"] = isareceiverids;
             ViewData["GSSenderIds"] = gssenderids;
+            ViewData["EDIMsgTypes"] = edimsgtypes;
         }
 
         public ActionResult ProcessDB(string Id, string piServer)
@@ -140,12 +143,35 @@ namespace B2BService.Controllers
             return View(vdb);
         }
 
-        public ActionResult RawData(string id, string piServer)
+        public ActionResult RawData(string id, string piServer, string SegmentDelimiter)
         {
             piServer = string.IsNullOrEmpty(piServer) ? Constant.PIPServer : piServer;
             ViewBag.Message = Constant.RawData;
             IRawData irawdata = DataAccess.CreateRawData(piServer);
             string Rslt = irawdata.Get(id, Constant.ContentTypeUTF8).Content;
+            
+            ViewData["RsltRawdata"] = Rslt;
+
+            return View();
+        }
+
+        public ActionResult RawData2(string id, string piServer, string SegmentDelimiter)
+        {
+            piServer = string.IsNullOrEmpty(piServer) ? Constant.PIPServer : piServer;
+            ViewBag.Message = Constant.RawData;
+            IRawData irawdata = DataAccess.CreateRawData(piServer);
+            string Rslt = irawdata.Get(id, Constant.ContentTypeUTF8).Content;
+
+            try
+            {
+                Rslt = Constant.PrettyXml(Rslt);
+                SegmentDelimiter = string.Empty;
+            }
+            catch { }
+
+            if (!string.IsNullOrEmpty(SegmentDelimiter))
+                Rslt = Rslt.Replace(SegmentDelimiter, "\r\n");
+
             ViewData["RsltRawdata"] = Rslt;
 
             return View();

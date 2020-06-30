@@ -1,0 +1,46 @@
+﻿@model AuditLog
+@using Newtonsoft.Json
+@using B2BService.Models
+@{
+    ViewBag.Title = "B2B function Get AuditLog";
+    AuditLog Rslt = (AuditLog)ViewData["RsltAuditLog"];
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@Html.DisplayNameFor(model => model.msgID) : @Html.DisplayFor(model => model.msgID)<br /></h3>
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <th style="width: 70%;font-size:0.7em; word-wrap: break-word;">
+            @Html.DisplayNameFor(model => model.auditLogStrList)
+        </th>
+        <th style="width: 30%;font-size:0.7em; word-wrap: break-word;">
+            @Html.DisplayNameFor(model => model.childMsgList)
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <table class="table table-bordered table-striped table-condensed">
+                @foreach (var item in Model.auditLogStrList)
+                {
+                    <tr>
+                        <td style="font-size:0.8em; word-wrap: break-word;">
+                            @item.ToString()
+                        </td>
+                    </tr>
+                }
+            </table>
+        </td>
+        <td>
+            <table class="table table-bordered table-striped table-condensed">
+                @foreach (var item in Model.childMsgList)
+                {
+                    <tr>
+                        <td style="font-size:0.7em; word-wrap: break-word;">
+                            @Html.ActionLink(item.ToString(), "AuditLog", new { id = item.ToString() })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+
+</table>

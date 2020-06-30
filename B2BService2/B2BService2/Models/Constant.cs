@@ -7,6 +7,8 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Text;
 using System.Net;
+using System.Xml.Linq;
+using System.Xml;
 
 namespace B2BService.Models
 {
@@ -88,6 +90,25 @@ namespace B2BService.Models
             sb.Append(string.Format("message: {0}{1}", message, ret));
             sb.Append(string.Format("stackTrack:{0}{1}", stackTrackFromServer, ret));
             response = sb.ToString();
+        }
+
+        public static string PrettyXml(string xml)
+        {
+            var stringBuilder = new StringBuilder();
+
+            var element = XElement.Parse(xml);
+
+            var settings = new XmlWriterSettings();
+            settings.OmitXmlDeclaration = true;
+            settings.Indent = true;
+            settings.NewLineOnAttributes = true;
+
+            using (var xmlWriter = XmlWriter.Create(stringBuilder, settings))
+            {
+                element.Save(xmlWriter);
+            }
+
+            return stringBuilder.ToString();
         }
     }
 }
