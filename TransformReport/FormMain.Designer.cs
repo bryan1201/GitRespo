@@ -93,18 +93,21 @@
             this.groupBox12.Controls.Add(this.textBox12Adult);
             this.groupBox12.Controls.Add(this.label12Adult);
             this.groupBox12.Controls.Add(this.button12Child);
-            this.groupBox12.Location = new System.Drawing.Point(3, 12);
+            this.groupBox12.Location = new System.Drawing.Point(4, 15);
+            this.groupBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(457, 78);
+            this.groupBox12.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox12.Size = new System.Drawing.Size(609, 98);
             this.groupBox12.TabIndex = 0;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "12會所";
             // 
             // button12Adult
             // 
-            this.button12Adult.Location = new System.Drawing.Point(424, 14);
+            this.button12Adult.Location = new System.Drawing.Point(565, 18);
+            this.button12Adult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button12Adult.Name = "button12Adult";
-            this.button12Adult.Size = new System.Drawing.Size(27, 23);
+            this.button12Adult.Size = new System.Drawing.Size(36, 29);
             this.button12Adult.TabIndex = 3;
             this.button12Adult.Text = "…";
             this.button12Adult.UseVisualStyleBackColor = true;
@@ -112,43 +115,48 @@
             // 
             // textBox12Child
             // 
-            this.textBox12Child.Location = new System.Drawing.Point(56, 43);
+            this.textBox12Child.Location = new System.Drawing.Point(75, 54);
+            this.textBox12Child.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox12Child.Name = "textBox12Child";
             this.textBox12Child.ReadOnly = true;
-            this.textBox12Child.Size = new System.Drawing.Size(362, 22);
+            this.textBox12Child.Size = new System.Drawing.Size(481, 25);
             this.textBox12Child.TabIndex = 5;
             // 
             // label12Child
             // 
             this.label12Child.AutoSize = true;
-            this.label12Child.Location = new System.Drawing.Point(9, 46);
+            this.label12Child.Location = new System.Drawing.Point(12, 58);
+            this.label12Child.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12Child.Name = "label12Child";
-            this.label12Child.Size = new System.Drawing.Size(41, 12);
+            this.label12Child.Size = new System.Drawing.Size(52, 15);
             this.label12Child.TabIndex = 4;
             this.label12Child.Text = "兒童：";
             // 
             // textBox12Adult
             // 
-            this.textBox12Adult.Location = new System.Drawing.Point(56, 15);
+            this.textBox12Adult.Location = new System.Drawing.Point(75, 19);
+            this.textBox12Adult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox12Adult.Name = "textBox12Adult";
             this.textBox12Adult.ReadOnly = true;
-            this.textBox12Adult.Size = new System.Drawing.Size(362, 22);
+            this.textBox12Adult.Size = new System.Drawing.Size(481, 25);
             this.textBox12Adult.TabIndex = 2;
             // 
             // label12Adult
             // 
             this.label12Adult.AutoSize = true;
-            this.label12Adult.Location = new System.Drawing.Point(9, 18);
+            this.label12Adult.Location = new System.Drawing.Point(12, 22);
+            this.label12Adult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12Adult.Name = "label12Adult";
-            this.label12Adult.Size = new System.Drawing.Size(41, 12);
+            this.label12Adult.Size = new System.Drawing.Size(52, 15);
             this.label12Adult.TabIndex = 1;
             this.label12Adult.Text = "社區：";
             // 
             // button12Child
             // 
-            this.button12Child.Location = new System.Drawing.Point(424, 40);
+            this.button12Child.Location = new System.Drawing.Point(565, 50);
+            this.button12Child.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button12Child.Name = "button12Child";
-            this.button12Child.Size = new System.Drawing.Size(27, 23);
+            this.button12Child.Size = new System.Drawing.Size(36, 29);
             this.button12Child.TabIndex = 6;
             this.button12Child.Text = "…";
             this.button12Child.UseVisualStyleBackColor = true;
@@ -156,10 +164,11 @@
             // 
             // textBox36Child
             // 
-            this.textBox36Child.Location = new System.Drawing.Point(56, 43);
+            this.textBox36Child.Location = new System.Drawing.Point(75, 54);
+            this.textBox36Child.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox36Child.Name = "textBox36Child";
             this.textBox36Child.ReadOnly = true;
-            this.textBox36Child.Size = new System.Drawing.Size(362, 22);
+            this.textBox36Child.Size = new System.Drawing.Size(481, 25);
             this.textBox36Child.TabIndex = 12;
             // 
             // groupBox36
@@ -170,9 +179,11 @@
             this.groupBox36.Controls.Add(this.label36Adult);
             this.groupBox36.Controls.Add(this.button36Child);
             this.groupBox36.Controls.Add(this.button36Adult);
-            this.groupBox36.Location = new System.Drawing.Point(3, 96);
+            this.groupBox36.Location = new System.Drawing.Point(4, 120);
+            this.groupBox36.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox36.Name = "groupBox36";
-            this.groupBox36.Size = new System.Drawing.Size(457, 78);
+            this.groupBox36.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox36.Size = new System.Drawing.Size(609, 98);
             this.groupBox36.TabIndex = 7;
             this.groupBox36.TabStop = false;
             this.groupBox36.Text = "36會所";
@@ -180,34 +191,38 @@
             // label36Child
             // 
             this.label36Child.AutoSize = true;
-            this.label36Child.Location = new System.Drawing.Point(9, 46);
+            this.label36Child.Location = new System.Drawing.Point(12, 58);
+            this.label36Child.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label36Child.Name = "label36Child";
-            this.label36Child.Size = new System.Drawing.Size(41, 12);
+            this.label36Child.Size = new System.Drawing.Size(52, 15);
             this.label36Child.TabIndex = 11;
             this.label36Child.Text = "兒童：";
             // 
             // textBox36Adult
             // 
-            this.textBox36Adult.Location = new System.Drawing.Point(56, 15);
+            this.textBox36Adult.Location = new System.Drawing.Point(75, 19);
+            this.textBox36Adult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox36Adult.Name = "textBox36Adult";
             this.textBox36Adult.ReadOnly = true;
-            this.textBox36Adult.Size = new System.Drawing.Size(362, 22);
+            this.textBox36Adult.Size = new System.Drawing.Size(481, 25);
             this.textBox36Adult.TabIndex = 9;
             // 
             // label36Adult
             // 
             this.label36Adult.AutoSize = true;
-            this.label36Adult.Location = new System.Drawing.Point(9, 18);
+            this.label36Adult.Location = new System.Drawing.Point(12, 22);
+            this.label36Adult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label36Adult.Name = "label36Adult";
-            this.label36Adult.Size = new System.Drawing.Size(41, 12);
+            this.label36Adult.Size = new System.Drawing.Size(52, 15);
             this.label36Adult.TabIndex = 8;
             this.label36Adult.Text = "社區：";
             // 
             // button36Child
             // 
-            this.button36Child.Location = new System.Drawing.Point(424, 44);
+            this.button36Child.Location = new System.Drawing.Point(565, 55);
+            this.button36Child.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button36Child.Name = "button36Child";
-            this.button36Child.Size = new System.Drawing.Size(27, 23);
+            this.button36Child.Size = new System.Drawing.Size(36, 29);
             this.button36Child.TabIndex = 13;
             this.button36Child.Text = "…";
             this.button36Child.UseVisualStyleBackColor = true;
@@ -215,9 +230,10 @@
             // 
             // button36Adult
             // 
-            this.button36Adult.Location = new System.Drawing.Point(424, 16);
+            this.button36Adult.Location = new System.Drawing.Point(565, 20);
+            this.button36Adult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button36Adult.Name = "button36Adult";
-            this.button36Adult.Size = new System.Drawing.Size(27, 23);
+            this.button36Adult.Size = new System.Drawing.Size(36, 29);
             this.button36Adult.TabIndex = 10;
             this.button36Adult.Text = "…";
             this.button36Adult.UseVisualStyleBackColor = true;
@@ -225,10 +241,11 @@
             // 
             // textBox37Child
             // 
-            this.textBox37Child.Location = new System.Drawing.Point(56, 43);
+            this.textBox37Child.Location = new System.Drawing.Point(75, 54);
+            this.textBox37Child.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox37Child.Name = "textBox37Child";
             this.textBox37Child.ReadOnly = true;
-            this.textBox37Child.Size = new System.Drawing.Size(362, 22);
+            this.textBox37Child.Size = new System.Drawing.Size(481, 25);
             this.textBox37Child.TabIndex = 19;
             // 
             // groupBox37
@@ -239,9 +256,11 @@
             this.groupBox37.Controls.Add(this.textBox37Adult);
             this.groupBox37.Controls.Add(this.button37Adult);
             this.groupBox37.Controls.Add(this.label37Adult);
-            this.groupBox37.Location = new System.Drawing.Point(3, 180);
+            this.groupBox37.Location = new System.Drawing.Point(4, 225);
+            this.groupBox37.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox37.Name = "groupBox37";
-            this.groupBox37.Size = new System.Drawing.Size(457, 78);
+            this.groupBox37.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox37.Size = new System.Drawing.Size(609, 98);
             this.groupBox37.TabIndex = 14;
             this.groupBox37.TabStop = false;
             this.groupBox37.Text = "37會所";
@@ -249,17 +268,19 @@
             // label37Child
             // 
             this.label37Child.AutoSize = true;
-            this.label37Child.Location = new System.Drawing.Point(9, 46);
+            this.label37Child.Location = new System.Drawing.Point(12, 58);
+            this.label37Child.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label37Child.Name = "label37Child";
-            this.label37Child.Size = new System.Drawing.Size(41, 12);
+            this.label37Child.Size = new System.Drawing.Size(52, 15);
             this.label37Child.TabIndex = 18;
             this.label37Child.Text = "兒童：";
             // 
             // button37Child
             // 
-            this.button37Child.Location = new System.Drawing.Point(424, 43);
+            this.button37Child.Location = new System.Drawing.Point(565, 54);
+            this.button37Child.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button37Child.Name = "button37Child";
-            this.button37Child.Size = new System.Drawing.Size(27, 23);
+            this.button37Child.Size = new System.Drawing.Size(36, 29);
             this.button37Child.TabIndex = 20;
             this.button37Child.Text = "…";
             this.button37Child.UseVisualStyleBackColor = true;
@@ -267,17 +288,19 @@
             // 
             // textBox37Adult
             // 
-            this.textBox37Adult.Location = new System.Drawing.Point(56, 15);
+            this.textBox37Adult.Location = new System.Drawing.Point(75, 19);
+            this.textBox37Adult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox37Adult.Name = "textBox37Adult";
             this.textBox37Adult.ReadOnly = true;
-            this.textBox37Adult.Size = new System.Drawing.Size(362, 22);
+            this.textBox37Adult.Size = new System.Drawing.Size(481, 25);
             this.textBox37Adult.TabIndex = 16;
             // 
             // button37Adult
             // 
-            this.button37Adult.Location = new System.Drawing.Point(424, 14);
+            this.button37Adult.Location = new System.Drawing.Point(565, 18);
+            this.button37Adult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button37Adult.Name = "button37Adult";
-            this.button37Adult.Size = new System.Drawing.Size(27, 23);
+            this.button37Adult.Size = new System.Drawing.Size(36, 29);
             this.button37Adult.TabIndex = 17;
             this.button37Adult.Text = "…";
             this.button37Adult.UseVisualStyleBackColor = true;
@@ -286,18 +309,20 @@
             // label37Adult
             // 
             this.label37Adult.AutoSize = true;
-            this.label37Adult.Location = new System.Drawing.Point(9, 18);
+            this.label37Adult.Location = new System.Drawing.Point(12, 22);
+            this.label37Adult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label37Adult.Name = "label37Adult";
-            this.label37Adult.Size = new System.Drawing.Size(41, 12);
+            this.label37Adult.Size = new System.Drawing.Size(52, 15);
             this.label37Adult.TabIndex = 15;
             this.label37Adult.Text = "社區：";
             // 
             // buttonQuit
             // 
             this.buttonQuit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonQuit.Location = new System.Drawing.Point(151, 284);
+            this.buttonQuit.Location = new System.Drawing.Point(201, 355);
+            this.buttonQuit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonQuit.Name = "buttonQuit";
-            this.buttonQuit.Size = new System.Drawing.Size(75, 23);
+            this.buttonQuit.Size = new System.Drawing.Size(100, 29);
             this.buttonQuit.TabIndex = 36;
             this.buttonQuit.Text = "離開(&Q)";
             this.buttonQuit.UseVisualStyleBackColor = true;
@@ -305,9 +330,10 @@
             // 
             // buttonTransform
             // 
-            this.buttonTransform.Location = new System.Drawing.Point(55, 284);
+            this.buttonTransform.Location = new System.Drawing.Point(73, 355);
+            this.buttonTransform.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonTransform.Name = "buttonTransform";
-            this.buttonTransform.Size = new System.Drawing.Size(75, 23);
+            this.buttonTransform.Size = new System.Drawing.Size(100, 29);
             this.buttonTransform.TabIndex = 35;
             this.buttonTransform.Text = "轉檔(&T)";
             this.buttonTransform.UseVisualStyleBackColor = true;
@@ -316,42 +342,47 @@
             // labelTemplate
             // 
             this.labelTemplate.AutoSize = true;
-            this.labelTemplate.Location = new System.Drawing.Point(484, 226);
+            this.labelTemplate.Location = new System.Drawing.Point(645, 282);
+            this.labelTemplate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelTemplate.Name = "labelTemplate";
-            this.labelTemplate.Size = new System.Drawing.Size(41, 12);
+            this.labelTemplate.Size = new System.Drawing.Size(52, 15);
             this.labelTemplate.TabIndex = 28;
             this.labelTemplate.Text = "範本：";
             // 
             // textBoxTemplate
             // 
-            this.textBoxTemplate.Location = new System.Drawing.Point(531, 223);
+            this.textBoxTemplate.Location = new System.Drawing.Point(708, 279);
+            this.textBoxTemplate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxTemplate.Name = "textBoxTemplate";
             this.textBoxTemplate.ReadOnly = true;
-            this.textBoxTemplate.Size = new System.Drawing.Size(345, 22);
+            this.textBoxTemplate.Size = new System.Drawing.Size(459, 25);
             this.textBoxTemplate.TabIndex = 29;
             // 
             // labelOutput
             // 
             this.labelOutput.AutoSize = true;
-            this.labelOutput.Location = new System.Drawing.Point(484, 252);
+            this.labelOutput.Location = new System.Drawing.Point(645, 315);
+            this.labelOutput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelOutput.Name = "labelOutput";
-            this.labelOutput.Size = new System.Drawing.Size(41, 12);
+            this.labelOutput.Size = new System.Drawing.Size(52, 15);
             this.labelOutput.TabIndex = 31;
             this.labelOutput.Text = "輸出：";
             // 
             // textBoxOutput
             // 
-            this.textBoxOutput.Location = new System.Drawing.Point(531, 252);
+            this.textBoxOutput.Location = new System.Drawing.Point(708, 315);
+            this.textBoxOutput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxOutput.Name = "textBoxOutput";
             this.textBoxOutput.ReadOnly = true;
-            this.textBoxOutput.Size = new System.Drawing.Size(345, 22);
+            this.textBoxOutput.Size = new System.Drawing.Size(459, 25);
             this.textBoxOutput.TabIndex = 32;
             // 
             // buttonTemplate
             // 
-            this.buttonTemplate.Location = new System.Drawing.Point(882, 223);
+            this.buttonTemplate.Location = new System.Drawing.Point(1176, 279);
+            this.buttonTemplate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonTemplate.Name = "buttonTemplate";
-            this.buttonTemplate.Size = new System.Drawing.Size(27, 23);
+            this.buttonTemplate.Size = new System.Drawing.Size(36, 29);
             this.buttonTemplate.TabIndex = 30;
             this.buttonTemplate.Text = "…";
             this.buttonTemplate.UseVisualStyleBackColor = true;
@@ -359,9 +390,10 @@
             // 
             // buttonOutput
             // 
-            this.buttonOutput.Location = new System.Drawing.Point(882, 252);
+            this.buttonOutput.Location = new System.Drawing.Point(1176, 315);
+            this.buttonOutput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonOutput.Name = "buttonOutput";
-            this.buttonOutput.Size = new System.Drawing.Size(27, 23);
+            this.buttonOutput.Size = new System.Drawing.Size(36, 29);
             this.buttonOutput.TabIndex = 33;
             this.buttonOutput.Text = "…";
             this.buttonOutput.UseVisualStyleBackColor = true;
@@ -369,10 +401,11 @@
             // 
             // textBoxProgress
             // 
-            this.textBoxProgress.Location = new System.Drawing.Point(486, 286);
+            this.textBoxProgress.Location = new System.Drawing.Point(648, 358);
+            this.textBoxProgress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxProgress.Name = "textBoxProgress";
             this.textBoxProgress.ReadOnly = true;
-            this.textBoxProgress.Size = new System.Drawing.Size(423, 22);
+            this.textBoxProgress.Size = new System.Drawing.Size(563, 25);
             this.textBoxProgress.TabIndex = 34;
             this.textBoxProgress.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxProgress.Visible = false;
@@ -380,17 +413,19 @@
             // label60Child
             // 
             this.label60Child.AutoSize = true;
-            this.label60Child.Location = new System.Drawing.Point(9, 46);
+            this.label60Child.Location = new System.Drawing.Point(12, 58);
+            this.label60Child.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label60Child.Name = "label60Child";
-            this.label60Child.Size = new System.Drawing.Size(41, 12);
+            this.label60Child.Size = new System.Drawing.Size(52, 15);
             this.label60Child.TabIndex = 25;
             this.label60Child.Text = "兒童：";
             // 
             // button60Child
             // 
-            this.button60Child.Location = new System.Drawing.Point(407, 43);
+            this.button60Child.Location = new System.Drawing.Point(543, 54);
+            this.button60Child.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button60Child.Name = "button60Child";
-            this.button60Child.Size = new System.Drawing.Size(27, 23);
+            this.button60Child.Size = new System.Drawing.Size(36, 29);
             this.button60Child.TabIndex = 27;
             this.button60Child.Text = "…";
             this.button60Child.UseVisualStyleBackColor = true;
@@ -398,10 +433,11 @@
             // 
             // textBox60Child
             // 
-            this.textBox60Child.Location = new System.Drawing.Point(56, 43);
+            this.textBox60Child.Location = new System.Drawing.Point(75, 54);
+            this.textBox60Child.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox60Child.Name = "textBox60Child";
             this.textBox60Child.ReadOnly = true;
-            this.textBox60Child.Size = new System.Drawing.Size(345, 22);
+            this.textBox60Child.Size = new System.Drawing.Size(459, 25);
             this.textBox60Child.TabIndex = 26;
             // 
             // groupBox60
@@ -412,26 +448,30 @@
             this.groupBox60.Controls.Add(this.textBox60Adult);
             this.groupBox60.Controls.Add(this.button60Adult);
             this.groupBox60.Controls.Add(this.label60Adult);
-            this.groupBox60.Location = new System.Drawing.Point(475, 12);
+            this.groupBox60.Location = new System.Drawing.Point(633, 15);
+            this.groupBox60.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox60.Name = "groupBox60";
-            this.groupBox60.Size = new System.Drawing.Size(440, 78);
+            this.groupBox60.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox60.Size = new System.Drawing.Size(587, 98);
             this.groupBox60.TabIndex = 21;
             this.groupBox60.TabStop = false;
             this.groupBox60.Text = "60會所";
             // 
             // textBox60Adult
             // 
-            this.textBox60Adult.Location = new System.Drawing.Point(56, 15);
+            this.textBox60Adult.Location = new System.Drawing.Point(75, 19);
+            this.textBox60Adult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox60Adult.Name = "textBox60Adult";
             this.textBox60Adult.ReadOnly = true;
-            this.textBox60Adult.Size = new System.Drawing.Size(345, 22);
+            this.textBox60Adult.Size = new System.Drawing.Size(459, 25);
             this.textBox60Adult.TabIndex = 23;
             // 
             // button60Adult
             // 
-            this.button60Adult.Location = new System.Drawing.Point(407, 14);
+            this.button60Adult.Location = new System.Drawing.Point(543, 18);
+            this.button60Adult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button60Adult.Name = "button60Adult";
-            this.button60Adult.Size = new System.Drawing.Size(27, 23);
+            this.button60Adult.Size = new System.Drawing.Size(36, 29);
             this.button60Adult.TabIndex = 24;
             this.button60Adult.Text = "…";
             this.button60Adult.UseVisualStyleBackColor = true;
@@ -440,9 +480,10 @@
             // label60Adult
             // 
             this.label60Adult.AutoSize = true;
-            this.label60Adult.Location = new System.Drawing.Point(9, 18);
+            this.label60Adult.Location = new System.Drawing.Point(12, 22);
+            this.label60Adult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label60Adult.Name = "label60Adult";
-            this.label60Adult.Size = new System.Drawing.Size(41, 12);
+            this.label60Adult.Size = new System.Drawing.Size(52, 15);
             this.label60Adult.TabIndex = 22;
             this.label60Adult.Text = "社區：";
             // 
@@ -454,18 +495,21 @@
             this.groupBox61.Controls.Add(this.textBox61Adult);
             this.groupBox61.Controls.Add(this.label61Adult);
             this.groupBox61.Controls.Add(this.button61Child);
-            this.groupBox61.Location = new System.Drawing.Point(475, 97);
+            this.groupBox61.Location = new System.Drawing.Point(633, 121);
+            this.groupBox61.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox61.Name = "groupBox61";
-            this.groupBox61.Size = new System.Drawing.Size(440, 78);
+            this.groupBox61.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox61.Size = new System.Drawing.Size(587, 98);
             this.groupBox61.TabIndex = 37;
             this.groupBox61.TabStop = false;
             this.groupBox61.Text = "61會所";
             // 
             // button61Adult
             // 
-            this.button61Adult.Location = new System.Drawing.Point(407, 15);
+            this.button61Adult.Location = new System.Drawing.Point(543, 19);
+            this.button61Adult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button61Adult.Name = "button61Adult";
-            this.button61Adult.Size = new System.Drawing.Size(27, 23);
+            this.button61Adult.Size = new System.Drawing.Size(36, 29);
             this.button61Adult.TabIndex = 3;
             this.button61Adult.Text = "…";
             this.button61Adult.UseVisualStyleBackColor = true;
@@ -473,43 +517,48 @@
             // 
             // textBox61Child
             // 
-            this.textBox61Child.Location = new System.Drawing.Point(56, 43);
+            this.textBox61Child.Location = new System.Drawing.Point(75, 54);
+            this.textBox61Child.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox61Child.Name = "textBox61Child";
             this.textBox61Child.ReadOnly = true;
-            this.textBox61Child.Size = new System.Drawing.Size(345, 22);
+            this.textBox61Child.Size = new System.Drawing.Size(459, 25);
             this.textBox61Child.TabIndex = 5;
             // 
             // label61Child
             // 
             this.label61Child.AutoSize = true;
-            this.label61Child.Location = new System.Drawing.Point(9, 46);
+            this.label61Child.Location = new System.Drawing.Point(12, 58);
+            this.label61Child.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label61Child.Name = "label61Child";
-            this.label61Child.Size = new System.Drawing.Size(41, 12);
+            this.label61Child.Size = new System.Drawing.Size(52, 15);
             this.label61Child.TabIndex = 4;
             this.label61Child.Text = "兒童：";
             // 
             // textBox61Adult
             // 
-            this.textBox61Adult.Location = new System.Drawing.Point(56, 15);
+            this.textBox61Adult.Location = new System.Drawing.Point(75, 19);
+            this.textBox61Adult.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox61Adult.Name = "textBox61Adult";
             this.textBox61Adult.ReadOnly = true;
-            this.textBox61Adult.Size = new System.Drawing.Size(345, 22);
+            this.textBox61Adult.Size = new System.Drawing.Size(459, 25);
             this.textBox61Adult.TabIndex = 2;
             // 
             // label61Adult
             // 
             this.label61Adult.AutoSize = true;
-            this.label61Adult.Location = new System.Drawing.Point(9, 18);
+            this.label61Adult.Location = new System.Drawing.Point(12, 22);
+            this.label61Adult.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label61Adult.Name = "label61Adult";
-            this.label61Adult.Size = new System.Drawing.Size(41, 12);
+            this.label61Adult.Size = new System.Drawing.Size(52, 15);
             this.label61Adult.TabIndex = 1;
             this.label61Adult.Text = "社區：";
             // 
             // button61Child
             // 
-            this.button61Child.Location = new System.Drawing.Point(407, 43);
+            this.button61Child.Location = new System.Drawing.Point(543, 54);
+            this.button61Child.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button61Child.Name = "button61Child";
-            this.button61Child.Size = new System.Drawing.Size(27, 23);
+            this.button61Child.Size = new System.Drawing.Size(36, 29);
             this.button61Child.TabIndex = 6;
             this.button61Child.Text = "…";
             this.button61Child.UseVisualStyleBackColor = true;
@@ -517,9 +566,10 @@
             // 
             // buttonInput
             // 
-            this.buttonInput.Location = new System.Drawing.Point(882, 196);
+            this.buttonInput.Location = new System.Drawing.Point(1176, 245);
+            this.buttonInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonInput.Name = "buttonInput";
-            this.buttonInput.Size = new System.Drawing.Size(27, 23);
+            this.buttonInput.Size = new System.Drawing.Size(36, 29);
             this.buttonInput.TabIndex = 40;
             this.buttonInput.Text = "…";
             this.buttonInput.UseVisualStyleBackColor = true;
@@ -527,29 +577,31 @@
             // 
             // textBoxInput
             // 
-            this.textBoxInput.Location = new System.Drawing.Point(531, 196);
+            this.textBoxInput.Location = new System.Drawing.Point(708, 245);
+            this.textBoxInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.ReadOnly = true;
-            this.textBoxInput.Size = new System.Drawing.Size(345, 22);
+            this.textBoxInput.Size = new System.Drawing.Size(459, 25);
             this.textBoxInput.TabIndex = 39;
             this.textBoxInput.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // labelInput
             // 
             this.labelInput.AutoSize = true;
-            this.labelInput.Location = new System.Drawing.Point(484, 196);
+            this.labelInput.Location = new System.Drawing.Point(645, 245);
+            this.labelInput.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelInput.Name = "labelInput";
-            this.labelInput.Size = new System.Drawing.Size(41, 12);
+            this.labelInput.Size = new System.Drawing.Size(52, 15);
             this.labelInput.TabIndex = 38;
             this.labelInput.Text = "輸入：";
             // 
             // FormMain
             // 
             this.AcceptButton = this.buttonTransform;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonQuit;
-            this.ClientSize = new System.Drawing.Size(927, 334);
+            this.ClientSize = new System.Drawing.Size(1236, 396);
             this.ControlBox = false;
             this.Controls.Add(this.buttonInput);
             this.Controls.Add(this.textBoxInput);
@@ -569,6 +621,7 @@
             this.Controls.Add(this.groupBox36);
             this.Controls.Add(this.groupBox12);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "召會生活人數統計轉檔工具";

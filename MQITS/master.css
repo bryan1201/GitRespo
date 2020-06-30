@@ -1,0 +1,184 @@
+﻿
+/* for master page*/
+body 
+{  
+	background: #ffffff url(images/5bg_Master.jpg)  repeat-x scroll 0px 30px;
+	font-family:黑体,Arial Unicode MS;
+	text-align:center;
+	margin-top:0px;
+	margin-left:0px;
+	padding:0px;
+}
+.container
+{  
+	margin:0px;
+	width: 100%;
+}
+
+.header
+{  
+	margin:0px 0px 0px 0px;
+}
+.header h1
+{
+	margin-top: 29px;
+	margin-bottom: 0px;
+	margin-left:0px;
+	float: left;
+	background: url(images/5inventec_Logo.jpg) no-repeat;
+	height: 71px;
+	width: 208px;
+}
+
+.header h2
+{   
+	float:left;
+	height:30px;
+	width:290px;
+	margin-top:27px;
+	margin-left:20px;
+	text-align:left;
+	font-size: 22pt;
+	color: Blue;
+	font-weight: bold;
+	font-family: Arial Unicode MS;
+}
+.header h3
+{   clear:both;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left:-6px;
+	margin-right:0px;
+	text-align:left;
+	padding:3px 0px 0px 15px;
+	background: url(images/5bg_Nav.jpg)  repeat-x scroll ;
+	width:100%;
+	height:33px;
+}
+.header h4
+{    position:absolute;
+	top:2px;
+	right:20px;
+}
+.divh4
+{
+	position:absolute;
+	top:2px;
+	right:20px;
+}
+.header ul
+{   margin-top:0px;
+	width:110px;
+	height:18px;
+
+	display: inline;
+	}
+.header ul li
+{   width:25px;
+	height:18px;
+
+	display: inline;
+}
+
+.header ul li img 
+{
+	border: 0px;
+}
+	
+.header h5
+{
+	margin-top:0px;
+	background-color:Transparent;
+	text-align:left;
+	padding-left:15px;
+}
+.header h6
+{ 	position:absolute;
+	top:40px;
+	right:20px;
+}
+.content
+{
+	text-align:left;
+	margin:0px auto;
+}
+.mockTest
+{   
+	display:none;
+	float:left;
+}
+.mainTable
+{    float:left;
+	width:99%;
+}
+.footer
+{
+	
+	clear:both;
+	background:	 url(images/5bg_Copy.jpg)  repeat-x scroll bottom;
+	width:100%;
+	height:37px;
+}
+.footer div
+ {   float:right;
+    margin-top:3px;
+    margin-right:10px;
+    font-family: Arial, Verdana, Arial Black;
+    font-size:0.6em;
+ }
+ 
+ /* for page of GroupMaintain */   
+ .GroupMaintain_left
+ {
+	float:left;
+	margin-left:15px;
+	width:72%;
+ }
+ .GroupMaintain_right
+ {
+	float:right;
+	width:25%;
+	top:185px;
+	right:0px;
+	/*background-image: url(images/fire/tree_bg.png);
+	background-repeat: repeat-y;*/
+	margin-top: 10px;
+ }
+ .addPerson
+ {  
+	width:45%;
+	margin:4px auto;
+	background-color:white;
+	padding:4px 4px 4px 4px;
+}
+
+
+ /* for page of Issues */   	
+.issue_margin
+{  
+	margin:10px auto;
+	border:dashed 1px #C1272D;
+	background-color:white;
+	padding:4px 4px 4px 4px;
+}
+ .popOut
+ {  
+	width:29%;
+	margin:4px auto;
+	border:dashed 1px #C1272D;
+	background-color:white;
+	padding:4px 4px 4px 4px;
+}
+
+/*Tree Background*/
+.tree_bg 
+{	
+	background-image: url(images/fire/tree_bg.png);
+	background-repeat: repeat-y;
+	padding: 20px 0px 40px 10px;		
+}
+.simple_container 
+{
+	width: 100%;
+	padding: 5px 20px 0px 20px;
+}

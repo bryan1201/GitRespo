@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Calculator.Operation" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAACQAAAAAAAAAEAAAAAACAA=</HashCode>
+      <FileName>Operation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Calculator.OperationFactory" Collapsed="true">
+    <Position X="10.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>OperationFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Calculator.Add" Collapsed="true">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>OperationFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Calculator.Sub" Collapsed="true">
+    <Position X="8.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>OperationFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Calculator.Mul" Collapsed="true">
+    <Position X="1.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>OperationFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Calculator.Div" Collapsed="true">
+    <Position X="6.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>OperationFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="6.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Font Name="微軟正黑體" Size="9" />
+</ClassDiagram>

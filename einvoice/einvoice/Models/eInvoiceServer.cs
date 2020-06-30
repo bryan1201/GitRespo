@@ -59,4 +59,55 @@ namespace einvoice.Models
             return mtdbcollection.GetSqlString();
         }
     }
+
+    public class DEVServerSYSEVENTDBCollection : ISYSEVENTDBCollection
+    {
+        private string config = Constant.DEVDBContext;
+        private SYSEVENTDBCollection syseventdbcollection;
+        public IEnumerable<TURNKEY_SYSEVENT_LOG> Get(TURNKEY_SYSEVENT_LOG syseventdb)
+        {
+            syseventdbcollection = new SYSEVENTDBCollection(config);
+            syseventdbcollection.Get(syseventdb);
+            return syseventdbcollection.SYSEVENTDBList;
+        }
+
+        public string GetSqlString()
+        {
+            return syseventdbcollection.GetSqlString();
+        }
+    }
+
+    public class QASServerSYSEVENTDBCollection : ISYSEVENTDBCollection
+    {
+        private string config = Constant.QASDBContext;
+        private SYSEVENTDBCollection syseventdbcollection;
+        public IEnumerable<TURNKEY_SYSEVENT_LOG> Get(TURNKEY_SYSEVENT_LOG syseventdb)
+        {
+            syseventdbcollection = new SYSEVENTDBCollection(config);
+            syseventdbcollection.Get(syseventdb);
+            return syseventdbcollection.SYSEVENTDBList;
+        }
+
+        public string GetSqlString()
+        {
+            return syseventdbcollection.GetSqlString();
+        }
+    }
+
+    public class PRDServerSYSEVENTDBCollection : ISYSEVENTDBCollection
+    {
+        private string config = Constant.PRDDBContext;
+        private SYSEVENTDBCollection syseventdbcollection;
+        public IEnumerable<TURNKEY_SYSEVENT_LOG> Get(TURNKEY_SYSEVENT_LOG syseventdb)
+        {
+            syseventdbcollection = new SYSEVENTDBCollection(config);
+            syseventdbcollection.Get(syseventdb);
+            return syseventdbcollection.SYSEVENTDBList;
+        }
+
+        public string GetSqlString()
+        {
+            return syseventdbcollection.GetSqlString();
+        }
+    }
 }

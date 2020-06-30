@@ -1,0 +1,72 @@
+﻿.menu_top{
+	background: #fff url(../../images/fire/bar_top_bg.jpg) repeat-x;
+	height:30px;
+	width:auto;
+	padding-left:5px;
+	
+	}
+	
+.menu_mid{
+	background: #fff url(../../images/fire/bar_mid_bg.jpg) repeat-x;
+	width:auto;
+	margin-top:0px;
+}
+.menu_container
+{
+	background:#fff url(../../images/fire/bar_btm_bg.jpg) repeat-x;
+	width:99%;
+	margin:0px 0px 0px 0px;
+	text-align:left;
+}
+.menu_btn_act
+{
+	background: transparent url(../../images/fire/simple_btn_act.png) no-repeat;
+	height:30px;
+	width:148px;
+	color:#ffffff;
+	text-align:left;
+	vertical-align:middle;
+	line-height:30px;
+	left:0px;
+}
+.menu_btn_inact
+{
+	height:30px;
+	width:148px;
+	color:#ffffff;
+	text-align:center;
+	line-height:30px;
+}
+.FVTDEDITCol1
+{
+	color: #000080;
+	background-color: #00FFFF;
+}
+.FVTDEDITCol2
+{
+	background-color: #EEE8AA;
+}
+.FVTDINSCol1
+{
+	color: #FFE4C4;
+	background-color: #7B68EE;
+}
+.FVTDINSCol2
+{
+	background-color: #EEE8AA;
+}
+.FVTDITCol1
+{
+	color: #FFFAF0;
+	background-color: #6495ED;
+}
+
+.FVTDITCol2
+{
+	background-color: #EEE8AA;
+}
+.GVDIVEmptyData
+{
+	color: #000080;
+	background-color: #87CEFA;
+}

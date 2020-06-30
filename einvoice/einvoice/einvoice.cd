@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="einvoice.Models.eInvoiceMessage.A0101" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAEAACAAAgAAAAAAACABAAAAAA=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="einvoice.Models.eInvoiceMessage.Main" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAGICAGACAAEQABAgARAQAEIAAChhCgAFCAkAAgiAg=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="einvoice.Models.eInvoiceMessage.MainSeller" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAQAAAAACCgAIAAAAQAQgAAAQACCAAJQgAAAAA=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="einvoice.Models.eInvoiceMessage.Amount" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgIAAUAAAAQiAaAAIQAAYAACAgADBAAAAQQkQQAAAA=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="einvoice.Models.eInvoiceMessage.MainBuyer" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAQAAAAACCgAIAAAAQAQgAAAQACCAAJQgAAAAA=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="einvoice.Models.eInvoiceMessage.DetailsProductItem" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>IAAGACAAASAiAAAAIAgEAECCAAAAAAAAAAAAgAAAAQA=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="einvoice.Models.DataAccess">
+    <Position X="19.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAQAAAAAAAACAAAAAAIAAAAAAAQAAAA=</HashCode>
+      <FileName>Models\DataAccess.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="einvoice.Models.eInvoiceServer" Collapsed="true">
+    <Position X="14.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\eInvoiceServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="einvoice.Models.DEVServerMTDBCollection" Collapsed="true">
+    <Position X="38.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\eInvoiceServer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="einvoice.Models.QASServerMTDBCollection">
+    <Position X="26" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\eInvoiceServer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="einvoice.Models.PRDServerMTDBCollection" Collapsed="true">
+    <Position X="41.75" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAACAAQAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\eInvoiceServer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="einvoice.Models.Message" Collapsed="true">
+    <Position X="17" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAACAAAACBAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Message.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="einvoice.Models.QRCode" Collapsed="true">
+    <Position X="31.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAQAAAAAgAAAQAERAAAIQCIAAgQAAQAIAQ=</HashCode>
+      <FileName>Models\QRCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="einvoice.Models.Serializer" Collapsed="true">
+    <Position X="36.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACBAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Serializer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="einvoice.Models.MTDBCollection" Collapsed="true">
+    <Position X="29" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACgAAAAAAAAABACAAAAABAAEBAAAQAAAABAAIAIAA=</HashCode>
+      <FileName>Models\TURNKEY_MESSAGE_LOG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="einvoice.Models.TURNKEY_MESSAGE_LOG">
+    <Position X="21.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DCSggAAACCCAEAIAMAgIAAAAACAABEABAAQIAAAAAgA=</HashCode>
+      <FileName>Models\TURNKEY_MESSAGE_LOG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="einvoice.Models.TURNKEY_MESSAGE_LOG_DETAIL">
+    <Position X="23.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCAAAAAAAAAAAAAAEAAAAAAAAAAAAEQAAAAAAIBAAAA=</HashCode>
+      <FileName>Models\TURNKEY_MESSAGE_LOG_DETAIL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="einvoice.Models.TURNKEY_SYSEVENT_LOG" Collapsed="true">
+    <Position X="33.5" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>iGAAAAAAAAAAAABAEAAAAAAAAAAAAAAQDAACAQAAAAg=</HashCode>
+      <FileName>Models\TURNKEY_SYSEVENT_LOG.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="einvoice.Models.IRawData" Collapsed="true">
+    <Position X="46.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IRawData.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="einvoice.Models.IMTDBCollection" Collapsed="true">
+    <Position X="45" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TURNKEY_MESSAGE_LOG.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="einvoice.Models.eInvoiceMessage.TaxTypeEnum" Collapsed="true">
+    <Position X="48.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBAAAAAIBAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="einvoice.Models.eInvoiceMessage.CurrencyCodeEnum" Collapsed="true">
+    <Position X="46.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>Pb7m9fugSGe+03gQiJX95pKA8fv/fwQAsMM9CIAA8G4=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="einvoice.Models.eInvoiceMessage.BuyerRemarkEnum" Collapsed="true">
+    <Position X="45" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAIBAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="einvoice.Models.eInvoiceMessage.CustomsClearanceMarkEnum" Collapsed="true">
+    <Position X="48.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="einvoice.Models.eInvoiceMessage.InvoiceTypeEnum" Collapsed="true">
+    <Position X="46.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="einvoice.Models.eInvoiceMessage.DonateMarkEnum" Collapsed="true">
+    <Position X="45" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\eInvoiceMessage\A0101.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="微軟正黑體" Size="9" />
+</ClassDiagram>

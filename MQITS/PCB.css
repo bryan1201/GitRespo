@@ -1,0 +1,23 @@
+﻿body 
+{font-family:黑体,Arial Unicode MS;
+	font-size:11pt;
+}
+*{
+	margin : 0px;
+	padding:0px;}
+.title
+{
+	 background-image : url(images/5title-bg.gif);
+	 background-repeat:repeat-x;
+	 height : 30px;
+	 font-size : 18px;
+	 color : White;
+	 font-weight : bold;
+	 padding-left :20px;
+	 padding-top : 5px;}
+.nav
+{
+	background-image : url(images/5nav_bg.gif);
+	 background-repeat :repeat-x;
+	 height: 69px;
+	 margin-top : 4px;}

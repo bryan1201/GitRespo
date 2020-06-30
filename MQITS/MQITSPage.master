@@ -1,0 +1,150 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MQITSPage.master.cs" Inherits="MQITSPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>MQITS</title>
+    <script language="javascript" type="text/javascript">
+    
+        function window_onload()
+        {
+            height = screen.availHeight;
+            width = screen.availWidth;
+            window.moveTo(0,0);
+            window.resizeTo(width, height);        
+        }
+        
+        function Refresh()
+        {
+            //theForm.submit();
+            //theForm.onsubmit;
+            theForm.submit();
+        }
+     </script>
+     <link rel="stylesheet" type="text/css" href="master.css" />
+</head>
+<body onload="javascript:window_onload()">
+    <form id="form1" runat="server">
+   <div class="header" style="width:100%">
+            <h1>
+            </h1>
+            <h2><asp:Label runat="server" ID="lblWebSiteName"></asp:Label>
+            <asp:Label runat="server" ID="lblWebSiteVer" Font-Size="9pt" 
+                    Font-Names="Arial Narrow">v0.1</asp:Label>
+            </h2>
+            <h3>
+             <asp:Menu ID="menuMQITS" runat="server" BackColor="Transparent" DynamicHorizontalOffset="1"
+                    Font-Names="Arial Narrow" Font-Size="10pt" ForeColor="White" Orientation="Horizontal"
+                    StaticSubMenuIndent="10px" Width="400px" DynamicVerticalOffset="1" BorderColor="Transparent"
+                    BorderStyle="None" DynamicHoverStyle-BackColor="Orange" Height="25px">
+                    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" 
+                        Font-Names="Arial Narrow" ItemSpacing="5px" />
+                    <DynamicHoverStyle BackColor="#C1272D" ForeColor="White" BorderColor="Transparent"
+                        Font-Size="9pt" />
+                    <DynamicMenuStyle BackColor="#772315" BorderColor="Transparent" BorderStyle="None"
+                        BorderWidth="1px" />
+                    <StaticSelectedStyle BackColor="#5D7B9D" />
+                    <DynamicSelectedStyle BackColor="#5D7B9D" />
+                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="4px" Font-Names="Arial Narrow"
+                        Font-Size="9pt" />
+                <Items>
+                    <asp:MenuItem Text="My Detail" Value="Personal" Selectable="False">
+                        <asp:MenuItem Text="MyIssueAction" Value="MyIssueAction" 
+                            NavigateUrl="~/MyIssueAction.aspx"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="NPI" Value="NPI">
+                        <asp:MenuItem Text="Summary" NavigateUrl="~/Summary.aspx" Value="Summary"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Issue.aspx?Action=Add" Target="_blank" 
+                            Text="Report Issue" Value="Issue"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/ImportIssue.aspx" Text="Import Issue" 
+                            Value="Issue"></asp:MenuItem>
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="MP" Value="MP">
+                    </asp:MenuItem>
+                    <asp:MenuItem Text="RMA" Value="RMA"></asp:MenuItem>
+                    <asp:MenuItem Text="WW" Value="WW"></asp:MenuItem>
+                    <asp:MenuItem Text="Maintain" Value="Maintain">
+                        <asp:MenuItem NavigateUrl="~/RoleMaintain.aspx" Text="Role &amp; User" 
+                            Value="Role &amp; User"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="" Text="Phase" Value="Phase">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/CustomerMaintain.aspx" Text="Customer" Value="Customer"></asp:MenuItem>
+                        <asp:MenuItem Text="Project" Value="Project">
+                            <asp:MenuItem NavigateUrl="~/ProjectMemberMaintain.aspx" Text="ProjectMember(NPI)" 
+                                Value="ProjectMember"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/ProjectPhaseMaintain.aspx" Text="ProjectPhase" 
+                                Value="ProjectPhase"></asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Site" Value="Site" NavigateUrl="~/SiteMaintain.aspx"></asp:MenuItem>                        
+                        <asp:MenuItem NavigateUrl="~/MMPriority.aspx" Text="Priority" Value="Priority">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/MMIssueStatus.aspx" Text="Issue Status" 
+                            Value="Issue Status"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/MMLiability.aspx" Text="Liability" 
+                            Value="Liability"></asp:MenuItem>
+                    </asp:MenuItem>
+                </Items>
+                <StaticHoverStyle BackColor="#772315" ForeColor="White" />
+            </asp:Menu>
+            </h3>
+            <div class="divh4">
+                 <ul>
+                    <li><a href="#">
+                        <img src="images/5ico_co.jpg" alt="Organization" /></a> </li>
+                    <li><a href="mailto:wu.bryan@inventec.com">
+                        <img src="images/5ico_email.jpg" alt="Email" /></a> </li>
+                    <li><a href="#">
+                        <img src="images/5ico_help.jpg" alt="help" /></a> </li>
+                    <li><a href="#">
+                        <img src="images/5ico_quit.jpg" alt="quit" /></a> </li>
+                </ul>
+             </div>
+             <h5>
+                <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Names="Arial Unicode MS" Font-Size="0.9em"
+                    PathSeparator=" » ">
+                    <PathSeparatorStyle Font-Bold="True" ForeColor="#333333" />
+                    <CurrentNodeStyle Font-Size="0.9em" ForeColor="#C1272D" />
+                    <NodeStyle Font-Bold="True" ForeColor="#333333" />
+                    <RootNodeStyle Font-Bold="True" ForeColor="#333333" />
+                </asp:SiteMapPath>
+            </h5>
+             <h6 style="right: 80px; top: 39px">
+             <span>
+                <asp:Label ID="lblWelcome" runat="server" Font-Bold="True" Font-Names="Arial Unicode MS" Font-Size="9pt" ForeColor="Olive"></asp:Label>
+                <asp:Label ID="lblUserName" runat="server" Font-Bold="True" Font-Names="Arial Unicode MS"
+                    Font-Size="9pt" ForeColor="Olive" Visible="False"></asp:Label>
+                &nbsp;<span style="color: Olive; font-size: 9pt; display: none;">Language:</span>
+                <asp:DropDownList ID="ddlUILang" runat="server" AutoPostBack="true" 
+                     onselectedindexchanged="ddlUILang_SelectedIndexChanged">
+                    <asp:ListItem Selected="True" Value="CHT" Text="繁體"></asp:ListItem>
+                    <asp:ListItem Value="ENG" Text="ENG"></asp:ListItem>
+                </asp:DropDownList>
+                    </span>
+              <span id="spanAdmin" runat="server" visible="true" style="font-size:7pt; font-family: Arial Unicode MS;">
+                 <asp:TextBox ID="txtUserIdSim" runat="server" Columns="9" Font-Size="8pt" ></asp:TextBox>&nbsp;
+                 <asp:Button ID="bthSubmit" runat="server" Text="人員模擬" Font-Size="7pt" OnClick="bthSubmit_Click" />&nbsp;
+                 <asp:CheckBox ID="chkSendMail" runat="server" Text="送信" Checked="true" />
+             </span>
+            </h6>
+        <div class="container">
+            <div class="content" style="width: 100%;">
+                <table border="0" cellpadding="0" cellspacing="0" style="width: 100%; height: 100%; margin: 0px;">
+                <tr align="left" valign="top">
+                    <td valign="top" align="left">
+                    <div class="mainTable" style="width: 100%;">
+                       <asp:contentplaceholder id="CPH_MQITS" runat="server"></asp:contentplaceholder>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+            </div>
+            </div>
+    </div>        
+        <div class="footer">
+            <div style="margin-top: 30px;">
+                COPYRIGHT© 2008 Inventec Corporation. All Rrights Reserved.
+            </div>
+        </div>
+        <asp:TextBox ID="txtUserId" runat="server" Visible="False" Columns="9"></asp:TextBox>
+    </form>
+</body>
+</html>

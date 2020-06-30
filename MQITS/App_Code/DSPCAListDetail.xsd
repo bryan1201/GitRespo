@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSPCAListDetail" targetNamespace="http://tempuri.org/DSPCAListDetail.xsd" xmlns:mstns="http://tempuri.org/DSPCAListDetail.xsd" xmlns="http://tempuri.org/DSPCAListDetail.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="MQITSConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="MQITSConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.MQITSConnectionString.ConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="MQITSConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>
+                      SELECT m.IssueSN,CONVERT(NVARCHAR(10),m.IssueDate,111) as IssueDate, m.IssueID,
+                      m.IssueOwner , m.Reporter , [dbo].[fn_GetProjectName](m.Project) as Project,
+                     [dbo].[fn_GetPhaseName](m.Project,m.Phase) as Phase,
+                      [dbo].[fn_GetStationName](m.Customer,m.Station) as Station,
+                      f.SerialNo as SN,f.DefectSymptom,[dbo].[fn_GetFailureQty](m.IssueID) as FailureQty,
+                      ISNULL([dbo].[fn_GetFailureRate](m.IssueID)+'%','') as FailureRate,
+                      f.Location,	f.DefectComponentPN,f.PackageType,
+                      [dbo].[fn_GetLiabilityName](m.Liability) as Liability,[dbo].[fn_GetARList](m.IssueID) as PIC,
+                      ISNULL([dbo].[fn_GetIssuePendingDate](m.IssueID),'') as PendingDate,
+                      [dbo].[fn_GetStatusName](m.Status) as Status, 'NPIIssue.aspx' as URL,
+                      [dbo].[fn_GetPriorityName](m.Priority) as Priority, m.DueDate,
+                      [dbo].[fn_GetRelatedIssue](m.IssueID) as RelatedIssue,m.MaterialType,
+                      RootCause,CorrectAction,m.Priority as PriorityCode,'ListPhoto.aspx' as PhotoURL,
+                     'PhotoList' as Photo, '' as Image
+                      FROM f_common m INNER JOIN f_NPI f ON m.IssueID=f.IssueID</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="IssueSN" DataSetColumn="IssueSN" />
+              <Mapping SourceColumn="IssueDate" DataSetColumn="IssueDate" />
+              <Mapping SourceColumn="IssueID" DataSetColumn="IssueID" />
+              <Mapping SourceColumn="IssueOwner" DataSetColumn="IssueOwner" />
+              <Mapping SourceColumn="Reporter" DataSetColumn="Reporter" />
+              <Mapping SourceColumn="Phase" DataSetColumn="Phase" />
+              <Mapping SourceColumn="Station" DataSetColumn="Station" />
+              <Mapping SourceColumn="SN" DataSetColumn="SN" />
+              <Mapping SourceColumn="DefectSymptom" DataSetColumn="DefectSymptom" />
+              <Mapping SourceColumn="FailureQty" DataSetColumn="FailureQty" />
+              <Mapping SourceColumn="FailureRate" DataSetColumn="FailureRate" />
+              <Mapping SourceColumn="Location" DataSetColumn="Location" />
+              <Mapping SourceColumn="DefectComponentPN" DataSetColumn="DefectComponentPN" />
+              <Mapping SourceColumn="PackageType" DataSetColumn="PackageType" />
+              <Mapping SourceColumn="Liability" DataSetColumn="Liability" />
+              <Mapping SourceColumn="PendingDate" DataSetColumn="PendingDate" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="Priority" DataSetColumn="Priority" />
+              <Mapping SourceColumn="RelatedIssue" DataSetColumn="RelatedIssue" />
+              <Mapping SourceColumn="RootCause" DataSetColumn="RootCause" />
+              <Mapping SourceColumn="CorrectAction" DataSetColumn="CorrectAction" />
+              <Mapping SourceColumn="Project" DataSetColumn="Project" />
+              <Mapping SourceColumn="DueDate" DataSetColumn="DueDate" />
+              <Mapping SourceColumn="MaterialType" DataSetColumn="MaterialType" />
+              <Mapping SourceColumn="URL" DataSetColumn="URL" />
+              <Mapping SourceColumn="PIC" DataSetColumn="PIC" />
+              <Mapping SourceColumn="PriorityCode" DataSetColumn="PriorityCode" />
+              <Mapping SourceColumn="PhotoURL" DataSetColumn="PhotoURL" />
+              <Mapping SourceColumn="Photo" DataSetColumn="Photo" />
+              <Mapping SourceColumn="Image" DataSetColumn="Image" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSPCAListDetail" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DSPCAListDetail" msprop:Generator_DataSetName="DSPCAListDetail">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IssueSN" msprop:Generator_UserColumnName="IssueSN" msprop:Generator_ColumnPropNameInRow="IssueSN" msprop:Generator_ColumnVarNameInTable="columnIssueSN" msprop:Generator_ColumnPropNameInTable="IssueSNColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IssueDate" msdata:ReadOnly="true" msprop:Generator_UserColumnName="IssueDate" msprop:Generator_ColumnPropNameInRow="IssueDate" msprop:Generator_ColumnVarNameInTable="columnIssueDate" msprop:Generator_ColumnPropNameInTable="IssueDateColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IssueID" msdata:DataType="System.Guid, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_UserColumnName="IssueID" msprop:Generator_ColumnPropNameInRow="IssueID" msprop:Generator_ColumnVarNameInTable="columnIssueID" msprop:Generator_ColumnPropNameInTable="IssueIDColumn" type="xs:string" />
+              <xs:element name="IssueOwner" msprop:Generator_UserColumnName="IssueOwner" msprop:Generator_ColumnPropNameInRow="IssueOwner" msprop:Generator_ColumnVarNameInTable="columnIssueOwner" msprop:Generator_ColumnPropNameInTable="IssueOwnerColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reporter" msprop:Generator_UserColumnName="Reporter" msprop:Generator_ColumnPropNameInRow="Reporter" msprop:Generator_ColumnVarNameInTable="columnReporter" msprop:Generator_ColumnPropNameInTable="ReporterColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phase" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Phase" msprop:Generator_ColumnPropNameInRow="Phase" msprop:Generator_ColumnVarNameInTable="columnPhase" msprop:Generator_ColumnPropNameInTable="PhaseColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Station" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Station" msprop:Generator_ColumnPropNameInRow="Station" msprop:Generator_ColumnVarNameInTable="columnStation" msprop:Generator_ColumnPropNameInTable="StationColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SN" msprop:Generator_UserColumnName="SN" msprop:Generator_ColumnPropNameInRow="SN" msprop:Generator_ColumnVarNameInTable="columnSN" msprop:Generator_ColumnPropNameInTable="SNColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1024" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DefectSymptom" msprop:Generator_UserColumnName="DefectSymptom" msprop:Generator_ColumnPropNameInRow="DefectSymptom" msprop:Generator_ColumnVarNameInTable="columnDefectSymptom" msprop:Generator_ColumnPropNameInTable="DefectSymptomColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2048" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FailureQty" msdata:ReadOnly="true" msprop:Generator_UserColumnName="FailureQty" msprop:Generator_ColumnPropNameInRow="FailureQty" msprop:Generator_ColumnVarNameInTable="columnFailureQty" msprop:Generator_ColumnPropNameInTable="FailureQtyColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FailureRate" msdata:ReadOnly="true" msprop:Generator_UserColumnName="FailureRate" msprop:Generator_ColumnPropNameInRow="FailureRate" msprop:Generator_ColumnVarNameInTable="columnFailureRate" msprop:Generator_ColumnPropNameInTable="FailureRateColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="51" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Location" msprop:Generator_UserColumnName="Location" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInTable="LocationColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DefectComponentPN" msprop:Generator_UserColumnName="DefectComponentPN" msprop:Generator_ColumnPropNameInRow="DefectComponentPN" msprop:Generator_ColumnVarNameInTable="columnDefectComponentPN" msprop:Generator_ColumnPropNameInTable="DefectComponentPNColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PackageType" msprop:Generator_UserColumnName="PackageType" msprop:Generator_ColumnPropNameInRow="PackageType" msprop:Generator_ColumnVarNameInTable="columnPackageType" msprop:Generator_ColumnPropNameInTable="PackageTypeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Liability" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Liability" msprop:Generator_ColumnPropNameInRow="Liability" msprop:Generator_ColumnVarNameInTable="columnLiability" msprop:Generator_ColumnPropNameInTable="LiabilityColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PendingDate" msdata:ReadOnly="true" msprop:Generator_UserColumnName="PendingDate" msprop:Generator_ColumnPropNameInRow="PendingDate" msprop:Generator_ColumnVarNameInTable="columnPendingDate" msprop:Generator_ColumnPropNameInTable="PendingDateColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Status" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInTable="StatusColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Priority" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Priority" msprop:Generator_ColumnPropNameInRow="Priority" msprop:Generator_ColumnVarNameInTable="columnPriority" msprop:Generator_ColumnPropNameInTable="PriorityColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RelatedIssue" msdata:ReadOnly="true" msprop:Generator_UserColumnName="RelatedIssue" msprop:Generator_ColumnPropNameInRow="RelatedIssue" msprop:Generator_ColumnVarNameInTable="columnRelatedIssue" msprop:Generator_ColumnPropNameInTable="RelatedIssueColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RootCause" msprop:Generator_UserColumnName="RootCause" msprop:Generator_ColumnPropNameInRow="RootCause" msprop:Generator_ColumnVarNameInTable="columnRootCause" msprop:Generator_ColumnPropNameInTable="RootCauseColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2048" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CorrectAction" msprop:Generator_UserColumnName="CorrectAction" msprop:Generator_ColumnPropNameInRow="CorrectAction" msprop:Generator_ColumnVarNameInTable="columnCorrectAction" msprop:Generator_ColumnPropNameInTable="CorrectActionColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2048" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Project" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Project" msprop:Generator_ColumnVarNameInTable="columnProject" msprop:Generator_ColumnPropNameInRow="Project" msprop:Generator_ColumnPropNameInTable="ProjectColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DueDate" msprop:Generator_UserColumnName="DueDate" msprop:Generator_ColumnVarNameInTable="columnDueDate" msprop:Generator_ColumnPropNameInRow="DueDate" msprop:Generator_ColumnPropNameInTable="DueDateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="MaterialType" msprop:Generator_UserColumnName="MaterialType" msprop:Generator_ColumnPropNameInRow="MaterialType" msprop:Generator_ColumnVarNameInTable="columnMaterialType" msprop:Generator_ColumnPropNameInTable="MaterialTypeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="URL" msdata:ReadOnly="true" msprop:Generator_UserColumnName="URL" msprop:Generator_ColumnVarNameInTable="columnURL" msprop:Generator_ColumnPropNameInRow="URL" msprop:Generator_ColumnPropNameInTable="URLColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PIC" msdata:ReadOnly="true" msprop:Generator_UserColumnName="PIC" msprop:Generator_ColumnPropNameInRow="PIC" msprop:Generator_ColumnVarNameInTable="columnPIC" msprop:Generator_ColumnPropNameInTable="PICColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PriorityCode" msprop:Generator_UserColumnName="PriorityCode" msprop:Generator_ColumnVarNameInTable="columnPriorityCode" msprop:Generator_ColumnPropNameInRow="PriorityCode" msprop:Generator_ColumnPropNameInTable="PriorityCodeColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="PhotoURL" msdata:ReadOnly="true" msprop:Generator_UserColumnName="PhotoURL" msprop:Generator_ColumnPropNameInRow="PhotoURL" msprop:Generator_ColumnVarNameInTable="columnPhotoURL" msprop:Generator_ColumnPropNameInTable="PhotoURLColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="14" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Photo" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Photo" msprop:Generator_ColumnVarNameInTable="columnPhoto" msprop:Generator_ColumnPropNameInRow="Photo" msprop:Generator_ColumnPropNameInTable="PhotoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Image" msdata:ReadOnly="true" msprop:Generator_UserColumnName="Image" msprop:Generator_ColumnPropNameInRow="Image" msprop:Generator_ColumnVarNameInTable="columnImage" msprop:Generator_ColumnPropNameInTable="ImageColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:IssueID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

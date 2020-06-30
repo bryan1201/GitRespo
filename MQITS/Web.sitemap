@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="" title="MQ Issue Tracking System"  description="MQ Issue Tracking System">
+      <siteMapNode url="" title="My Detail"  description="">
+        <siteMapNode url="~/MyIssueAction.aspx" title="My IssueAction" description=""></siteMapNode>
+      </siteMapNode>
+      <siteMapNode url="" title="NPI"  description="Life Cycle for NPI">
+        <siteMapNode url="~/Summary.aspx" title="Summary"></siteMapNode>
+        <siteMapNode url="~/NPIIssue.aspx" title="Report Issue"></siteMapNode>
+        <siteMapNode url="~/ImportIssue.aspx" title="Import Issue"></siteMapNode>
+        <siteMapNode url="~/IssueList.aspx" title="Query Issue"></siteMapNode>
+        <siteMapNode url="" title="NPI Maintain">
+          <siteMapNode url="~/MProjectOwner.aspx" title="Project-Phase-Member"></siteMapNode>
+        </siteMapNode>
+      </siteMapNode>
+      <siteMapNode url="" title="MP" description="Life Cycle for MP/RMA/WW">
+        <siteMapNode url="~/MPSummary.aspx" title="Summary"></siteMapNode>
+        <siteMapNode url="~/MPIssue.aspx" title="Report Issue"></siteMapNode>
+        <siteMapNode url="~/MPImportIssue.aspx" title="Import Issue"></siteMapNode>
+        <siteMapNode url="~/MPQuery.aspx" title="Query Issue"></siteMapNode>
+        <siteMapNode url="" title="Maintain">
+          <siteMapNode url="~/MProjectMaterial.aspx" title="Project-Material"></siteMapNode>
+        </siteMapNode>
+      </siteMapNode>
+      
+      <siteMapNode url="" title="Maintain"  description="">
+        <siteMapNode url="~/RoleMaintain.aspx" title="Role and User" description=""></siteMapNode>
+        <siteMapNode url="~/MCustomer.aspx" title="Customer" description=""></siteMapNode>
+        <siteMapNode url="~/MProject.aspx" title="Project" description=""></siteMapNode>
+        <siteMapNode url="~/MModule.aspx" title="Module" description=""></siteMapNode>
+        <siteMapNode url="~/MSite.aspx" title="Site" description=""></siteMapNode>
+        <siteMapNode url="~/PackageTypeMaintain.aspx" title="Package Type" description=""></siteMapNode>
+        <siteMapNode url="~/MMCustomer.aspx" title="Customer" description="Maintain Customer"></siteMapNode>
+        <siteMapNode url="~/MMPriority.aspx" title="Priority" description="Maintain Priority"></siteMapNode>
+        <siteMapNode url="~/MMIssueStatus.aspx" title="Issue Status" description="Maintain Issue Status"></siteMapNode>
+        <siteMapNode url="~/MMLiability.aspx" title="Liability" description="Maintain Liability"></siteMapNode>
+        <siteMapNode url="" title="RMA Maintain">
+          <siteMapNode url="~/MRMAStation.aspx" title="RMA Station"></siteMapNode>
+          <siteMapNode url="~/MRMAReturnType.aspx" title="RMA Return Type"></siteMapNode>
+          <siteMapNode url="~/MRMALiability.aspx" title="RMA Liability"></siteMapNode>
+          <siteMapNode url="~/MRMAReturnSite.aspx" title="RMA Return Site"></siteMapNode>
+        </siteMapNode>
+        <siteMapNode url="" title="WW Maintain">
+          <siteMapNode url="~/MWWProjectCategory.aspx" title="WW Project Category"></siteMapNode>
+          <siteMapNode url="~/MWWTriggerType.aspx" title="WW Trigger Type"></siteMapNode>
+          <siteMapNode url="~/MWWAffectedCustomer.aspx" title="WW Affected Customer"></siteMapNode>
+          <siteMapNode url="~/MWWAffectScope.aspx" title="WW Affect Scope"></siteMapNode>
+        </siteMapNode>
+      </siteMapNode>
+      <siteMapNode url="" title="Personal"  description="View personal profile and to setting agents">
+        <siteMapNode url="~/MPersonalProfile.aspx" title="Personal Profile and Agent" description="View personal profile and to setting agents"></siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+</siteMap>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="TopToBottom" Layout="Sugiyama" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 Type=CashNormal @9)" Category="CodeSchema_Method" Bounds="0,168,201.919999999998,26" CodeSchemaProperty_IsPublic="True" CommonLabel="acceptCash" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="acceptCash(double) : double" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/CashNormal.cs StartLineNumber=10 StartCharacterOffset=31 EndLineNumber=10 EndCharacterOffset=41)" />
+    <Node Id="(@1 @2 Type=CashRebate @9)" Category="CodeSchema_Method" Bounds="232,168,201.919999999998,26" CodeSchemaProperty_IsPublic="True" CommonLabel="acceptCash" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="acceptCash(double) : double" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/CashRebate.cs StartLineNumber=16 StartCharacterOffset=31 EndLineNumber=16 EndCharacterOffset=41)" />
+    <Node Id="(@1 @2 Type=CashRebate Member=(Name=.ctor OverloadingParameters=[(@8 Namespace=System Type=String)]))" Category="CodeSchema_Method" Bounds="464.901666666665,168,148.116666666669,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="CashRebate" Icon="Microsoft.VisualStudio.Method.Public" Label="CashRebate(string)" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/CashRebate.cs StartLineNumber=11 StartCharacterOffset=15 EndLineNumber=11 EndCharacterOffset=25)" />
+    <Node Id="(@1 @2 Type=CashReturn @9)" Category="CodeSchema_Method" Bounds="644,168,201.919999999998,26" CodeSchemaProperty_IsPublic="True" CommonLabel="acceptCash" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="acceptCash(double) : double" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/CashReturn.cs StartLineNumber=17 StartCharacterOffset=31 EndLineNumber=17 EndCharacterOffset=41)" />
+    <Node Id="(@1 @2 Type=CashReturn Member=(Name=.ctor OverloadingParameters=[(@8 Namespace=System Type=String),(@8 Namespace=System Type=String)]))" Category="CodeSchema_Method" Bounds="876.793333333331,168,184.333333333336,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="CashReturn" Icon="Microsoft.VisualStudio.Method.Public" Label="CashReturn(string, string)" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/CashReturn.cs StartLineNumber=12 StartCharacterOffset=15 EndLineNumber=12 EndCharacterOffset=25)" />
+    <Node Id="(@1 @2 Type=absCashSuper @9)" Category="CodeSchema_Method" Bounds="111,112,201.919999999998,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="acceptCash" Icon="Microsoft.VisualStudio.Method.Public" Label="acceptCash(double) : double" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/absCashSuper.cs StartLineNumber=10 StartCharacterOffset=31 EndLineNumber=10 EndCharacterOffset=41)" />
+    <Node Id="@10" Category="CodeSchema_Method" Bounds="462.66,56,152.599999999999,26" CodeSchemaProperty_IsConstructor="True" CodeSchemaProperty_IsPublic="True" CommonLabel="CashContext" Icon="Microsoft.VisualStudio.Method.Public" Label="CashContext(string)" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/CashContext.cs StartLineNumber=12 StartCharacterOffset=15 EndLineNumber=12 EndCharacterOffset=26)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="311.474999999999,56.0000000000001,120.970000000001,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="absCashSuper" Icon="Microsoft.VisualStudio.Class.Internal" Label="absCashSuper" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/absCashSuper.cs StartLineNumber=8 StartCharacterOffset=19 EndLineNumber=8 EndCharacterOffset=31)" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="482.663333333332,0,112.593333333334,26" CodeSchemaProperty_IsInternal="True" CommonLabel="CashContext" Icon="Microsoft.VisualStudio.Class.Internal" Label="CashContext" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/CashContext.cs StartLineNumber=9 StartCharacterOffset=10 EndLineNumber=9 EndCharacterOffset=21)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="343.529999999999,112,110.860000000001,26" CodeSchemaProperty_IsInternal="True" CommonLabel="CashNormal" Icon="Microsoft.VisualStudio.Class.Internal" Label="CashNormal" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/CashNormal.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=20)" />
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="484.904999999999,112,108.110000000001,26" CodeSchemaProperty_IsInternal="True" CommonLabel="CashRebate" Icon="Microsoft.VisualStudio.Class.Internal" Label="CashRebate" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/CashRebate.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=20)" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="691.833333333332,112,106.253333333334,26" CodeSchemaProperty_IsInternal="True" CommonLabel="CashReturn" Icon="Microsoft.VisualStudio.Class.Internal" Label="CashReturn" SourceLocation="(Assembly=file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/CashReturn.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=20)" />
+  </Nodes>
+  <Links>
+    <Link Source="@10" Target="@5" Bounds="439.816284179688,82,66.6437072753906,26.6574859619141" />
+    <Link Source="@10" Target="@6" Bounds="538.960021972656,82,0,21" />
+    <Link Source="@10" Target="@7" Bounds="586.781433105469,82,101.672302246094,27.6390762329102" />
+    <Link Source="@3" Target="(@1 @2 Type=absCashSuper @9)" Category="Contains" Bounds="257.597595214844,82,77.2195434570313,27.0268478393555" />
+    <Link Source="@4" Target="@10" Category="Contains" Bounds="538.960021972656,26,0,21" />
+    <Link Source="@4" Target="@3" Bounds="419.260894775391,26,80.9312438964844,27.1386260986328" />
+    <Link Source="@5" Target="(@1 @2 Type=CashNormal @9)" Category="Contains" Bounds="178.983749389648,135.411056518555,164.57453918457,30.9267578125" />
+    <Link Source="@6" Target="(@1 @2 Type=CashRebate @9)" Category="Contains" Bounds="389.466247558594,138,101.672332763672,27.6390838623047" />
+    <Link Source="@6" Target="(@1 @2 Type=CashRebate Member=(Name=.ctor OverloadingParameters=[(@8 Namespace=System Type=String)]))" Category="Contains" Bounds="538.960021972656,138,0,21" />
+    <Link Source="@7" Target="(@1 @2 Type=CashReturn @9)" Category="Contains" Bounds="744.960021972656,138,0,21" />
+    <Link Source="@7" Target="(@1 @2 Type=CashReturn Member=(Name=.ctor OverloadingParameters=[(@8 Namespace=System Type=String),(@8 Namespace=System Type=String)]))" Category="Contains" Bounds="796.162231445313,137.800567626953,112.066467285156,28.0166168212891" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="類別" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類別" />
+    <Category Id="CodeSchema_Member" Label="成員" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="成員" />
+    <Category Id="CodeSchema_Method" Label="方法" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="方法" />
+    <Category Id="CodeSchema_Type" Label="類型" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類型" />
+    <Category Id="Contains" Label="包含" Description="連結的來源是否包含目標物件" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="由下列包含" IsContainment="True" OutgoingActionLabel="包含" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="為抽象" Description="用來表示成員為「抽象」的旗標不提供完整實作" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsConstructor" Label="為建構函式" Description="表示方法為建構函式的旗標" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="為外部" Description="表示方法為「內部」的旗標" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="為公用" Description="表示範圍為「公用」的旗標" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Icon" Label="圖示" Description="圖示" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsOverloaded" Label="IsOverloaded" Description="IsOverloaded" DataType="System.Boolean" />
+    <Property Id="Label" Label="標籤" Description="可註釋物件的可顯示標籤" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="開始行號" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="組件" ValueType="Uri" />
+    <Name Id="Member" Label="成員" ValueType="System.Object" />
+    <Name Id="Name" Label="名稱" ValueType="System.String" />
+    <Name Id="Namespace" Label="命名空間" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="參數" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="Type" Label="類型" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(74fc27ff-c169-4d9f-905d-2069194115c3.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=CashRegister" />
+    <Alias n="3" Id="(@1 @2 Type=absCashSuper)" />
+    <Alias n="4" Id="(@1 @2 Type=CashContext)" />
+    <Alias n="5" Id="(@1 @2 Type=CashNormal)" />
+    <Alias n="6" Id="(@1 @2 Type=CashRebate)" />
+    <Alias n="7" Id="(@1 @2 Type=CashReturn)" />
+    <Alias n="8" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.5.2/mscorlib.dll" />
+    <Alias n="9" Id="Member=(Name=acceptCash OverloadingParameters=[(@8 Namespace=System Type=Double)])" />
+    <Alias n="10" Id="(@1 @2 Type=CashContext Member=(Name=.ctor OverloadingParameters=[(@8 Namespace=System Type=String)]))" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="74fc27ff-c169-4d9f-905d-2069194115c3.OutputPathUri" Value="file:///D:/GitRespo/GitRespo/DesignPatterns/DesignPattern/CashRegister/bin/Debug/CashRegister.exe" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+  </Paths>
+</DirectedGraph>

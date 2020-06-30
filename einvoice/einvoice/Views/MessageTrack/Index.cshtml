@@ -157,7 +157,8 @@
                                 </li>
                                 <li class="list-group-item">
                                     <abbr title="Sequence Number">SEQNO:</abbr>
-                                    @Html.DisplayFor(modelItem => item.SEQNO)
+                                    <a href="~/SYSEVENT?eInvServer=@eInvServer&SEQNO=@Html.DisplayFor(modelItem => item.SEQNO)">@Html.DisplayFor(modelItem => item.SEQNO)</a>
+                                    
                                 </li>
                             </ul>
                         </td>

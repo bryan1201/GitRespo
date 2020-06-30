@@ -12,9 +12,9 @@ using System.Text;
 
 namespace einvoice.Models
 {
-    public class Message: Models.IRawData
+    public class Message
     {
-        void IRawData.SaveRawData(A0101 Invoice, string filename)
+        void SaveRawData(A0101 Invoice, string filename)
         {
             throw new NotImplementedException();
         }
@@ -75,6 +75,7 @@ namespace einvoice.Models
             }
             catch (Exception ex)
             {
+                string msg = ex.Message;
                 //Log exception here
             }
         }
@@ -114,6 +115,7 @@ namespace einvoice.Models
             }
             catch (Exception ex)
             {
+                string msg = ex.Message;
                 //Log exception here
             }
 

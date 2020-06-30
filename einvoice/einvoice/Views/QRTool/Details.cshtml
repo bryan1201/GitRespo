@@ -1,11 +1,9 @@
-﻿@model einvoice.QRCodeReference.QRCode
-
+﻿@model einvoice.Models.QRCode
 @{
     ViewBag.Title = "QRCode Encrypt String";
-    string QREncryptString = ViewBag.QREncryptString;
+    string QREncryptString = ViewData["QREncryptString"].ToString();
+    string qrCodeImgBase64String = ViewData["qrCodeImgBase64String"].ToString();
 }
-
-<h2>@QREncryptString</h2>
 
 <div>
     <h4>QRCode Sample</h4>
@@ -114,7 +112,15 @@
         <dd>
             @Html.DisplayFor(model => model.errorCode)
         </dd>
-
     </dl>
-    <p><a class="btn btn-default" href="~/api/Values/5" target="_blank">QREncrypter &raquo;</a></p>
+    <div class="form-group">
+        <div class="control-label col-md-2">QREcrypt String</div>
+        <div class="col-md-10">
+            <div class="form-control">@QREncryptString</div>
+        </div>
+        <div><img src="@String.Format("data:image/png;base64,{0}", qrCodeImgBase64String)" /></div>
+    </div>
+    <p>
+        <a class="btn btn-default" href="~/QRTool/Create" target="_blank">Create &raquo;</a>
+    </p>
 </div>

@@ -1,0 +1,212 @@
+﻿@model IEnumerable<einvoice.Models.TURNKEY_SYSEVENT_LOG>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+    string eInvServer = ViewBag.eInvServer;
+    string SqlString = string.IsNullOrEmpty(ViewBag.SqlString) ? string.Empty : ViewBag.SqlString;
+    int iLogDetail = 0;
+}
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker({
+            format: 'YYYY/MM/DD HH:mm:ss'
+        });
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false, //Important! See issue #1075
+            format: 'YYYY/MM/DD HH:mm:ss'
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+
+    $(document).on("click", ".open-AddBookDialog", function () {
+        var ItemId = $(this).data('id');
+        $(".modal-title #ItemId").val(ItemId);
+        ItemId = $(".modal-title #ItemId");
+        $(".modal-body #ItemContent").val($("#" + ItemId.val()).val());
+        // As pointed out in comments,
+        // it is superfluous to have to manually call the modal.
+        // $('#addBookDialog').modal('show');
+    });
+
+    $('#myModal').on('hidden.bs.modal', function () {
+        alert('Close event!');
+        var ItemId = $(".modal-title #ItemId");
+        $("#" + ItemId.val()).val($(".modal-body #ItemContent").val());
+        //var ItemId = $(".modal-title #ItemId");
+        //$("#" + ItemId.val()).val($(".modal-body #ItemContent").val());
+        //ItemId.val($(".modal-body #ItemContent").val());
+        //console.log('ItemId : ' + $(".modal-body #ItemContent").val());
+    });
+
+    function setTextValue() {
+        var ItemId = $(".modal-title #ItemId");
+        $("#" + ItemId.val()).val($(".modal-body #ItemContent").val());
+    }
+
+</script>
+<table class="table table-condensed" style="width:100%">
+    <tr>
+        <td>
+            @using (Html.BeginForm("Index", "SYSEVENT", FormMethod.Get))
+            {
+                <label class="radio-inline">
+                    <input id="eInvServer" type="radio" name="eInvServer" value="DEVServer" @((eInvServer == "DEVServer") ? "checked" : string.Empty)>DEV
+                </label>
+                <label class="radio-inline">
+                    <input id="eInvServer" type="radio" name="eInvServer" value="QASServer" @((eInvServer == "QASServer") ? "checked" : string.Empty)>QAS
+                </label>
+                <label class="radio-inline">
+                    <input id="eInvServer" type="radio" name="eInvServer" value="PRDServer" @((eInvServer == "PRDServer") ? "checked" : string.Empty)>PRD
+                </label>
+                <table class="table table-bordered table-striped table-condensed">
+                    <tr>
+                        <td>
+                            <table class="table table-bordered table-striped table-condensed">
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.PARTY_ID)</th>
+                                    <th>@Html.DisplayNameFor(model => model.SEQNO)</th>
+                                    <th>@Html.DisplayNameFor(model => model.INFORMATION1)</th>
+                                    <th>@Html.DisplayNameFor(model => model.MESSAGE6)</th>
+                                    <th>Create</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.TextArea("PARTY_ID", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                        <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnPARTY_ID" data-id="PARTY_ID" data-toggle="modal" data-target="#myModal">Edit</button>
+                                    </td>
+                                    <td>
+                                        @Html.TextArea("SEQNO", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                        <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnSEQNO" data-id="SEQNO" data-toggle="modal" data-target="#myModal">Edit</button>
+                                    </td>
+                                    <td>
+                                        @Html.TextArea("INFOMATION1", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                        <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnINFOMATION1" data-id="INFOMATION1" data-toggle="modal" data-target="#myModal">Edit</button>
+                                    </td>
+                                    <td>
+                                        @Html.TextArea("MESSAGE6", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                                        <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnMESSAGE6" data-id="MESSAGE6" data-toggle="modal" data-target="#myModal">Edit</button>
+                                    </td>
+                                    <td style="width:20%" rowspan="4">
+                                        <table class="table table-condensed" style="width:220px">
+                                            <tr>
+                                                <td>
+                                                    <div class='input-group date' id='datetimepicker6'>
+                                                        @Html.TextBox("CdtFrom", "", new { @class = "form-control" })
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class='input-group date' id='datetimepicker7'>
+                                                        @Html.TextBox("CdtEnd", "", new { @class = "form-control" })
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <th>
+                            <input class="btn btn-primary btn-lg" type="submit" value="搜尋" />
+                        </th>
+                    </tr>
+                </table>
+            }
+
+                <table class="table table-bordered table-striped table-condensed table-responsive">
+                    <tr>
+                        <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
+                            @Html.DisplayNameFor(model => model.PARTY_ID)
+                        </th>
+                        <th style="width:5%;font-size:0.7em; word-wrap: break-word;">
+                            Sysevent Information
+                        </th>
+                        <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
+                            Sysevent Message
+                        </th>
+                    </tr>
+                    @if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            iLogDetail++;
+                            <tr>
+                                <td style="font-size:0.6em; word-wrap: break-word;">
+                                    <ul class="list-group">
+                                        <li class="list-group-item active">
+                                            <abbr title="Invoice Identifier">ID:</abbr>
+                                            @Html.DisplayFor(modelItem => item.PARTY_ID)
+                                        </li>
+                                        <li class="list-group-item">
+                                            <abbr title="Sequence Number">SEQNO:</abbr>
+                                            @Html.DisplayFor(modelItem => item.SEQNO)
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td style="font-size:0.6em; word-wrap: break-word;">
+                                    <table class="table table-bordered table-striped table-condensed">
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.INFORMATION1)
+                                                @Html.DisplayFor(modelItem => item.INFORMATION2)
+                                                @Html.DisplayFor(modelItem => item.INFORMATION3)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td style="font-size:0.6em; word-wrap: break-word;">
+                                    <table class="table table-bordered table-striped table-condensed">
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MESSAGE1)
+                                                @Html.DisplayFor(modelItem => item.MESSAGE2)
+                                                @Html.DisplayFor(modelItem => item.MESSAGE3)
+                                                @Html.DisplayFor(modelItem => item.MESSAGE4)
+                                                @Html.DisplayFor(modelItem => item.MESSAGE5)
+                                                @Html.DisplayFor(modelItem => item.MESSAGE6)
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </table>
+        </td>
+    </tr>
+</table>
+<div class="col-xs-12 col-md-12 col-lg-12">
+    <pre>@SqlString</pre>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    <input type="text" name="ItemId" id="ItemId" style="border:0; padding:0;" value="" readonly />
+                </h4>
+            </div>
+            <div class="modal-body">
+                @Html.TextArea("ItemContent", "", new { @class = "form-control", @placeholder = "Paste Number Here...", @cols = 15, @rows = 10, style = "width: 100%" })
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" onclick="javascript: setTextValue();">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,7 +17,7 @@
     //string test = Constant.MailTest;
     string ApplicationName = Constant.GetAppSettings("ApplicationName");
     bool IsAdmin = User.IsInRole("Admin");
-    string Role = string.IsNullOrEmpty(User.Identity.Name) ? "User" : User.Identity.Name;
+    string UserName = string.IsNullOrEmpty(User.Identity.Name) ? "User" : User.Identity.Name;
 }
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -47,7 +47,7 @@
                     <div class="col-lg-3">
                         <ul class="nav navbar-nav">
                             <li><h5><label class="label label-pill label-default">Login &raquo;</label></h5></li>
-                            <li><h5>@Html.ActionLink(Role, "Login", "Home")</h5></li>
+                            <li><h5>@Html.ActionLink(UserName, "Login", "Home")</h5></li>
                         </ul>
                     </div>
                 </div>

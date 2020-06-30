@@ -19,12 +19,13 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -151,6 +152,12 @@
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="zxing, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net45\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.5\lib\net45\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -188,9 +195,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\APIs\eInvoiceDocController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageTrackController.cs" />
     <Compile Include="Controllers\QRToolController.cs" />
+    <Compile Include="Controllers\SYSEVENTController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -204,16 +213,12 @@
     <Compile Include="Models\IRawData.cs" />
     <Compile Include="Models\QRCode.cs" />
     <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\RawData.cs" />
     <Compile Include="Models\Serializer.cs" />
     <Compile Include="Models\TURNKEY_MESSAGE_LOG.cs" />
     <Compile Include="Models\TURNKEY_MESSAGE_LOG_DETAIL.cs" />
     <Compile Include="Models\TURNKEY_SYSEVENT_LOG.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\QRCodeReference\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Services\InvoiceService.asmx.cs">
       <DependentUpon>InvoiceService.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -343,6 +348,8 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
+    <Content Include="einvoice.cd" />
+    <Content Include="ControllereInvoice.cd" />
     <None Include="Models\XSD\A0101-3.1-XML-001.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -373,18 +380,8 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\spin.js" />
     <Content Include="Scripts\spin.min.js" />
-    <Content Include="Service References\QRCodeReference\einvoice.QRCodeReference.QRCode.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
-    <None Include="Service References\QRCodeReference\QREncryptService.disco" />
-    <None Include="Service References\QRCodeReference\configuration91.svcinfo" />
-    <None Include="Service References\QRCodeReference\configuration.svcinfo" />
-    <None Include="Service References\QRCodeReference\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Services\InvoiceService.asmx" />
     <Content Include="Services\QREncryptService.asmx" />
     <Content Include="Web.config">
@@ -407,10 +404,10 @@
     <Content Include="Views\QRTool\Index.cshtml" />
     <Content Include="Views\QRTool\Create.cshtml" />
     <Content Include="Views\QRTool\Details.cshtml" />
-    <None Include="Service References\QRCodeReference\QREncryptService.wsdl" />
     <Content Include="Views\MessageTrack\Index.cshtml" />
     <Content Include="Views\MessageTrack\PartialTurnkeyMessageLogDetail.cshtml" />
     <Content Include="Views\MessageTrack\RawData.cshtml" />
+    <Content Include="Views\SYSEVENT\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -418,9 +415,6 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\QRCodeReference\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -43,7 +43,8 @@
             @Html.DisplayFor(modelItem => item.FILENAME)
         </td>
         <td>
-            @Html.ActionLink("RawData", "RawData", new { filename=item.FILENAME })
+            <a class="btn glyphicon-arrow-down" href="~/MessageTrack/RawData?filename=@item.FILENAME" target="_blank">RawData &raquo;</a>
+            <!--<a class="btn btn-default" href="~/api/eInvoiceDoc/GetEinvoiceFile?filename=@item.FILENAME" target="_blank">RawData &raquo;</a>-->
         </td>
     </tr>
 }

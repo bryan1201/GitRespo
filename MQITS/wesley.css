@@ -1,0 +1,150 @@
+﻿*
+{
+	margin: 0px;
+	padding: 0px;
+}
+h4
+{
+	color: White;
+	font-family: Verdana, Sans-Serif;
+	line-height: 30px;
+	font-size: 18px;
+	font-weight: bold;
+}
+.simple_navi
+{
+	
+}
+.bar_top
+{
+	background: #fff url(images/fire/bar_top_bg.jpg) repeat-x;
+	height: 30px;
+	width: auto;
+	padding-left: 10px;
+}
+.allerror_top
+{
+	background: #fff url(images/fire/bar_btm_bg.jpg) repeat-x;
+	height: 30px;
+	line-height: 0px;
+	width: auto;
+	padding-left: 150px;
+}
+.bar_mid
+{
+	background: #fff url(images/fire/bar_mid_bg.jpg) repeat-x;
+	height: 76px;
+	width: auto;
+	margin-top: 0px;
+}
+.bar_btm 
+{
+	background: #fff url(images/fire/bar_btm_bg.jpg) repeat-x;
+	height: 31px;
+	width: auto;
+}
+.btn_container 
+{
+	width: 444px;
+	margin: 41px auto 0px auto;
+	position: absolute;
+	text-align: left;
+}
+
+.btn_container2
+{
+	background: #fff url(images/fire/bar_btm_bg.jpg) repeat-x;
+	width: 444px;
+	margin: 41px 0px 0px 0px;
+	text-align: left;
+}
+
+.btn_container3
+{
+	background: #fff url(images/fire/bar_btm_bg.jpg) repeat-x;
+	width: 898px;
+	margin: 11px 0px 0px 0px;
+	text-align: left;
+}
+
+
+.simple_btn_hover 
+{
+	background: transparent url(images/fire/simple_btn_act.png) no-repeat;
+	height: 30px;
+	width: 148px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 30px;
+}
+
+.simple_btn_act 
+{
+	background: transparent url(images/fire/simple_btn_act.png) no-repeat;
+	height: 30px;
+	width: 148px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 30px;
+}
+.simple_btn_inact 
+{
+	height: 30px;
+	width: 148px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.simple_container 
+{
+	width: 100%;
+}
+.simple_container table 
+{
+	border: 0px solid #999;
+}
+.insert_layout 
+{
+	background-color: #f0f0f0;
+	font-family: Verdana;
+}
+.insert_layout_tr_1
+{
+	background-color: #F7F7DE;
+	line-height: 25px;
+}
+.insert_layout_text 
+{
+	padding-left: 20px;
+}
+.insert_layout_tr_2
+{
+	background-color: #fff;
+	line-height: 25px;	
+}
+.owner_view 
+{
+	font-family: Verdana;
+	font-size: 11px;
+}
+.owner_view_td1 
+{
+	background-color: #cccc99;
+	width: 100px;
+	line-height: 25px;
+	padding-left: 20px;	
+}
+.owner_view_td2 
+{
+	background-color: #F7F7DE;
+	line-height: 25px;
+	padding-left: 20px;	
+}
+.simple_table 
+{
+	font-family: Verdana;
+}
+.simple_table_td_top 
+{
+	border-top: 1px solid #666;
+}

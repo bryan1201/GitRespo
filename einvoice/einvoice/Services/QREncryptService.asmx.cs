@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Services;
 using einvoice.Models;
 using System.Web.Script.Services;
-using einvoice.QRCodeReference;
 using System.Xml;
 
 namespace einvoice.Services
@@ -20,7 +19,6 @@ namespace einvoice.Services
     // [System.Web.Script.Services.ScriptService]
     public class QREncryptService : System.Web.Services.WebService
     {
-
         [WebMethod]
         public string HelloWorld()
         {
@@ -47,34 +45,32 @@ namespace einvoice.Services
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Xml)]
-        public string QREncrypt(string QRCodeXMLString)
+        public string QREncrypt(Models.QRCode QRCode)
         {
-            string result = string.Empty;
-            
-            Serializer ser = new Serializer();
-            Models.QRCode qrcode = ser.Deserialize<Models.QRCode>(QRCodeXMLString);
+            string encryptString = string.Empty;
 
             try
-            {  
-                result = qrcode.QREncrypterString(false);
+            {
+                encryptString = QRCode.QREncrypterString(false);
             }
             catch(Exception ex)
             {
-                result = ex.Message;
+                encryptString = ex.Message;
             }
             
-            return result;
+            return encryptString;
         }
 
         [WebMethod(Description = "InvoiceDate用民國年，BusinessIdentifier預設為04322046")]
         [ScriptMethod(ResponseFormat = ResponseFormat.Xml)]
-        public string QREncryptXML(Models.QRCode QRCode)
+        public string QREncryptXML(string QRCodeXMLString)
         {
             string result = string.Empty;
-
+            Serializer ser = new Serializer();
+            Models.QRCode qrcode = ser.Deserialize<Models.QRCode>(QRCodeXMLString);
             try
             {
-                result = QRCode.QREncrypterString(false);
+                result = qrcode.QREncrypterString(false);
             }
             catch (Exception ex)
             {
