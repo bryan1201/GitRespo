@@ -274,6 +274,8 @@ namespace TransformReport
             IList<string> halllist = GetHallsList(transformConfiguration);
             DirectoryInfo di = new DirectoryInfo(dir); //(dir, "*.xls");
             FileInfo[] fi = di.GetFiles("*.xls");
+            ListBox lst = (ListBox)GetAll(fm, typeof(ListBox)).FirstOrDefault();
+            
             foreach (string hall in halllist)
             {
                 string rptAdult = string.Format("{0}A", hall);
@@ -281,6 +283,8 @@ namespace TransformReport
                
                 var fullnameA = fi.Where(f => f.Name.Contains(rptAdult)).Select(file => file.FullName).FirstOrDefault();
                 var fullnameC = fi.Where(f => f.Name.Contains(rptChild)).Select(file => file.FullName).FirstOrDefault();
+                lst.Items.Add(fullnameA);
+                lst.Items.Add(fullnameC);
 
                 var c = GetAll(fm, typeof(TextBox));
                 TextBox conA = c.OfType<TextBox>().Where(t => t.Name.Contains(rptAdult)).FirstOrDefault();

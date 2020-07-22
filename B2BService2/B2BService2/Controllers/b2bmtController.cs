@@ -183,6 +183,15 @@ namespace B2BService.Controllers
             ViewBag.Message = Constant.MDN;
             IMDN imdn = DataAccess.CreateMDN(piServer);
             string Rslt = imdn.Get(id, Constant.ContentTypeUTF8).Content;
+
+            try
+            {
+                Rslt = Constant.PrettyXml(Rslt);
+            }
+            catch {
+                // do nothing.
+            }
+
             ViewData["RsltMDN"] = Rslt;
 
             return View();

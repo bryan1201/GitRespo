@@ -51,7 +51,7 @@ namespace TransformReport
         private void buttonTransform_Click(object sender, EventArgs e)
         {
             HSSFWorkbook targetWorkbook = null;
-            string filePath;
+            //string filePath;
             IReportTransformer transformer;
 
             try
@@ -72,7 +72,44 @@ namespace TransformReport
                 transformer = new BaseTransformer();
                 HSSFSheet targetSheet = targetWorkbook.GetSheetAt(0) as HSSFSheet;
 
+                IList<string> halllist = transformer.GetHallsList(transformConfiguration);
+                foreach (string hall in halllist)
+                {
+                    string rptAdult = string.Format("{0}A", hall);
+                    string rptChild = string.Format("{0}C", hall);
+                    string repAdultFileName = string.Empty;
+                    string repChildFileName = string.Empty;
+                    int index = -1;
+                    foreach(var itm in this.lstboxHallFiles.Items)
+                    {
+                        index++;
+                        if(itm.ToString().IndexOf(rptAdult, StringComparison.OrdinalIgnoreCase)>0)
+                        {
+                            repAdultFileName = itm.ToString();
+                            break;
+                        }
+                    }
+
+                    textBoxProgress.Text = string.Format("處理{0}會所社區中…", hall);
+                    transformer.Transform(transformConfiguration, hall, "社區", repAdultFileName, targetSheet);
+                    
+                    index = -1;
+                    foreach (var itm in this.lstboxHallFiles.Items)
+                    {
+                        index++;
+                        if (itm.ToString().IndexOf(rptChild, StringComparison.OrdinalIgnoreCase) > 0)
+                        {
+                            repChildFileName = itm.ToString();
+                            break;
+                        }
+                    }
+                    
+                    textBoxProgress.Text = string.Format("處理{0}會所兒童中…", hall);
+                    transformer.Transform(transformConfiguration, hall, "兒童", repChildFileName, targetSheet);
+                }
+
                 // 12會所社區
+                /*
                 textBoxProgress.Text = "處理12會所社區中…";
                 Application.DoEvents();
                 if (!string.IsNullOrEmpty(filePath = textBox12Adult.Text.Trim()))
@@ -131,6 +168,7 @@ namespace TransformReport
                 Application.DoEvents();
                 if (!string.IsNullOrEmpty(filePath = textBox61Child.Text.Trim()))
                     transformer.Transform(transformConfiguration, "61", "兒童", filePath, targetSheet);
+                */
 
                 using (FileStream targetStream = new FileStream(textBoxOutput.Text.Trim(), FileMode.Create, FileAccess.Write, FileShare.Read))
                 {
