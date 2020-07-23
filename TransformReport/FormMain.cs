@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 using NPOI.HSSF.UserModel;
 
@@ -51,8 +52,19 @@ namespace TransformReport
         private void buttonTransform_Click(object sender, EventArgs e)
         {
             HSSFWorkbook targetWorkbook = null;
-            //string filePath;
+            string filePath = string.Empty;
+            float fSleep = 0.0f; int iSleep = 0;
             IReportTransformer transformer;
+
+            try
+            {
+                float.TryParse(txtThreadSleep.Text, out fSleep);
+                fSleep = fSleep * 1000f;
+                int.TryParse(fSleep.ToString(),out iSleep);
+            }
+            catch { 
+                //do nothing)
+            }
 
             try
             {
@@ -77,35 +89,17 @@ namespace TransformReport
                 {
                     string rptAdult = string.Format("{0}A", hall);
                     string rptChild = string.Format("{0}C", hall);
-                    string repAdultFileName = string.Empty;
-                    string repChildFileName = string.Empty;
-                    int index = -1;
-                    foreach(var itm in this.lstboxHallFiles.Items)
-                    {
-                        index++;
-                        if(itm.ToString().IndexOf(rptAdult, StringComparison.OrdinalIgnoreCase)>0)
-                        {
-                            repAdultFileName = itm.ToString();
-                            break;
-                        }
-                    }
 
+                    filePath = transformer.GetListBoxItembyFindString(rptAdult, this.lstboxHallFiles);
                     textBoxProgress.Text = string.Format("處理{0}會所社區中…", hall);
-                    transformer.Transform(transformConfiguration, hall, "社區", repAdultFileName, targetSheet);
-                    
-                    index = -1;
-                    foreach (var itm in this.lstboxHallFiles.Items)
-                    {
-                        index++;
-                        if (itm.ToString().IndexOf(rptChild, StringComparison.OrdinalIgnoreCase) > 0)
-                        {
-                            repChildFileName = itm.ToString();
-                            break;
-                        }
-                    }
-                    
+                    textBoxProgress.Refresh();
+                    transformer.Transform(transformConfiguration, hall, "社區", filePath, targetSheet);
+                    Thread.Sleep(iSleep);
+                    filePath = transformer.GetListBoxItembyFindString(rptChild, this.lstboxHallFiles);
                     textBoxProgress.Text = string.Format("處理{0}會所兒童中…", hall);
-                    transformer.Transform(transformConfiguration, hall, "兒童", repChildFileName, targetSheet);
+                    textBoxProgress.Refresh();
+                    transformer.Transform(transformConfiguration, hall, "兒童", filePath, targetSheet);
+                    Thread.Sleep(iSleep);
                 }
 
                 // 12會所社區

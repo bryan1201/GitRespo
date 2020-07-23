@@ -250,6 +250,21 @@ namespace TransformReport
 
             #endregion
         }
+
+        public string GetListBoxItembyFindString(string hall, ListBox lstbox)
+        {
+            string rslt = string.Empty;
+            foreach (var itm in lstbox.Items)
+            {
+                if (itm.ToString().IndexOf(hall, StringComparison.OrdinalIgnoreCase) > 0)
+                {
+                    rslt = itm.ToString();  //FullFilePathName
+                    break;
+                }
+            }
+            return rslt;
+        }
+
         public IList<string> GetHallsList(TransformSection transformSection)
         {
             IList<string> resultList = new List<string>();

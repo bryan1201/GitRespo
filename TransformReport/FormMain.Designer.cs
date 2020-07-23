@@ -79,18 +79,20 @@
             this.textBoxInput = new System.Windows.Forms.TextBox();
             this.labelInput = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageHalls = new System.Windows.Forms.TabPage();
             this.tabSourceTarget = new System.Windows.Forms.TabPage();
+            this.tabPageHalls = new System.Windows.Forms.TabPage();
             this.tabSourceList = new System.Windows.Forms.TabPage();
             this.lstboxHallFiles = new System.Windows.Forms.ListBox();
+            this.labelThreadSleep = new System.Windows.Forms.Label();
+            this.txtThreadSleep = new System.Windows.Forms.TextBox();
             this.groupBox12.SuspendLayout();
             this.groupBox36.SuspendLayout();
             this.groupBox37.SuspendLayout();
             this.groupBox60.SuspendLayout();
             this.groupBox61.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPageHalls.SuspendLayout();
             this.tabSourceTarget.SuspendLayout();
+            this.tabPageHalls.SuspendLayout();
             this.tabSourceList.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -555,13 +557,34 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabSourceTarget);
-            this.tabControl1.Controls.Add(this.tabPageHalls);
             this.tabControl1.Controls.Add(this.tabSourceList);
+            this.tabControl1.Controls.Add(this.tabPageHalls);
             this.tabControl1.Location = new System.Drawing.Point(12, 5);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(475, 273);
             this.tabControl1.TabIndex = 41;
+            // 
+            // tabSourceTarget
+            // 
+            this.tabSourceTarget.Controls.Add(this.txtThreadSleep);
+            this.tabSourceTarget.Controls.Add(this.labelThreadSleep);
+            this.tabSourceTarget.Controls.Add(this.labelInput);
+            this.tabSourceTarget.Controls.Add(this.buttonInput);
+            this.tabSourceTarget.Controls.Add(this.labelTemplate);
+            this.tabSourceTarget.Controls.Add(this.textBoxInput);
+            this.tabSourceTarget.Controls.Add(this.textBoxTemplate);
+            this.tabSourceTarget.Controls.Add(this.labelOutput);
+            this.tabSourceTarget.Controls.Add(this.textBoxOutput);
+            this.tabSourceTarget.Controls.Add(this.buttonOutput);
+            this.tabSourceTarget.Controls.Add(this.buttonTemplate);
+            this.tabSourceTarget.Location = new System.Drawing.Point(4, 22);
+            this.tabSourceTarget.Name = "tabSourceTarget";
+            this.tabSourceTarget.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSourceTarget.Size = new System.Drawing.Size(467, 247);
+            this.tabSourceTarget.TabIndex = 1;
+            this.tabSourceTarget.Text = "輸出入目錄";
+            this.tabSourceTarget.UseVisualStyleBackColor = true;
             // 
             // tabPageHalls
             // 
@@ -580,25 +603,6 @@
             this.tabPageHalls.Text = "會所資料";
             this.tabPageHalls.UseVisualStyleBackColor = true;
             // 
-            // tabSourceTarget
-            // 
-            this.tabSourceTarget.Controls.Add(this.labelInput);
-            this.tabSourceTarget.Controls.Add(this.buttonInput);
-            this.tabSourceTarget.Controls.Add(this.labelTemplate);
-            this.tabSourceTarget.Controls.Add(this.textBoxInput);
-            this.tabSourceTarget.Controls.Add(this.textBoxTemplate);
-            this.tabSourceTarget.Controls.Add(this.labelOutput);
-            this.tabSourceTarget.Controls.Add(this.textBoxOutput);
-            this.tabSourceTarget.Controls.Add(this.buttonOutput);
-            this.tabSourceTarget.Controls.Add(this.buttonTemplate);
-            this.tabSourceTarget.Location = new System.Drawing.Point(4, 22);
-            this.tabSourceTarget.Name = "tabSourceTarget";
-            this.tabSourceTarget.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSourceTarget.Size = new System.Drawing.Size(467, 247);
-            this.tabSourceTarget.TabIndex = 1;
-            this.tabSourceTarget.Text = "輸出入目錄";
-            this.tabSourceTarget.UseVisualStyleBackColor = true;
-            // 
             // tabSourceList
             // 
             this.tabSourceList.Controls.Add(this.lstboxHallFiles);
@@ -615,8 +619,26 @@
             this.lstboxHallFiles.ItemHeight = 12;
             this.lstboxHallFiles.Location = new System.Drawing.Point(12, 14);
             this.lstboxHallFiles.Name = "lstboxHallFiles";
-            this.lstboxHallFiles.Size = new System.Drawing.Size(444, 160);
+            this.lstboxHallFiles.Size = new System.Drawing.Size(444, 220);
             this.lstboxHallFiles.TabIndex = 0;
+            // 
+            // labelThreadSleep
+            // 
+            this.labelThreadSleep.AutoSize = true;
+            this.labelThreadSleep.Location = new System.Drawing.Point(284, 211);
+            this.labelThreadSleep.Name = "labelThreadSleep";
+            this.labelThreadSleep.Size = new System.Drawing.Size(108, 12);
+            this.labelThreadSleep.TabIndex = 41;
+            this.labelThreadSleep.Text = "Thread.Sleep(Second)";
+            // 
+            // txtThreadSleep
+            // 
+            this.txtThreadSleep.Location = new System.Drawing.Point(407, 208);
+            this.txtThreadSleep.Name = "txtThreadSleep";
+            this.txtThreadSleep.Size = new System.Drawing.Size(54, 22);
+            this.txtThreadSleep.TabIndex = 42;
+            this.txtThreadSleep.Text = "1";
+            this.txtThreadSleep.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FormMain
             // 
@@ -646,9 +668,9 @@
             this.groupBox61.ResumeLayout(false);
             this.groupBox61.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPageHalls.ResumeLayout(false);
             this.tabSourceTarget.ResumeLayout(false);
             this.tabSourceTarget.PerformLayout();
+            this.tabPageHalls.ResumeLayout(false);
             this.tabSourceList.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -712,6 +734,8 @@
         private System.Windows.Forms.TabPage tabSourceTarget;
         private System.Windows.Forms.TabPage tabSourceList;
         private System.Windows.Forms.ListBox lstboxHallFiles;
+        private System.Windows.Forms.TextBox txtThreadSleep;
+        private System.Windows.Forms.Label labelThreadSleep;
     }
 }
 
