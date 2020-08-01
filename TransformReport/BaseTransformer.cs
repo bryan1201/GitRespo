@@ -290,23 +290,28 @@ namespace TransformReport
             DirectoryInfo di = new DirectoryInfo(dir); //(dir, "*.xls");
             FileInfo[] fi = di.GetFiles("*.xls");
             ListBox lst = (ListBox)GetAll(fm, typeof(ListBox)).FirstOrDefault();
-            
+
             foreach (string hall in halllist)
             {
                 string rptAdult = string.Format("{0}A", hall);
                 string rptChild = string.Format("{0}C", hall);
-               
+
                 var fullnameA = fi.Where(f => f.Name.Contains(rptAdult)).Select(file => file.FullName).FirstOrDefault();
+                if (fullnameA != null)
+                    lst.Items.Add(fullnameA);
+
                 var fullnameC = fi.Where(f => f.Name.Contains(rptChild)).Select(file => file.FullName).FirstOrDefault();
-                lst.Items.Add(fullnameA);
-                lst.Items.Add(fullnameC);
+                if (fullnameC != null)
+                    lst.Items.Add(fullnameC);
 
                 var c = GetAll(fm, typeof(TextBox));
                 TextBox conA = c.OfType<TextBox>().Where(t => t.Name.Contains(rptAdult)).FirstOrDefault();
-                conA.Text = fullnameA;
-                
+                if (conA != null)
+                    conA.Text = fullnameA;
+
                 TextBox conC = c.OfType<TextBox>().Where(t => t.Name.Contains(rptChild)).FirstOrDefault();
-                conC.Text = fullnameC;
+                if (conC != null)
+                    conC.Text = fullnameC;
             }
         }
 

@@ -18,12 +18,15 @@ namespace einvoice.Models
         public string InvoiceNumber { get; set; }
         public string InvoiceDate { get; set; }
         public string InvoiceTime { get; set; }
+        /*
         public string RandomNumber { get {
                 return GenerateRandomNo().ToString("D4"); ;
             } set {
             this.strrndnum = GenerateRandomNo().ToString("D4");
             }
         }
+        */
+        public string RandomNumber{ get; set; }
         public int SalesAmount { get; set; }
         public int TaxAmount { get; set; }
         public int TotalAmount { get; set; }

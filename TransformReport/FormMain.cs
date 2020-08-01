@@ -81,6 +81,7 @@ namespace TransformReport
                     templateStream.Close();
                 }
 
+                
                 transformer = new BaseTransformer();
                 HSSFSheet targetSheet = targetWorkbook.GetSheetAt(0) as HSSFSheet;
 
@@ -373,6 +374,7 @@ namespace TransformReport
             TextBox txt = textBoxInput;
             try
             {
+                this.lstboxHallFiles.Items.Clear();
                 if (!string.IsNullOrEmpty(txt.Text.Trim()))
                     openFolderDialog1.SelectedPath = txt.Text.Trim();
                 if (openFolderDialog1.ShowDialog() == DialogResult.OK)
