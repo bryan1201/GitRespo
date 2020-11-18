@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using B2BService.Models;
 using Newtonsoft.Json;
-using Oracle.DataAccess.Types;
+using Oracle.ManagedDataAccess.Types;
 using System.Web.Routing;
 
 namespace B2BService.Controllers
@@ -46,7 +46,7 @@ namespace B2BService.Controllers
                 {
                     Text = item.Name,
                     Value = item.Id.ToString(),
-                    Selected = (!string.IsNullOrEmpty(selectedvalue))?(item.Id.ToString() == selectedvalue): (item.Id.ToString() == "")
+                    Selected = (!string.IsNullOrEmpty(selectedvalue)) ? (item.Id.ToString() == selectedvalue) : (item.Id.ToString() == "")
                 });
             }
 
@@ -55,6 +55,7 @@ namespace B2BService.Controllers
             ViewBag.ddlSTATUS = cList;
         }
 
+        [ValidateInput(false)]
         public ActionResult MT_DB(string piServer, string SegmentDelimiter,
             string partner, string division, string region,
             string docnum, string msgid, string parent, string controlnum, string idoc,
@@ -76,7 +77,7 @@ namespace B2BService.Controllers
             mtdb.DIRECTION = (!direction.HasValue) ? null : direction;
             mtdb.STATUS = (!ddlStatus.HasValue) ? null : ddlStatus;
             mtdb.GSSENDERID = (string.IsNullOrEmpty(gssenderid)) ? string.Empty : gssenderid.Trim();
-            mtdb.GSRECEIVERID= (string.IsNullOrEmpty(gsreceiverid)) ? string.Empty : gsreceiverid.Trim();
+            mtdb.GSRECEIVERID = (string.IsNullOrEmpty(gsreceiverid)) ? string.Empty : gsreceiverid.Trim();
             mtdb.ISASENDERID = (string.IsNullOrEmpty(isasenderid)) ? string.Empty : isasenderid.Trim();
             mtdb.ISARECEIVERID = (string.IsNullOrEmpty(isareceiverid)) ? string.Empty : isareceiverid.Trim();
             mtdb.KEYWORD_SEARCH = (string.IsNullOrEmpty(keyWordSearch)) ? string.Empty : keyWordSearch.Trim();
@@ -88,7 +89,7 @@ namespace B2BService.Controllers
             ViewBag.piServer = piServer;
             ViewBag.SqlString = imtdbcollection.GetSqlString();
             ViewBag.SegmentDelimiter = SegmentDelimiter;
-            InitDLL((mtdb.STATUS.HasValue)?mtdb.STATUS.Value.ToString():"");
+            InitDLL((mtdb.STATUS.HasValue) ? mtdb.STATUS.Value.ToString() : "");
 
             MT_REFDB(piServer, partner, division, region,
                 isasenderid, isareceiverid, gssenderid, edimsgtype);
@@ -111,7 +112,7 @@ namespace B2BService.Controllers
             optradio = string.IsNullOrEmpty(optradio) ? Constant.PIQServer : optradio;
             //IMTRef imtref = DataAccess.CreateMTREFDB(optradio);
             IMTREFDBCollection imtrefdb = DataAccess.CreateMTREFDBCollection(optradio);
-            vmtrefdbList =  imtrefdb.Get(vmtrefdb);
+            vmtrefdbList = imtrefdb.Get(vmtrefdb);
             IList<string> partners = vmtrefdbList.OrderBy(x => x.PARTNER).Select(x => x.PARTNER.ToUpper().Trim()).Distinct().ToList();
             IList<string> divisions = vmtrefdbList.OrderBy(x => x.DIVISION).Select(x => x.DIVISION.ToUpper().Trim()).Distinct().ToList();
             IList<string> regions = vmtrefdbList.OrderBy(x => x.REGION).Select(x => x.REGION.ToUpper().Trim()).Distinct().ToList();
@@ -149,28 +150,18 @@ namespace B2BService.Controllers
             ViewBag.Message = Constant.RawData;
             IRawData irawdata = DataAccess.CreateRawData(piServer);
             string Rslt = irawdata.Get(id, Constant.ContentTypeUTF8).Content;
-            
-            ViewData["RsltRawdata"] = Rslt;
-
-            return View();
-        }
-
-        public ActionResult RawData2(string id, string piServer, string SegmentDelimiter)
-        {
-            piServer = string.IsNullOrEmpty(piServer) ? Constant.PIPServer : piServer;
-            ViewBag.Message = Constant.RawData;
-            IRawData irawdata = DataAccess.CreateRawData(piServer);
-            string Rslt = irawdata.Get(id, Constant.ContentTypeUTF8).Content;
 
             try
             {
-                Rslt = Constant.PrettyXml(Rslt);
-                SegmentDelimiter = string.Empty;
-            }
-            catch { }
+                if (!string.IsNullOrEmpty(SegmentDelimiter))
+                    Rslt = Rslt.Replace(SegmentDelimiter, "\r\n");
 
-            if (!string.IsNullOrEmpty(SegmentDelimiter))
-                Rslt = Rslt.Replace(SegmentDelimiter, "\r\n");
+            }
+            catch (System.Xml.XmlException)
+            {
+                if (!string.IsNullOrEmpty(SegmentDelimiter))
+                    Rslt = Rslt.Replace(SegmentDelimiter, "\r\n");
+            }
 
             ViewData["RsltRawdata"] = Rslt;
 
@@ -183,15 +174,6 @@ namespace B2BService.Controllers
             ViewBag.Message = Constant.MDN;
             IMDN imdn = DataAccess.CreateMDN(piServer);
             string Rslt = imdn.Get(id, Constant.ContentTypeUTF8).Content;
-
-            try
-            {
-                Rslt = Constant.PrettyXml(Rslt);
-            }
-            catch {
-                // do nothing.
-            }
-
             ViewData["RsltMDN"] = Rslt;
 
             return View();
@@ -205,7 +187,7 @@ namespace B2BService.Controllers
                 ViewBag.Message = Constant.AuditLog;
                 IAuditLog iauditlog = DataAccess.CreateAuditLog(piServer);
                 AuditLog r = iauditlog.Get(id, Constant.ContentTypeUTF8);
-                if(r.auditLogStrList == null)
+                if (r.auditLogStrList == null)
                 {
                     RouteValueDictionary rv = new RouteValueDictionary();
                     rv.Add("id", id);
