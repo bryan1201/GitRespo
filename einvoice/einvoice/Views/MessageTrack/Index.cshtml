@@ -1,6 +1,8 @@
-﻿@model IEnumerable<einvoice.Models.TURNKEY_MESSAGE_LOG>
+﻿@using einvoice.Models;
+@model IEnumerable<einvoice.Models.TURNKEY_MESSAGE_LOG>
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "🅼🅴🆂🆂🅰🅶🅴 🆃🆁🅰🅲🅺🅸🅽🅶";
     string eInvServer = ViewBag.eInvServer;
     string SqlString = string.IsNullOrEmpty(ViewBag.SqlString) ? string.Empty : ViewBag.SqlString;
     int iLogDetail = 0;
@@ -54,13 +56,13 @@
             @using (Html.BeginForm("Index", "MessageTrack", FormMethod.Get))
             {
                 <label class="radio-inline">
-                    <input id="eInvServer" type="radio" name="eInvServer" value="DEVServer" @((eInvServer == "DEVServer") ? "checked" : string.Empty)>DEV
+                    <input id="eInvServer" type="radio" name="eInvServer" value="DEVServer" @((eInvServer == Constant.DEVServer) ? "checked" : string.Empty)>DEV
                 </label>
                 <label class="radio-inline">
-                    <input id="eInvServer" type="radio" name="eInvServer" value="QASServer" @((eInvServer == "QASServer") ? "checked" : string.Empty)>QAS
+                    <input id="eInvServer" type="radio" name="eInvServer" value="QASServer" @((eInvServer == Constant.QASServer) ? "checked" : string.Empty)>QAS
                 </label>
                 <label class="radio-inline">
-                    <input id="eInvServer" type="radio" name="eInvServer" value="PRDServer" @((eInvServer == "PRDServer") ? "checked" : string.Empty)>PRD
+                    <input id="eInvServer" type="radio" name="eInvServer" value="PRDServer" @((eInvServer == Constant.PRDServer) ? "checked" : string.Empty)>PRD
                 </label>
                 <table class="table table-bordered table-striped table-condensed">
                     <tr>
@@ -131,16 +133,16 @@
 
             <table class="table table-bordered table-striped table-condensed table-responsive">
                 <tr>
-                    <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
+                    <th style="width:10%;font-size:1em; word-wrap: break-word;">
                         @Html.DisplayNameFor(model => model.INVOICE_IDENTIFIER)
                     </th>
-                    <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
+                    <th style="width:10%;font-size:1em; word-wrap: break-word;">
                         @Html.DisplayNameFor(model => model.MESSAGE_TYPE)
                     </th>
-                    <th style="width:5%;font-size:0.7em; word-wrap: break-word;">
+                    <th style="width:5%;font-size:1em; word-wrap: break-word;">
                         @Html.DisplayNameFor(model => model.FROM_PARTY_ID)
                     </th>
-                    <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
+                    <th style="width:10%;font-size:1em; word-wrap: break-word;">
                         @Html.DisplayNameFor(model => model.STATUS)
                     </th>
                 </tr>
@@ -149,20 +151,23 @@
                 {
                     iLogDetail++;
                     <tr>
-                        <td style="font-size:0.6em; word-wrap: break-word;">
+                        <td style="font-size:1em; word-wrap: break-word;">
                             <ul class="list-group">
                                 <li class="list-group-item active">
-                                    <abbr title="Invoice Identifier">ID:</abbr>
-                                    @Html.DisplayFor(modelItem => item.INVOICE_IDENTIFIER)
+                                    <abbr title="Invoice Identifier">
+                                        <span style="font-size:2em;">📇</span>ID:
+                                        @Html.DisplayFor(modelItem => item.INVOICE_IDENTIFIER)
+                                    </abbr>
                                 </li>
                                 <li class="list-group-item">
-                                    <abbr title="Sequence Number">SEQNO:</abbr>
-                                    <a href="~/SYSEVENT?eInvServer=@eInvServer&SEQNO=@Html.DisplayFor(modelItem => item.SEQNO)">@Html.DisplayFor(modelItem => item.SEQNO)</a>
-                                    
+                                    <abbr title="Sequence Number/Look on System Event.">
+                                        SEQNO:
+                                        <a href="~/SYSEVENT?eInvServer=@eInvServer&SEQNO=@Html.DisplayFor(modelItem => item.SEQNO)"><span style="font-size:2em;">📋</span>@Html.DisplayFor(modelItem => item.SEQNO)<span style="font-size:2em;">🚀</span></a>
+                                    </abbr>
                                 </li>
                             </ul>
                         </td>
-                        <td style="font-size:0.6em; word-wrap: break-word;">
+                        <td style="font-size:1em; word-wrap: break-word;">
                             <table class="table table-bordered table-striped table-condensed">
                                 <tr>
                                     <th>@Html.DisplayNameFor(model => model.MESSAGE_TYPE)</th>
@@ -198,7 +203,7 @@
                                 </tr>
                             </table>
                         </td>
-                        <td style="font-size:0.6em; word-wrap: break-word;">
+                        <td style="font-size:1em; word-wrap: break-word;">
                             <table class="table table-bordered table-striped table-condensed">
                                 <tr>
                                     <th style="width:30%">@Html.DisplayNameFor(model => model.STATUS)</th>
@@ -210,21 +215,22 @@
                                 </tr>
                                 <tr>
                                     <th>@Html.DisplayNameFor(model => model.MESSAGE_DTS)</th>
-                                    <td>@Html.DisplayFor(modelItem => item.MESSAGE_DTS)</td>
+                                    <td>@Constant.FormatDateTime(item.MESSAGE_DTS)</td>
                                 </tr>
                             </table>
                         </td>
                     </tr>
                     <tr>
-                        <td style="font-size:0.6em; word-wrap: break-word;" colspan="4">
+                        <td style="font-size:1em; word-wrap: break-word;" colspan="4">
                             @if (item.TurnkeyMessageLogDetail != null)
                             {
                                 <button type="button" class="btn btn-info" data-toggle="collapse"
                                         data-target="@string.Format("{0}{1}", "#hasTurnkeyMessageLogDetail", iLogDetail.ToString())">
-                                    @Html.DisplayNameFor(model => model.TurnkeyMessageLogDetail)
+                                    🔻@Html.DisplayNameFor(model => model.TurnkeyMessageLogDetail)
+                                    @item.TurnkeyMessageLogDetail.ToList().Count
                                 </button>
                                 <div id="@string.Format("{0}{1}","hasTurnkeyMessageLogDetail", iLogDetail.ToString())" class="collapse">
-                                    @Html.Partial("PartialTurnkeyMessageLogDetail", item.TurnkeyMessageLogDetail)
+                                    @Html.Partial("PartialTurnkeyMessageLogDetail", item.TurnkeyMessageLogDetail);
                                 </div>
                             }
                         </td>

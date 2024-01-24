@@ -20,13 +20,14 @@ namespace einvoice.Controllers.APIs
     public class eInvoiceDocController : ApiController
     {
         [HttpGet]
-        public HttpResponseMessage GetEinvoiceFile(string filename)
+        public HttpResponseMessage GetEinvoiceFile(string eInvServer, string filename)
         {
             var result = new HttpResponseMessage(HttpStatusCode.OK);
             try
             {
-                IRawData ir = new RawData();
-                string xmlstring = ir.GetContent(filename, "application / octet - stream"); // text/xml
+                IRawDataCollection ir = DataAccess.CreateRawDataCollection(eInvServer);
+                //ir.GetContent(filename, @"text/xml");
+                string xmlstring = ir.GetContent(filename, @"application/octet-stream"); // text/xml
                 result.Content = new StringContent(xmlstring);
                 result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
             }

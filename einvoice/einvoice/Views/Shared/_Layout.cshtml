@@ -1,20 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@{
+    string Title = ViewBag.Title;
+}
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - 🛸Ⓣⓤⓡⓝⓚⓔⓨ⚡</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/bootstrapdatetime")
-
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
-    <!--@Scripts.Render("~/bundles/bootstrap")-->
-    @Scripts.Render("~/bundles/GoJS")
-    @Scripts.Render("~/bundles/Chart")
 </head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -24,20 +21,32 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("eInvoice", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink(@Title, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("首頁", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("🏠首頁", "Index", "Home", new { area = "" }, null)</li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            交易記錄查詢
+                            🆃🆄🆁🅽🅺🅴🆈 🅻🅾🅶
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("訊息記錄", "Index", "MessageTrack", new { area = "" }, null)</li>
-                            <li>@Html.ActionLink("事件記錄", "Index", "SYSEVENT", new { area = "" }, null)</li>
+                            <li>@Html.ActionLink("🅼🅴🆂🆂🅰🅶🅴 🆃🆁🅰🅲🅺🅸🅽🅶", "Index", "MessageTrack", new { area = "" }, null)</li>
+                            <li>@Html.ActionLink("🅢🅨🅢🅣🅔🅜 🅔🅥🅔🅝🅣", "Index", "SYSEVENT", new { area = "" }, null)</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("𝐖𝐞𝐛 𝐀𝐏𝐈", "Index", "Help", new { area = "" }, null)</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            財政部電子發票整合服務
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://www.einvoice.nat.gov.tw/" target="_blank">正式平台&raquo;</a></li>
+                            <li><a href="https://wwwtest.einvoice.nat.gov.tw/" target="_blank">測試平台&raquo;</a></li>
+                            <li><a href="http://km.iec.inventec/esp/preview.aspx?documentid=75097&ver=1&filename=Turnkey-使用手冊_v2.9.pdf&type=file" target="_blank">Turnkey使用手冊 v2.9&raquo;</a></li>
+                            <li><a href="https://www.einvoice.nat.gov.tw/EINSM/ein_upload/html/ENV/1536133205094.html" target="_blank">Turnkey v3.0.3軟體下載</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -48,12 +57,14 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 應用程式</p>
+            <p>&copy; @DateTime.Now.Year - Turnkey Log ASP.NET 應用程式</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/GoJS")
+    @Scripts.Render("~/bundles/Chart")
     @RenderSection("scripts", required: false)
 </body>
 </html>

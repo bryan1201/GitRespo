@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace einvoice.Models
 {
-    public interface IRawData
+    public interface IRawDataCollection
     {
+        string GetFtpUrl();
         string GetContent(string filepathname, string contenttype);
         void SaveRawData(A0101 Invoice, string filename);
     }

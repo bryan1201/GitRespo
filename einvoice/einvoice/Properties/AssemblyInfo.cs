@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // 控制。變更這些屬性值可修改與組件關聯的
 // 資訊。
 [assembly: AssemblyTitle("einvoice")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Turnkey Log Database")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("inventec")]
 [assembly: AssemblyProduct("einvoice")]
-[assembly: AssemblyCopyright("Copyright (C)  2017")]
+[assembly: AssemblyCopyright("Copyright (C)  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

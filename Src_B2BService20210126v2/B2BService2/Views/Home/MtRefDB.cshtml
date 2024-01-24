@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Message Tracking Reference: Multi-Select Checkboxes";
+    ViewBag.Message = @"PI Message Tracking Service to DEV/QAS/PROD (PID/PIQ/PIP)";
+    IList<string> Rslt = (IList<string>)ViewData["Partners"];
+    string piServer = ViewBag.piServer;
+    string newUrl = (ViewBag.newUrl != null) ? ViewBag.newUrl : string.Empty;
+}
+<div class="jumbotron">
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+    <h4>@newUrl</h4>
+</div>
+@using (Html.BeginForm("Test", "Home", FormMethod.Post))
+{
+    <script type="text/javascript">
+        var options = [];
+
+        $('.dropdown-menu a').on('click', function (event) {
+
+            var $target = $(event.currentTarget),
+                val = $target.attr('data-value'),
+                $inp = $target.find('input'),
+                idx;
+
+            if ((idx = options.indexOf(val)) > -1) {
+                options.splice(idx, 1);
+                setTimeout(function () { $inp.prop('checked', false) }, 0);
+            } else {
+                options.push(val);
+                setTimeout(function () { $inp.prop('checked', true) }, 0);
+            }
+
+            $(event.target).blur();
+
+            console.log(options);
+            return false;
+        });
+
+
+    </script>
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="button-group">
+                    PARTNER
+                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        @foreach (var item in Rslt)
+                        {
+                            <li>
+                                <a href="#" class="small" data-value="@item" tabIndex="-1"><input type="checkbox" />&nbsp;@item</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="button-group">
+                    MT_REF
+                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="~/api/MTRef/GetPartners?optradio=PIQServer" target="_blank" class="small" data-value="Partners" tabIndex="-1"><input type="checkbox" />&nbsp;Partners</a>
+                            <a href="~/api/MTRef/GetDivisions?partner=HPE&optradio=PIQServer" target="_blank" class="small" data-value="Divisions" tabIndex="-1"><input type="checkbox" />&nbsp;Divisions</a>
+                            <a href="~/api/MTRef/GetRegions?partner=HPE&division=SERVER&optradio=PIQServer" target="_blank" class="small" data-value="Regions" tabIndex="-1"><input type="checkbox" />&nbsp;Regions</a>
+                            <a href="~/api/MTRef/GetISASenderIDs?partner=hpe&division=server&region=ap_cn&optradio=PIQServer" target="_blank" class="small" data-value="ISASenderIDs" tabIndex="-1"><input type="checkbox" />&nbsp;ISASenderIDs</a>
+                            <a href="~/api/MTRef/GetISAReceiverIDs?partner=hpe&division=server&region=ap_cn&optradio=PIQServer" target="_blank" class="small" data-value="ISAReceiverIDs" tabIndex="-1"><input type="checkbox" />&nbsp;ISAReceiverIDs</a>
+                            <a href="~/api/MTRef/GetGSSenderIDs?partner=hpe&division=server&region=ap_cn&optradio=PIQServer" target="_blank" class="small" data-value="GSSenderIDs" tabIndex="-1"><input type="checkbox" />&nbsp;GSSenderIDs</a>
+                            <a href="~/api/MTRef/GetEDIMsgTypes?partner=hpe&division=server&region=ap_cn&optradio=PIQServer" target="_blank" class="small" data-value="EDIMsgTypes" tabIndex="-1"><input type="checkbox" />&nbsp;EDIMsgTypes</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}

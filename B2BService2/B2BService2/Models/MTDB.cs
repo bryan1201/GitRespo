@@ -1,6 +1,6 @@
-﻿using Oracle.DataAccess;
-using Oracle.DataAccess.Types;
-using Oracle.DataAccess.Client;
+﻿using Oracle.ManagedDataAccess;
+using Oracle.ManagedDataAccess.Types;
+using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,7 +58,7 @@ namespace B2BService.Models
 
         public DateTime? GetCreateDateFrom()
         {
-            return (this._CreateDateFrom.HasValue)? this._CreateDateFrom.Value : this._CreateDateFrom;
+            return (this._CreateDateFrom.HasValue) ? this._CreateDateFrom.Value : this._CreateDateFrom;
         }
 
         public DateTime? GetCreateDateEnd()
@@ -102,7 +102,7 @@ namespace B2BService.Models
 
                 if (varprop.PropertyType.Name == "String")
                 {
-                    rslt = string.IsNullOrEmpty(varprop.GetValue(mtdb,null) as string) ? rslt : ++rslt;
+                    rslt = string.IsNullOrEmpty(varprop.GetValue(mtdb, null) as string) ? rslt : ++rslt;
                 }
 
                 if (varprop.PropertyType.Name == "Int32")
@@ -185,7 +185,7 @@ namespace B2BService.Models
                     outrslt = int.TryParse(outrslt, out ivalue) ? ivalue.ToString("000000000") : outrslt;
                 }
             }
-            
+
             return outrslt;
         }
 
@@ -200,7 +200,32 @@ namespace B2BService.Models
             string MSGID = mtdb.MSGID;
             DateTime? dtCDTFrom = mtdb.GetCreateDateFrom();
             DateTime? dtCDTEnd = mtdb.GetCreateDateEnd();
-            select = @"SELECT /*+" + Constant.TSQL_HINT + @"*/ * FROM MT_DB";
+            select = @"SELECT /*+" + Constant.TSQL_HINT + @"*/ MSGID,
+  PARENT,
+  AS2PARTNER,
+  NVL2(IDOC,1,2) AS DIRECTION,
+  CHLMSGID,
+  CREATEDATE,
+  STATUS,
+  UPDATETIME,
+  GSSENDERID,
+  GSRECEIVERID,
+  DOCNUM,
+  ISASENDERID,
+  ISARECEIVERID,
+  CONTROLNUM,
+  EDIDATE,
+  EDIMSGTYPE,
+  FILEURI,
+  KEYWORD_SEARCH,
+  IDOC,
+  AUDIT_CHECK_STATUS,
+  PI_STATUS,
+  PI_ERROR_CODE,
+  PI_ERROR_CATEGORY,
+  IDOC_CALLBACK_MSG,
+  AS2FILENAME
+FROM MT_DB";
             if (CheckIsNullOrEmpty(mtdb) == 0)
             {
                 sql.Append(select);
@@ -270,7 +295,7 @@ namespace B2BService.Models
                                 sbwhere.Append(where);
                                 icond++;
                             }
-                            
+
                         }
                     }
 
@@ -280,7 +305,7 @@ namespace B2BService.Models
                         if (value.HasValue)
                         {
                             where = varprop.Name + " = @"; where = where.Replace("@", value.Value.ToString());
-                            if(icond > 0)
+                            if (icond > 0)
                             {
                                 sbwhere.Append(space);
                                 sbwhere.Append("AND");
@@ -308,11 +333,11 @@ namespace B2BService.Models
                         }
                     } // end if
 
-                    if(varprop.PropertyType.IsGenericType &&
+                    if (varprop.PropertyType.IsGenericType &&
                         varprop.PropertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
                     {
                         var propertyType = varprop.PropertyType.GetGenericArguments()[0].UnderlyingSystemType;
-                        if(propertyType.Name=="DateTime")
+                        if (propertyType.Name == "DateTime")
                         {
                             DateTime? value = varprop.GetValue(mtdb, null) as DateTime?;
                             if (value.HasValue)
@@ -351,7 +376,16 @@ namespace B2BService.Models
                             decimal? value = varprop.GetValue(mtdb, null) as decimal?;
                             if (value.HasValue)
                             {
-                                where = varprop.Name + " = @"; where = where.Replace("@", value.Value.ToString());
+                                if (varprop.Name == "DIRECTION")
+                                {
+                                    // if(IDOC IS NULL){1: Outbound} else {2: Inbound};
+                                    where = "NVL2(IDOC,1,2) = @"; where = where.Replace("@", value.Value.ToString());
+                                }
+                                else
+                                {
+                                    where = varprop.Name + " = @"; where = where.Replace("@", value.Value.ToString());
+                                }
+
                                 if (icond > 0)
                                 {
                                     sbwhere.Append(space);
@@ -405,7 +439,7 @@ namespace B2BService.Models
                 sql.Append(space);
                 sql.Append(orderby);
             } // end if
-            
+
             return sql.ToString();
         }
 
@@ -450,7 +484,7 @@ namespace B2BService.Models
                     DIRECTION = Convert.ToDecimal(row["DIRECTION"]),
                     MTDirection = strMTDirection,
                     MTDirectionRemark = strMTDirectionRemark,
-                    CHLMSGID= Convert.ToString(row["CHLMSGID"]),
+                    CHLMSGID = Convert.ToString(row["CHLMSGID"]),
                     CREATEDATE = dtCREATEDATE,
                     STATUS = Convert.ToDecimal(row["STATUS"]),
                     MTStatus = strMTStatus,

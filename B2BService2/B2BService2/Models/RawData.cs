@@ -59,12 +59,48 @@ namespace B2BService.Models
             this.MessageId = (string.IsNullOrEmpty(messageid) == true) ? MessageId : messageid;
             this.Url = (string.IsNullOrEmpty(url) == true) ? Url : url;
             this.ContentType = (string.IsNullOrEmpty(contenttype) == true) ? ContentType : contenttype;
+            
             StringBuilder fullurl = new StringBuilder();
-            fullurl.Append(this.Url);
-            fullurl.Append(Constant.RawData.ToLower());
-            fullurl.Append(@"/");
-            fullurl.Append(this.MessageId);
-            this.Content = GetWebResponse(fullurl.ToString());
+            string fullurl1 = string.Empty;
+            string fullurl2 = string.Empty;
+            try
+            {
+                fullurl.Append(this.Url);
+                fullurl.Append(Constant.RawData.ToLower());
+                fullurl.Append(@"/");
+                fullurl.Append(this.MessageId);
+                fullurl1 = fullurl.ToString();
+                this.Content = GetWebResponse(fullurl.ToString());
+                if (this.Content.Contains("WebException"))
+                    throw new WebException();
+            }
+            catch
+            {
+                try
+                {
+                    fullurl.Clear();
+                    fullurl.Append(this.Url);
+                    fullurl.Append(Constant.Archiving_RawData.ToLower());
+                    fullurl.Append(@"/");
+                    fullurl.Append(this.MessageId);
+                    fullurl2 = fullurl.ToString();
+                    this.Content = GetWebResponse(fullurl.ToString());
+                    if (this.Content.Contains("WebException"))
+                        throw new WebException();
+                }
+                catch(Exception ex)
+                {
+                    fullurl.Clear();
+                    fullurl.Append("Raw data file is not exist: \r\n ");
+                    fullurl.Append(ex.Message);
+                    fullurl.Append(" \r\n ");
+                    fullurl.Append(fullurl1);
+                    fullurl.Append(" AND \r\n ");
+                    fullurl.Append(fullurl2);
+
+                    this.Content = fullurl.ToString();
+                }
+            }
         }
 
         private void Init()

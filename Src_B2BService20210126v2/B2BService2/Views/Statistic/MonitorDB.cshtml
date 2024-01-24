@@ -1,0 +1,103 @@
+﻿@model B2BService.Models.MonitorDB
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string piServer = ViewBag.piServer;
+}
+<style>
+    .progress {
+        height: 100%;
+    }
+
+    div {
+        margin-left: auto;
+        margin-right: auto;
+        vertical-align: middle;
+        display: block;
+    }
+
+    div img {
+        vertical-align: middle;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    td.white{
+        color: white;
+    }
+</style>
+
+<div class="col-md-12" style="width:100%;margin-top:1%;">
+    <label class="radio-inline">
+        <input id="piServer" type="radio" name="piServer" value="PIDServer" @((piServer == "PIDServer") ? "checked" : string.Empty)>PID
+    </label>
+    <label class="radio-inline">
+        <input id="piServer" type="radio" name="piServer" value="PIQServer" @((piServer == "PIQServer") ? "checked" : string.Empty)>PIQ
+    </label>
+    <label class="radio-inline">
+        <input id="piServer" type="radio" name="piServer" value="PIPServer" @((piServer == "PIPServer") ? "checked" : string.Empty)>PIP
+    </label>
+    <table class="table table-condensed" style="width:100%">
+        <tr>
+            <td>
+                <div class="row">
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped table-condensed" style="background-color: #FC9775">
+                            <tr>
+                                <th>Type</th>
+                                <th>Total Usage</th>
+                                <th>Parameter</th>
+                                <th>Percent of Usge</th>
+                                <th>Max Session</th>
+                                <th>Percent of Max Session</th>
+                            </tr>
+                            <tr>
+                                <td class="white">@Html.DisplayFor(model => model.TotalSession.Type)</td>
+                                <td class="white">@Html.DisplayFor(model => model.TotalSession.NameValue)</td>
+                                <td class="white">@Html.DisplayFor(model => model.ParameterSessionValue)</td>
+                                <td class="white">@Html.DisplayFor(model => model.TotalSession.Percent) % </td>
+                                <td class="white">@Html.DisplayFor(model => model.MaxSessionValue)</td>
+                                <td class="white">@Html.DisplayFor(model => model.MaxSessionPercent) % </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6">
+                                    <span>Details</span>
+                                    @Html.Partial("PartialDBSession", Model.CurrentSession)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-bordered table-striped table-condensed" style="background-color: #5A69A6">
+                            <tr>
+                                <th>Type</th>
+                                <th>Total Usage</th>
+                                <th>Parameter</th>
+                                <th>Percent of Usge</th>
+                                <th>Max Process</th>
+                                <th>Percent of Max Process</th>
+                            </tr>
+                            <tr>
+                                <td class="white">@Html.DisplayFor(model => model.TotalProcess.Type)</td>
+                                <td class="white">@Html.DisplayFor(model => model.TotalProcess.NameValue)</td>
+                                <td class="white">@Html.DisplayFor(model => model.ParameterProcessValue)</td>
+                                <td class="white">@Html.DisplayFor(model => model.TotalProcess.Percent) % </td>
+                                <td class="white">@Html.DisplayFor(model => model.MaxProcessValue)</td>
+                                <td class="white">@Html.DisplayFor(model => model.MaxProcessPercent) % </td>
+                            </tr>
+                            <tr>
+                                <td colspan="6">
+                                    <span>Details</span>
+                                    @Html.Partial("PartialDBProcess", Model.CurrentProcess)
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12" style="width:100%; text-align:center;">
+                    @Html.Partial("PartialBarChart")
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -8,10 +8,90 @@ using System.Net.Mime;
 using einvoice.Models.eInvoiceMessage;
 using System.IO;
 using System.Xml;
+using System.Configuration;
 
 namespace einvoice.Models
 {
-    public class RawData : IRawData
+    
+    public class PRDServerRAWDATACollection : IRawDataCollection
+    {
+        private string _url { get; set; }
+
+        public PRDServerRAWDATACollection()
+        {
+            this._url = Constant.PRDServerFTP;
+        }
+
+        public string GetContent(string filepathname, string contenttype)
+        {
+            RawData ir = new RawData(this._url);
+            return ir.GetContent(filepathname, contenttype);
+        }
+
+        public void SaveRawData(A0101 Invoice, string filename)
+        {
+            //Do nothing!
+        }
+
+        public string GetFtpUrl()
+        {
+            return this._url;
+        }
+    }
+
+    public class QASServerRAWDATACollection : IRawDataCollection
+    {
+        private string _url { get; set; }
+
+        public QASServerRAWDATACollection()
+        {
+            this._url = Constant.QASServerFTP;
+        }
+
+        public string GetContent(string filepathname, string contenttype)
+        {
+            RawData ir = new RawData(this._url);
+            return ir.GetContent(filepathname, contenttype);
+        }
+
+        public void SaveRawData(A0101 Invoice, string filename)
+        {
+            //Do nothing!
+        }
+
+        public string GetFtpUrl()
+        {
+            return this._url;
+        }
+    }
+
+    public class DEVServerRAWDATACollection : IRawDataCollection
+    {
+        private string _url { get; set; }
+
+        public DEVServerRAWDATACollection()
+        {
+            this._url = Constant.DEVServerFTP;
+        }
+
+        public string GetContent(string filepathname, string contenttype)
+        {
+            RawData ir = new RawData(this._url);
+            return ir.GetContent(filepathname, contenttype);
+        }
+
+        public void SaveRawData(A0101 Invoice, string filename)
+        {
+            //Do nothing!
+        }
+
+        string IRawDataCollection.GetFtpUrl()
+        {
+            return this._url;
+        }
+    }
+
+    public class RawData
     {
         public string FilepathName { get; set; }
         public string Url { get; set; }
@@ -20,9 +100,9 @@ namespace einvoice.Models
         private const string _contentType = @"application/json; charset=utf-8";
         private string charSet { get; set; }
 
-        public RawData()
+        public RawData(string _url)
         {
-            Init();
+            this.Url = _url;
         }
 
         public RawData(string filepathname, string contenttype)
@@ -87,7 +167,8 @@ namespace einvoice.Models
                 Stream ftpStream = ftpResponse.GetResponseStream();
                 StreamReader reader = new StreamReader(ftpStream);
                 Rslt = reader.ReadToEnd();
-                Rslt = Constant.PrettyXml(Rslt);
+                if (url.EndsWith(".xml"))
+                    Rslt = Constant.PrettyXml(Rslt);
                 //XmlDocument xml = new XmlDocument();
                 //xml.LoadXml(Rslt);
                 //Rslt = xml.OuterXml;

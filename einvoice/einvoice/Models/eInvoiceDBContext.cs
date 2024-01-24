@@ -16,9 +16,9 @@ namespace einvoice.Models
         public DbSet<TURNKEY_MESSAGE_LOG_DETAIL> TurnKeyMessageLogDetail { get; set; }
         public DbSet<TURNKEY_SYSEVENT_LOG> TurnKeySyseventLog { get; set; }
 
-        public eInvoiceDBContext():base("eInvoiceDBContext")
+        public eInvoiceDBContext(string connstring)
         {
-
+            this.Database.Connection.ConnectionString = connstring;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

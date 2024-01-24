@@ -18,9 +18,17 @@ namespace B2BService.Models
         public static string PIDServer = ConfigurationManager.AppSettings["PIDServer"];
         public static string PIPServer = ConfigurationManager.AppSettings["PIPServer"];
 
+        public static string POQServer = ConfigurationManager.AppSettings["POQServer"];
+        public static string PODServer = ConfigurationManager.AppSettings["PODServer"];
+        public static string POPServer = ConfigurationManager.AppSettings["POPServer"];
+
         public static string PIDUrl = ConfigurationManager.AppSettings["PIDUrl"];
         public static string PIQUrl = ConfigurationManager.AppSettings["PIQUrl"];
         public static string PIPUrl = ConfigurationManager.AppSettings["PIPUrl"];
+
+        public static string PODUrl = ConfigurationManager.AppSettings["PODUrl"];
+        public static string POQUrl = ConfigurationManager.AppSettings["POQUrl"];
+        public static string POPUrl = ConfigurationManager.AppSettings["POPUrl"];
 
         public static string ContentTypeUTF8 = @"application/json;";
 
@@ -28,9 +36,14 @@ namespace B2BService.Models
         public static string PIQConnStr = ConfigurationManager.AppSettings["PIQConnStr"];
         public static string PIDConnStr = ConfigurationManager.AppSettings["PIDConnStr"];
 
+        public static string POPConnStr = ConfigurationManager.AppSettings["POPConnStr"];
+        public static string POQConnStr = ConfigurationManager.AppSettings["POQConnStr"];
+        public static string PODConnStr = ConfigurationManager.AppSettings["PODConnStr"];
+
         public static string MDN = "MDN";
         public static string AuditLog = "AuditLog";
-        public static string RawData = "RawData";
+        public static string RawData = ConfigurationManager.AppSettings["RawData"];  // "RawData";
+        public static string Archiving_RawData = ConfigurationManager.AppSettings["Archiving_RawData"];  // "Archiving/RawData"
         public static string MTREFDB = "MTREFDB";
 
         public static IEnumerable<LOOKUP_DB> LookupMTProcessStep;
@@ -75,40 +88,72 @@ namespace B2BService.Models
         public static void webRequestException(WebException ex, HttpContext con, string url, out string response)
         {
             string ret = "\r\n";
-            var resp = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
-            dynamic obj = JsonConvert.DeserializeObject(resp.ToString());
-            string statuscode = obj["httpStatusCode"].ToString();
-            string message = obj["message"].ToString();
-            string stackTrackFromServer = obj["stackTrace"].ToString();
-
             StringBuilder sb = new StringBuilder();
             sb.Append(string.Format("WebClient.DownadString from url:{0}{1}", url, ret));
             sb.Append(string.Format("HttpContext.Request.Url:{0}{1}", con.Request.Url.ToString(), ret));
             sb.Append(string.Format("HttpContext.Request:{0}{1}", con.Request.ToString(), ret));
             sb.Append(string.Format("##WebException.Response.GetResponseStream from Server:{0}", ret));
-            sb.Append(string.Format("httpStatusCode: {0}{1}", statuscode, ret));
-            sb.Append(string.Format("message: {0}{1}", message, ret));
-            sb.Append(string.Format("stackTrack:{0}{1}", stackTrackFromServer, ret));
+
+            try
+            {
+                var resp = new StreamReader(ex.Response.GetResponseStream()).ReadToEnd();
+                dynamic obj = JsonConvert.DeserializeObject(resp.ToString());
+                string statuscode = obj["httpStatusCode"].ToString();
+                string message = obj["message"].ToString();
+                string stackTrackFromServer = obj["stackTrace"].ToString();
+                sb.Append(string.Format("httpStatusCode: {0}{1}", statuscode, ret));
+                sb.Append(string.Format("message: {0}{1}", message, ret));
+                sb.Append(string.Format("stackTrack:{0}{1}", stackTrackFromServer, ret));
+            }
+            catch(Exception exc)
+            {
+                string message = exc.Message;
+                sb.Append(string.Format("message: {0}{1}", message, ret));
+            }
             response = sb.ToString();
+        }
+
+        public static bool IsXML(string xml)
+        {
+            try
+            {
+                var stringBuilder = new StringBuilder();
+                var element = XElement.Parse(xml);
+
+                return true;
+            }
+            catch (System.Xml.XmlException e)
+            {
+                string msg = e.Message;
+                return false;
+            }
         }
 
         public static string PrettyXml(string xml)
         {
-            var stringBuilder = new StringBuilder();
-
-            var element = XElement.Parse(xml);
-
-            var settings = new XmlWriterSettings();
-            settings.OmitXmlDeclaration = true;
-            settings.Indent = true;
-            settings.NewLineOnAttributes = true;
-
-            using (var xmlWriter = XmlWriter.Create(stringBuilder, settings))
+            try
             {
-                element.Save(xmlWriter);
-            }
+                var stringBuilder = new StringBuilder();
 
-            return stringBuilder.ToString();
+                var element = XElement.Parse(xml);
+
+                var settings = new XmlWriterSettings();
+                settings.OmitXmlDeclaration = true;
+                settings.Indent = true;
+                settings.NewLineOnAttributes = true;
+
+                using (var xmlWriter = XmlWriter.Create(stringBuilder, settings))
+                {
+                    element.Save(xmlWriter);
+                }
+
+                return stringBuilder.ToString();
+            }
+            catch(System.Xml.XmlException e)
+            {
+                string msg = e.Message;
+                return xml;
+            }
         }
     }
 }

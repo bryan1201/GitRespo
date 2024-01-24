@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<einvoice.Models.TURNKEY_SYSEVENT_LOG>
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "🅢🅨🅢🅣🅔🅜 🅔🅥🅔🅝🅣";
+    string Title = ViewBag.Title;
     string eInvServer = ViewBag.eInvServer;
     string SqlString = string.IsNullOrEmpty(ViewBag.SqlString) ? string.Empty : ViewBag.SqlString;
     int iLogDetail = 0;
@@ -124,66 +126,66 @@
                 </table>
             }
 
-                <table class="table table-bordered table-striped table-condensed table-responsive">
-                    <tr>
-                        <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
-                            @Html.DisplayNameFor(model => model.PARTY_ID)
-                        </th>
-                        <th style="width:5%;font-size:0.7em; word-wrap: break-word;">
-                            Sysevent Information
-                        </th>
-                        <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
-                            Sysevent Message
-                        </th>
-                    </tr>
-                    @if (Model != null)
+            <table class="table table-bordered table-striped table-condensed table-responsive">
+                <tr>
+                    <th style="width:15%;font-size:1em; word-wrap: break-word;">
+                        @Html.DisplayNameFor(model => model.PARTY_ID)
+                    </th>
+                    <th style="width:35%;font-size:1em; word-wrap: break-word;">
+                        Sysevent Information
+                    </th>
+                    <th style="width:50%;font-size:1em; word-wrap: break-word;">
+                        Sysevent Message
+                    </th>
+                </tr>
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
                     {
-                        foreach (var item in Model)
-                        {
-                            iLogDetail++;
-                            <tr>
-                                <td style="font-size:0.6em; word-wrap: break-word;">
-                                    <ul class="list-group">
-                                        <li class="list-group-item active">
-                                            <abbr title="Invoice Identifier">ID:</abbr>
-                                            @Html.DisplayFor(modelItem => item.PARTY_ID)
-                                        </li>
-                                        <li class="list-group-item">
-                                            <abbr title="Sequence Number">SEQNO:</abbr>
-                                            @Html.DisplayFor(modelItem => item.SEQNO)
-                                        </li>
-                                    </ul>
-                                </td>
-                                <td style="font-size:0.6em; word-wrap: break-word;">
-                                    <table class="table table-bordered table-striped table-condensed">
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.INFORMATION1)
-                                                @Html.DisplayFor(modelItem => item.INFORMATION2)
-                                                @Html.DisplayFor(modelItem => item.INFORMATION3)
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                                <td style="font-size:0.6em; word-wrap: break-word;">
-                                    <table class="table table-bordered table-striped table-condensed">
-                                        <tr>
-                                            <td>
-                                                @Html.DisplayFor(modelItem => item.MESSAGE1)
-                                                @Html.DisplayFor(modelItem => item.MESSAGE2)
-                                                @Html.DisplayFor(modelItem => item.MESSAGE3)
-                                                @Html.DisplayFor(modelItem => item.MESSAGE4)
-                                                @Html.DisplayFor(modelItem => item.MESSAGE5)
-                                                @Html.DisplayFor(modelItem => item.MESSAGE6)
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                        }
+                        iLogDetail++;
+                        <tr>
+                            <td style="font-size:1em; word-wrap: break-word;">
+                                <ul class="list-group">
+                                    <li class="list-group-item active">
+                                        <abbr title="Invoice Identifier">ID:</abbr>
+                                        @Html.DisplayFor(modelItem => item.PARTY_ID)
+                                    </li>
+                                    <li class="list-group-item">
+                                        <abbr title="Sequence Number">SEQNO:</abbr>
+                                        @Html.DisplayFor(modelItem => item.SEQNO)
+                                    </li>
+                                </ul>
+                            </td>
+                            <td style="font-size:1em; word-wrap: break-word;">
+                                <table class="table table-bordered table-striped table-condensed">
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.INFORMATION1)
+                                            @Html.DisplayFor(modelItem => item.INFORMATION2)
+                                            @Html.DisplayFor(modelItem => item.INFORMATION3)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="font-size:1em; word-wrap: break-word;">
+                                <table class="table table-bordered table-striped table-condensed">
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.MESSAGE1)
+                                            @Html.DisplayFor(modelItem => item.MESSAGE2)
+                                            @Html.DisplayFor(modelItem => item.MESSAGE3)
+                                            @Html.DisplayFor(modelItem => item.MESSAGE4)
+                                            @Html.DisplayFor(modelItem => item.MESSAGE5)
+                                            @Html.DisplayFor(modelItem => item.MESSAGE6)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
                     }
+                }
 
-                </table>
+            </table>
         </td>
     </tr>
 </table>

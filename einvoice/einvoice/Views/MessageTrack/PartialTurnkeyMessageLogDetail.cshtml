@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<einvoice.Models.TURNKEY_MESSAGE_LOG_DETAIL>
+@{
+    string eInvServer = ViewBag.eInvServer;
+}
 <table class="table">
     <tr>
         <th>
@@ -16,7 +19,7 @@
         <th>
             @Html.DisplayNameFor(model => model.STATUS)
         </th>
-        <th>
+        <th style="width:10%">
             @Html.DisplayNameFor(model => model.FILENAME)
         </th>
         <th></th>
@@ -25,13 +28,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.SEQNO)
+            <a class="btn glyphicon-arrow-down" href="~/MessageTrack/RawData?filename=@item.FILENAME&eInvServer=@eInvServer" target="_blank">@Html.DisplayFor(modelItem => item.SEQNO) &raquo;</a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.SUBSEQNO)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PROCESS_DTS)
+            @einvoice.Models.Constant.FormatDateTime(item.PROCESS_DTS)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.TASK)
@@ -39,11 +42,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.STATUS)
         </td>
-        <td>
+        <td style="font-size:0.6em; word-wrap: break-word;">
             @Html.DisplayFor(modelItem => item.FILENAME)
         </td>
         <td>
-            <a class="btn glyphicon-arrow-down" href="~/MessageTrack/RawData?filename=@item.FILENAME" target="_blank">RawData &raquo;</a>
+            <a class="btn glyphicon-arrow-down" href="~/MessageTrack/RawData?filename=@item.FILENAME&eInvServer=@eInvServer" target="_blank">RawData &raquo;</a>
             <!--<a class="btn btn-default" href="~/api/eInvoiceDoc/GetEinvoiceFile?filename=@item.FILENAME" target="_blank">RawData &raquo;</a>-->
         </td>
     </tr>

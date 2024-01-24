@@ -171,6 +171,12 @@
             @using (Html.BeginForm("MT_DB", "b2bmt", FormMethod.Get))
             {
                 <label class="radio-inline">
+                    <input id="piServer" type="radio" name="piServer" value="POQServer" @((piServer == "POQServer") ? "checked" : string.Empty)>POQ
+                </label>
+                <label class="radio-inline">
+                    <input id="piServer" type="radio" name="piServer" value="POPServer" @((piServer == "POPServer") ? "checked" : string.Empty)>POP
+                </label><label style="font-size:22px;">||</label>
+                <label class="radio-inline">
                     <input id="piServer" type="radio" name="piServer" value="PIDServer" @((piServer == "PIDServer") ? "checked" : string.Empty)>PID
                 </label>
                 <label class="radio-inline">
@@ -185,18 +191,45 @@
                     </label>
                     <label class="radio-inline"> @Html.TextBox("SegmentDelimiter", SegmentDelimiter, new { @class = "form-control", style = "width:80px; background-color: lightpink" })</label>
                 </div>
+                <div class="radio-inline">
+                    <table>
+                        <tr>
+                            <td>
+                                <div class='input-group date' id='datetimepicker6'>
+                                    @Html.TextBox("CdtFrom", CdtFrom, new { @class = "form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </td>
+                            <td>
+                                <div class='input-group date' id='datetimepicker7'>
+                                    @Html.TextBox("CdtEnd", CdtEnd, new { @class = "form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+
+                <label class="radio-inline">
+                    <input class="btn btn-primary btn-lg" type="submit" value=" Search " />
+                </label>
                 <table class="table table-bordered table-striped table-condensed">
                     <tr>
                         <td>
                             <table class="table table-bordered table-striped table-condensed">
                                 <tr>
-                                    <th>@Html.DisplayNameFor(model => model.MSGID)</th>
-                                    <th><abbr title="Find Customer's message id">@Html.DisplayNameFor(model => model.CHLMSGID)</abbr>(AS2 MSG ID)
+                                    <th style="width:120px;">@Html.DisplayNameFor(model => model.MSGID)</th>
+                                    <th>
+                                        <abbr title="Find Customer's message id">@Html.DisplayNameFor(model => model.CHLMSGID)</abbr>(AS2 MSG ID)
                                     </th>
                                     <th>@Html.DisplayNameFor(model => model.DOCNUM)</th>
                                     <th>@Html.DisplayNameFor(model => model.CONTROLNUM)</th>
                                     <th>@Html.DisplayNameFor(model => model.IDOC)</th>
-                                    <th>Create</th>
                                 </tr>
                                 <tr>
                                     <td>
@@ -207,7 +240,7 @@
                                         @Html.TextArea("chlMsgId", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
                                         <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnchlMsgId" data-id="chlMsgId" data-toggle="modal" data-target="#myModal">Edit</button>
                                     </td>
-                                    
+
                                     <td>
                                         @Html.TextArea("Docnum", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
                                         <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnDOCNUM" data-id="Docnum" data-toggle="modal" data-target="#myModal">Edit</button>
@@ -220,43 +253,17 @@
                                         @Html.TextArea("IDOC", "", new { @class = "form-control", @rows = 1, style = "resize: none;" })
                                         <button type="button" class="open-AddBookDialog btn btn-info btn-xs" id="btnIDOC" data-id="IDOC" data-toggle="modal" data-target="#myModal">Edit</button>
                                     </td>
-                                    <td style="width:20%" rowspan="4">
-                                        <table class="table table-condensed" style="width:220px">
-                                            <tr>
-                                                <td>
-                                                    <div class='input-group date' id='datetimepicker6'>
-                                                        @Html.TextBox("CdtFrom", CdtFrom, new { @class = "form-control" })
-                                                        <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class='input-group date' id='datetimepicker7'>
-                                                        @Html.TextBox("CdtEnd", CdtEnd, new { @class = "form-control" })
-                                                        <span class="input-group-addon">
-                                                            <span class="glyphicon glyphicon-calendar"></span>
-                                                        </span>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </td>
+
                                 </tr>
 
                             </table>
                         </td>
-                        <th rowspan="3">
-                            <input class="btn btn-primary btn-lg" type="submit" value="搜尋" />
-                        </th>
                     </tr>
                     <tr>
                         <td>
                             <table class="table table-bordered table-striped table-condensed">
                                 <tr>
-                                    <th>PARTNER</th>
+                                    <th style="width:120px;">PARTNER</th>
                                     <th>DIVISION</th>
                                     <th>REGION</th>
                                     <th>ISASENDERID</th>
@@ -406,7 +413,7 @@
                         <td>
                             <table class="table table-bordered table-striped table-condensed">
                                 <tr>
-                                    <th>@Html.DisplayNameFor(model => model.EDIMSGTYPE)</th>
+                                    <th style="width:120px;">@Html.DisplayNameFor(model => model.EDIMSGTYPE)</th>
                                     <th>@Html.DisplayNameFor(model => model.DIRECTION)</th>
 
                                     <th>@Html.DisplayNameFor(model => model.GSRECEIVERID)</th>
@@ -484,10 +491,10 @@
                     <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
                         @Html.DisplayNameFor(model => model.MSGID)
                     </th>
-                    <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
+                    <th style="width:10%;font-size:0.7em; word-wrap: break-word; white-space:nowrap;">
                         @Html.DisplayNameFor(model => model.DIRECTION)
                     </th>
-                    <th style="width:5%;font-size:0.7em; word-wrap: break-word;">
+                    <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
                         @Html.DisplayNameFor(model => model.EDIMSGTYPE)
                     </th>
                     <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
@@ -496,14 +503,23 @@
                     <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
                         @Html.DisplayNameFor(model => model.EDIDATE)
                     </th>
+                    <th style="width:8%">PI Link</th>
                     <th style="width:10%;font-size:0.7em; word-wrap: break-word;">
                         @Html.DisplayNameFor(model => model.PI_STATUS)
                     </th>
-                    <th style="width:8%"></th>
+
                 </tr>
 
                 @foreach (var item in Model)
                 {
+                    if (string.IsNullOrEmpty(item.PARENT))
+                    {
+                        parentMessageId = item.MSGID;
+                    }
+                    else
+                    {
+                        parentMessageId = item.PARENT;
+                    }
                     <tr>
                         <td style="font-size:0.7em; word-wrap: break-word;">
                             <ul class="list-group">
@@ -521,7 +537,7 @@
                                 </li>
                             </ul>
                         </td>
-                        <td style="font-size:0.6em; word-wrap: break-word;">
+                        <td style="font-size:0.6em; word-wrap: break-word; white-space:nowrap;">
                             <table class="table table-bordered table-striped table-condensed">
                                 <tr>
                                     <th>@Html.DisplayNameFor(model => model.AS2PARTNER)</th>
@@ -541,7 +557,12 @@
                             <table class="table table-bordered table-striped table-condensed">
                                 <tr>
                                     <th style="width:30%">@Html.DisplayNameFor(model => model.EDIMSGTYPE)</th>
-                                    <td>@Html.DisplayFor(modelItem => item.EDIMSGTYPE)</td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(item.EDIMSGTYPE))
+                                        {
+                                            @Html.ActionLink(item.EDIMSGTYPE, "DownloadFile", new { id = parentMessageId, piServer = piServer, docnum = item.DOCNUM, msgtype = item.EDIMSGTYPE, SegmentDelimiter = SegmentDelimiter }, new { target = "_blank" })
+                                        }
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>@Html.DisplayNameFor(model => model.DOCNUM)</th>
@@ -553,11 +574,11 @@
                                 </tr>
                                 <tr>
                                     <th>@Html.DisplayNameFor(model => model.IDOC)</th>
-                                    <td style="font-size:0.6em; word-wrap: break-word;">@Html.DisplayFor(modelItem => item.IDOC)</td>
+                                    <td style="word-wrap: break-word;">@Html.DisplayFor(modelItem => item.IDOC)</td>
                                 </tr>
                             </table>
                         </td>
-                        <td style="font-size:0.6em; word-wrap: break-word;">
+                        <td style="font-size:0.6em; word-wrap: break-word;white-space:nowrap;">
                             <table class="table table-bordered table-striped table-condensed">
                                 <tr>
                                     <th style="width:30%">@Html.DisplayNameFor(model => model.GSSENDERID)</th>
@@ -577,7 +598,7 @@
                                 </tr>
                             </table>
                         </td>
-                        <td style="font-size:0.6em; word-wrap: break-word;">
+                        <td style="font-size:0.6em; word-wrap: break-word;white-space:nowrap;">
                             <table class="table table-bordered table-striped table-condensed">
                                 <tr>
                                     <td>
@@ -596,40 +617,8 @@
                                 </tr>
                             </table>
                         </td>
-                        <td style="font-size:0.5em; word-wrap: break-word;">
-                            <table class="table table-bordered table-striped table-condensed">
-                                <tr>
-                                    <th style="width:30%">@Html.DisplayNameFor(model => model.FILEURI)</th>
-                                    <td style="word-wrap: break-word;">@Html.DisplayFor(modelItem => item.FILEURI)</td>
-                                </tr>
-                                <tr>
-                                    <th>@Html.DisplayNameFor(model => model.PI_STATUS)</th>
-                                    <td>@Html.DisplayFor(modelItem => item.PI_STATUS)</td>
-                                </tr>
-                                <tr>
-                                    <th>@Html.DisplayNameFor(model => model.PI_ERROR_CODE)</th>
-                                    <td>@Html.DisplayFor(modelItem => item.PI_ERROR_CODE)</td>
-                                </tr>
-                                <tr>
-                                    <th>@Html.DisplayNameFor(model => model.PI_ERROR_CATEGORY)</th>
-                                    <td>@Html.DisplayFor(modelItem => item.PI_ERROR_CATEGORY)</td>
-                                </tr>
-                                <tr>
-                                    <th>@Html.DisplayNameFor(model => model.IDOC_CALLBACK_MSG)</th>
-                                    <td>@Html.DisplayFor(modelItem => item.IDOC_CALLBACK_MSG)</td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td style="font-size:0.6em; word-wrap: break-word;">
-                            @if (string.IsNullOrEmpty(item.PARENT))
-                            {
-                                parentMessageId = item.MSGID;
-                            }
-                            else
-                            {
-                                parentMessageId = item.PARENT;
-                            }
 
+                        <td style="font-size:0.6em; word-wrap: break-word;">
                             @if (!string.IsNullOrEmpty(item.EDIMSGTYPE))
                             {
                                 if (item.EDIMSGTYPE == "997")
@@ -649,11 +638,37 @@
                             <br />
                             @Html.ActionLink("Process Step", "ProcessDB", new { id = item.MSGID, piServer = piServer }, new { target = "_blank" })
                         </td>
+                        <td style="font-size:xx-small; word-wrap: break-word;">
+                            <table class="table table-bordered table-striped table-condensed">
+                                <tr>
+                                    <th style="width:20%">@Html.DisplayNameFor(model => model.FILEURI)</th>
+                                    <td style="font-size:xx-small; word-wrap: break-word;">@Html.DisplayFor(modelItem => item.FILEURI)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.PI_STATUS)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.PI_STATUS)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.PI_ERROR_CODE)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.PI_ERROR_CODE)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.PI_ERROR_CATEGORY)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.PI_ERROR_CATEGORY)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.IDOC_CALLBACK_MSG)</th>
+                                    <td>@Html.DisplayFor(modelItem => item.IDOC_CALLBACK_MSG)</td>
+                                </tr>
+                            </table>
+                        </td>
                     </tr>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.KEYWORD_SEARCH)</th>
-                        <td colspan="6">@Html.DisplayFor(modelItem => item.KEYWORD_SEARCH)</td>
-                    </tr>
+                    <!--
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.KEYWORD_SEARCH)</th>
+                <td colspan="6">@Html.DisplayFor(modelItem => item.KEYWORD_SEARCH)</td>
+            </tr>
+                -->
                 }
             </table>
         </td>

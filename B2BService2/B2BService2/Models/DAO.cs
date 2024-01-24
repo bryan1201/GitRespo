@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Oracle.DataAccess.Client;
+using Oracle.ManagedDataAccess.Client;
 using System.Data;
 using System.Configuration;
-using Oracle.DataAccess.Types;
+using Oracle.ManagedDataAccess.Types;
 
 namespace B2BService.Models
 {

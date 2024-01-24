@@ -26,7 +26,7 @@ namespace einvoice.Models
         public SYSEVENTDBCollection(string config)
         {
             this.config = config;
-            this._db = new eInvoiceDBContext();
+            this._db = new eInvoiceDBContext(config);
         }
 
         private int CheckIsNullOrEmpty(TURNKEY_SYSEVENT_LOG mtdb)
@@ -150,7 +150,7 @@ namespace einvoice.Models
                 sql.Append(select);
                 sql.Append(space);
                 //TO_DATE('2016/5/18 00:50:00','yyyy/MM/dd HH24:MI:SS')
-                sql.Append("WHERE 1=1 ORDER BY EVENTDTS ASC");
+                sql.Append("WHERE 1=0 ORDER BY EVENTDTS ASC");
             }
             else
             {
@@ -434,10 +434,31 @@ namespace einvoice.Models
         {
             this._db = db;
         }
+
         public TURNKEY_SYSEVENT_LOG()
         {
+      
+        }
+        public TURNKEY_SYSEVENT_LOG(string eInvServer)
+        {
+            string connstring = string.Empty;
             if (this._db == null)
-                this._db = new eInvoiceDBContext();
+            {
+                switch (eInvServer)
+                {
+                    case "DEVServer":
+                        connstring = Constant.DEVDBContext;
+                        break;
+                    case "QASServer":
+                        connstring = Constant.QASDBContext;
+                        break;
+                    case "PRDServer":
+                        connstring = Constant.PRDDBContext;
+                        break;
+                }
+
+                this._db = new eInvoiceDBContext(connstring);
+            }
         }
     }
 }

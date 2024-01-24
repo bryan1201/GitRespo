@@ -26,7 +26,7 @@ namespace einvoice.Models
         public MTDBCollection(string config)
         {
             this.config = config;
-            this._db = new eInvoiceDBContext();
+            this._db = new eInvoiceDBContext(config);
         }
 
         private int CheckIsNullOrEmpty(TURNKEY_MESSAGE_LOG mtdb)
@@ -150,7 +150,7 @@ namespace einvoice.Models
                 sql.Append(select);
                 sql.Append(space);
                 //TO_DATE('2016/5/18 00:50:00','yyyy/MM/dd HH24:MI:SS')
-                sql.Append("WHERE 1=1 ORDER BY MESSAGE_DTS ASC");
+                sql.Append("WHERE 1=0 ORDER BY MESSAGE_DTS ASC");
             }
             else
             {
@@ -354,20 +354,17 @@ namespace einvoice.Models
         public IEnumerable<TURNKEY_MESSAGE_LOG> Get(TURNKEY_MESSAGE_LOG mtdb)
         {
             SqlString = GetSqlQuery(mtdb);
-            List<TURNKEY_MESSAGE_LOG> tml = _db.TurnkeyMessageLog.SqlQuery(SqlString).ToList();
-            this.MTDBList = tml;
-            //System.Data.DataTable dt = Constant.ToDataTable(tml);
+            System.Data.DataTable dt = DAO.sqlCmdDataTable(this.config, SqlString);
 
-            //MTDBList = ConvertToTankReadings(dt);
-            //MTDBList = MTDBList.Where(x => x.DOCNUM == docnum);
-            return tml;
+            this.MTDBList = ConvertToTankReadings(dt);
+            return MTDBList;
         }
 
         private IEnumerable<TURNKEY_MESSAGE_LOG> ConvertToTankReadings(DataTable dataTable)
         {
             foreach (DataRow row in dataTable.Rows)
-            {   
-                yield return new TURNKEY_MESSAGE_LOG
+            {
+                yield return new TURNKEY_MESSAGE_LOG(this._db)
                 {
                     SEQNO = Convert.ToString(row["SEQNO"]),
                     SUBSEQNO = Convert.ToString(row["SUBSEQNO"]),
@@ -407,9 +404,12 @@ namespace einvoice.Models
         public string FROM_ROUTING_ID { get; set; }
         public string TO_ROUTING_ID { get; set; }
         public string INVOICE_IDENTIFIER { get; set; }
+
+        private eInvoiceDBContext _db { get; set; }
+
         public IEnumerable<TURNKEY_MESSAGE_LOG_DETAIL> TurnkeyMessageLogDetail {
             get {
-                return this.GetTurnkeyMessageLogDetail(this.SEQNO);
+                return this.GetTurnkeyMessageLogDetail(this.SEQNO, _db);
             }
         }
 
@@ -434,7 +434,6 @@ namespace einvoice.Models
         {
             return (this._CreateDateEnd.HasValue) ? this._CreateDateEnd.Value : this._CreateDateEnd;
         }
-        private eInvoiceDBContext _db { get; set; }
 
         public TURNKEY_MESSAGE_LOG(eInvoiceDBContext db)
         {
@@ -442,12 +441,10 @@ namespace einvoice.Models
         }
         public TURNKEY_MESSAGE_LOG()
         {
-            if (this._db == null)
-                this._db = new eInvoiceDBContext();
+
         }
-        private IEnumerable<TURNKEY_MESSAGE_LOG_DETAIL> GetTurnkeyMessageLogDetail(string SEQNO)
+        private IEnumerable<TURNKEY_MESSAGE_LOG_DETAIL> GetTurnkeyMessageLogDetail(string SEQNO, eInvoiceDBContext _db)
         {
-            _db = new eInvoiceDBContext();
             IEnumerable<TURNKEY_MESSAGE_LOG_DETAIL> tmld = _db.TurnKeyMessageLogDetail.Where(x => x.SEQNO == SEQNO).OrderBy(x => x.PROCESS_DTS);
             return tmld;
         }

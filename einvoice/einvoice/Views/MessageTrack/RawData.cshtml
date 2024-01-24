@@ -1,11 +1,15 @@
 ﻿
 @{
-    ViewBag.Title = "RawData";
+    ViewBag.Title = "🆁🅰🆆🅳🅰🆃🅰";
     Layout = "~/Views/Shared/_Layout.cshtml";
     string einvoiceDoc = HttpUtility.HtmlDecode(ViewData["einvoiceDoc"].ToString());
+    string eInvServer = ViewBag.eInvServer;
+    string filename = ViewBag.filename;
+    string ftpUrl = ViewBag.ftpUrl;
 }
-
-<h2>Invoice RawData</h2>
+<h1>@eInvServer - @ViewBag.Title</h1>
+<h2>📇🆃🆄🆁🅽🅺🅴🆈 𝐈𝐧𝐯𝐨𝐢𝐜𝐞 🅑🅐🅚 🅛🅞🅖 from @ftpUrl</h2>
+<div>@filename</div>
 <pre>
 @einvoiceDoc
 </pre>

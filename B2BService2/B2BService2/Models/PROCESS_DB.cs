@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Oracle.DataAccess;
-using Oracle.DataAccess.Types;
-using Oracle.DataAccess.Client;
+using Oracle.ManagedDataAccess;
+using Oracle.ManagedDataAccess.Types;
+using Oracle.ManagedDataAccess.Client;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Text;

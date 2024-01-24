@@ -1,0 +1,67 @@
+﻿@model AuditLog2
+@using Newtonsoft.Json
+@using B2BService.Models
+@{
+    ViewBag.Title = "B2B function Get AuditLog";
+    AuditLog2 Rslt = (AuditLog2)ViewData["RsltAuditLog2"];
+}
+<h3>@ViewBag.Title.</h3>
+<h4>@Html.DisplayNameFor(model => model.msgID) : @Html.DisplayFor(model => model.msgID)<br /></h4>
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <th style="width: 80%;font-size:0.7em; word-wrap: break-word;">
+            @Html.DisplayNameFor(model => model.AuditLogContentList)
+        </th>
+        <th style="width: 20%;font-size:0.7em; word-wrap: break-word;">
+            @Html.DisplayNameFor(model => model.childMsgList)
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <table class="table table-bordered table-striped table-condensed">
+                <tr>
+                    <th style="width:20%">
+                        @Html.DisplayNameFor(model => model.AuditLogContentList.FirstOrDefault().logTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AuditLogContentList.FirstOrDefault().logText)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AuditLogContentList.FirstOrDefault().logStatus)
+                    </th>
+                </tr>
+                @if (Model.AuditLogContentList != null)
+                {
+                    foreach (var item in Model.AuditLogContentList)
+                    {
+                        <tr>
+                            <td style="font-size:0.8em; word-wrap: break-word;">
+                                @item.logTime
+                            </td>
+                            <td style="font-size:0.8em; word-wrap: break-word;">
+                                @item.logText
+                            </td>
+
+                            <td style="font-size:0.8em; word-wrap: break-word;">
+                                @item.logStatus
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </td>
+        <td>
+            <table class="table table-bordered table-striped table-condensed">
+                @foreach (var item in Model.childMsgList)
+                {
+                    <tr>
+                        <td style="font-size:0.7em; word-wrap: break-word;">
+                            @Html.ActionLink(item.ToString(), "AuditLog2", new { id = item.ToString() })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+
+</table>

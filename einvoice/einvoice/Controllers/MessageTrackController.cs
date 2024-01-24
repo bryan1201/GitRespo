@@ -42,24 +42,31 @@ namespace einvoice.Controllers
             }
         }
 
-        public ActionResult RawData(string filename)
+        public ActionResult RawData(string eInvServer, string filename)
         {
+            eInvServer = (eInvServer == null) ? Constant.DEVServer : eInvServer;
+            
             var result = new HttpResponseMessage(HttpStatusCode.OK);
             string xmlstring = string.Empty;
+            string ftpUrl = string.Empty;
             try
             {
-                IRawData ir = new RawData();
-                xmlstring = ir.GetContent(filename, "text/xml"); // text/xml
+                IRawDataCollection ir = DataAccess.CreateRawDataCollection(eInvServer);
+                xmlstring = ir.GetContent(filename, "text"); // text/xml
+                ftpUrl = ir.GetFtpUrl();
                 result.Content = new StringContent(xmlstring);
-                result.Content.Headers.ContentType = new MediaTypeHeaderValue("text/xml");
+                result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
             }
             catch (Exception ex)
             {
                 string msg = ex.Message;
                 result.Content = new StringContent(ex.Message);
-                result.Content.Headers.ContentType = new MediaTypeHeaderValue("text/xml");
+                result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
             }
             ViewData["einvoiceDoc"] = HttpUtility.HtmlEncode(xmlstring);
+            ViewBag.eInvServer = eInvServer;
+            ViewBag.filename = filename;
+            ViewBag.ftpUrl = ftpUrl;
 
             return View();
         }

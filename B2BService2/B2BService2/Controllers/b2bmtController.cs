@@ -151,21 +151,36 @@ namespace B2BService.Controllers
             IRawData irawdata = DataAccess.CreateRawData(piServer);
             string Rslt = irawdata.Get(id, Constant.ContentTypeUTF8).Content;
 
-            try
-            {
-                if (!string.IsNullOrEmpty(SegmentDelimiter))
-                    Rslt = Rslt.Replace(SegmentDelimiter, "\r\n");
+            if (!string.IsNullOrEmpty(SegmentDelimiter))
+                Rslt = Rslt.Replace(SegmentDelimiter, "\r\n");
 
-            }
-            catch (System.Xml.XmlException)
-            {
-                if (!string.IsNullOrEmpty(SegmentDelimiter))
-                    Rslt = Rslt.Replace(SegmentDelimiter, "\r\n");
-            }
+            Rslt = (Constant.IsXML(Rslt) == true) ? Constant.PrettyXml(Rslt) : Rslt;
 
             ViewData["RsltRawdata"] = Rslt;
 
             return View();
+        }
+
+        public void DownloadFile(string id, string piServer, string docnum, string msgtype, string SegmentDelimiter)
+        {
+            piServer = string.IsNullOrEmpty(piServer) ? Constant.PIPServer : piServer;
+            ViewBag.Message = Constant.RawData;
+            IRawData irawdata = DataAccess.CreateRawData(piServer);
+            string Rslt = irawdata.Get(id, Constant.ContentTypeUTF8).Content;
+
+            if (!string.IsNullOrEmpty(SegmentDelimiter))
+                Rslt = Rslt.Replace(SegmentDelimiter, "\r\n");
+
+            string xmlString = Constant.PrettyXml(Rslt);
+            string fileName = (Constant.IsXML(Rslt) == true) ? docnum + "_" + msgtype + ".xml" : docnum + "_" + msgtype + ".txt";
+
+            HttpResponse response = System.Web.HttpContext.Current.Response;
+            response.StatusCode = 200;
+            response.AddHeader("content-disposition", "attachment; filename=" + fileName);
+            response.AddHeader("Content-Transfer-Encoding", "binary");
+            //response.AddHeader("Content-Length", _Buffer.Length.ToString());
+            response.ContentType = "application-download";
+            response.Write(xmlString);
         }
 
         public ActionResult MDN(string id, string piServer)

@@ -11,6 +11,7 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Xml;
 using System.Xml.Linq;
+using System.Globalization;
 
 namespace einvoice.Models
 {
@@ -23,6 +24,10 @@ namespace einvoice.Models
         public static readonly string S_eInvoiceFTPUser= ConfigurationManager.AppSettings["eInvoiceFTPUser"];
         public static readonly string S_eInvoiceFTPPWD = ConfigurationManager.AppSettings["eInvoiceFTPPWD"];
         public static readonly string S_eInvoiceFTPServer = ConfigurationManager.AppSettings["eInvoiceFTPServer"];
+        public static readonly string PRDServerFTP = ConfigurationManager.AppSettings["PRDServerFTP"];
+        public static readonly string QASServerFTP = ConfigurationManager.AppSettings["QASServerFTP"];
+        public static readonly string DEVServerFTP = ConfigurationManager.AppSettings["DEVServerFTP"];
+        public static readonly string DBBackupServerFTP = ConfigurationManager.AppSettings["DBBackupServerFTP"];
         public static readonly string S_eInoviceFTPA0101 = ConfigurationManager.AppSettings["eInoviceFTPA0101"];
         public static readonly string DEVDBContext = ConfigurationManager.ConnectionStrings["DEVDBContext"].ToString();
         public static readonly string QASDBContext = ConfigurationManager.ConnectionStrings["QASDBContext"].ToString();
@@ -34,6 +39,10 @@ namespace einvoice.Models
         public static readonly string PRDServer = "PRDServer";
         public static readonly string RawData = "RawData";
 
+        public static string FormatDateTime(string datetimestring)
+        {
+            return DateTime.ParseExact(datetimestring, "yyyyMMddHHmmssfff", CultureInfo.InvariantCulture).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss.fff");
+        }
         public static string PrettyXml(string xml)
         {
             var stringBuilder = new StringBuilder();
