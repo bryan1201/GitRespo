@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph Layout="Sugiyama" MajorVersion="1" MinorVersion="1" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 Type=Program)" Category="CodeSchema_Class" Bounds="146.811454970527,-9.37810856840438,90.003333333334,26" CodeSchemaProperty_IsInternal="True" CommonLabel="Program" Icon="Microsoft.VisualStudio.Class.Internal" Label="Program" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/TemplateMethod/Program.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=17)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="123.54296995797,59.9447127937431,136.750675306667,25.0175680576" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="AbstractClass" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Internal" Label="AbstractClass" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/TemplateMethod/AbstractClass.cs StartLineNumber=8 StartCharacterOffset=19 EndLineNumber=8 EndCharacterOffset=32)" UseManualLocation="True" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="206.682521621982,114.962280880143,135.726666666669,26" CodeSchemaProperty_IsInternal="True" CommonLabel="ConcreateClassA" Icon="Microsoft.VisualStudio.Class.Internal" Label="ConcreateClassA" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/TemplateMethod/ConcreateClassA.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=25)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="41.8990880699494,114.962280880143,134.783333333333,26" CodeSchemaProperty_IsInternal="True" CommonLabel="ConcreateClassB" Icon="Microsoft.VisualStudio.Class.Internal" Label="ConcreateClassB" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/TemplateMethod/ConcreateClassB.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=25)" />
+    <Node Id="@6" Category="CodeSchema_Method" Bounds="101.726656550567,58.5,180.09,26" CodeSchemaProperty_IsPublic="True" CommonLabel="TemplateMethod" Icon="Microsoft.VisualStudio.Method.Public" Label="TemplateMethod() : void" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/TemplateMethod/AbstractClass.cs StartLineNumber=12 StartCharacterOffset=20 EndLineNumber=12 EndCharacterOffset=34)" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @2 Type=Program)" Target="@3" Bounds="191.832997211413,16.6299929415628,0.0524403372370728,34.3147303616675" />
+    <Link Source="@3" Target="@6" Category="Contains" />
+    <Link Source="@6" Target="@4" Bounds="205.945568530363,84.499950000025,47.882582158852,43.9168367096784" />
+    <Link Source="@6" Target="@5" Bounds="130.08778240726,84.499950000025,47.5904108809976,43.8980483340269" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="類別" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類別" />
+    <Category Id="CodeSchema_Member" Label="成員" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="成員" />
+    <Category Id="CodeSchema_Method" Label="方法" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="方法" />
+    <Category Id="CodeSchema_Type" Label="類型" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類型" />
+    <Category Id="Contains" Label="包含" Description="連結的來源是否包含目標物件" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="由下列包含" IsContainment="True" OutgoingActionLabel="包含" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="為抽象" Description="用來表示成員為「抽象」的旗標不提供完整實作" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="為外部" Description="表示方法為「內部」的旗標" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="為公用" Description="表示範圍為「公用」的旗標" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Group" Label="群組" Description="將節點顯示為群組" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="Icon" Label="圖示" Description="圖示" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="Label" Label="標籤" Description="可註釋物件的可顯示標籤" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="MajorVersion" DataType="System.String" />
+    <Property Id="MinorVersion" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="開始行號" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="組件" ValueType="Uri" />
+    <Name Id="Member" Label="成員" ValueType="System.Object" />
+    <Name Id="Namespace" Label="命名空間" ValueType="System.String" />
+    <Name Id="Type" Label="類型" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(12783f7f-03b3-4321-878e-ceca230ba839.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=TemplateMethod" />
+    <Alias n="3" Id="(@1 @2 Type=AbstractClass)" />
+    <Alias n="4" Id="(@1 @2 Type=ConcreateClassA)" />
+    <Alias n="5" Id="(@1 @2 Type=ConcreateClassB)" />
+    <Alias n="6" Id="(@1 @2 Type=AbstractClass Member=TemplateMethod)" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="12783f7f-03b3-4321-878e-ceca230ba839.OutputPathUri" Value="file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/TemplateMethod/bin/Debug/TemplateMethod.exe" />
+  </Paths>
+</DirectedGraph>

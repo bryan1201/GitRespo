@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="TopToBottom" Layout="ForceDirected" ZoomLevel="1.25" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 @3 @11)" Category="CodeSchema_Method" Bounds="518.597352797776,180.662083280448,139.39,26" CodeSchemaProperty_IsPublic="True" CodeSchemaProperty_IsVirtual="True" CommonLabel="Operation" Icon="Microsoft.VisualStudio.Method.Public" Label="Operation() : void" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=35 StartCharacterOffset=28 EndLineNumber=35 EndCharacterOffset=37)" UseManualLocation="True" />
+    <Node Id="(@1 @2 @3 Member=(Name=SetImplementor OverloadingParameters=[@7]))" Category="CodeSchema_Method" Bounds="518.597493178635,292.662266385917,246.99,26" CodeSchemaProperty_IsPublic="True" CommonLabel="SetImplementor" Icon="Microsoft.VisualStudio.Method.Public" Label="SetImplementor(Implementor) : void" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=32 StartCharacterOffset=20 EndLineNumber=32 EndCharacterOffset=34)" UseManualLocation="True" />
+    <Node Id="(@1 @2 @3 Member=implementor)" Category="CodeSchema_Field" Bounds="518.597462978949,236.662266385917,196.573333333333,26" CodeSchemaProperty_IsProtected="True" CommonLabel="implementor" Icon="Microsoft.VisualStudio.Field.Protected" Label="implementor : Implementor" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=30 StartCharacterOffset=30 EndLineNumber=30 EndCharacterOffset=41)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=ConcreteImplementorA @11)" Category="CodeSchema_Method" Bounds="71.0251919555664,679.616786631422,139.39,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Operation" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="Operation() : void" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=14 StartCharacterOffset=29 EndLineNumber=14 EndCharacterOffset=38)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=ConcreteImplementorB @11)" Category="CodeSchema_Method" Bounds="-215.724861450195,598.42167276509,139.39,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Operation" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="Operation() : void" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=22 StartCharacterOffset=29 EndLineNumber=22 EndCharacterOffset=38)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=Implementor @11)" Category="CodeSchema_Method" Bounds="-83.9012761416838,398.66350742871,139.39,26" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="Operation" Icon="Microsoft.VisualStudio.Method.Public" Label="Operation() : void" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=10 StartCharacterOffset=29 EndLineNumber=10 EndCharacterOffset=38)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=Program Member=(Name=Main OverloadingParameters=[(@10 Namespace=System Type=(Name=String ArrayRank=1 ParentType=String))]))" Category="CodeSchema_Method" Bounds="-288.013651450386,50.6112890358962,150.476666666667,26" CodeSchemaProperty_IsPrivate="True" CodeSchemaProperty_IsStatic="True" CommonLabel="Main" Icon="Microsoft.VisualStudio.Method.Private" Label="Main(string[]) : void" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Program.cs StartLineNumber=10 StartCharacterOffset=20 EndLineNumber=10 EndCharacterOffset=24)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=RefinedAbstraction @11)" Category="CodeSchema_Method" Bounds="113.318489239435,72.1853480936263,139.39,26" CodeSchemaProperty_IsPublic="True" CommonLabel="Operation" Icon="Microsoft.VisualStudio.Method.Public" IsOverloaded="True" Label="Operation() : void" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=43 StartCharacterOffset=29 EndLineNumber=43 EndCharacterOffset=38)" UseManualLocation="True" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="134.826096505646,55,126.063333333333,25" CodeSchemaProperty_IsInternal="True" CommonLabel="Abstraction" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Internal" Label="Abstraction" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=28 StartCharacterOffset=10 EndLineNumber=28 EndCharacterOffset=21)" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="203.96196640013,207.096219771694,194.066666666667,25" CodeSchemaProperty_IsInternal="True" CommonLabel="ConcreteImplementorA" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Internal" Label="ConcreteImplementorA" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=12 StartCharacterOffset=10 EndLineNumber=12 EndCharacterOffset=30)" />
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="197.709993372129,-1.4210854715202E-14,193.123333333333,25" CodeSchemaProperty_IsInternal="True" CommonLabel="ConcreteImplementorB" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Internal" Label="ConcreteImplementorB" LayoutSettings="TopToBottom" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=20 StartCharacterOffset=10 EndLineNumber=20 EndCharacterOffset=30)" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="225.205263936565,110,134.553333333333,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsInternal="True" CommonLabel="Implementor" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Internal" Label="Implementor" LayoutSettings="ForceDirected" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=8 StartCharacterOffset=19 EndLineNumber=8 EndCharacterOffset=30)" />
+    <Node Id="@8" Category="CodeSchema_Class" Bounds="0,171.303122453407,110.003333333334,25" CodeSchemaProperty_IsInternal="True" CommonLabel="Program" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Internal" Label="Program" LayoutSettings="LeftToRight" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Program.cs StartLineNumber=8 StartCharacterOffset=10 EndLineNumber=8 EndCharacterOffset=17)" />
+    <Node Id="@9" Category="CodeSchema_Class" Bounds="25.8951639365656,110,169.31,25" CodeSchemaProperty_IsInternal="True" CommonLabel="RefinedAbstraction" Group="Collapsed" Icon="Microsoft.VisualStudio.Class.Internal" Label="RefinedAbstraction" SourceLocation="(Assembly=file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/Bridge.cs StartLineNumber=41 StartCharacterOffset=10 EndLineNumber=41 EndCharacterOffset=28)" />
+  </Nodes>
+  <Links>
+    <Link Source="@4" Target="(@1 @2 @3 @11)" Category="Contains" Bounds="-300.587341308594,-303.760009765625,6.5,30" />
+    <Link Source="@4" Target="(@1 @2 @3 Member=(Name=SetImplementor OverloadingParameters=[@7]))" Category="Contains" Bounds="-300.587341308594,-303.760009765625,6.5,30" />
+    <Link Source="@4" Target="(@1 @2 @3 Member=implementor)" Category="Contains" Bounds="-300.587341308594,-303.760009765625,6.5,30" />
+    <Link Source="@4" Target="@7" Bounds="219.363255770249,80,43.8321155517655,25.4772794392837" />
+    <Link Source="@5" Target="(@1 @2 Type=ConcreteImplementorA @11)" Category="Contains" Bounds="-195.775070830453,-74.7946548461914,7.83553452180686,49.5796468112001" />
+    <Link Source="@6" Target="(@1 @2 Type=ConcreteImplementorB @11)" Category="Contains" Bounds="-532.076175492929,-85.1595611572266,12.4220823231693,48.0854981730838" />
+    <Link Source="@7" Target="(@1 @2 Type=Implementor @11)" Category="Contains" Bounds="69.6949821908037,369.9999,8.69753563392806E-06,21.0001000000004" />
+    <Link Source="@7" Target="@5" Bounds="293.577927073312,135,5.53527461584235,63.1306163723132" />
+    <Link Source="@7" Target="@6" Bounds="292.685308948182,33.9988089892251,1.23655971536249,76.0011910107749" />
+    <Link Source="@8" Target="(@1 @2 Type=Program Member=(Name=Main OverloadingParameters=[(@10 Namespace=System Type=(Name=String ArrayRank=1 ParentType=String))]))" Category="Contains" Bounds="-924.509092961848,-263.105529785156,1.75416470129915,33.8364735042503" />
+    <Link Source="@8" Target="@9" Bounds="66.3282710562144,141.669286245915,26.8520591413535,29.6338362074926" />
+    <Link Source="@9" Target="(@1 @2 Type=RefinedAbstraction @11)" Category="Contains" Bounds="-558.220612277275,-247.391296386719,15.8095749022752,22.622951653735" />
+    <Link Source="@9" Target="@4" Bounds="130.392800126508,84.7971024187965,40.0073542108962,25.2028975812035" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Class" Label="類別" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類別" />
+    <Category Id="CodeSchema_Field" Label="欄位" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="欄位" />
+    <Category Id="CodeSchema_Member" Label="成員" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Field" NavigationActionLabel="成員" />
+    <Category Id="CodeSchema_Method" Label="方法" BasedOn="CodeSchema_Member" CanBeDataDriven="True" DefaultAction="Link:Forward:CodeSchema_Calls" Icon="CodeSchema_Method" NavigationActionLabel="方法" />
+    <Category Id="CodeSchema_Type" Label="類型" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="類型" />
+    <Category Id="Contains" Label="包含" Description="連結的來源是否包含目標物件" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="由下列包含" IsContainment="True" OutgoingActionLabel="包含" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="為抽象" Description="用來表示成員為「抽象」的旗標不提供完整實作" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsInternal" Label="為外部" Description="表示方法為「內部」的旗標" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPrivate" Label="為私用" Description="表示範圍為「私用」的旗標" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsProtected" Label="為受保護的" Description="表示範圍為「受保護的」的旗標" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="為公用" Description="表示範圍為「公用」的旗標" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsStatic" Label="為靜態" Description="表示成員為靜態成員的旗標" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsVirtual" Label="為虛擬" Description="表示方法可以覆寫的旗標" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="群組" Description="將節點顯示為群組" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="Icon" Label="圖示" Description="圖示" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsOverloaded" Label="IsOverloaded" Description="IsOverloaded" DataType="System.Boolean" />
+    <Property Id="Label" Label="標籤" Description="可註釋物件的可顯示標籤" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="LayoutSettings" DataType="Microsoft.VisualStudio.Diagrams.View.GroupLayoutStyle" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="開始行號" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="ArrayRank" Label="陣列陣序" ValueType="System.String" />
+    <Name Id="Assembly" Label="組件" ValueType="Uri" />
+    <Name Id="Member" Label="成員" ValueType="System.Object" />
+    <Name Id="Name" Label="名稱" ValueType="System.String" />
+    <Name Id="Namespace" Label="命名空間" ValueType="System.String" />
+    <Name Id="OverloadingParameters" Label="參數" ValueType="Microsoft.VisualStudio.GraphModel.GraphNodeIdCollection" Formatter="NameValueNoEscape" />
+    <Name Id="ParentType" Label="父類型" ValueType="System.Object" />
+    <Name Id="Type" Label="類型" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(125d349a-cb99-4034-9b74-7d08234b59ad.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=HandSetGame" />
+    <Alias n="3" Id="Type=Abstraction" />
+    <Alias n="4" Id="(@1 @2 @3)" />
+    <Alias n="5" Id="(@1 @2 Type=ConcreteImplementorA)" />
+    <Alias n="6" Id="(@1 @2 Type=ConcreteImplementorB)" />
+    <Alias n="7" Id="(@1 @2 Type=Implementor)" />
+    <Alias n="8" Id="(@1 @2 Type=Program)" />
+    <Alias n="9" Id="(@1 @2 Type=RefinedAbstraction)" />
+    <Alias n="10" Uri="Assembly=$(FxReferenceAssembliesUri)/.NETFramework/v4.5.2/mscorlib.dll" />
+    <Alias n="11" Id="Member=Operation" />
+  </IdentifierAliases>
+  <Paths>
+    <Path Id="125d349a-cb99-4034-9b74-7d08234b59ad.OutputPathUri" Value="file:///D:/Respo/GitRespo/DesignPatterns/DesignPattern/HandSetGame/bin/Debug/HandSetGame.exe" />
+    <Path Id="FxReferenceAssembliesUri" Value="file:///C:/Program Files (x86)/Reference Assemblies/Microsoft/Framework" />
+  </Paths>
+</DirectedGraph>

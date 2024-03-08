@@ -1,0 +1,129 @@
+﻿
+@using KMSharepointSync.Models
+@model IEnumerable<SharepointKM_FolderPathMapping>
+
+@{
+    ViewBag.Title = "AddKMFolder";
+    string theAcquireDraftResult = (string)ViewData["theAcquireDraftResult"];
+    string JsonStringIndent = (string)ViewData["JsonStringIndent"];
+    string JsonNewKMFolder = (string)ViewData["JsonNewKMFolder"];
+    string resultAddFolder = (string)ViewData["resultAddFolder"];
+    int iRow = 0;
+}
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <h3>@ViewBag.Message</h3>
+    <p class="lead">
+        Aquire KM Draft Folder and Update JObject value.
+        <br />
+    </p>
+    <p>
+        <a href=@Url class="btn btn-primary btn-lg" target="_blank">@ViewBag.Title 文件庫 &raquo;</a>
+    </p>
+</div>
+
+<div class="modal-body">
+    @using (Html.BeginForm("AddKMFolder", "SharepointOnline", FormMethod.Get))
+    {
+        <table class="table table-bordered table-striped table-condensed">
+            <tr>
+                <th>父文件夾ID</th>
+                <th>新增子文件夾名稱</th>
+                <th>&nbsp;</th>
+            </tr>
+            <tr>
+                <td>
+                    @Html.TextArea("parentFolderId", "39681", new { @class = "form-control", @rows = 1, style = "resize: none;" })
+                </td>
+                <td>
+                    @Html.TextArea("KMFolderName", "", new { @class = "form-control", @rows = 1, style = "resize:none;" })
+                </td>
+                <td>
+                    <input class="btn btn-primary btn-lg" type="submit" value="Query and Update" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+<div class="row">
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li class="active">
+                <a data-toggle="tab" href="#KMSPMapping">KMSPMapping&nbsp;⚡</a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="#viewResult">View Result&nbsp;📃</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="KMSPMapping" class="tab-pane fade in active">
+                <p>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+
+                                <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                                    <tr>
+                                        <th>RowNum</th>
+                                        <th style="width:28px;font-size:0.8cm">📇</th>
+
+                                        <th>@Html.DisplayNameFor(model => model.KM_Id)</th>
+                                        <th>@Html.DisplayNameFor(model => model.KM_Path)</th>
+                                        <th>@Html.DisplayNameFor(model => model.KM_ParentId)</th>
+                                        <th>@Html.DisplayNameFor(model => model.KM_ParentPath)</th>
+                                        <th>@Html.DisplayNameFor(model => model.SP_Name)</th>
+                                        <th>@Html.DisplayNameFor(model => model.SP_Path)</th>
+                                    </tr>
+                                    @foreach (var item in Model)
+                                    {
+                                        iRow++;
+                                <tr>
+                                    <td>@iRow</td>
+                                    <td style="text-align: center;">
+                                        @if (string.IsNullOrEmpty(item.KM_Id))
+                                        {
+                                            @Html.ActionLink("🗃", "AddKMFolder", new { parentFolderId = string.Format("{0}", item.KM_ParentId), newKMSubFolderName = string.Format("{0}", item.SP_Name) }, new { target = "_self", style = "font-size:28px;" })
+                                        }
+                                    </td>
+
+                                    <td>@Html.DisplayFor(modelItem => item.KM_Id)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.KM_Path)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.KM_ParentId)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.KM_ParentPath)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SP_Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SP_Path)</td>
+                                </tr>
+                                    }
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </p>
+            </div>
+
+            <div id="viewResult" class="tab-pane fade">
+                <h2>
+                    📃View Result&nbsp;🔎
+                    <span style="font-size:68px;">🕵️</span>
+                </h2>
+                <p>
+                    <div class="row">
+                        <div class="col-md-10" style="width:100%">
+                            <label>Draft KM Folder</label>
+                            <pre>@JsonStringIndent</pre>
+
+                            <label>New KM Folder</label>
+                            <pre>@JsonNewKMFolder</pre>
+
+                            <label>Result of Add KM Folder</label>
+                            <pre>@resultAddFolder </pre>
+                        </div>
+                    </div>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>

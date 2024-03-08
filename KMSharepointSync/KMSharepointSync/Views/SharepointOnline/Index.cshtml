@@ -1,0 +1,16 @@
+﻿@using KMSharepointSync.Models
+@{
+    string Url = Constant.AICSharedDocument;
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <h3>@ViewBag.Message</h3>
+    <p class="lead">
+        View SharepintOnline Shared documents: web folders and files <br />
+        @Url
+    </p>
+    <p><a href=@Url class="btn btn-primary btn-lg" target="_blank">@ViewBag.Title 文件庫 &raquo;</a></p>
+</div>
+<div>
+</div>

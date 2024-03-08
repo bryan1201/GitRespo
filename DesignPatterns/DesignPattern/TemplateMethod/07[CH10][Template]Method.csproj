@@ -50,11 +50,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Template.dgml">
-      <Link>Template.dgml</Link>
-    </None>
     <None Include="App.config" />
-    <None Include="Template.cd" />
+    <None Include="Template.dgml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

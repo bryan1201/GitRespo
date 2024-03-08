@@ -1,0 +1,39 @@
+﻿@using KMSharepointSync.Models
+@model IEnumerable<SharepointFolder>
+@{
+    string Url = ViewBag.Url;
+    string ServerRelativeUrl = ViewBag.ServerRelativeUrl;
+    int iRow = 0;
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <h3>@ViewBag.Message</h3>
+    <p class="lead">
+        View SharepintOnline Shared documents: web folders and files <br />
+        @Url
+    </p>
+    <p><a href=@Url class="btn btn-primary btn-lg" target="_blank">@ViewBag.Title 文件庫 &raquo;</a></p>
+</div>
+<div>
+    <table class="table table-bordered table-striped table-condensed" style="width:100%">
+        <tr>
+            <th>RowNum</th>
+            <th>@Html.DisplayNameFor(model => model.Id)</th>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.Path)</th>
+            <th>@Html.DisplayNameFor(model => model.Parent)</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            iRow++;
+            <tr>
+                <td>@iRow</td>
+                <td>@item.Id</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Path)</td>
+                <td>@Html.DisplayFor(modelItem => item.Parent)</td>
+            </tr>
+        }
+    </table>
+</div>

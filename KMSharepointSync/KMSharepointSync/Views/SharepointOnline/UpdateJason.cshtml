@@ -1,0 +1,24 @@
+﻿@using KMSharepointSync.Models
+@{
+    ViewBag.Title = "Update Jason / Modify Jason";
+    ViewBag.Message = "How to modify jason object value";
+    string Url = "https://www.newtonsoft.com/json/help/html/modifyjson.htm";
+    string rss = ViewData["rss"].ToString();
+
+}
+
+<div class="jumbotron">
+    <h2>@ViewBag.Title</h2>
+    <p class="lead">
+        @ViewBag.Message
+    </p>
+    <p><a href=@Url class="btn btn-primary btn-lg" target="_blank">@ViewBag.Title &raquo;</a></p>
+</div>
+
+<p>
+    <div class="row">
+        <div class="col-md-11" style="width:100%">
+            <pre>@rss</pre>
+        </div>
+    </div>
+</p>

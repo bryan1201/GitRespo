@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("SharepointOnline Sync", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("🏠首頁", "Index", "Home")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            🗜️🆂🅷🅰🆁🅴🅿🅾🅸🅽🆃🄾🄽🄻🄸🄽🄴
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("🔁𝑺𝒉𝒂𝒓𝒆𝒑𝒐𝒊𝒏𝒈𝑶𝒏𝒍𝒊𝒏𝒆𝑺𝒚𝒏𝒄", "SharepointOnlineSync", "SharepointOnline")</li>
+                            <li>@Html.ActionLink("🗃🅶🅴🆃𝑺𝒉𝒂𝒓𝒆𝒅𝑫𝒐𝒄𝒖𝒎𝒆𝒏𝒕𝒔", "Index", "SharepointOnline")</li>
+                            <li>@Html.ActionLink("🛠𝑨𝒅𝒅 𝑲𝑴 𝑭𝒐𝒍𝒅𝒆𝒓", "AddKMFolder", "SharepointOnline")</li>
+                            
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("關於", "About", "Home")</li>
+                    <li>@Html.ActionLink("連絡人", "Contact", "Home")</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            工具/測試
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("🛠𝑨𝒅𝒅 𝑲𝑴 𝑭𝒐𝒍𝒅𝒆𝒓", "UpdateJason", "SharepointOnline")</li>
+                            <li><a href="https://tw.piliapp.com/cool-text/square/" target="_blank">酷文字產生器</a> </li>
+                        </ul>
+                    </li>
+                </ul>
+                <p class="nav navbar-text navbar-right">@User.Identity.Name，您好！</p>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - @ViewBag.Title</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
