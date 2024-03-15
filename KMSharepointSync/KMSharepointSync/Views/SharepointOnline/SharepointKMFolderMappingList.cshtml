@@ -1,0 +1,81 @@
+﻿
+@using KMSharepointSync.Models
+@model IEnumerable<SharepointKM_FolderPathMapping>
+
+@{
+    ViewBag.Title = "Sharepoint & KM FolderPathMapping";
+    ViewBag.Message = "SELECT * FROM v_SharepointKM_FolderPathMapping MA ORDER BY MA.SP_sortOrder";
+    string Url = "#";
+    int iRow = 0;
+    string UrlKMFolder = @"http://km.iec.inventec/esp/listfolders.aspx?uid={0}";// 39671
+}
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <p class="lead">
+        View KMDBAPIPRD SharepointOnline & KM Folder Mapping List.<br />
+        @ViewBag.Message
+        <br />
+    </p>
+    <p>
+        <a href=@Url class="btn btn-primary btn-lg" target="_self">@ViewBag.Title &raquo;</a>
+    </p>
+</div>
+
+<div class="row">
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li class="active">
+                <a data-toggle="tab" href="#KMSPMapping">KMSPMapping&nbsp;⚡</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div id="KMSPMapping" class="tab-pane fade in active">
+                <p>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+
+                                <table class="table table-bordered table-striped table-condensed" style="width:100%">
+                                    <tr>
+                                        <th style="width:28px;font-size:0.8cm">🔢</th>
+                                        <th>@Html.DisplayNameFor(model => model.KM_Id)📇</th>
+                                        <th>@Html.DisplayNameFor(model => model.KM_Path)</th>
+                                        <th>@Html.DisplayNameFor(model => model.KM_ParentId)</th>
+                                        <th>@Html.DisplayNameFor(model => model.KM_ParentPath)</th>
+                                        <th>@Html.DisplayNameFor(model => model.SP_Name)</th>
+                                        <th>@Html.DisplayNameFor(model => model.SP_Path)</th>
+                                    </tr>
+                                    @foreach (var item in Model)
+                                    {
+                                        iRow++;
+                                        string itemUrlKM_Id = string.Format(UrlKMFolder, item.KM_Id);
+                                        string itemUrlKM_ParentId = string.Format(UrlKMFolder, item.KM_ParentId);
+                                <tr>
+                                    <td>@iRow</td>
+                                    <td style="text-align: center;">
+                                        @if (string.IsNullOrEmpty(item.KM_Id))
+                                        {
+                                            @Html.ActionLink("🗃", "AddKMFolder", new { parentFolderId = string.Format("{0}", item.KM_ParentId), newKMSubFolderName = string.Format("{0}", item.SP_Name) }, new { target = "_self", style = "font-size:28px;" })
+                                        }
+                                        else
+                                        {
+                                            <a href="@itemUrlKM_Id" target="_blank">@item.KM_Id</a>
+                                        }
+                                    </td>
+                                    <td>@Html.DisplayFor(modelItem => item.KM_Path)</td>
+                                    <td><a href="@itemUrlKM_ParentId" target="_blank">@item.KM_ParentId</a></td>
+                                    <td>@Html.DisplayFor(modelItem => item.KM_ParentPath)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SP_Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.SP_Path)</td>
+                                </tr>
+                                    }
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -28,33 +28,10 @@ namespace KMSharepointSync.Models
              */
         }
 
-        public IEnumerable<SharepointKM_FolderPathMapping> GetSharepointKM_FolderPathMappin()
+        public IEnumerable<SharepointKM_FolderPathMapping> GetSharepointKM_FolderPathMapping()
         {
-            string sqlCmd = "SELECT MA.* FROM KMDBAPIPRD.dbo.v_SharepointKM_FolderPathMapping MA";
-            //sqlCmd = string.Format(sqlCmd, rootkmfolderId);
-            DataTable dt = DAO.sqlCmdDataTable(sqlCmd, KMPRDEnvironment);
-            return ConvertToTankReadings(dt);
-        }
-
-        private IEnumerable<SharepointKM_FolderPathMapping> ConvertToTankReadings(DataTable dataTable)
-        {
-            foreach (DataRow row in dataTable.Rows)
-            {
-                yield return new SharepointKM_FolderPathMapping
-                {
-                    KM_ParentId = Convert.ToString(row["KM_ParentId"]),
-                    KM_ParentPath = Convert.ToString(row["KM_ParentPath"]),
-                    KM_Id = Convert.ToString(row["KM_Id"]),
-                    KM_Path = Convert.ToString(row["KM_Path"]),
-                    SP_Id = Convert.ToString(row["SP_Id"]),
-                    SP_Name = Convert.ToString(row["SP_Name"]),
-                    SP_Path = Convert.ToString(row["SP_Path"]),
-                    SP_IndentName = Convert.ToString(row["SP_IndentName"]),
-                    SP_sortOrder = Convert.ToString(row["SP_sortOrder"]),
-                    SP_Url = Convert.ToString(row["SP_Url"]),
-                    SP_ServerRelativeUrl = Convert.ToString(row["SP_ServerRelativeUrl"])
-                };
-            }
+            DAO dbaccess = new DAO(KMPRDEnvironment);
+            return dbaccess.GetSharepointKM_FolderPathMapping();
         }
     }
 }

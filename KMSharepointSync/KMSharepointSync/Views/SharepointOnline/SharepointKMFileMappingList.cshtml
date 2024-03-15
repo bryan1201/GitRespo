@@ -1,0 +1,55 @@
+﻿@using KMSharepointSync.Models
+@model IEnumerable<SharepointKM_FilePathMapping>
+@{
+    ViewBag.Title = "Sharepoint & KM FilePathMapping";
+    ViewBag.Message = "SELECT * FROM v_SharepointKM_FilePathMapping MA ORDER BY MA.[SP_sortOrder]";
+    string Url = "#";
+    int iRow = 0;
+    string UrlKMFolder = @"http://km.iec.inventec/esp/listfolders.aspx?uid={0}";// 39671
+    string UrlKMDoc = @"http://km.iec.inventec/esp/readdocument.aspx?documentId={0}";// 149298
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <p class="lead">
+        View KMDBAPIPRD SharepintOnline Shared documents and KM File mapping list<br />
+        @ViewBag.Message
+    </p>
+    <p>
+        <a href=@Url class="btn btn-primary btn-lg" target="_self">@ViewBag.Title &raquo;</a>
+    </p>
+</div>
+<div>
+    <table class="table table-bordered table-striped table-condensed" style="width:100%">
+        <tr>
+            <th style="width:28px;font-size:0.8cm">🔢</th>
+            <th>@Html.DisplayNameFor(model => model.KM_DOCUMENT_ID)</th>
+            <th>@Html.DisplayNameFor(model => model.KM_FolderId)</th>
+            <th>@Html.DisplayNameFor(model => model.KM_Path)</th>
+            <th>@Html.DisplayNameFor(model => model.SP_FileLeafRef)</th>
+            <th>@Html.DisplayNameFor(model => model.SP_Author)</th>
+            <th>@Html.DisplayNameFor(model => model.SP_Created)</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            string itemUrlKMFolderId = string.Format(UrlKMFolder, item.KM_FolderId);
+            string itemUrlKMDocId = string.Format(UrlKMDoc, item.KM_DOCUMENT_ID);
+            iRow++;
+            <tr>
+                <td>@iRow</td>
+                <td>
+                    <a href="@itemUrlKMDocId" target="_blank">@item.KM_DOCUMENT_ID</a>
+                </td>
+                <td>
+                    <a href="@itemUrlKMFolderId" target="_blank">@item.KM_FolderId</a>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.KM_Path)</td>
+                <td>
+                    <a href="@item.SP_FileRef" target="_blank">@item.SP_FileLeafRef</a>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.SP_Author)</td>
+                <td>@Html.DisplayFor(modelItem => item.SP_Created)</td>
+            </tr>
+        }
+    </table>
+</div>

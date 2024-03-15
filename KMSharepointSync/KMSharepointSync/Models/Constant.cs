@@ -20,7 +20,13 @@ namespace KMSharepointSync.Models
         public static String TENANT = ConfigurationManager.AppSettings["TENANT"];
         public static String DataFormat = ConfigurationManager.AppSettings["DataFormat"];
         public static string KMUserId = ConfigurationManager.AppSettings["KMUserId"];
-        public static string GlobalDocClassId = "1";
+        public static string KMUserPassword = ConfigurationManager.AppSettings["KMUserPassword"];
+        public static string KMUseremail = ConfigurationManager.AppSettings["KMUseremail"];
+        public static string SharepointOnlineRoot = ConfigurationManager.AppSettings["SharepointOnlineRoot"];
+
+        public static string GlobalDocClassId = "1"; //84
+        public static string GlobalDocClassId84 = "84"; //84
+        public static string GlobalCurrentCategoryId = "1";
 
         public static String S_ConnStr = "ConnStr";
         public static String DefaultSelect = "-- select one --";

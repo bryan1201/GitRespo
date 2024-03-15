@@ -1,8 +1,9 @@
 ﻿@using KMSharepointSync.Models
-@model IEnumerable<SharepointFolder>
+@model IEnumerable<SharepointKM_FilePathMapping>
 @{
-    string Url = ViewBag.Url;
-    string ServerRelativeUrl = ViewBag.ServerRelativeUrl;
+    ViewBag.Title = "Sharepoint & KM FilePathMapping";
+    ViewBag.Message = "SELECT * FROM KMDBAPIPRD.dbo.v_SharepointKM_FilePathMapping MA ORDER BY MA.[SP_sortOrder]";
+    string Url = "#";
     int iRow = 0;
 }
 
@@ -10,29 +11,36 @@
     <h1>@ViewBag.Title</h1>
     <h3>@ViewBag.Message</h3>
     <p class="lead">
-        View SharepintOnline Shared documents: web folders and files <br />
-        @Url
+        View SharepintOnline Shared documents and KM File mapping list
     </p>
-    <p><a href=@Url class="btn btn-primary btn-lg" target="_blank">@ViewBag.Title 文件庫 &raquo;</a></p>
+    <p>
+        <a href=@Url class="btn btn-primary btn-lg" target="_blank">@ViewBag.Title &raquo;</a>
+    </p>
 </div>
 <div>
     <table class="table table-bordered table-striped table-condensed" style="width:100%">
         <tr>
             <th>RowNum</th>
-            <th>@Html.DisplayNameFor(model => model.Id)</th>
-            <th>@Html.DisplayNameFor(model => model.Name)</th>
-            <th>@Html.DisplayNameFor(model => model.Path)</th>
-            <th>@Html.DisplayNameFor(model => model.Parent)</th>
+            <th>@Html.DisplayNameFor(model => model.KM_DOCUMENT_ID)</th>
+            <th>@Html.DisplayNameFor(model => model.KM_FolderId)</th>
+            <th>@Html.DisplayNameFor(model => model.KM_Path)</th>
+            <th>@Html.DisplayNameFor(model => model.SP_FileLeafRef)</th>
+            <th>@Html.DisplayNameFor(model => model.SP_Author)</th>
+            <th>@Html.DisplayNameFor(model => model.SP_Created)</th>
         </tr>
         @foreach (var item in Model)
         {
             iRow++;
             <tr>
                 <td>@iRow</td>
-                <td>@item.Id</td>
-                <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                <td>@Html.DisplayFor(modelItem => item.Path)</td>
-                <td>@Html.DisplayFor(modelItem => item.Parent)</td>
+                <td>@Html.DisplayFor(modelItem => item.KM_DOCUMENT_ID)</td>
+                <td>@Html.DisplayFor(modelItem => item.KM_FolderId)</td>
+                <td>@Html.DisplayFor(modelItem => item.KM_Path)</td>
+                <td>
+                    <a href="@item.SP_FileRef" target="_blank">@item.SP_FileLeafRef</a>
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.SP_Author)</td>
+                <td>@Html.DisplayFor(modelItem => item.SP_Created)</td>
             </tr>
         }
     </table>

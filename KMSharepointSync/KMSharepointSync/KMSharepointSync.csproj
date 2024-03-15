@@ -188,7 +188,10 @@
     <Compile Include="Models\KMFolder.cs" />
     <Compile Include="Models\KMService.cs" />
     <Compile Include="Models\ServiceType.cs" />
+    <Compile Include="Models\SharepointFile.cs" />
     <Compile Include="Models\SharepointFolder.cs" />
+    <Compile Include="Models\SharepointFolderList.cs" />
+    <Compile Include="Models\SharepointKM_FilePathMapping.cs" />
     <Compile Include="Models\SharepointKM_FolderPathMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -232,8 +235,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SharepointOnline\Index.cshtml" />
     <Content Include="Views\SharepointOnline\AddKMFolder.cshtml" />
-    <Content Include="Views\SharepointOnline\SharepointOnlineSync.cshtml" />
+    <Content Include="Views\SharepointOnline\SharepointOnlineFolderList.cshtml" />
     <Content Include="Views\SharepointOnline\UpdateJason.cshtml" />
+    <Content Include="Views\SharepointOnline\AddKMFile.cshtml" />
+    <Content Include="Views\SharepointOnline\SharepointKMFileMappingList.cshtml" />
+    <Content Include="Views\SharepointOnline\SharepointOnlineSync.cshtml" />
+    <Content Include="Views\SharepointOnline\SharepointKMFolderMappingList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
