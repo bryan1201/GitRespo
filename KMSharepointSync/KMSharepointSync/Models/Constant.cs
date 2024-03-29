@@ -24,6 +24,12 @@ namespace KMSharepointSync.Models
         public static string KMUseremail = ConfigurationManager.AppSettings["KMUseremail"];
         public static string SharepointOnlineRoot = ConfigurationManager.AppSettings["SharepointOnlineRoot"];
 
+        public static string TaskId = ConfigurationManager.AppSettings["TaskId"];
+
+        public static string SharepointOnlineSite = ConfigurationManager.AppSettings["SharepointOnlineSite"];
+        public static string spSharedDocLib = ConfigurationManager.AppSettings["spSharedDocLib"];
+        public static int KMFolderId = int.Parse(ConfigurationManager.AppSettings["KMFolderId"]);
+
         public static string GlobalDocClassId = "1"; //84
         public static string GlobalDocClassId84 = "84"; //84
         public static string GlobalCurrentCategoryId = "1";
@@ -37,7 +43,6 @@ namespace KMSharepointSync.Models
         public static String QASDBContext = ConfigurationManager.ConnectionStrings["QASDBContext"].ToString();
         public static bool IsTracking = bool.Parse(ConfigurationManager.AppSettings["IsTracking"]);
         public static string TrackingSubject = ConfigurationManager.AppSettings["TrackingSubject"];
-        public static string AICSharedDocument = @"https://inventeccorp.sharepoint.com/sites/msteams_a0f382_290647/";
 
         public Constant()
         {

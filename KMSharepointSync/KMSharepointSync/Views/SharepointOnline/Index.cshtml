@@ -1,16 +1,75 @@
 ﻿@using KMSharepointSync.Models
+@model IEnumerable<SyncTaskInfo>
 @{
-    string Url = Constant.AICSharedDocument;
+    string Url = Constant.SharepointOnlineSite;
+    int iRow = 0;
 }
-
+<style type="text/css">
+    .spinner-border {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    function callSpinner(id) {
+        document.getElementById(id).style.display = 'block';
+    }
+</script>
 <div class="jumbotron">
     <h1>@ViewBag.Title</h1>
     <h3>@ViewBag.Message</h3>
     <p class="lead">
-        View SharepintOnline Shared documents: web folders and files <br />
+        View SharepintOnline Shared documents: web folders and files
+        <br />
         @Url
     </p>
-    <p><a href=@Url class="btn btn-primary btn-lg" target="_blank">@ViewBag.Title 文件庫 &raquo;</a></p>
+    <p>
+        <a href=@Url class="btn btn-primary btn-lg" target="_blank">@ViewBag.Title 文件庫 &raquo;</a>
+    </p>
 </div>
-<div>
+<div class="container-wrap d-flex">
+    <table class="table table-bordered table-striped table-condensed" style="width:100%">
+        <tr>
+            <th style="width:28px;font-size:0.8cm">🔢</th>
+            <th style="width:50px;">Run</th>
+            <th>@Html.DisplayNameFor(model => model.TaskName)</th>
+            <th>@Html.DisplayNameFor(model => model.TaskDescription)</th>
+            <th>@Html.DisplayNameFor(model => model.SharePointListName)</th>
+            <th>@Html.DisplayNameFor(model => model.EspFolderId)</th>
+            <th>@Html.DisplayNameFor(model => model.EspApiTenant)</th>
+            <th>@Html.DisplayNameFor(model => model.Status)</th>
+            <th>@Html.DisplayNameFor(model => model.Cdt)</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            iRow++;
+            string strTask = string.Format("{0}", iRow.ToString("000"));
+            string strSpinner = string.Format("spinner_{0}", iRow.ToString("000"));
+            string strCallSpinner = string.Format("callSpinner('{0}')", strSpinner);
+    <tr>
+        <td>@iRow</td>
+        <td style="text-align:center;">
+            <div class="text-center">
+                <div class="loader" id="loader-4">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="spinner spinner-border spinner-border-sm mr-3" id=@string.Format("spinner_{0}",iRow.ToString("000")) style="font-size:16px;">🏃💨</span>
+            </div>
+            @Html.ActionLink("⚡", "Index", new { TaskId = string.Format("{0}", item.TaskId) }, new { style = "font-size:20px;" , Id = string.Format("Task_{0}", iRow.ToString("000")), onclick = string.Format("callSpinner('spinner_{0}')", iRow.ToString("000")) })
+
+        </td>
+        <td>
+            <a href="@item.SharePointUri" target="_blank">@item.TaskName</a>
+        </td>
+        <td>@Html.DisplayFor(modelItem => item.TaskDescription)</td>
+
+        <td>@Html.DisplayFor(modelItem => item.SharePointListName)</td>
+        <td>@Html.DisplayFor(modelItem => item.EspFolderId)</td>
+        <td>@Html.DisplayFor(modelItem => item.EspApiTenant)</td>
+        <td>@Html.DisplayFor(modelItem => item.Status)</td>
+        <td>@Html.DisplayFor(modelItem => item.Cdt)</td>
+    </tr>
+        }
+    </table>
 </div>

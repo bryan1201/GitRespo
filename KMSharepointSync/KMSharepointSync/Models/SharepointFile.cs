@@ -7,6 +7,7 @@ namespace KMSharepointSync.Models
 {
     public class SharepointFile
     {
+        public string TaskId { get; set; }
         public string UniqueId { get; set; } // {3aa81dba-3979-433e-8cbe-49ca5c8bb545}
         public string ParentUniqueId { get; set; } // "{E4149CF4-6356-4E05-826F-4DA0928F3175}"
         /*

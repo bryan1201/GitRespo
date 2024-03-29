@@ -21,50 +21,53 @@ namespace KMSharepointSync.Controllers
     {
         // GET: SharepointOnline
 
-        public ActionResult Index()
+        public ActionResult Index(string TaskId)
         {
-            ViewBag.Title = "Test SharepointOnlineSync";
+            ViewBag.Title = "SharepointOnline Sync Task";
             ViewBag.Message = "Read Folders and Files";
-            return View();
+            SyncTaskInfoList stinfo = new SyncTaskInfoList();
+            if (!string.IsNullOrEmpty(TaskId))
+            {
+                APIs.SyncTaskController st = new APIs.SyncTaskController();
+                ViewBag.TaskMessage = st.RunByTaskId(TaskId);
+            }
+
+            return View(stinfo.GetSyncTaskInfoList());
         }
 
         public ActionResult SharepointOnlineSync()
         {
+            string _taskId = Constant.TaskId;
             SharepointKM_FolderPathMapping spkmfolder = new SharepointKM_FolderPathMapping();
-            IEnumerable<SharepointKM_FolderPathMapping> spkmFolderMappingList = spkmfolder.GetSharepointKM_FolderPathMapping();
+            IEnumerable<SharepointKM_FolderPathMapping> spkmFolderMappingList = spkmfolder.GetSharepointKM_FolderPathMapping(_taskId);
             foreach(SharepointKM_FolderPathMapping item in spkmFolderMappingList)
             {
                 if (string.IsNullOrEmpty(item.KM_Id))
-                {
-                    SharepointFolderList sfl = new SharepointFolderList();
-                    sfl.AddKMFolder(item.KM_ParentId, item.SP_Name);
-                }
+                    KMService.AddKMFolder(_taskId, item.KM_ParentId, item.SP_Name);
+                
             }
 
             SharepointKM_FilePathMapping spkmfile = new SharepointKM_FilePathMapping();
-            IEnumerable<SharepointKM_FilePathMapping> spkmFileMappingList = spkmfile.GetSharepointKM_FilePathMapping();
+            IEnumerable<SharepointKM_FilePathMapping> spkmFileMappingList = spkmfile.GetSharepointKM_FilePathMapping(_taskId);
             foreach(SharepointKM_FilePathMapping item in spkmFileMappingList)
             {
                 if (string.IsNullOrEmpty(item.KM_DOCUMENT_ID))
-                {
-                    SharepointFolderList sf2 = new SharepointFolderList();
-
-                    sf2.AddKMFile(spkmfilepath: item);
-                }
+                    KMService.AddKMFile(spkmfilepath: item);                
             }
 
-            IEnumerable<SharepointKM_FilePathMapping> v_SharepointKM_FilePathMapping = spkmfile.GetSharepointKM_FilePathMapping().OrderBy(x => x.SP_sortOrder);
+            IEnumerable<SharepointKM_FilePathMapping> v_SharepointKM_FilePathMapping = spkmfile.GetSharepointKM_FilePathMapping(_taskId).OrderBy(x => x.SP_sortOrder);
 
             return View(v_SharepointKM_FilePathMapping);
         }
         public ActionResult SharepointOnlineFolderList()
         {
-            string _url = @"https://inventeccorp.sharepoint.com/sites/msteams_a0f382_290647/";
-            string _spSharedDocLib = "文件";
+            string _url = Constant.SharepointOnlineSite;
+            string _spSharedDocLib = Constant.spSharedDocLib;
+            string _taskId = Constant.TaskId;
 
             List<SharepointFolder> spfolderList = new List<SharepointFolder>();
-            SharepointFolderList splist = new SharepointFolderList();
-            splist.GetSharepointFolder(url:_url, spSharedDocLib:_spSharedDocLib, kmadm:Constant.KMUseremail, kmpwd:Constant.KMUserPassword);
+            SharepointFolderList splist = new SharepointFolderList(taskId:_taskId);
+            splist.GetSharepointFolder(url:_url, spSharedDocLib:_spSharedDocLib, kmadm:Constant.KMUseremail, kmpwd:Constant.KMUserPassword, kmRootFolderId:Constant.KMFolderId);
             spfolderList = splist.GetSPFolderList();
 
             ViewBag.Url = splist.GetWebUrl();// web.Url;
@@ -77,21 +80,25 @@ namespace KMSharepointSync.Controllers
         }
         public ActionResult SharepointKMFolderMappingList()
         {
+            string taskId = Constant.TaskId;
             SharepointKM_FolderPathMapping spkmfolder = new SharepointKM_FolderPathMapping();
-            IEnumerable<SharepointKM_FolderPathMapping> v_SharepointKM_FolderPathMapping = spkmfolder.GetSharepointKM_FolderPathMapping().OrderBy(x=>x.SP_sortOrder);
+            IEnumerable<SharepointKM_FolderPathMapping> v_SharepointKM_FolderPathMapping = spkmfolder.GetSharepointKM_FolderPathMapping(taskId).OrderBy(x=>x.SP_sortOrder);
             return View(v_SharepointKM_FolderPathMapping);
         }
         public ActionResult SharepointKMFileMappingList()
         {
+            string taskId = Constant.TaskId;
             SharepointKM_FilePathMapping spkmfile = new SharepointKM_FilePathMapping();
-            IEnumerable<SharepointKM_FilePathMapping> v_SharepointKM_FilePathMapping = spkmfile.GetSharepointKM_FilePathMapping().OrderBy(x => x.SP_sortOrder);
+            IEnumerable<SharepointKM_FilePathMapping> v_SharepointKM_FilePathMapping = spkmfile.GetSharepointKM_FilePathMapping(taskId).OrderBy(x => x.SP_sortOrder);
             return View(v_SharepointKM_FilePathMapping);
         }
 
         public ActionResult AddKMFolder(string parentFolderId, string newKMSubFolderName)
         {
-            SharepointFolderList sfl = new SharepointFolderList();
-            IEnumerable<SharepointKM_FolderPathMapping> spkmMappingList = sfl.AddKMFolder(parentFolderId, newKMSubFolderName);
+            string taskId = Constant.TaskId;
+            SharepointFolderList sfl = new SharepointFolderList(taskId);
+            IEnumerable<SharepointKM_FolderPathMapping> spkmMappingList =  KMService.AddKMFolder(taskId, parentFolderId, newKMSubFolderName);
+           
             ViewData["theAcquireDraftResult"] = sfl.GetJsonAcquireDraftFolderResult();
             ViewData["JsonStringIndent"] = sfl.GetJsonAcquireDraftFolderResultIndent();
             ViewData["resultAddFolder"] = sfl.GetJsonResultAddFolder();
@@ -101,6 +108,7 @@ namespace KMSharepointSync.Controllers
 
         public ActionResult AddKMFile(string UploadFolderId, string DocTitle, string DocRefUrl, string DocDescription, string Author, string CreateDate)
         {
+            string taskId = Constant.TaskId;
             if (string.IsNullOrEmpty(UploadFolderId) || string.IsNullOrEmpty(DocTitle) || string.IsNullOrEmpty(DocRefUrl) || string.IsNullOrEmpty(DocDescription) || string.IsNullOrEmpty(Author) || string.IsNullOrEmpty(CreateDate))
             {
                 return View();
@@ -108,6 +116,7 @@ namespace KMSharepointSync.Controllers
             else
             {
                 SharepointKM_FilePathMapping item = new SharepointKM_FilePathMapping();
+                item.TaskId = taskId;
                 item.KM_FolderId = UploadFolderId;
                 item.SP_FileLeafRef = DocTitle;
                 item.SP_FileRef = DocRefUrl;
@@ -115,8 +124,7 @@ namespace KMSharepointSync.Controllers
                 item.SP_Author = Author;
                 item.SP_Created = CreateDate;
                 
-                SharepointFolderList sfl = new SharepointFolderList();
-                sfl.AddKMFile(spkmfilepath:item);
+                KMService.AddKMFile(spkmfilepath:item);
             }
             return View();
         }

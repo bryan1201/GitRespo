@@ -178,6 +178,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\APIs\SyncTaskController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SharepointOnlineController.cs" />
     <Compile Include="Global.asax.cs">
@@ -193,6 +194,8 @@
     <Compile Include="Models\SharepointFolderList.cs" />
     <Compile Include="Models\SharepointKM_FilePathMapping.cs" />
     <Compile Include="Models\SharepointKM_FolderPathMapping.cs" />
+    <Compile Include="Models\SyncTaskInfo.cs" />
+    <Compile Include="Models\SyncTaskInfoList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

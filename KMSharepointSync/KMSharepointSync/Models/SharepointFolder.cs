@@ -17,6 +17,7 @@ namespace KMSharepointSync.Models
 {
     public class SharepointFolder
     {
+        public string TaskId { get; set; }
         public string Url { get; set; }
         public string ServerRelativeUrl { get; set; }
         public string Id { get; set; }
