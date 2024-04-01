@@ -20,9 +20,9 @@ namespace KMSharepointSync.Models
         public static string API_Key = ConfigurationManager.AppSettings["API_Key"];
         public static string TENANT = ConfigurationManager.AppSettings["TENANT"]; //psg
         public static string KMPUrl = ConfigurationManager.AppSettings["KMPUrl"];   // (必須)KM Server Site的API虛擬目錄URL路徑         
-        private static string GlobalCurrentDocumentId = "";        // 暫時無作用,不需要去動它
-        private static string GlobalCurrentCategoryId = "1";       // 暫時無作用,不需要去動它
-        private static string GlobalSearchKeyword = "KM";
+        private  static string GlobalCurrentDocumentId = "";        // 暫時無作用,不需要去動它
+        private  static string GlobalCurrentCategoryId = "1";       // 暫時無作用,不需要去動它
+        private  static string GlobalSearchKeyword = "KM";
         private static string JsonResultAddFolder = string.Empty;
         private static string JsonAcquireDraftFolderResult = string.Empty;
         private static string JsonAcquireDraftFolderResultIndent = string.Empty;

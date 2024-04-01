@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("KMSharepointSync")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("inventec")]
 [assembly: AssemblyProduct("KMSharepointSync")]
 [assembly: AssemblyCopyright("Copyright (C)  2024")]
 [assembly: AssemblyTrademark("")]
