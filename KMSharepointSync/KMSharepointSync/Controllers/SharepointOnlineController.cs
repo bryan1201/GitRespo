@@ -28,8 +28,8 @@ namespace KMSharepointSync.Controllers
             SyncTaskInfoList stinfo = new SyncTaskInfoList();
             if (!string.IsNullOrEmpty(TaskId))
             {
-                APIs.SyncTaskController st = new APIs.SyncTaskController();
-                ViewBag.TaskMessage = st.RunByTaskId(TaskId);
+                APIs.SyncTaskController st = new APIs.SyncTaskController();             
+                ViewBag.TaskMessage = st.RunByTaskId(TaskId);    
             }
 
             return View(stinfo.GetSyncTaskInfoList());

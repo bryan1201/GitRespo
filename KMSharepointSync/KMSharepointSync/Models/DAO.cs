@@ -173,5 +173,32 @@ namespace KMSharepointSync.Models
             SyncTaskInfoList stinfo = new SyncTaskInfoList();
             return (IEnumerable<SyncTaskInfo>)stinfo.ConvertToTankReading(dt);
         }
+
+        public IEnumerable<SyncTaskInfoLog> GetSyncTaskInfoLogList()
+        {
+            string sqlCmd = "SELECT * FROM KMDBAPIPRD.dbo.SyncTaskInfoLog";
+            DataTable dt = EXECSqlCmdDataTable(sqlCmd);
+            SyncTaskInfoLogList stinfolog = new SyncTaskInfoLogList();
+            return (IEnumerable<SyncTaskInfoLog>)stinfolog.ConvertToTankReading(dt);
+        }
+
+        public bool AddSyncTaskInfoLog(SyncTaskInfoLog item) 
+        { 
+            bool result = true;
+            try
+            {
+                string sqlCmd = "INSERT INTO SyncTaskInfoLog(TaskId,UserId,LogMessage,StatusCode,StatusDescription,StartDateTime,EndDateTime) VALUES({0})";
+                string sqlvalues = string.Format("N'{0}',N'{1}',N'{2}',N'{3}',N'{4}', N'{5}', N'{6}'", item.TaskId, item.UserId, item.LogMessage, item.StatusCode, item.StatusDescription, item.SetDateTimeToString(item.StartDateTime), item.SetDateTimeToString(item.EndDateTime));
+                sqlCmd = string.Format(sqlCmd, sqlvalues);
+                EXECSqlCmd(sqlCmd);
+            }
+            catch(Exception ex)
+            {
+                string message = ex.Message;
+                result = false;
+            }
+
+            return result;
+        }
     }
 }

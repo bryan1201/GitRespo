@@ -234,6 +234,8 @@
     <Compile Include="Models\SharepointKM_FolderPathMapping.cs" />
     <Compile Include="Models\SyncTaskInfo.cs" />
     <Compile Include="Models\SyncTaskInfoList.cs" />
+    <Compile Include="Models\SyncTaskInfoLog.cs" />
+    <Compile Include="Models\SyncTaskInfoLogList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

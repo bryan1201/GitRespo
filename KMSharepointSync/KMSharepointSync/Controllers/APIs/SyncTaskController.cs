@@ -12,6 +12,8 @@ namespace KMSharepointSync.Controllers.APIs
 {
     public class SyncTaskController : ApiController
     {
+        private string TaskResult { get; set; }
+        private string TaskId { get; set; }
         // GET api/<controller>
         [HttpGet]
         public HttpResponseMessage RunTest()
@@ -33,11 +35,46 @@ namespace KMSharepointSync.Controllers.APIs
         [HttpGet]
         public string RunByTaskId(string Id)
         {
-            string result = string.Empty;
-            SyncTaskInfoList lststinfo = new SyncTaskInfoList();
-            SyncTaskInfo stinfo  = lststinfo.GetSyncTaskInfo(taskId: Id);
-            result = stinfo.RunTask();
-            return result;
+            SyncTaskInfoLog stinfolog = new SyncTaskInfoLog();
+            stinfolog.TaskId = Id;
+            stinfolog.StartDateTime = DateTime.Now;
+
+            try
+            {
+                //Start Task
+                TaskId = Id;
+                SyncTaskInfoList lststinfo = new SyncTaskInfoList();
+                SyncTaskInfo stinfo = lststinfo.GetSyncTaskInfo(taskId: Id);
+                TaskResult = stinfo.RunTask();
+                //End Task
+
+                stinfolog.StatusCode = "0";
+                stinfolog.StatusDescription = "Done with no error.";
+                stinfolog.LogMessage = TaskResult;
+            }
+            catch(Exception ex)
+            {
+                stinfolog.StatusCode = "2";
+                stinfolog.StatusDescription = string.Format("{0}, {1}", "SyncTaskController:API:RunByTaskId", ex.Message);
+                stinfolog.LogMessage = string.Format("{0}, {1}", "API Failed", TaskResult);
+            }
+            stinfolog.UserId = System.Net.Dns.GetHostName();            
+            stinfolog.EndDateTime = DateTime.Now;
+            stinfolog.AddSyncTaskInfoLog(stinfolog);
+
+            return TaskResult;
+        }
+
+        [HttpGet]
+        public string GetTaskResult()
+        {
+            return TaskResult;
+        }
+
+        [HttpGet]
+        public string GetTaskId()
+        {
+            return TaskId;
         }
 
     }
