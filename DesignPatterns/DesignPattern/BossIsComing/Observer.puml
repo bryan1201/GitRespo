@@ -1,0 +1,43 @@
+/' OBSERVER '/
+
+@startuml OBSERVER_BosslsComing
+
+interface Subject {
+    + attach(in o : Observer)
+    + detach(in o : Observer)
+    + notify()
+}
+
+class ConcreteSubject {
+    - subjectState
+}
+
+interface Observer {
+    + update()
+}
+
+class ConcreteObserver {
+    - observerState
+    + update()
+}
+
+hide empty members
+
+Subject -> Observer : notifies
+Subject <|-- ConcreteSubject
+Observer <|-- ConcreteObserver
+ConcreteSubject <- ConcreteObserver : observes
+
+note as N1
+    <b><color:royalBlue>Observer</color></b>
+    <b>Type:</b> Behavioral
+    Define a one-to-many dependency between
+    objects so that when one object changes
+    state, all its dependents are notified and
+    updated automatically.
+    定義一對多的物件依存關係，
+    讓物件狀態一有變動，
+    就自動通知其他相依物件做該做的更新動作。
+end note
+
+@enduml

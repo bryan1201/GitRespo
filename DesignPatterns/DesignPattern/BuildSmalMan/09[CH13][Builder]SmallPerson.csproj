@@ -71,6 +71,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Builder.dgml" />
+    <None Include="Builder.puml" />
     <None Include="BuilderPerson.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,0 +1,36 @@
+/' BUILDER 
+將一個複雜物件的建構與它的表示分離，使用同樣的建構過程可以創建出不同的配置或佈局
+https://github.com/RafaelKuebler/PlantUMLDesignPatterns/blob/master/builder.txt
+'/
+
+@startuml BUILDER_SmallPerson
+
+class Director {
+    + construct()
+}
+
+interface Builder {
+    buildPart()
+}
+
+class ConcreteBuilder {
+    + buildPart()
+    + getResult()
+}
+
+Director *- Builder
+Builder <|-- ConcreteBuilder
+
+note as N1
+    <b><color:royalBlue>Builder</color></b>
+    <b>Type:</b> Creational
+    Separate the construction of a
+    complex object from its representing
+    so that the same construction
+    process can create different
+    representations.
+    將一個複雜物件的建構與它的表示分離，
+    使用同樣的建構過程可以創建出不同的配置或佈局
+end note
+
+@enduml

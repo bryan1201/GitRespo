@@ -55,6 +55,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="CDObserver.cd" />
+    <None Include="Observer.puml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Observer物件行為說明.txt" />
