@@ -67,6 +67,7 @@
     <None Include="App.config" />
     <None Include="SimpleFactory.cd" />
     <None Include="SimpleFactory.dgml" />
+    <None Include="SimpleFactory_Calculator.puml" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

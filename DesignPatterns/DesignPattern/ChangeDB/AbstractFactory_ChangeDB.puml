@@ -1,0 +1,42 @@
+/' ABSTRACT FACTORY '/
+
+@startuml ABSTRACT FACTORY_ChangeDB
+
+class Client
+
+interface AbstractFactory {
+    + createProductA()
+    + createProductB()
+}
+
+class ConcreteFactory {
+    + createProductA()
+    + createProductB()
+}
+
+interface AbstractProduct
+
+class ConcreteProduct
+
+hide empty members
+
+AbstractFactory <|-- ConcreteFactory
+AbstractProduct <|-- ConcreteProduct
+Client --> AbstractFactory
+Client --> AbstractProduct
+
+note as N1
+    <b><color:royalBlue>Abstract Factory</color></b>
+    <b>Type:</b> Creational
+    Provides an interface for creating
+    families of related or dependent
+    objects without specifying their
+    concrete class.
+    抽象工廠的精神，就是要
+    有abstract class(not implement)，
+    而所有不同種類的物件，
+    都是繼承這個abstract class
+    但是使用者只知道interface的接口就好
+end note
+
+@enduml

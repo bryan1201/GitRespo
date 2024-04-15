@@ -1,0 +1,61 @@
+/' Simple Factory
+https://github.com/RafaelKuebler/PlantUMLDesignPatterns/blob/master/
+https://raychiutw.github.io/2019/隨手-Design-Pattern-3-簡單工廠模式-Simple-Factory-Pattern/
+https://ithelp.ithome.com.tw/m/articles/10268408
+
+作為入門 Design Pattern 的第一個模式，Simple Factory Method 本身不屬於「物件導向設計模式」所列的 23 個模式內，
+其價值在於了解「簡單」、「常用」的寫法也屬於設計模式的一種。
+
+#工廠方法模式是一種軟體設計模式，但簡單工廠就像是一種程式設計習慣。
+工廠方法模式提供了用於創建物件的抽象/介面。且這項工作必須由子類別來完成。
+工廠類別決定物件在子類別中的實例化。另一方面，簡單工廠確實提供了創建物件的方法，但它並不是基於抽象來實現的。
+由於工廠方法模式依賴抽象，因此它可以應用多態性，而簡單工廠則不能。
+請記住，簡單工廠不是一種設計模式，並不意味著您會在程式碼中避免使用它。您應該只知道何時使用它。
+'/
+@startuml SimpleFactory_Calculator
+    class Client
+
+    class OperationFactory{
+        + createOperate()
+    }
+
+    class Operation{
+        + NumberA
+        + NumberB
+        + GetResult()
+    }
+
+    class Add{
+        + GetResult()
+    }
+
+    class Sub{
+        + GetResult()
+    }
+
+    class Mul{
+        + GetResult()
+    }
+
+    class Div{
+        + GetResult()
+    }
+
+    Operation <|-- Add
+    Operation <|-- Sub
+    Operation <|-- Mul
+    Operation <|-- Div
+
+    OperationFactory <-- Client 
+    OperationFactory --> Operation 
+
+note as N1
+    <b><color:royalBlue>Simple Factory</color></b>
+    <b>Type:</b> Creational
+    作為入門 Design Pattern 的第一個模式，
+    Simple Factory Method 本身不屬於
+    「物件導向設計模式」所列的 23 個模式內，
+    其價值在於了解「簡單」、「常用」的寫法
+    也屬於設計模式的一種。
+end note
+@enduml
