@@ -18,6 +18,7 @@ namespace Nightingale
             stB.Sweep();
             Nightingale stC = SimpleFactory.Create("Student");
             stC.Wash();
+            Console.WriteLine("按任意鍵...執行工廠模式");
             Console.Read();
             Console.WriteLine("Factory Pattern");
             IFactory factory = new UndergraduateFactory();

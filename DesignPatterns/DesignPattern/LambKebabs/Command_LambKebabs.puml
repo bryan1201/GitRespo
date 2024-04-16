@@ -1,0 +1,93 @@
+/' COMMAND 
+https://blog.poychang.net/note-plantuml/
+https://plantuml.com/zh/class-diagram
+https://github.com/RafaelKuebler/PlantUMLDesignPatterns/blob/master/command.txt
+
+'/
+
+@startuml Command_LambKebabs
+
+class Client
+
+class Waiter{
+    - IList<Command> orders
+    + SetOrder(Command cmd)
+    + CancelOrder(Command cmd)
+    + Notify()
+}
+
+class Barbecuer{
+    + BakeMutton()
+    + BakeChickedWing()
+}
+
+abstract class Command {
+    # Barbecuer receiver
+    + Command(Barbecuer rec)
+    {abstract} + ExecuteCommand()
+}
+
+class BakeMuttonCommand {
+    + BakeMuttonCommand(Barbecuer rec) : base(rec)
+    + override ExecuteCommand()
+}
+
+class BakeChickenWingCommand{
+    + BakeChickenWingCommand(Barbecuer rec) : base(rec)
+    + override ExecuteCommand()
+}
+
+
+hide empty members
+
+Client ...right..> Waiter:Invoker
+Client ..down..> Barbecuer
+Waiter *--right-- Command
+Client .down.> BakeMuttonCommand
+Client .down.> BakeChickenWingCommand
+
+BakeMuttonCommand -down-> Barbecuer :-- Receiver
+BakeChickenWingCommand -down-> Barbecuer:-- Receiver
+
+BakeMuttonCommand --up-|> Command
+BakeChickenWingCommand --up-|> Command 
+
+note as N1
+    <b>Design Pattern::CH23</b>
+    <b><color:royalBlue>Command</color></b>
+    <b>Type:</b> Behavioral
+    Encapsulate a request as an object,
+    thereby letting you parameterize clients
+    with different requests, queue or log
+    requests, and support undoable operations.
+    將訊息封裝成物件，以便能用各種不同
+    訊息、暫佇、記錄、復原等方式加以參數化
+end note
+
+note top of Waiter
+    <b><color:royalBlue>Invoker</color></b>
+    要求該命令執行這個請求
+end note
+
+note right of Command
+    用來宣告執行操作的介面
+end note
+
+note bottom of BakeMuttonCommand
+    <b><color:royalBlue>ConcreteCommand1</color></b>
+    將一個接收者物件綁定於一個動作，
+    呼叫接收者相應的操作，以實現Execute
+end note
+
+note bottom of BakeChickenWingCommand
+    <b><color:royalBlue>ConcreteCommand2</color></b>
+    將一個接收者物件綁定於一個動作，
+    呼叫接收者相應的操作，以實現Execute
+end note
+
+note bottom of Barbecuer
+    <b><color:royalBlue>Receiver</color></b>
+    知道如何實施與執行一個請求相關的操作，
+    任何類別都可能作為一個接收者
+end note
+@enduml

@@ -1,0 +1,61 @@
+/' COMMAND 
+https://plantuml.com/zh/class-diagram
+https://github.com/RafaelKuebler/PlantUMLDesignPatterns/blob/master/command.txt
+
+'/
+
+@startuml Command_LambKebabs
+
+class Client
+
+class Invoker
+
+class Receiver {
+    + action()
+}
+
+abstract class Command {
+    + execute()
+}
+
+class ConcreteCommand {
+    + execute()
+}
+
+hide empty members
+
+Client -> Invoker
+Client --> Receiver
+Invoker *-- Command
+Client ..> ConcreteCommand
+Receiver -> ConcreteCommand
+ConcreteCommand -|> Command
+
+
+note as N1
+    <b><color:royalBlue>Command</color></b>
+    <b>Type:</b> Behavioral
+    Encapsulate a request as an object,
+    thereby letting you parameterize clients
+    with different requests, queue or log
+    requests, and support undoable operations.
+end note
+
+note top of Invoker
+    要求該命令執行這個請求
+end note
+
+note top of Command
+    用來宣告執行操作的介面
+end note
+
+note bottom of ConcreteCommand
+    將一個接收者物件綁定於一個動作，
+    呼叫接收者相應的操作，以實現Execute
+end note
+
+note bottom of Receiver
+    知道如何實施與執行一個請求相關的操作，
+    任何類別都可能作為一個接收者
+end note
+@enduml

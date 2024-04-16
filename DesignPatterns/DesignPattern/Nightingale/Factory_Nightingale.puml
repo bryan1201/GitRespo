@@ -1,0 +1,37 @@
+/' FACTORY METHOD
+https://blog.techbridge.cc/2017/05/22/factory-method-and-abstract-factory/
+ '/
+
+@startuml Factory_Nightingale
+
+class Creator {
+    + factoryMethod()
+    + anOperation()
+}
+
+class ConcreteCreator {
+    + factoryMethod()
+}
+
+interface Product
+
+class ConcreteProduct
+
+hide empty members
+
+Product <|-- ConcreteProduct
+Creator <|-- ConcreteCreator
+ConcreteProduct <. ConcreteCreator
+
+note as N1
+    <b><color:royalBlue>Factory Method</color></b>
+    <b>Type:</b> Creational
+    Define an interface for creating an object,
+    but let subclasses decide which class to instantiate.
+    Lets a class defer instantiation to subclasses.
+    工廠方法模式定義了一個建立物件的介面，
+    但由子類決定要實例化的類別為何。
+    工廠方法讓類別把 實例化 的動作推遲到了子類。
+end note
+
+@enduml

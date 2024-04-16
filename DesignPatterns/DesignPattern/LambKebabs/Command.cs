@@ -8,14 +8,16 @@ namespace LambKebabs
 {
     public class Barbecuer
     {
-        public void BakeMutton()
+        public string BakeMutton()
         {
-            Console.WriteLine("烤羊肉串！");
+            //Console.WriteLine("BakeMutton, 烤羊肉串！");
+            return "BakeMutton, 烤羊肉串！";
         }
 
-        public void BakeChickedWing()
+        public string BakeChickedWing()
         {
-            Console.WriteLine("烤雞翅！");
+            //Console.WriteLine("BakeChickedWing, 烤雞翅！");
+            return "BakeChickedWing, 烤雞翅！";
         }
     }
 
@@ -35,12 +37,12 @@ namespace LambKebabs
     {
         public BakeMuttonCommand(Barbecuer rec) : base(rec)
         {
-
+            
         }
 
         public override void ExecuteCommand()
         {
-            receiver.BakeMutton();
+            Console.WriteLine(string.Format("{0}, {1}",receiver.ToString(), receiver.BakeMutton()));            
         }
     }
 
@@ -53,7 +55,8 @@ namespace LambKebabs
 
         public override void ExecuteCommand()
         {
-            receiver.BakeChickedWing();
+            //receiver.BakeChickedWing();
+            Console.WriteLine(string.Format("{0},{1}", receiver.ToString(), receiver.BakeChickedWing()));
         }
     }
 
