@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34729.46
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01[CH01][SimpleFactory]Calculator", "Calculator\01[CH01][SimpleFactory]Calculator.csproj", "{81BA2F13-6461-4DC0-8F0E-AA61D021B440}"
 EndProject
@@ -50,6 +50,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23[CH27][Interpret]PlayContext", "PlayContext\23[CH27][Interpret]PlayContext.csproj", "{DD668784-64E8-4CAD-89A6-7382093EF935}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "24[CH28][Visitor]Persons", "Persons\24[CH28][Visitor]Persons.csproj", "{334A8046-B356-4EE1-AE53-D162DAA82425}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6D723D9A-EF2B-4A93-801A-4C22B393C4E5}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\OneDrive - Inventec Corp\GitHub\GitRespo\DesignPatterns\Design Pattern Relationships.png = ..\..\..\..\OneDrive - Inventec Corp\GitHub\GitRespo\DesignPatterns\Design Pattern Relationships.png
+		..\DesignPatternRelationships.puml = ..\DesignPatternRelationships.puml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -156,5 +162,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C67712A0-1BBC-43A6-AEC4-A079DB98C7D3}
 	EndGlobalSection
 EndGlobal

@@ -18,9 +18,9 @@ namespace LambKebabs
             girl.SetOrder(bakeCmd1);
             girl.SetOrder(bakeCmd2);
             girl.SetOrder(bakeCmd3);
-            girl.CancelOrder(bakeCmd3);
-            bakeCmd3 = new BakeMuttonCommand(boy);
-            girl.SetOrder(bakeCmd3);
+            //girl.CancelOrder(bakeCmd3);
+            //bakeCmd3 = new BakeMuttonCommand(boy);
+            //girl.SetOrder(bakeCmd3);
             girl.Notify();
             Console.Read();
         }
