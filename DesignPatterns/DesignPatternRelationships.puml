@@ -26,12 +26,15 @@ artifact Adapter
 
 Iterator -[hidden]left- Builder
 [Chain of Responsibility] -up-> Composite:定義串鏈
+Composite -up-> Builder:建立複合體
 Composite -right-> Visitor:增添操作
-Interpreter -up-> Composite:定義文法
+Composite -left-> Decorator:附加權責於物件身上
 Composite -down-> Flyweight:共享複合體
-Interpreter -left-> Flyweight:共享終端符號
-Interpreter -right-> Visitor:增添操作
-Composite -up-> Iterator:列舉組件
+Composite ---up-> Iterator:列舉組件
+
+Interpreter ---up-> Composite:定義文法
+Interpreter ---left-> Flyweight:共享終端符號
+Interpreter --right-> Visitor:增添操作
 Visitor -up-> Iterator:定義巡訪方式
 Visitor -[hidden]right- [Chain of Responsibility]
 Iterator -up-> Memento:儲存巡訪狀態
@@ -39,11 +42,10 @@ Command -left-> Composite:由…所組成
 Command -left->Memento:避免錯亂
 State -up-> Flyweight:共享狀態
 Strategy -right-> Flyweight:共享策略
-Composite -left-> Decorator:附加權責於物件身上
-Strategy <-left-> Decorator:改變內外
-Composite -up-> Builder:建立複合體
+Strategy <--left--> Decorator:改變內外
+
 [Template Method] -[hidden]up- State
-[Template Method] -left-> Strategy:定義演算法步驟
+[Template Method] ---left-> Strategy:定義演算法步驟
 [Template Method] -right-> [Factory Method]:常用到…
 [Abstract Factory] -left-> Prototype:動態設定組態
 [Abstract Factory] -up-> [Factory Method]:以它來實作
