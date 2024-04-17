@@ -22,5 +22,18 @@ namespace Nightingale
         {
             Console.WriteLine("買米");
         }
+        public void MonitorNurse()
+        {
+            Console.WriteLine("監督護士");
+        }
+        public void EnsureThePurityOfMedicine()
+        {
+            Console.WriteLine("確保藥物的純淨");
+        }
+
+        public void OperateHospitalEquipment()
+        {
+            Console.WriteLine("操作醫院設備");
+        }
     }
 }

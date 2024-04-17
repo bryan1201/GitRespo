@@ -8,6 +8,6 @@ namespace Nightingale
 {
     interface IFactory
     {
-        Nightingale Create();
+       Nightingale CreateNightingale();
     }
 }

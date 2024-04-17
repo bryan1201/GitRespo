@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Nightingale
 {
-    class Undergraduate:Nightingale
+    class StudentGraduatedFactory:IFactory
     {
+        public Nightingale CreateNightingale()
+        {
+            return new StudentGraduated();
+        }
     }
 }

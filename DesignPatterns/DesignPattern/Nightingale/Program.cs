@@ -11,7 +11,7 @@ namespace Nightingale
         // Factory Pattern
         static void Main(string[] args)
         {
-            Console.WriteLine("Simple Factory Pattern");
+            Console.WriteLine("簡單工廠模式 Simple Factory Pattern");
             Nightingale stA = SimpleFactory.Create("Student");
             stA.BuyRice();
             Nightingale stB = SimpleFactory.Create("Student");
@@ -20,13 +20,23 @@ namespace Nightingale
             stC.Wash();
             Console.WriteLine("按任意鍵...執行工廠模式");
             Console.Read();
-            Console.WriteLine("Factory Pattern");
-            IFactory factory = new UndergraduateFactory();
-            Nightingale stD = factory.Create();
 
-            stD.BuyRice();
-            stD.Sweep();
-            stD.Wash();
+            Console.WriteLine("工廠模式 Factory Pattern");
+            IFactory factory = new StudentGraduatedFactory();
+            Nightingale student = factory.CreateNightingale();
+
+            student.MonitorNurse();
+            student.EnsureThePurityOfMedicine();
+            student.OperateHospitalEquipment();
+            Console.Read();
+            Console.Read();
+
+            IFactory factory2 = new VolunteerFactory();
+            Nightingale volunteer = factory2.CreateNightingale();
+            volunteer.BuyRice();
+            volunteer.Sweep();
+            volunteer.Wash();
+
             Console.Read();
             Console.Read();
         }

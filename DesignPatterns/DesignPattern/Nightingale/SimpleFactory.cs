@@ -14,7 +14,7 @@ namespace Nightingale
             switch(type)
             {
                 case "Student":
-                    result = new Undergraduate();
+                    result = new StudentGraduated();
                     break;
                 case "Volunteer":
                     result = new Volunteer();

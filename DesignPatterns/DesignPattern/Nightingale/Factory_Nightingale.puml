@@ -4,29 +4,42 @@ https://blog.techbridge.cc/2017/05/22/factory-method-and-abstract-factory/
 
 @startuml Factory_Nightingale
 
-class Creator {
-    + factoryMethod()
-    + anOperation()
+interface IFactory{
+    Nightingale CreateNightingale()
 }
 
-class ConcreteCreator {
-    + factoryMethod()
+class StudentGergraduatedFactory{
+    + Nightingale CreateNightingale()
 }
 
-interface Product
+class VolunteerFactory{
+    + Nightingale CreateNightingale()
+}
 
-class ConcreteProduct
+class Nightingale    {
+    + Sweep()
+    + Wash()
+    + BuyRice()
+    + MonitorNurse()
+    + EnsureThePurityOfMedicine()
+    + OperateHospitalEquipment()
+}
 
-hide empty members
+class StudentGraduated
+class Volunteer
 
-Product <|-- ConcreteProduct
-Creator <|-- ConcreteCreator
-ConcreteProduct <. ConcreteCreator
+StudentGergraduatedFactory --up-|> IFactory
+VolunteerFactory -up-|> IFactory
+StudentGraduated -up-|> Nightingale
+Volunteer -up-|> Nightingale 
+
+StudentGraduated .left.> StudentGergraduatedFactory
+Volunteer .left.> VolunteerFactory
 
 note as N1
     <b><color:royalBlue>Factory Method</color></b>
     <b>Type:</b> Creational
-    Define an interface for creating an object,
+    Define an interface IFactory for creating an object,
     but let subclasses decide which class to instantiate.
     Lets a class defer instantiation to subclasses.
     工廠方法模式定義了一個建立物件的介面，

@@ -8,7 +8,7 @@ namespace Nightingale
 {
     class VolunteerFactory:IFactory
     {
-        public Nightingale Create()
+        public Nightingale CreateNightingale()
         {
             return new Volunteer();
         }
