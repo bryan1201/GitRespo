@@ -1,4 +1,9 @@
-/'Design Pattern Relationships'/
+/'Design Pattern Relationships
+https://blog.poychang.net/note-plantuml/
+https://plantuml.com/zh/deployment-diagram
+https://github.com/bryan1201/DesignPatterns/tree/master/DesignPattern
+
+'/
 @startuml Design Pattern Relationships
 artifact Composite
 artifact "Chain of Responsibility"
